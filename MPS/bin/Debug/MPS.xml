@@ -1,0 +1,139 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MPS
+</name>
+</assembly>
+<members>
+<member name="P:MPS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:MPS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:MPS.My.Resources.Resources.UpgradeDB">
+	<summary>
+  Looks up a localized string similar to alter VIEW dbo.V_Orders    
+AS    
+SELECT   v.s_IDFromHQ,  e.s_Name AS EmployeeName, o.s_Name AS ObjectName, c.s_Name AS ContactName,o.s_Object_ID as ObjectID,    
+q.s_Order_ID AS QuoteID, p.s_Order_ID AS PurchaseID, t.s_Name AS TermName, v.s_ID,    
+v.s_Order_ID, v.s_Char, v.i_ItemID, v.dt_OrderDate, v.s_EmployeeID, v.s_ObjectID,    
+v.s_DeliverableAddresss, v.s_PayabbleAddress, v.s_ContactID, v.m_Ordertotal, v.s_Note,    
+v.f_VAT, v.m_VAT, v.f_Discount, v.m_OrderTotalDiscount, v.f_Per, v.m_Per, v.i_ [rest of string was truncated]";.
+</summary>
+</member><member name="T:MPS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="F:MPS.ModMain.i_keyEnter">
+	<summary>
+ 0: mặc định,1: thao tác nhanh
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.ModMain.m_IsBillVAT">
+	<summary>
+ True: có VAT(dùng cho bảng Offline)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.ModMain.m_EmpTitle">
+	<summary>
+ Tên nhân viên
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.ModMain.m_EmpLogin">
+	<summary>
+ mã nhân viên
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.ModMain.m_ChoPhepSuaGiaBan">
+	<summary>
+ True: cho phép thay đổi giá bán
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.ModMain.m_isLoadImageProduct">
+	<summary>
+ true: load hình ảnh của hàng hóa
+ </summary>
+	<remarks></remarks>
+</member><member name="T:MPS.ModMain.OptionTime">
+	<summary>
+ Tuy chon thoi gian de loc danh sach nghiep vu
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.ModMain.m_isView">
+	<summary>
+ xem
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.ModMain.m_isAddInDay">
+	<summary>
+ tao moi phieu trong ngay
+ </summary>
+	<remarks></remarks>
+</member><member name="M:MPS.ModMain.LoadFunRightByTime">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:MPS.ModMain.getBranchByRightToExecute(System.String)">
+	<summary>
+ load chi nhánh để check quyền tại mh login
+ </summary>
+	<param name="UID"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.ModMain.PrintOrder(System.String)">
+	<summary>
+ In bill phieu xuat hang
+ </summary>
+	<param name="orderId">ma phieu XBH</param>
+	<remarks></remarks>
+</member><member name="M:MPS.ModMain.PrintOrderTemp(System.String)">
+	<summary>
+ In bill phieu xuat hang
+ </summary>
+	<param name="orderId">ma phieu XBH</param>
+	<remarks></remarks>
+</member><member name="P:MPS.My.Resources.ResBMS.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:MPS.My.Resources.ResBMS.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:MPS.My.Resources.ResBMS.AddrForum">
+	<summary>
+  Looks up a localized string similar to http://forum.vsoftgroup.com/.
+</summary>
+</member><member name="P:MPS.My.Resources.ResBMS.AddrHelp">
+	<summary>
+  Looks up a localized string similar to \Webpage\Helps\index.html.
+</summary>
+</member><member name="P:MPS.My.Resources.ResBMS.AddrSupport">
+	<summary>
+  Looks up a localized string similar to http://support.vsoftgroup.com.
+</summary>
+</member><member name="P:MPS.My.Resources.ResBMS.AddrYeuCau">
+	<summary>
+  Looks up a localized string similar to http://support.vsoftgroup.com/home/index.php?_m=tickets&amp;_a=submit.
+</summary>
+</member><member name="P:MPS.My.Resources.ResBMS.Errors">
+	<summary>
+  Looks up a localized string similar to Có lỗi trong quá trình thực hiện.Kiểm tra và thực hiện lại..
+</summary>
+</member><member name="P:MPS.My.Resources.ResBMS.Info">
+	<summary>
+  Looks up a localized string similar to không tồn tại.
+</summary>
+</member><member name="T:MPS.My.Resources.ResBMS">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+MPS.DAL
+</name>
+</assembly>
+<members>
+<member name="P:MPS.DAL.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:MPS.DAL.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:MPS.DAL.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:MPS.DAL.DALLs_Branchs.getListByRight(System.String)">
+	<summary>
+ lấy ds chi nhánh để xem danh sách
+ </summary>
+	<param name="UID"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.DAL.DALLs_Branchs.getListByRightToExecute(System.String)">
+	<summary>
+ lấy ds chi nhánh để thực hiện nghiệp vụ (load tại mh login)
+ </summary>
+	<param name="UID"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.DAL.DALSQL.getQueryBranch(System.String,System.String)">
+	<summary>
+ truy vấn điều kiện filter theo chi nhánh
+ </summary>
+	<param name="branchId"></param>
+	<param name="colCompare"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

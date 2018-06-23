@@ -1,0 +1,378 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+POS
+</name>
+</assembly>
+<members>
+<member name="F:POS.frmNewCode.arrCodeEdit">
+	<summary>
+ chọn nhiều code để hiệu chỉnh
+ </summary>
+	<remarks></remarks>
+</member><member name="M:POS.frmNewCode.UpdateArrCode">
+	<summary>
+ cập nhật nhiều mã code
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.frmChonHangKM.ShowDialog(System.Data.DataTable,System.Boolean)">
+	<summary>
+	</summary>
+	<param name="tb"></param>
+	<returns>-1:tất cả,otherwise: trả về tập các ProductId ngăn cách bằng dấu chấm phẩy</returns>
+	<remarks></remarks>
+</member><member name="F:POS.FrmNewQuote.fShowMess">
+	<summary>
+ Hàm add sản phẩm được chọn từ danh sách hàng đổ vào lưới sản phẩm của phiếu.
+ </summary>
+	<remarks>
+	</remarks>
+07/05/2009
+
+</member><member name="M:POS.FrmProductInstock.LoadOriginalPrice(System.Boolean)">
+	<summary>
+ load gia von hang ban
+ </summary>
+	<remarks></remarks>
+</member><member name="M:POS.FrmNewOrder.LoadInfo(System.String,System.Int32,System.Boolean)">
+	<summary>
+	</summary>
+	<param name="SID"></param>
+	<param name="cseLoad">0: Order,1: Quote, 2: PO</param>
+	<param name="isAdd"></param>
+	<remarks></remarks>
+</member><member name="M:POS.FrmNewOrder.SubTotal(System.Boolean)">
+	<summary>
+	</summary>
+	<param name="IsResetPay">False: Không tính lại Thanh toán</param>
+	<remarks></remarks>
+</member><member name="M:POS.FrmNewOrder.CheckCode(System.String,System.Double,System.Collections.Generic.IList{POS.Model.MPR_OrderDetail},System.Double@,POS.Model.M_Code@)">
+	<summary>
+ kiểm tra Mã code giảm giá
+ </summary>
+	<param name="code"></param>
+	<param name="tienhang"></param>
+	<param name="arrNew"></param>
+	<param name="tongTienGiamGia"></param>
+	<param name="mCode"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.FrmNewOrder.SaveIncome(POS.Model.MLS_Order,POS.FrmNewOrder.TypeIncome)">
+	<summary>
+ Thanh toán
+ </summary>
+	<param name="m"></param>
+	<param name="iType">0 as cash,1 as transfer,2 cà thẻ,3 voucher</param>
+	<remarks></remarks>
+</member><member name="M:POS.FrmNewOrder.SubDebt">
+	<summary>
+ Tính lại Công nợ / Thối lại
+ </summary>
+	<remarks></remarks>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.#ctor">
+	<remarks/>
+</member><member name="E:POS.ServiceSMS.ServiceTransSMS.CheckClientCompleted">
+	<remarks/>
+</member><member name="E:POS.ServiceSMS.ServiceTransSMS.GetClientBalanceCompleted">
+	<remarks/>
+</member><member name="E:POS.ServiceSMS.ServiceTransSMS.SendSMSCompleted">
+	<remarks/>
+</member><member name="E:POS.ServiceSMS.ServiceTransSMS.SendMultiSMSCompleted">
+	<remarks/>
+</member><member name="E:POS.ServiceSMS.ServiceTransSMS.GetlistSendSMSCompleted">
+	<remarks/>
+</member><member name="E:POS.ServiceSMS.ServiceTransSMS.GetDetailInfoAccountCompleted">
+	<remarks/>
+</member><member name="E:POS.ServiceSMS.ServiceTransSMS.ChangePWDCompleted">
+	<remarks/>
+</member><member name="E:POS.ServiceSMS.ServiceTransSMS.GetInfoAccountCompleted">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.CheckClient(System.String,System.String)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.CheckClientAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.CheckClientAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetClientBalance(System.String,System.String)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetClientBalanceAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetClientBalanceAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.SendSMS(System.String,System.String,System.String,System.String,System.Int32)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.SendSMSAsync(System.String,System.String,System.String,System.String,System.Int32)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.SendSMSAsync(System.String,System.String,System.String,System.String,System.Int32,System.Object)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.SendMultiSMS(System.String,System.String,System.Int32,System.Data.DataSet)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.SendMultiSMSAsync(System.String,System.String,System.Int32,System.Data.DataSet)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.SendMultiSMSAsync(System.String,System.String,System.Int32,System.Data.DataSet,System.Object)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetlistSendSMS(System.String,System.String,System.Int32,System.DateTime,System.DateTime)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetlistSendSMSAsync(System.String,System.String,System.Int32,System.DateTime,System.DateTime)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetlistSendSMSAsync(System.String,System.String,System.Int32,System.DateTime,System.DateTime,System.Object)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetDetailInfoAccount(System.String,System.String,System.DateTime,System.DateTime)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetDetailInfoAccountAsync(System.String,System.String,System.DateTime,System.DateTime)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetDetailInfoAccountAsync(System.String,System.String,System.DateTime,System.DateTime,System.Object)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.ChangePWD(System.String,System.String,System.String)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.ChangePWDAsync(System.String,System.String,System.String)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.ChangePWDAsync(System.String,System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetInfoAccount(System.String,System.String,System.DateTime,System.DateTime)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetInfoAccountAsync(System.String,System.String,System.DateTime,System.DateTime)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.GetInfoAccountAsync(System.String,System.String,System.DateTime,System.DateTime,System.Object)">
+	<remarks/>
+</member><member name="M:POS.ServiceSMS.ServiceTransSMS.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.ServiceTransSMS">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.CheckClientCompletedEventHandler">
+	<remarks/>
+</member><member name="P:POS.ServiceSMS.CheckClientCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.CheckClientCompletedEventArgs">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.GetClientBalanceCompletedEventHandler">
+	<remarks/>
+</member><member name="P:POS.ServiceSMS.GetClientBalanceCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.GetClientBalanceCompletedEventArgs">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.SendSMSCompletedEventHandler">
+	<remarks/>
+</member><member name="P:POS.ServiceSMS.SendSMSCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.SendSMSCompletedEventArgs">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.SendMultiSMSCompletedEventHandler">
+	<remarks/>
+</member><member name="P:POS.ServiceSMS.SendMultiSMSCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.SendMultiSMSCompletedEventArgs">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.GetlistSendSMSCompletedEventHandler">
+	<remarks/>
+</member><member name="P:POS.ServiceSMS.GetlistSendSMSCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.GetlistSendSMSCompletedEventArgs">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.GetDetailInfoAccountCompletedEventHandler">
+	<remarks/>
+</member><member name="P:POS.ServiceSMS.GetDetailInfoAccountCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.GetDetailInfoAccountCompletedEventArgs">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.ChangePWDCompletedEventHandler">
+	<remarks/>
+</member><member name="P:POS.ServiceSMS.ChangePWDCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.ChangePWDCompletedEventArgs">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.GetInfoAccountCompletedEventHandler">
+	<remarks/>
+</member><member name="P:POS.ServiceSMS.GetInfoAccountCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:POS.ServiceSMS.GetInfoAccountCompletedEventArgs">
+	<remarks/>
+</member><member name="M:POS.frmPointOfClient.LoadObjectCard">
+	<summary>
+ load ds khách hàng có Thẻ
+ </summary>
+	<remarks></remarks>
+</member><member name="P:POS.My.Resources.ResBMS.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:POS.My.Resources.ResBMS.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:POS.My.Resources.ResBMS.AddrForum">
+	<summary>
+  Looks up a localized string similar to http://forum.vsoftgroup.com/.
+</summary>
+</member><member name="P:POS.My.Resources.ResBMS.AddrHelp">
+	<summary>
+  Looks up a localized string similar to \Webpage\Helps\index.html.
+</summary>
+</member><member name="P:POS.My.Resources.ResBMS.AddrSupport">
+	<summary>
+  Looks up a localized string similar to http://support.vsoftgroup.com.
+</summary>
+</member><member name="P:POS.My.Resources.ResBMS.AddrYeuCau">
+	<summary>
+  Looks up a localized string similar to http://support.vsoftgroup.com/home/index.php?_m=tickets&amp;_a=submit.
+</summary>
+</member><member name="P:POS.My.Resources.ResBMS.Errors">
+	<summary>
+  Looks up a localized string similar to Có lỗi trong quá trình thực hiện.Kiểm tra và thực hiện lại..
+</summary>
+</member><member name="P:POS.My.Resources.ResBMS.Info">
+	<summary>
+  Looks up a localized string similar to không tồn tại.
+</summary>
+</member><member name="T:POS.My.Resources.ResBMS">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="F:POS.frmPOS.m_StoreDefault_ID">
+	<summary>
+ load 1 kho mặc định(tạm thời)
+ </summary>
+	<remarks></remarks>
+</member><member name="M:POS.frmPOS.SaveIncome(POS.Model.MLS_Order,POS.frmPOS.TypeIncome)">
+	<summary>
+ Thanh toán
+ </summary>
+	<param name="m"></param>
+	<param name="iType">0 as cash,1 as transfer,2 cà thẻ,3 voucher</param>
+	<remarks></remarks>
+</member><member name="P:POS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:POS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:POS.My.Resources.Resources.UpgradeDB">
+	<summary>
+  Looks up a localized string similar to alter VIEW dbo.V_Orders    
+AS    
+SELECT   v.s_IDFromHQ,  e.s_Name AS EmployeeName, o.s_Name AS ObjectName, c.s_Name AS ContactName,o.s_Object_ID as ObjectID,    
+q.s_Order_ID AS QuoteID, p.s_Order_ID AS PurchaseID, t.s_Name AS TermName, v.s_ID,    
+v.s_Order_ID, v.s_Char, v.i_ItemID, v.dt_OrderDate, v.s_EmployeeID, v.s_ObjectID,    
+v.s_DeliverableAddresss, v.s_PayabbleAddress, v.s_ContactID, v.m_Ordertotal, v.s_Note,    
+v.f_VAT, v.m_VAT, v.f_Discount, v.m_OrderTotalDiscount, v.f_Per, v.m_Per, v.i_ [rest of string was truncated]";.
+</summary>
+</member><member name="T:POS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:POS.FrmQuote.CheckQuote(Infragistics.Win.UltraWinGrid.UltraGridRow)">
+	<summary>
+ Hiệu chỉnh một báo giá. Có kiểm tra điều kiện được hiệu chỉnh hay không.    ''' 
+ </summary>
+	<remarks>
+ Báo giá thành công không được hiệu chỉnh.
+ Báo giá thất bại muốn hiệu chỉnh phải sửa lại thành trạng thái khác.
+ Truyền ID cho màn hình chi tiết.
+ </remarks>
+</member><member name="F:POS.ModMain.i_keyEnter">
+	<summary>
+ 0: mặc định,1: thao tác nhanh
+ </summary>
+	<remarks></remarks>
+</member><member name="F:POS.ModMain.m_IsBillVAT">
+	<summary>
+ True: có VAT(dùng cho bảng Offline)
+ </summary>
+	<remarks></remarks>
+</member><member name="F:POS.ModMain.m_EmpTitle">
+	<summary>
+ Tên nhân viên
+ </summary>
+	<remarks></remarks>
+</member><member name="F:POS.ModMain.m_EmpLogin">
+	<summary>
+ mã nhân viên
+ </summary>
+	<remarks></remarks>
+</member><member name="F:POS.ModMain.m_ChoPhepSuaGiaBan">
+	<summary>
+ True: cho phép thay đổi giá bán
+ </summary>
+	<remarks></remarks>
+</member><member name="F:POS.ModMain.m_isLoadImageProduct">
+	<summary>
+ true: load hình ảnh của hàng hóa
+ </summary>
+	<remarks></remarks>
+</member><member name="T:POS.ModMain.OptionTime">
+	<summary>
+ Tuy chon thoi gian de loc danh sach nghiep vu
+ </summary>
+	<remarks></remarks>
+</member><member name="F:POS.ModMain.m_isView">
+	<summary>
+ xem
+ </summary>
+	<remarks></remarks>
+</member><member name="F:POS.ModMain.m_isAddInDay">
+	<summary>
+ tao moi phieu trong ngay
+ </summary>
+	<remarks></remarks>
+</member><member name="M:POS.ModMain.LoadFunRightByTime">
+	<summary>
+	</summary>
+	<remarks></remarks>
+</member><member name="M:POS.ModMain.SendSMS_Code(System.String,System.String,System.Double)">
+	<summary>
+ Gửi tin nhắn Mã code cho khách hàng
+ </summary>
+	<param name="phone"></param>
+	<param name="total"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.ModMain.SendSMS_Code_ToClient(System.String,System.String,System.String)">
+	<summary>
+ gửi code tặng riêng cho khách hàng nhân dịp gì đó
+ </summary>
+	<param name="objectId"></param>
+	<param name="phone"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.ModMain.getBranchByRightToExecute(System.String)">
+	<summary>
+ load chi nhánh để check quyền tại mh login
+ </summary>
+	<param name="UID"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.ModMain.LoadStoreByBranchId(System.String)">
+	<summary>
+ load kho theo chi nhánh
+ </summary>
+	<param name="BranchId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.ModMain.LoadStoreByBranchIdWithAll(System.String)">
+	<summary>
+ load kho theo chi nhánh
+ </summary>
+	<param name="BranchId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.ModMain.PrintOrder(System.String)">
+	<summary>
+ In bill phieu xuat hang
+ </summary>
+	<param name="orderId">ma phieu XBH</param>
+	<remarks></remarks>
+</member><member name="M:POS.ModMain.PrintOrderTemp(System.String)">
+	<summary>
+ In bill phieu xuat hang
+ </summary>
+	<param name="orderId">ma phieu XBH</param>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

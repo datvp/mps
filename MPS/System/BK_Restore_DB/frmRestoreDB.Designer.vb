@@ -1,0 +1,338 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmRestoreDB
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.txtFileBK = New System.Windows.Forms.TextBox
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.txtdirData = New System.Windows.Forms.TextBox
+        Me.Label3 = New System.Windows.Forms.Label
+        Me.UltraButton1 = New Infragistics.Win.Misc.UltraButton
+        Me.btnApply = New Infragistics.Win.Misc.UltraButton
+        Me.btnBrown1 = New Infragistics.Win.Misc.UltraButton
+        Me.btnBrown2 = New Infragistics.Win.Misc.UltraButton
+        Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel
+        Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.Label4 = New System.Windows.Forms.Label
+        Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.RBK = New System.Windows.Forms.RadioButton
+        Me.RMDF = New System.Windows.Forms.RadioButton
+        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox1.SuspendLayout()
+        CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.UltraGroupBox2.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(16, 43)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(105, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "File dữ liệu dự phòng"
+        '
+        'txtFileBK
+        '
+        Me.txtFileBK.Location = New System.Drawing.Point(134, 40)
+        Me.txtFileBK.Name = "txtFileBK"
+        Me.txtFileBK.Size = New System.Drawing.Size(220, 20)
+        Me.txtFileBK.TabIndex = 1
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 73)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(110, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Thu mực chứa dữ liệu"
+        '
+        'txtdirData
+        '
+        Me.txtdirData.Location = New System.Drawing.Point(134, 68)
+        Me.txtdirData.Name = "txtdirData"
+        Me.txtdirData.Size = New System.Drawing.Size(220, 20)
+        Me.txtdirData.TabIndex = 4
+        '
+        'Label3
+        '
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Red
+        Me.Label3.Location = New System.Drawing.Point(16, 113)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(349, 47)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Ghi chú : Hãy dự phòng dữ liệu trước khi thực hiện phục hồi (Phục hồi dữ liệu có " & _
+            "thể bị mất dữ liệu hiện tại)"
+        '
+        'UltraButton1
+        '
+        Appearance11.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance11.BackColor2 = System.Drawing.Color.White
+        Appearance11.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
+        Appearance11.BorderColor = System.Drawing.Color.LightSteelBlue
+        Appearance11.FontData.BoldAsString = "True"
+        Appearance11.ForeColor = System.Drawing.Color.Black
+        Appearance11.Image = Global.MPS.My.Resources.Resources.exit1
+        Me.UltraButton1.Appearance = Appearance11
+        Me.UltraButton1.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
+        Me.UltraButton1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Appearance12.BackColor = System.Drawing.Color.Yellow
+        Appearance12.BackColor2 = System.Drawing.Color.White
+        Appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
+        Me.UltraButton1.HotTrackAppearance = Appearance12
+        Me.UltraButton1.Location = New System.Drawing.Point(300, 4)
+        Me.UltraButton1.Name = "UltraButton1"
+        Appearance16.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Appearance16.BackColor2 = System.Drawing.Color.White
+        Appearance16.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
+        Me.UltraButton1.PressedAppearance = Appearance16
+        Me.UltraButton1.Size = New System.Drawing.Size(99, 28)
+        Me.UltraButton1.TabIndex = 8
+        Me.UltraButton1.Text = "Thoát (Esc)"
+        Me.UltraButton1.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
+        Me.UltraButton1.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
+        '
+        'btnApply
+        '
+        Appearance4.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance4.BackColor2 = System.Drawing.Color.White
+        Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
+        Appearance4.BorderColor = System.Drawing.Color.LightSteelBlue
+        Appearance4.FontData.BoldAsString = "True"
+        Appearance4.ForeColor = System.Drawing.Color.Black
+        Appearance4.Image = Global.MPS.My.Resources.Resources.check
+        Me.btnApply.Appearance = Appearance4
+        Me.btnApply.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
+        Me.btnApply.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Appearance17.BackColor = System.Drawing.Color.Yellow
+        Appearance17.BackColor2 = System.Drawing.Color.White
+        Appearance17.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
+        Me.btnApply.HotTrackAppearance = Appearance17
+        Me.btnApply.Location = New System.Drawing.Point(196, 4)
+        Me.btnApply.Name = "btnApply"
+        Appearance18.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Appearance18.BackColor2 = System.Drawing.Color.White
+        Appearance18.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
+        Me.btnApply.PressedAppearance = Appearance18
+        Me.btnApply.Size = New System.Drawing.Size(99, 28)
+        Me.btnApply.TabIndex = 7
+        Me.btnApply.Text = "Thực hiện"
+        Me.btnApply.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
+        Me.btnApply.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
+        '
+        'btnBrown1
+        '
+        Appearance7.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance7.BackColor2 = System.Drawing.Color.White
+        Appearance7.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
+        Appearance7.BorderColor = System.Drawing.Color.LightSteelBlue
+        Appearance7.FontData.BoldAsString = "True"
+        Appearance7.ForeColor = System.Drawing.Color.Black
+        Me.btnBrown1.Appearance = Appearance7
+        Me.btnBrown1.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
+        Me.btnBrown1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Appearance8.BackColor = System.Drawing.Color.Yellow
+        Appearance8.BackColor2 = System.Drawing.Color.White
+        Appearance8.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
+        Me.btnBrown1.HotTrackAppearance = Appearance8
+        Me.btnBrown1.Location = New System.Drawing.Point(360, 40)
+        Me.btnBrown1.Name = "btnBrown1"
+        Appearance19.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Appearance19.BackColor2 = System.Drawing.Color.White
+        Appearance19.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
+        Me.btnBrown1.PressedAppearance = Appearance19
+        Me.btnBrown1.Size = New System.Drawing.Size(27, 22)
+        Me.btnBrown1.TabIndex = 2
+        Me.btnBrown1.Text = "..."
+        Me.btnBrown1.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
+        Me.btnBrown1.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
+        '
+        'btnBrown2
+        '
+        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance1.BackColor2 = System.Drawing.Color.White
+        Appearance1.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
+        Appearance1.BorderColor = System.Drawing.Color.LightSteelBlue
+        Appearance1.FontData.BoldAsString = "True"
+        Appearance1.ForeColor = System.Drawing.Color.Black
+        Me.btnBrown2.Appearance = Appearance1
+        Me.btnBrown2.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
+        Me.btnBrown2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Appearance20.BackColor = System.Drawing.Color.Yellow
+        Appearance20.BackColor2 = System.Drawing.Color.White
+        Appearance20.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
+        Me.btnBrown2.HotTrackAppearance = Appearance20
+        Me.btnBrown2.Location = New System.Drawing.Point(360, 67)
+        Me.btnBrown2.Name = "btnBrown2"
+        Appearance3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Appearance3.BackColor2 = System.Drawing.Color.White
+        Appearance3.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
+        Me.btnBrown2.PressedAppearance = Appearance3
+        Me.btnBrown2.Size = New System.Drawing.Size(27, 22)
+        Me.btnBrown2.TabIndex = 5
+        Me.btnBrown2.Text = "..."
+        Me.btnBrown2.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
+        Me.btnBrown2.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
+        '
+        'UltraLabel1
+        '
+        Appearance2.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(250, Byte), Integer))
+        Appearance2.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(255, Byte), Integer))
+        Appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance2.FontData.BoldAsString = "True"
+        Appearance2.FontData.SizeInPoints = 14.0!
+        Appearance2.ForeColor = System.Drawing.Color.Black
+        Appearance2.Image = Global.MPS.My.Resources.Resources.data
+        Appearance2.TextHAlignAsString = "Left"
+        Appearance2.TextVAlignAsString = "Middle"
+        Me.UltraLabel1.Appearance = Appearance2
+        Me.UltraLabel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UltraLabel1.ImageSize = New System.Drawing.Size(32, 32)
+        Me.UltraLabel1.Location = New System.Drawing.Point(0, 0)
+        Me.UltraLabel1.Name = "UltraLabel1"
+        Me.UltraLabel1.Size = New System.Drawing.Size(405, 46)
+        Me.UltraLabel1.TabIndex = 26
+        Me.UltraLabel1.Text = "PHỤC HỒI DỮ LIỆU"
+        '
+        'UltraGroupBox1
+        '
+        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.Rectangular3D
+        Me.UltraGroupBox1.Controls.Add(Me.RMDF)
+        Me.UltraGroupBox1.Controls.Add(Me.RBK)
+        Me.UltraGroupBox1.Controls.Add(Me.Label4)
+        Me.UltraGroupBox1.Controls.Add(Me.txtdirData)
+        Me.UltraGroupBox1.Controls.Add(Me.Label1)
+        Me.UltraGroupBox1.Controls.Add(Me.btnBrown2)
+        Me.UltraGroupBox1.Controls.Add(Me.txtFileBK)
+        Me.UltraGroupBox1.Controls.Add(Me.Label2)
+        Me.UltraGroupBox1.Controls.Add(Me.Label3)
+        Me.UltraGroupBox1.Controls.Add(Me.btnBrown1)
+        Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 46)
+        Me.UltraGroupBox1.Name = "UltraGroupBox1"
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(405, 173)
+        Me.UltraGroupBox1.TabIndex = 27
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Location = New System.Drawing.Point(131, 95)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(109, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Ví dụ :  *. bak , *. mdf"
+        '
+        'UltraGroupBox2
+        '
+        Appearance15.BackColor = System.Drawing.Color.AliceBlue
+        Me.UltraGroupBox2.Appearance = Appearance15
+        Me.UltraGroupBox2.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.Header3D
+        Me.UltraGroupBox2.Controls.Add(Me.UltraButton1)
+        Me.UltraGroupBox2.Controls.Add(Me.btnApply)
+        Me.UltraGroupBox2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(0, 219)
+        Me.UltraGroupBox2.Name = "UltraGroupBox2"
+        Me.UltraGroupBox2.Size = New System.Drawing.Size(405, 36)
+        Me.UltraGroupBox2.TabIndex = 28
+        Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
+        '
+        'RBK
+        '
+        Me.RBK.AutoSize = True
+        Me.RBK.Checked = True
+        Me.RBK.Location = New System.Drawing.Point(19, 6)
+        Me.RBK.Name = "RBK"
+        Me.RBK.Size = New System.Drawing.Size(107, 17)
+        Me.RBK.TabIndex = 8
+        Me.RBK.TabStop = True
+        Me.RBK.Text = "File backup(.bak)"
+        Me.RBK.UseVisualStyleBackColor = True
+        '
+        'RMDF
+        '
+        Me.RMDF.AutoSize = True
+        Me.RMDF.Location = New System.Drawing.Point(177, 6)
+        Me.RMDF.Name = "RMDF"
+        Me.RMDF.Size = New System.Drawing.Size(104, 17)
+        Me.RMDF.TabIndex = 9
+        Me.RMDF.Text = "File dữ liệu (.mdf)"
+        Me.RMDF.UseVisualStyleBackColor = True
+        '
+        'frmRestoreDB
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.AliceBlue
+        Me.ClientSize = New System.Drawing.Size(405, 255)
+        Me.Controls.Add(Me.UltraGroupBox1)
+        Me.Controls.Add(Me.UltraLabel1)
+        Me.Controls.Add(Me.UltraGroupBox2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.KeyPreview = True
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
+        Me.Name = "frmRestoreDB"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "VsoftBMS.Net"
+        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox1.ResumeLayout(False)
+        Me.UltraGroupBox1.PerformLayout()
+        CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.UltraGroupBox2.ResumeLayout(False)
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtFileBK As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents txtdirData As System.Windows.Forms.TextBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents UltraButton1 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnApply As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnBrown1 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents btnBrown2 As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents UltraLabel1 As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents RMDF As System.Windows.Forms.RadioButton
+    Friend WithEvents RBK As System.Windows.Forms.RadioButton
+End Class

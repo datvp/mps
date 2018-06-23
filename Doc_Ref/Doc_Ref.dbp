@@ -1,0 +1,21 @@
+# Microsoft Developer Studio Project File - Database Project
+Begin DataProject = "Doc_Ref"
+   MSDTVersion = "80"
+   Begin DBRefFolder = "Database References"
+   End
+   Begin Folder = "Ref"
+      Node = "CollapsibleSplitter.DLL"
+      Node = "ComponentFactory.Krypton.Toolkit.dll"
+      Node = "CSI_ImageControl.dll"
+      Node = "DriveInfoEx.dll"
+      Node = "getDataSocket.dll"
+      Node = "Interop.NATUPNPLib.dll"
+      Node = "Interop.NETCONLib.dll"
+      Node = "Interop.NetFwTypeLib.dll"
+      Node = "Interop.SQLDMO.dll"
+      Node = "NewDB.dll"
+      Node = "Queens_ImageControl.dll"
+      Node = "SandBar.dll"
+      Node = "VsoftBMS.Ulti.dll"
+   End
+End

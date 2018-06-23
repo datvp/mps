@@ -1,0 +1,93 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+POS.Reports
+</name>
+</assembly>
+<members>
+<member name="P:POS.Reports.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:POS.Reports.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:POS.Reports.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:POS.Reports.DAL_ReportOfOrder.rptBaoCaoTheDiem(System.String,System.DateTime,System.DateTime,System.String,System.String)">
+	<summary>
+ bao cao the diem
+ </summary>
+	<param name="CPUID"></param>
+	<param name="dtFrom"></param>
+	<param name="dtTo"></param>
+	<param name="objectGroupId"></param>
+	<param name="objectId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.Reports.DAL_ReportOfOrder.TkDonHangCoSdMaCode(System.DateTime,System.DateTime)">
+	<summary>
+ Thống kê đơn hàng có sử dụng mã code giảm giá
+ </summary>
+	<param name="dtFrom"></param>
+	<param name="dtTo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.Reports.DAL_ReportOfTotal.Tinhgiavon(System.String,System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Giá vốn hàng bán
+ </summary>
+	<param name="CPUID"></param>
+	<param name="fromDate"></param>
+	<param name="toDate"></param>
+	<param name="maChiNhanh"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.Reports.DAL_ReportOfTotal.TinhGiaVonHangBan(System.String,System.String,System.DateTime)">
+	<summary>
+ tính giá vốn hàng xuất bán kho theo FIFO
+ </summary>
+	<param name="GroupId"></param>
+	<param name="toDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.Reports.DAL_ReportOfTotal.TinhGiaVonHangTon(System.String,System.String,System.DateTime,System.Double@)">
+	<summary>
+ tính giá vốn hàng tồn kho theo FIFO
+ </summary>
+	<param name="GroupId"></param>
+	<param name="toDate"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.Reports.DAL_ReportOfStore.rptNhapXuatTon_new(System.String,System.String,System.String,System.DateTime,System.DateTime,System.Int32,System.Boolean,System.Boolean)">
+	<summary>
+ báo cáo customize thêm
+ </summary>
+	<param name="CPUID"></param>
+	<param name="Store_ID"></param>
+	<param name="Group_ID"></param>
+	<param name="fromDate"></param>
+	<param name="toDate"></param>
+	<param name="Unit"></param>
+	<param name="isAll"></param>
+	<param name="isTotal"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:POS.Reports.DAL_ReportOfStore.InstockAt_2(System.String,System.String,System.String,System.DateTime)">
+	<summary>
+ tồn đầu kỳ(bỏ Nhập khác,xuất khác)
+ </summary>
+	<param name="CPUID"></param>
+	<param name="Store_ID"></param>
+	<param name="Group_ID"></param>
+	<param name="dayMonth"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

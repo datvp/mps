@@ -1,0 +1,827 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D630D074-D25E-4F7C-A91B-56F792E8A6AB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Sub Main</StartupObject>
+    <RootNamespace>MPS</RootNamespace>
+    <AssemblyName>MPS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ApplicationIcon>Resources\globe.ico</ApplicationIcon>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>http://localhost/VsoftBMS.Desktop/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>MPS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>MPS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CollapsibleSplitter, Version=1.3.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doc_Ref\Ref\CollapsibleSplitter.DLL</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Business Objects\Common\2.7\Managed\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Business Objects\Common\2.7\Managed\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Business Objects\Common\2.7\Managed\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="getDataSocket, Version=1.0.3499.19356, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doc_Ref\Ref\getDataSocket.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.Excel.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Shared.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.Misc.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinChart.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinEditors.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinExplorerBar.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.ExcelExport.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics2.Win.UltraWinGrid.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinSchedule.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinStatusBar.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinTabbedMdi.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinTabControl.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinToolbars.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.UltraWinTree.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics2.Win.v8.1, Version=8.1.20081.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Interop.NetFwTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doc_Ref\Ref\Interop.NetFwTypeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="VsoftBMS.Ulti, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doc_Ref\Ref\VsoftBMS.Ulti.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="List\ObjectList\Branch\frmBranch.Designer.vb">
+      <DependentUpon>frmBranch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="List\ObjectList\Branch\frmBranch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List\ObjectList\Branch\frmNewBranch.Designer.vb">
+      <DependentUpon>frmNewBranch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="List\ObjectList\Branch\frmNewBranch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List\ObjectList\Employee\FrmEmployee.Designer.vb">
+      <DependentUpon>FrmEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="List\ObjectList\Employee\FrmEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="List\ObjectList\Employee\FrmNewEmployee.Designer.vb">
+      <DependentUpon>FrmNewEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="List\ObjectList\Employee\FrmNewEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmDashboard.Designer.vb">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmDashboardDetail.Designer.vb">
+      <DependentUpon>frmDashboardDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmDashboardDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmFlash.Designer.vb">
+      <DependentUpon>frmFlash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmFlash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterForm\MasterForm.Designer.vb">
+      <DependentUpon>MasterForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterForm\MasterForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\ClsReport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Report\FrmReport.Designer.vb">
+      <DependentUpon>FrmReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\FrmReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Resources\ResBMS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResBMS.resx</DependentUpon>
+    </Compile>
+    <Compile Include="support\CloseButton.vb" />
+    <Compile Include="support\frmRegistration.Designer.vb">
+      <DependentUpon>frmRegistration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="support\frmRegistration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="support\ModLang.vb" />
+    <Compile Include="support\Time\FrmSelectTime.Designer.vb">
+      <DependentUpon>FrmSelectTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="support\Time\FrmSelectTime.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\BK_Restore_DB\frmBKData.Designer.vb">
+      <DependentUpon>frmBKData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\BK_Restore_DB\frmBKData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\BK_Restore_DB\frmDirDevice.Designer.vb">
+      <DependentUpon>frmDirDevice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\BK_Restore_DB\frmDirDevice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\BK_Restore_DB\frmRestoreDB.Designer.vb">
+      <DependentUpon>frmRestoreDB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\BK_Restore_DB\frmRestoreDB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\clsFormatLang.vb" />
+    <Compile Include="System\frmDialog.Designer.vb">
+      <DependentUpon>frmDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\frmDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\Event\FrmEvent.designer.vb">
+      <DependentUpon>FrmEvent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\Event\FrmEvent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\FrmProcess.Designer.vb">
+      <DependentUpon>FrmProcess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\FrmProcess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\frmShowMsg.Designer.vb">
+      <DependentUpon>frmShowMsg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\frmShowMsg.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\login\frmConfirm.designer.vb">
+      <DependentUpon>frmConfirm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\login\frmConfirm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\login\FrmConnect.designer.vb">
+      <DependentUpon>FrmConnect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\login\FrmConnect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\login\FrmLogin.designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\login\FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main\frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main\ModMain.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="System\login\frmWaiting.Designer.vb">
+      <DependentUpon>frmWaiting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\login\frmWaiting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\SecFunc\FrmFuncRight.designer.vb">
+      <DependentUpon>FrmFuncRight.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\SecFunc\FrmFuncRight.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\SecFunc\FrmPWDSystem.designer.vb">
+      <DependentUpon>FrmPWDSystem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\SecFunc\FrmPWDSystem.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\SecFunc\FrmSecFunlist.designer.vb">
+      <DependentUpon>FrmSecFunlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\SecFunc\FrmSecFunlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\User\FrmChangePWD.designer.vb">
+      <DependentUpon>FrmChangePWD.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\User\FrmChangePWD.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\User\FrmGroupUser.Designer.vb">
+      <DependentUpon>FrmGroupUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\User\FrmGroupUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\User\FrmNewGroupUser.Designer.vb">
+      <DependentUpon>FrmNewGroupUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\User\FrmNewGroupUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\User\FrmNewUser.designer.vb">
+      <DependentUpon>FrmNewUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\User\FrmNewUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\User\FrmSecUser.designer.vb">
+      <DependentUpon>FrmSecUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\User\FrmSecUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="List\ObjectList\Branch\frmBranch.resx">
+      <DependentUpon>frmBranch.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List\ObjectList\Branch\frmNewBranch.resx">
+      <DependentUpon>frmNewBranch.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List\ObjectList\Employee\FrmEmployee.resx">
+      <DependentUpon>FrmEmployee.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="List\ObjectList\Employee\FrmNewEmployee.resx">
+      <DependentUpon>FrmNewEmployee.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmDashboard.resx">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmDashboardDetail.resx">
+      <DependentUpon>frmDashboardDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmFlash.resx">
+      <DependentUpon>frmFlash.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterForm\MasterForm.resx">
+      <DependentUpon>MasterForm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="Report\FrmReport.resx">
+      <DependentUpon>FrmReport.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ResBMS.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ResBMS.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="support\frmRegistration.resx">
+      <DependentUpon>frmRegistration.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="support\Time\FrmSelectTime.resx">
+      <DependentUpon>FrmSelectTime.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\BK_Restore_DB\frmBKData.resx">
+      <DependentUpon>frmBKData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\BK_Restore_DB\frmDirDevice.resx">
+      <DependentUpon>frmDirDevice.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\BK_Restore_DB\frmRestoreDB.resx">
+      <DependentUpon>frmRestoreDB.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\frmDialog.resx">
+      <DependentUpon>frmDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\Event\FrmEvent.resx">
+      <DependentUpon>FrmEvent.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\FrmProcess.resx">
+      <DependentUpon>FrmProcess.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\frmShowMsg.resx">
+      <DependentUpon>frmShowMsg.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\login\frmConfirm.resx">
+      <DependentUpon>frmConfirm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\login\FrmConnect.resx">
+      <DependentUpon>FrmConnect.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\login\FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main\frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\login\frmWaiting.resx">
+      <DependentUpon>frmWaiting.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\SecFunc\FrmFuncRight.resx">
+      <DependentUpon>FrmFuncRight.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\SecFunc\FrmPWDSystem.resx">
+      <DependentUpon>FrmPWDSystem.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\SecFunc\FrmSecFunlist.resx">
+      <DependentUpon>FrmSecFunlist.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\User\FrmChangePWD.resx">
+      <DependentUpon>FrmChangePWD.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\User\FrmGroupUser.resx">
+      <DependentUpon>FrmGroupUser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\User\FrmNewGroupUser.resx">
+      <DependentUpon>FrmNewGroupUser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\User\FrmNewUser.resx">
+      <DependentUpon>FrmNewUser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\User\FrmSecUser.resx">
+      <DependentUpon>FrmSecUser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="Resources\1SMS.jpg" />
+    <None Include="Resources\1243841517_chart_add.png" />
+    <None Include="Resources\1243841522_chart_accept.png" />
+    <None Include="Resources\access.png" />
+    <None Include="Resources\Accounting.png" />
+    <None Include="Resources\Accounting1.png" />
+    <None Include="Resources\add file.png" />
+    <None Include="Resources\add folder.png" />
+    <None Include="Resources\add note.png" />
+    <None Include="Resources\add package.png" />
+    <None Include="Resources\add user.png" />
+    <None Include="Resources\add window.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\anh.jpg" />
+    <None Include="Resources\back button.png" />
+    <None Include="Resources\BanHang_t.png" />
+    <None Include="Resources\BaoCaoNVKinhDoanh.png" />
+    <None Include="Resources\Barcode-32x32.png" />
+    <None Include="Resources\Bc_MuaHang.png" />
+    <None Include="Resources\bell.png" />
+    <None Include="Resources\bg-bms3.gif" />
+    <None Include="Resources\bms flag .png" />
+    <None Include="Resources\book_green.png" />
+    <None Include="Resources\book_green1.png" />
+    <None Include="Resources\book_green2.png" />
+    <None Include="Resources\book_red.png" />
+    <None Include="Resources\book_yellow.png" />
+    <None Include="Resources\books.png" />
+    <None Include="Resources\box.png" />
+    <None Include="Resources\box_closed.png" />
+    <None Include="Resources\box1.png" />
+    <None Include="Resources\businessmen.png" />
+    <None Include="Resources\button-info.png" />
+    <None Include="Resources\calculator.png" />
+    <None Include="Resources\cancl_32.png" />
+    <None Include="Resources\CapNhapGiaHH.png" />
+    <None Include="Resources\CapNhatGiaHang.png" />
+    <None Include="Resources\CauTaoThanhPham.png" />
+    <None Include="Resources\CauTaoTP.png" />
+    <None Include="Resources\ChamCong_t.gif" />
+    <None Include="Resources\Chart Bar 2.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\ChuyenKho.BMP" />
+    <None Include="Resources\CK_DonHang.png" />
+    <None Include="Resources\Clipboard Configuration.png" />
+    <None Include="Resources\connect.png" />
+    <None Include="Resources\contract.png" />
+    <None Include="Resources\COPY.png" />
+    <None Include="Resources\cube_green.png" />
+    <None Include="Resources\cubes.png" />
+    <None Include="Resources\dangnhap.png" />
+    <None Include="Resources\DangNhap_2.png" />
+    <None Include="Resources\Danh_Muc2.png" />
+    <None Include="Resources\Danh_Muc32.png" />
+    <None Include="Resources\data.png" />
+    <None Include="Resources\database list132x32 24-bit.png" />
+    <None Include="Resources\DatHangXuat.png" />
+    <None Include="Resources\DB web.png" />
+    <None Include="Resources\del_32.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\desktop.png" />
+    <None Include="Resources\dichvu.png" />
+    <None Include="Resources\dichvu3232.png" />
+    <None Include="Resources\disk_blue.png" />
+    <None Include="Resources\disk_blue1.png" />
+    <None Include="Resources\disk_yellow.png" />
+    <None Include="Resources\disk_yellow1.png" />
+    <None Include="Resources\dm_KhoHang.png" />
+    <None Include="Resources\dm_KhOHang2.png" />
+    <None Include="Resources\document.png" />
+    <None Include="Resources\document_add.png" />
+    <None Include="Resources\document_down.png" />
+    <None Include="Resources\document_lock.png" />
+    <None Include="Resources\document_new.png" />
+    <None Include="Resources\document_ok.png" />
+    <None Include="Resources\document_ok1.png" />
+    <None Include="Resources\document_out.png" />
+    <None Include="Resources\document_out1.png" />
+    <None Include="Resources\document_up.png" />
+    <None Include="Resources\documents.png" />
+    <None Include="Resources\dollar.png" />
+    <None Include="Resources\DonViTienTe.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\download package.png" />
+    <None Include="Resources\ds_BaoGia.BMP" />
+    <None Include="Resources\ds_ChuyenKho.png" />
+    <None Include="Resources\ds_DatHangXuat.BMP" />
+    <None Include="Resources\ds_KiemKho.png" />
+    <None Include="Resources\ds_NhanVien_t.png" />
+    <None Include="Resources\ds_PhieuChi.BMP" />
+    <None Include="Resources\ds_PhieuChi_t.png" />
+    <None Include="Resources\ds_PhieuDatMuaHang.BMP" />
+    <None Include="Resources\ds_PhieuNhapHangTra.png" />
+    <None Include="Resources\ds_PhieuNhapMuaHang.BMP" />
+    <None Include="Resources\ds_PhieuThu.BMP" />
+    <None Include="Resources\ds_PhieuXuatHangBan.BMP" />
+    <None Include="Resources\ds_PhieuXuatTraHang.BMP" />
+    <None Include="Resources\edit 2.jpg" />
+    <None Include="Resources\edit1.png" />
+    <None Include="Resources\edit2.png" />
+    <None Include="Resources\edit3.png" />
+    <None Include="Resources\Email.png" />
+    <None Include="Resources\Excel2002.bmp" />
+    <None Include="Resources\exit child.png" />
+    <None Include="Resources\exit.jpg" />
+    <None Include="Resources\export.png" />
+    <None Include="Resources\export1.png" />
+    <None Include="Resources\export2.png" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\forward button.png" />
+    <None Include="Resources\graphics-tablet.png" />
+    <None Include="Resources\graphics-tablet1.png" />
+    <None Include="Resources\group32x32 24-bit.png" />
+    <None Include="Resources\Hang_Hoa.png" />
+    <None Include="Resources\HangHoa.BMP" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\help_earth.png" />
+    <None Include="Resources\help2.png" />
+    <None Include="Resources\Hieu_Chinh.png" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\home1.png" />
+    <None Include="Resources\home32x32 24-bit.png" />
+    <None Include="Resources\HoTroOnline.png" />
+    <None Include="Resources\house.png" />
+    <None Include="Resources\id_cards.png" />
+    <None Include="Resources\Image1.png" />
+    <None Include="Resources\import1.png" />
+    <None Include="Resources\import2.png" />
+    <None Include="Resources\import3.png" />
+    <None Include="Resources\index_add.png" />
+    <None Include="Resources\index_view.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\item232x32 24-bit.png" />
+    <None Include="Resources\item432x32 24-bit.png" />
+    <None Include="Resources\key1.png" />
+    <None Include="Resources\KhoHang.png" />
+    <None Include="Resources\KhoHang_t.BMP" />
+    <None Include="Resources\KhoiTaoHangTonDK.BMP" />
+    <None Include="Resources\Kiem_Kho.png" />
+    <None Include="Resources\KiemKho.BMP" />
+    <None Include="Resources\label-green.png" />
+    <None Include="Resources\label-red.png" />
+    <None Include="Resources\label-yellow.png" />
+    <None Include="Resources\Login.png" />
+    <None Include="Resources\logo-vsoft-ko-mau.jpg" />
+    <None Include="Resources\logovsoftl.jpg" />
+    <None Include="Resources\material_32.png" />
+    <None Include="Resources\material_48x48.png" />
+    <None Include="Resources\material_651.png" />
+    <None Include="Resources\money.png" />
+    <None Include="Resources\money_envelope.png" />
+    <None Include="Resources\money2.png" />
+    <None Include="Resources\moneybag.png" />
+    <None Include="Resources\moneybag_dollar.png" />
+    <None Include="Resources\moneybag_euro.png" />
+    <None Include="Resources\MucGia.png" />
+    <None Include="Resources\nav_left_blue.png" />
+    <None Include="Resources\nav_right_blue.png" />
+    <None Include="Resources\navigate_down.png" />
+    <None Include="Resources\newdatabase.png" />
+    <None Include="Resources\new-item232x32 24-bit.png" />
+    <None Include="Resources\new-item432x32 24-bit.png" />
+    <None Include="Resources\NganhHang.png" />
+    <None Include="Resources\Nhan_Vien.png" />
+    <None Include="Resources\Nhan_Vien32.png" />
+    <None Include="Resources\nhap.png" />
+    <None Include="Resources\Nhap_Khac.png" />
+    <None Include="Resources\NhapKhac.BMP" />
+    <None Include="Resources\Nhom_Hang.png" />
+    <None Include="Resources\NhomNguoiDung.png" />
+    <None Include="Resources\note.png" />
+    <None Include="Resources\note_add.png" />
+    <None Include="Resources\note_edit.png" />
+    <None Include="Resources\note_new.png" />
+    <None Include="Resources\ok.png" />
+    <None Include="Resources\ok2.png" />
+    <None Include="Resources\Organization32x32 24-bit.png" />
+    <None Include="Resources\package.png" />
+    <None Include="Resources\package1.png" />
+    <None Include="Resources\percent.png" />
+    <None Include="Resources\PheuXuatKhac.BMP" />
+    <None Include="Resources\PhieuBaoGia.BMP" />
+    <None Include="Resources\PhieuBaoGia01.png" />
+    <None Include="Resources\PhieuChiTien.BMP" />
+    <None Include="Resources\PhieuChuyenKho.BMP" />
+    <None Include="Resources\PhieuDatHangXuat.BMP" />
+    <None Include="Resources\PhieuDatNhapHang.BMP" />
+    <None Include="Resources\PhieuNhapHangTra.png" />
+    <None Include="Resources\PhieuNhapKhac.BMP" />
+    <None Include="Resources\PhieuNhapMua.png" />
+    <None Include="Resources\PhieuNhapMuaHang.BMP" />
+    <None Include="Resources\PhieuThuTien.png" />
+    <None Include="Resources\PhieuXuatChuyenKho.png" />
+    <None Include="Resources\PhieuXuatHangBan.BMP" />
+    <None Include="Resources\PhieuXuatHangNhapTra.BMP" />
+    <None Include="Resources\PhieuXuatKhac.BMP" />
+    <None Include="Resources\PhieuXuatTraHang.BMP" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\product.png" />
+    <None Include="Resources\product2.png" />
+    <None Include="Resources\PX_HangBan.png" />
+    <None Include="Resources\QuanHuyen_t.png" />
+    <None Include="Resources\question_and_answer.png" />
+    <None Include="Resources\QuocGia_t.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\refresh1.png" />
+    <None Include="Resources\reload32x32 24-bit.png" />
+    <None Include="Resources\sales.jpg" />
+    <None Include="Resources\sales32.png" />
+    <None Include="Resources\Save 2  Cancel.png" />
+    <None Include="Resources\Save Add.png" />
+    <None Include="Resources\server_client_exchange.png" />
+    <None Include="Resources\server_to_client.png" />
+    <None Include="Resources\statistics4.png" />
+    <None Include="Resources\table_selection_all.png" />
+    <None Include="Resources\table_sql_check.png" />
+    <None Include="Resources\table_sql_delete.png" />
+    <None Include="Resources\Task New.png" />
+    <None Include="Resources\Them_Moi.png" />
+    <None Include="Resources\thoatct.png" />
+    <None Include="Resources\ThongKe.png" />
+    <None Include="Resources\ThongKeHangToan.png" />
+    <None Include="Resources\Thu khac.png" />
+    <None Include="Resources\THUCHI.png" />
+    <None Include="Resources\THUCHI32.png" />
+    <None Include="Resources\ThuKhac_t.BMP" />
+    <None Include="Resources\Tinh_Thanh_t.png" />
+    <None Include="Resources\Tinh_Thanh1.jpg" />
+    <None Include="Resources\TinhLuong.png" />
+    <None Include="Resources\tools.png" />
+    <None Include="Resources\unknown.png" />
+    <None Include="Resources\Unknown232x32 24-bit.png" />
+    <None Include="Resources\UpgradeDB.sql" />
+    <None Include="Resources\upload package.png" />
+    <None Include="Resources\user_headphones.png" />
+    <None Include="Resources\user_headset.png" />
+    <None Include="Resources\user1.png" />
+    <None Include="Resources\user2.png" />
+    <None Include="Resources\user3.png" />
+    <None Include="Resources\user11.png" />
+    <None Include="Resources\User32.png" />
+    <None Include="Resources\UserGroup.png" />
+    <None Include="Resources\users1.png" />
+    <None Include="Resources\users2.png" />
+    <None Include="Resources\users3.png" />
+    <None Include="Resources\users4.png" />
+    <None Include="Resources\users21.png" />
+    <None Include="Resources\users22.png" />
+    <None Include="Resources\V.icon.png" />
+    <None Include="Resources\Vidu1.jpg" />
+    <None Include="Resources\vietnam.jpg" />
+    <None Include="Resources\view.png" />
+    <None Include="Resources\Vista %28257%2932.png" />
+    <None Include="Resources\Vista32.png" />
+    <None Include="Resources\web page32x32 24-bit.png" />
+    <None Include="Resources\WWW.png" />
+    <None Include="Resources\Xoa.png" />
+    <None Include="Resources\xoa2.png" />
+    <None Include="Resources\xuat.png" />
+    <None Include="Resources\Xuat_Khac.png" />
+    <None Include="Resources\yes32x32 24-bit.png" />
+    <None Include="Resources\VsoftBMS-logo.ico" />
+    <None Include="Resources\navigate_beginning.ico" />
+    <None Include="Resources\navigate_end.ico" />
+    <None Include="Resources\navigate_left.ico" />
+    <None Include="Resources\navigate_right.ico" />
+    <None Include="Resources\Dieu_Chinh_Hien_Thi.ico" />
+    <None Include="Resources\Tim_Kiem.ico" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\Luu.ico" />
+    <None Include="Resources\Luu_Thoat.ico" />
+    <None Include="Resources\Chon_Tat_Ca.ico" />
+    <None Include="Resources\box_into.ico" />
+    <None Include="Resources\box_out.ico" />
+    <None Include="Resources\Nhom_Hang1.png" />
+    <None Include="Resources\cargo3.ico" />
+    <None Include="Resources\upload32.png" />
+    <None Include="Resources\globe1.ico" />
+    <None Include="Resources\pos-title.jpg" />
+    <None Include="Resources\pos-about.jpg" />
+    <None Include="Resources\globe.ico" />
+    <None Include="Resources\cart.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MPS.BLL\MPS.BLL.vbproj">
+      <Project>{4E74A96D-628C-4DED-8FED-42E32A98958E}</Project>
+      <Name>MPS.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MPS.Model\MPS.Model.vbproj">
+      <Project>{E6E87EF1-21F4-4A44-9121-421220D91371}</Project>
+      <Name>MPS.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PECC5\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
