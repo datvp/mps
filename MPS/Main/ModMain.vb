@@ -65,7 +65,7 @@ Module ModMain
     '---------------------
     Public fAskClose As Boolean = True
     Public m_nCheckKey As Integer = 1 '0 : key binh thuong; 1 : Key theo safenet
-    Public FormTitle As String = "MPS" '18.06.09 
+    Public FormTitle As String = "CONTRACT MANAGER SOFTWARE FOR ENERGY PROJECT" '18.06.09 
     Public m_Version As String = ""
     Public m_sModuleID As String = "" '18.06.09 
     Public isExist As Boolean = False '15.06.09
@@ -135,7 +135,7 @@ Module ModMain
     Public m_DateUpdateDB As Date = CDate("2009-12-11") 'thay doi file UpdateDB.sql ngay nao thi Ghi vao day ngay do
     Public m_NoteDB As String = "Nâng cấp dữ liệu" 'Ghi chu khi thay doi file UpdateDB.sql
     '---------------------
-    Public m_sysColor As Color = Color.FromArgb(255, 216, 228, 248)
+    Public m_sysColor As Color = Color.White 'Color.FromArgb(255, 216, 228, 248)
     ''' <summary>
     ''' Tên nhân viên
     ''' </summary>
@@ -645,18 +645,18 @@ Module ModMain
         cls.CreateKeyInRegister("COLORSYS.B", m_sysColor.B.ToString)
     End Sub
     Public Sub LoadColorSystem()
-        Dim cls As New VsoftBMS.Ulti.ClsUti
-        Dim A As String = cls.GetKeyInRegister("COLORSYS.A")
+        'Dim cls As New VsoftBMS.Ulti.ClsUti
+        'Dim A As String = cls.GetKeyInRegister("COLORSYS.A")
 
-        If A <> "" Then
-            Dim R As String = cls.GetKeyInRegister("COLORSYS.R")
-            Dim G As String = cls.GetKeyInRegister("COLORSYS.G")
-            Dim B As String = cls.GetKeyInRegister("COLORSYS.B")
-            m_sysColor = Color.FromArgb(CInt(A), CInt(R), CInt(G), CInt(B))
-        Else
-            m_sysColor = Color.FromArgb(255, 216, 228, 248)
-            UPdateColorSystem()
-        End If
+        'If A <> "" Then
+        '    Dim R As String = cls.GetKeyInRegister("COLORSYS.R")
+        '    Dim G As String = cls.GetKeyInRegister("COLORSYS.G")
+        '    Dim B As String = cls.GetKeyInRegister("COLORSYS.B")
+        '    m_sysColor = Color.FromArgb(CInt(A), CInt(R), CInt(G), CInt(B))
+        'Else
+        '    m_sysColor = Color.FromArgb(255, 216, 228, 248)
+        '    UPdateColorSystem()
+        'End If
     End Sub
 #Region "Kiem tra va udpate DB"
     Private fr As New FrmProcess

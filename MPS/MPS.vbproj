@@ -177,6 +177,66 @@
     <Compile Include="MasterForm\MasterForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PECC5\ClientGroups\frmClientGroupDetail.Designer.vb">
+      <DependentUpon>frmClientGroupDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\ClientGroups\frmClientGroupDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\ClientGroups\frmClientGroups.Designer.vb">
+      <DependentUpon>frmClientGroups.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\ClientGroups\frmClientGroups.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\Clients\frmClientDetail.Designer.vb">
+      <DependentUpon>frmClientDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Clients\frmClientDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\Clients\frmClients.Designer.vb">
+      <DependentUpon>frmClients.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Clients\frmClients.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\Contracts\frmContractDetail.Designer.vb">
+      <DependentUpon>frmContractDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Contracts\frmContractDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\Contracts\frmContracts.Designer.vb">
+      <DependentUpon>frmContracts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Contracts\frmContracts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\Items\frmItemDetail.Designer.vb">
+      <DependentUpon>frmItemDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Items\frmItemDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\Items\frmItems.Designer.vb">
+      <DependentUpon>frmItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Items\frmItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\Projects\frmProjectDetail.Designer.vb">
+      <DependentUpon>frmProjectDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Projects\frmProjectDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\Projects\frmProjects.Designer.vb">
+      <DependentUpon>frmProjects.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Projects\frmProjects.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Report\ClsReport.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -377,6 +437,14 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="PECC5\Contracts\frmContractDetail.resx">
+      <DependentUpon>frmContractDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\Projects\frmProjectDetail.resx">
+      <DependentUpon>frmProjectDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\FrmReport.resx">
       <DependentUpon>FrmReport.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -812,9 +880,6 @@
       <Project>{E6E87EF1-21F4-4A44-9121-421220D91371}</Project>
       <Name>MPS.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PECC5\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

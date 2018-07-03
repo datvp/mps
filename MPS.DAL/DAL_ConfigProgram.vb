@@ -375,13 +375,13 @@ Public Class DAL_ConfigProgram
             End Try
 
         End If
-        tb = getTableSQL("Select i_ID, s_Name from Ls_Currency where IDKH_s=N'" & m.s_SysCur.Replace("'", "''") & "'")
-        If Not tb Is Nothing Then
-            If tb.Rows.Count > 0 Then
-                m.s_KeySysCur = tb.Rows(0)("i_ID")
-                m.s_SysCurChar = IsNull(tb.Rows(0)("s_Name"), "") '26.11.09
-            End If
-        End If
+        'tb = getTableSQL("Select i_ID, s_Name from Ls_Currency where IDKH_s=N'" & m.s_SysCur.Replace("'", "''") & "'")
+        'If Not tb Is Nothing Then
+        '    If tb.Rows.Count > 0 Then
+        '        m.s_KeySysCur = tb.Rows(0)("i_ID")
+        '        m.s_SysCurChar = IsNull(tb.Rows(0)("s_Name"), "") '26.11.09
+        '    End If
+        'End If
         Return m
 
     End Function

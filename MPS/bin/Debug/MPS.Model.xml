@@ -6,21 +6,7 @@ MPS.Model
 </name>
 </assembly>
 <members>
-<member name="P:MPS.Model.MSecUser.isViewAllBranch">
-	<summary>
- true: chỉ xem báo cáo Chi nhánh là Tất cả (ko xem chi tiết từng kho)
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MSecUser.isViewAllStore">
-	<summary>
- true: chỉ xem báo cáo Kho là Tất cả (ko xem chi tiết từng kho)
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MConfigProgram.i_ConfigID">
+<member name="P:MPS.Model.MConfigProgram.i_ConfigID">
 	<summary>
  Lưu giữ 1:dùng màn hình POS cho bán hàng, 0 là mặc định màn hình thường
  </summary>
@@ -54,6 +40,20 @@ MPS.Model
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="P:MPS.Model.MSecUser.isViewAllBranch">
+	<summary>
+ true: chỉ xem báo cáo Chi nhánh là Tất cả (ko xem chi tiết từng kho)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MSecUser.isViewAllStore">
+	<summary>
+ true: chỉ xem báo cáo Kho là Tất cả (ko xem chi tiết từng kho)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member>
 </members>
 </doc>

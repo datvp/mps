@@ -42,9 +42,6 @@
         ShowForm(ModMain.m_Dashboard)
     End Sub
     Private Sub frmMain_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
-        If m_nCheckKey = 1 Then
-            tbManager.Tools("bntInfoReg").SharedProps.Visible = False
-        End If
         UltraStatusBar1.Panels("Branch").Text = "Company: " & ModMain.m_BranchName
         UltraStatusBar1.Panels("SRV").Text = "Server: " & ModMain.m_Srv
         UltraStatusBar1.Panels("UserName").Text = "User: " & ModMain.m_UIDLogin
@@ -198,12 +195,16 @@
             '    Dim frm As New frmNguonKH
             '    frm.ShowDialog()
             Case "btnLogin"
-                While Not Me.ActiveMdiChild Is Nothing
-                    Me.ActiveMdiChild.Close()
-                End While
-                Dim frm As New FrmLogin
-                frm.ShowDialog(True)
-                Me.Text = FormTitle
+                Dim frm As New frmContractDetail
+                frm.ShowDialog()
+
+                'While Not Me.ActiveMdiChild Is Nothing
+                '    Me.ActiveMdiChild.Close()
+                'End While
+                'Dim frm As New FrmLogin
+                'frm.ShowDialog(True)
+
+                'Me.Text = FormTitle
                 'Case "btnConfix"
                 '    If Not CheckSecurity(87, Add) Then
                 '        ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)

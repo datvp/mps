@@ -23,12 +23,6 @@ E:\ME\huy_pecc5\src\POS.BLL\obj\Debug\MPS.BLL.vbproj.GenerateResource.Cache
 E:\ME\huy_pecc5\src\POS.BLL\obj\Debug\MPS.BLL.dll
 E:\ME\huy_pecc5\src\POS.BLL\obj\Debug\MPS.BLL.xml
 E:\ME\huy_pecc5\src\POS.BLL\obj\Debug\MPS.BLL.pdb
-E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\ResolveAssemblyReference.cache
-E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.Resources.resources
-E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.vbproj.GenerateResource.Cache
-E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.dll
-E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.xml
-E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.pdb
 E:\ME\huy_pecc5\src\MPS.BLL\bin\Debug\MPS.BLL.dll
 E:\ME\huy_pecc5\src\MPS.BLL\bin\Debug\MPS.BLL.pdb
 E:\ME\huy_pecc5\src\MPS.BLL\bin\Debug\MPS.BLL.xml
@@ -48,3 +42,9 @@ E:\ME\huy_pecc5\src\MPS.BLL\bin\Debug\MPS.Model.pdb
 E:\ME\huy_pecc5\src\MPS.BLL\bin\Debug\MPS.Model.xml
 E:\ME\huy_pecc5\src\MPS.BLL\bin\Debug\MPS.Reports.pdb
 E:\ME\huy_pecc5\src\MPS.BLL\bin\Debug\MPS.Reports.xml
+E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\ResolveAssemblyReference.cache
+E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.Resources.resources
+E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.vbproj.GenerateResource.Cache
+E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.dll
+E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.xml
+E:\ME\huy_pecc5\src\MPS.BLL\obj\Debug\MPS.BLL.pdb
