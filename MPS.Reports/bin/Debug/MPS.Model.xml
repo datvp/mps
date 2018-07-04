@@ -6,7 +6,63 @@ MPS.Model
 </name>
 </assembly>
 <members>
-<member name="P:MPS.Model.MConfigProgram.i_ConfigID">
+<member name="P:MPS.Model.MContract.ContractId">
+	<summary>
+ Mã số hợp đồng
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ContractName">
+	<summary>
+ Tên gói thầu
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ContractValue">
+	<summary>
+ Giá trị hợp đồng (VNĐ)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ContractDate">
+	<summary>
+ Ngày ký
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ContractDeadLine">
+	<summary>
+ Ngày hết hạn
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ProjectId">
+	<summary>
+ Mã dự án
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ContractState">
+	<summary>
+ Trạng thái hợp đồng
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.SubContracts">
+	<summary>
+ danh sách phụ lục hợp đồng (nếu có)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MConfigProgram.i_ConfigID">
 	<summary>
  Lưu giữ 1:dùng màn hình POS cho bán hàng, 0 là mặc định màn hình thường
  </summary>

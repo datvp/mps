@@ -21,7 +21,9 @@
     End Sub
 
     Private Sub frmRestoreDB_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        ModMain.SetTitle(Me,UltraLabel1.Text)
+        ModMain.SetTitle(Me, UltraLabel1.Text)
+        ModMain.BlueButton(btnApply)
+        ModMain.GreenButton(btnCancel)
         Me.Security()
         If m_Lang <> 1 Then
             LoadLang(m_Lang)
@@ -113,7 +115,7 @@
     
 
 
-    Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
+    Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
 

@@ -4,7 +4,7 @@
         MsgBox(messege, MsgBoxStyle.Critical)
     End Sub
 
-    Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
+    Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
     Private sSelect As String = ""
@@ -16,7 +16,6 @@
     End Function
 
     Private Sub InitTreeView()
-
         TV.Nodes.Clear()
         TV.ImageList = Me.ImageList1
         Dim i As Integer
@@ -153,14 +152,11 @@
         If e.KeyCode = Keys.Escape Then
             Me.Close()
         End If
-        If e.Control Then
-            If e.KeyCode = Keys.L Then
-                FormatLang()
-            End If
-        End If
     End Sub
     Private Sub frmDirDevice_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ModMain.SetTitle(Me)
+        ModMain.BlueButton(btnChoose)
+        ModMain.GreenButton(btnCancel)
         cls.EnableCMDShell()
         Lb.Text = ""
         lbTemp.Text = ""
@@ -168,17 +164,5 @@
             Me.txtFile.ReadOnly = True
         End If
         Me.InitTreeView()
-        If m_Lang <> 1 Then
-            LoadLang(m_Lang)
-        End If
     End Sub
-
-    Private Sub FormatLang()
-        
-    End Sub
-
-    Private Sub LoadLang(ByVal lang As Integer)
-        clsLang.FormatLang(lang, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Me)
-    End Sub
-
 End Class

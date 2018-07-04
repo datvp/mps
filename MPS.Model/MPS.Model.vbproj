@@ -58,6 +58,7 @@
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\MContract.vb" />
     <Compile Include="MEvent.vb" />
     <Compile Include="MFuncList.vb" />
     <Compile Include="MFuncRight.vb" />
@@ -87,6 +88,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="MConfigProgram.vb" />
+    <Compile Include="Projects\MProject.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

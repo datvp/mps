@@ -43,7 +43,9 @@
     End Sub
 
     Private Sub frmBKData_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ModMain.SetTitle(Me,UltraLabel1.Text)
+        ModMain.SetTitle(Me, UltraLabel1.Text)
+        ModMain.BlueButton(btnApply)
+        ModMain.GreenButton(btnCancel)
         Me.Security()
         UltraGroupBox2.Focus()
         txtFileBK.Focus()
@@ -127,7 +129,7 @@
         End If
 
     End Sub
-    Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UltraButton1.Click
+    Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
 

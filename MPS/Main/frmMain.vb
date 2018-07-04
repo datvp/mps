@@ -47,7 +47,7 @@
         UltraStatusBar1.Panels("UserName").Text = "User: " & ModMain.m_UIDLogin
         UltraStatusBar1.Panels("DB").Text = "Database : " & ModMain.m_DB
         tbManager.Ribbon.Caption = FormTitle + " | " + m_Version
-        Dim f As Form = Me.ActiveMdiChild 'ActivateMdiChild
+        Dim f As Form = Me.ActiveMdiChild
 
         If f Is Nothing Then Exit Sub
         If strFormShowDialog.ToLower = f.Name.ToLower Then
@@ -98,35 +98,6 @@
 
     End Sub
 
-    Private Sub backFrom(ByVal fActive As Form)
-        Dim i As Integer = 0
-        For Each f As Form In Me.MdiChildren
-            If fActive.Name.Trim.ToLower = f.Name.Trim.ToLower Then
-                If i > 0 Then
-                    Me.MdiChildren(i - 1).BringToFront()
-                    Me.MdiChildren(i - 1).Text = Me.MdiChildren(i - 1).Name & Now.ToString
-                    Exit Sub
-                End If
-            End If
-            i += 1
-        Next
-    End Sub
-
-    Private Sub nextFrom(ByVal fActive As Form)
-        Dim i As Integer = 0
-        For Each f As Form In Me.MdiChildren
-            If fActive.Name.Trim.ToLower = f.Name.Trim.ToLower Then
-                If i < Me.MdiChildren.Length - 1 Then
-                    Me.MdiChildren(i + 1).BringToFront()
-                    Me.MdiChildren(i + 1).Text = Me.MdiChildren(i + 1).Name & Now.ToString
-                    Exit Sub
-                End If
-            End If
-            i += 1
-        Next
-    End Sub
-
-
     Private Sub SetStatusFirst_Last(ByVal NameformChild As String, ByVal formMain As Form)
         Dim l As Integer = getLenChild(formMain)
 
@@ -166,34 +137,26 @@
         Return c
     End Function
 
-    Private Function toImage(ByVal ArrByte() As Byte) As Image
-        If ArrByte Is Nothing Then Return Nothing
-        Dim sm As New IO.MemoryStream(ArrByte)
-        Return Image.FromStream(sm)
-    End Function
 #End Region
-    Private Function getFormChild(ByVal FormName As String) As Form
-        For Each f As Form In Me.MdiChildren
-            If FormName.Trim.ToLower = f.Name.Trim.ToLower Then
-                Return f
-            End If
-        Next
-        Return Nothing
-    End Function
 
 #Region "Toolbar manager"
     Private Sub tbManager_ToolClick(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) Handles tbManager.ToolClick
         Select Case e.Tool.Key
-            'Case "chinhanh"
-            '    If Not CheckSecurity(12, Add) Then
-            '        ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
-            '        Exit Sub
-            '    End If
-            '    Dim frm As New frmBranch
-            '    ShowForm(frm)
-            'Case "nguonkhachhang"
-            '    Dim frm As New frmNguonKH
-            '    frm.ShowDialog()
+            Case "Dashboard"
+                ShowForm(ModMain.m_Dashboard)
+            Case "Contracts"
+                Dim frm As New frmContracts
+                ShowForm(frm)
+                'Case "chinhanh"
+                '    If Not CheckSecurity(12, Add) Then
+                '        ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                '        Exit Sub
+                '    End If
+                '    Dim frm As New frmBranch
+                '    ShowForm(frm)
+                'Case "nguonkhachhang"
+                '    Dim frm As New frmNguonKH
+                '    frm.ShowDialog()
             Case "btnLogin"
                 Dim frm As New frmContractDetail
                 frm.ShowDialog()

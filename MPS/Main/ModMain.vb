@@ -1272,39 +1272,6 @@ Module ModMain
 
 #Region "Ultility"
     Public Sub SelectAll(ByVal gridName As Infragistics.Win.UltraWinGrid.UltraGrid)
-        'gridName.BeginUpdate()
-        'Dim rows As New List(Of Infragistics.Win.UltraWinGrid.UltraGridRow)()
-        'For Each row As Infragistics.Win.UltraWinGrid.UltraGridRow In gridName.Rows.GetRowEnumerator(Infragistics.Win.UltraWinGrid.GridRowType.DataRow, Nothing, Nothing)
-        '    rows.Add(row)
-        'Next
-        'gridName.Selected.Rows.AddRange(rows.ToArray(), False, False)
-        'gridName.EndUpdate()
-
-        'For Each r As Infragistics.Win.UltraWinGrid.UltraGridRow In gridName.Rows
-        '    Dim ss As String = r.Cells("s_Product_ID").Value
-        '    If ss.Substring(0, 1).ToLower = "h" Then
-        '        Dim s As String = ""
-        '    End If
-        'Next
-
-        'Dim r As Infragistics.Win.UltraWinGrid.UltraGridRow = gridName.ActiveRow
-        'If Not r Is Nothing Then
-        '    If r.ParentRow Is Nothing Then
-        '        If gridName.DataSource Is Nothing Then Exit Sub
-        '        'gridName.Selected.Rows.AddRange(CType(gridName.Rows.All, Infragistics.Win.UltraWinGrid.UltraGridRow()))
-        '        gridName.Selected.Rows.AddRange(CType(gridName.Rows.All, Infragistics.Win.UltraWinGrid.UltraGridRow()))
-
-        '    Else
-        '        Dim rParent As Infragistics.Win.UltraWinGrid.UltraGridRow = r.ParentRow
-        '        For i As Integer = 0 To rParent.ChildBands.Count - 1
-        '            gridName.Selected.Rows.AddRange(CType(rParent.ChildBands(i).Rows.All, Infragistics.Win.UltraWinGrid.UltraGridRow()))
-        '        Next
-
-        '        'rParent.ChildBands(0).Rows.All
-        '    End If
-        'End If
-
-
         If gridName.DataSource Is Nothing Then Exit Sub
         Dim r As Infragistics.Win.UltraWinGrid.UltraGridRow = gridName.ActiveRow
         If Not r Is Nothing Then
@@ -1315,8 +1282,6 @@ Module ModMain
                         it.Selected = True
                     End If
                 Next
-                'gridName.Selected.Rows.AddRange(CType(gridName.Rows.All, Infragistics.Win.UltraWinGrid.UltraGridRow()))
-
             Else
                 Dim rParent As Infragistics.Win.UltraWinGrid.UltraGridRow = r.ParentRow
                 For i As Integer = 0 To rParent.ChildBands.Count - 1
@@ -1325,10 +1290,7 @@ Module ModMain
                             it.Selected = True
                         End If
                     Next
-
-                    'gridName.Selected.Rows.AddRange(CType(rParent.ChildBands(i).Rows.All, Infragistics.Win.UltraWinGrid.UltraGridRow()))
                 Next
-
             End If
         End If
 
