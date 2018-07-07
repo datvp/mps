@@ -6,7 +6,28 @@ MPS.Model
 </name>
 </assembly>
 <members>
-<member name="P:MPS.Model.MContract.ContractId">
+<member name="P:MPS.Model.MConfigProgram.i_ConfigID">
+	<summary>
+ Lưu giữ 1:dùng màn hình POS cho bán hàng, 0 là mặc định màn hình thường
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MConfigProgram.b_PriceObject">
+	<summary>
+ True: áp dụng mức giá theo khách hàng
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MConfigProgram.SmsContent">
+	<summary>
+ soạn nội dung tin nhắn gửi
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ContractId">
 	<summary>
  Mã số hợp đồng
  </summary>
@@ -58,27 +79,6 @@ MPS.Model
 </member><member name="P:MPS.Model.MContract.SubContracts">
 	<summary>
  danh sách phụ lục hợp đồng (nếu có)
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MConfigProgram.i_ConfigID">
-	<summary>
- Lưu giữ 1:dùng màn hình POS cho bán hàng, 0 là mặc định màn hình thường
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MConfigProgram.b_PriceObject">
-	<summary>
- True: áp dụng mức giá theo khách hàng
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MConfigProgram.SmsContent">
-	<summary>
- soạn nội dung tin nhắn gửi
  </summary>
 	<value></value>
 	<returns></returns>
