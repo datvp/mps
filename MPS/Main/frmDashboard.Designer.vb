@@ -38,18 +38,6 @@ Partial Class frmDashboard
         Dim Appearance39 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance40 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance42 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance44 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance45 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance46 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance47 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance48 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance49 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance50 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance52 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance53 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim GridBagConstraint4 As Infragistics.Win.Layout.GridBagConstraint = New Infragistics.Win.Layout.GridBagConstraint
         Dim Appearance55 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim PaintElement3 As Infragistics.UltraChart.Resources.Appearance.PaintElement = New Infragistics.UltraChart.Resources.Appearance.PaintElement
@@ -75,18 +63,6 @@ Partial Class frmDashboard
         Me.lblLoiNhuan = New Infragistics.Win.Misc.UltraLabel
         Me.UltraLabel8 = New Infragistics.Win.Misc.UltraLabel
         Me.UltraLabel7 = New Infragistics.Win.Misc.UltraLabel
-        Me.lblGiaVon = New Infragistics.Win.Misc.UltraLabel
-        Me.UltraLabel6 = New Infragistics.Win.Misc.UltraLabel
-        Me.lblDoanhSo = New Infragistics.Win.Misc.UltraLabel
-        Me.UltraLabel5 = New Infragistics.Win.Misc.UltraLabel
-        Me.lblPhaiThu = New Infragistics.Win.Misc.UltraLabel
-        Me.lblGiamGia = New Infragistics.Win.Misc.UltraLabel
-        Me.UltraLabel4 = New Infragistics.Win.Misc.UltraLabel
-        Me.lblSoHoaDon = New Infragistics.Win.Misc.UltraLabel
-        Me.UltraLabel3 = New Infragistics.Win.Misc.UltraLabel
-        Me.lblGiaTriBan = New Infragistics.Win.Misc.UltraLabel
-        Me.UltraLabel2 = New Infragistics.Win.Misc.UltraLabel
-        Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel
         Me.grpRevenueByProGroup = New Infragistics.Win.Misc.UltraGroupBox
         Me.GroupItemSaleChart = New Infragistics.Win.UltraWinChart.UltraChart
         Me.grpItemSaleToday = New Infragistics.Win.Misc.UltraGroupBox
@@ -138,7 +114,7 @@ Partial Class frmDashboard
         Me.GridBagLayout.SetPreferredSize(Me.UltraGroupBox2, New System.Drawing.Size(222, 110))
         Me.UltraGroupBox2.Size = New System.Drawing.Size(203, 226)
         Me.UltraGroupBox2.TabIndex = 2
-        Me.UltraGroupBox2.Text = "Doanh số theo quý"
+        Me.UltraGroupBox2.Text = "Doanh thu theo trạng thái hợp đồng"
         Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
         '			'UltraChart' properties's serialization: Since 'ChartType' changes the way axes look,
@@ -339,7 +315,7 @@ Partial Class frmDashboard
         Me.GridBagLayout.SetPreferredSize(Me.grpTotalSaleChart, New System.Drawing.Size(337, 110))
         Me.grpTotalSaleChart.Size = New System.Drawing.Size(369, 226)
         Me.grpTotalSaleChart.TabIndex = 2
-        Me.grpTotalSaleChart.Text = "Doanh số theo tháng"
+        Me.grpTotalSaleChart.Text = "Tổng doanh thu theo mốc thời gian"
         Me.grpTotalSaleChart.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
         'TotalSaleChart
@@ -423,7 +399,7 @@ Partial Class frmDashboard
         Me.TotalSaleChart.Axis.Y.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.TotalSaleChart.Axis.Y.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.TotalSaleChart.Axis.Y.MinorGridLines.Visible = False
-        Me.TotalSaleChart.Axis.Y.TickmarkInterval = 20
+        Me.TotalSaleChart.Axis.Y.TickmarkInterval = 40
         Me.TotalSaleChart.Axis.Y.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.TotalSaleChart.Axis.Y.Visible = True
         Me.TotalSaleChart.Axis.Y2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -449,7 +425,7 @@ Partial Class frmDashboard
         Me.TotalSaleChart.Axis.Y2.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.TotalSaleChart.Axis.Y2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.TotalSaleChart.Axis.Y2.MinorGridLines.Visible = False
-        Me.TotalSaleChart.Axis.Y2.TickmarkInterval = 20
+        Me.TotalSaleChart.Axis.Y2.TickmarkInterval = 40
         Me.TotalSaleChart.Axis.Y2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.TotalSaleChart.Axis.Y2.Visible = False
         Me.TotalSaleChart.Axis.Z.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -542,7 +518,7 @@ Partial Class frmDashboard
         Me.GridBagLayout.SetPreferredSize(Me.grpTotalBranch, New System.Drawing.Size(402, 131))
         Me.grpTotalBranch.Size = New System.Drawing.Size(369, 270)
         Me.grpTotalBranch.TabIndex = 2
-        Me.grpTotalBranch.Text = "Thống kê doanh thu"
+        Me.grpTotalBranch.Text = "Tổng doanh thu theo nhóm khách hàng"
         Me.grpTotalBranch.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
         'Panel1
@@ -553,18 +529,6 @@ Partial Class frmDashboard
         Me.Panel1.Controls.Add(Me.lblLoiNhuan)
         Me.Panel1.Controls.Add(Me.UltraLabel8)
         Me.Panel1.Controls.Add(Me.UltraLabel7)
-        Me.Panel1.Controls.Add(Me.lblGiaVon)
-        Me.Panel1.Controls.Add(Me.UltraLabel6)
-        Me.Panel1.Controls.Add(Me.lblDoanhSo)
-        Me.Panel1.Controls.Add(Me.UltraLabel5)
-        Me.Panel1.Controls.Add(Me.lblPhaiThu)
-        Me.Panel1.Controls.Add(Me.lblGiamGia)
-        Me.Panel1.Controls.Add(Me.UltraLabel4)
-        Me.Panel1.Controls.Add(Me.lblSoHoaDon)
-        Me.Panel1.Controls.Add(Me.UltraLabel3)
-        Me.Panel1.Controls.Add(Me.lblGiaTriBan)
-        Me.Panel1.Controls.Add(Me.UltraLabel2)
-        Me.Panel1.Controls.Add(Me.UltraLabel1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(3, 17)
         Me.Panel1.Name = "Panel1"
@@ -582,9 +546,9 @@ Partial Class frmDashboard
         Me.lblTienThuVe.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTienThuVe.Location = New System.Drawing.Point(7, 17)
         Me.lblTienThuVe.Name = "lblTienThuVe"
-        Me.lblTienThuVe.Size = New System.Drawing.Size(234, 40)
+        Me.lblTienThuVe.Size = New System.Drawing.Size(274, 40)
         Me.lblTienThuVe.TabIndex = 0
-        Me.lblTienThuVe.Text = "308,625,000"
+        Me.lblTienThuVe.Text = "308,625,000, 000"
         '
         'lblLoiNhuan
         '
@@ -597,9 +561,9 @@ Partial Class frmDashboard
         Me.lblLoiNhuan.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLoiNhuan.Location = New System.Drawing.Point(7, 119)
         Me.lblLoiNhuan.Name = "lblLoiNhuan"
-        Me.lblLoiNhuan.Size = New System.Drawing.Size(234, 40)
+        Me.lblLoiNhuan.Size = New System.Drawing.Size(274, 40)
         Me.lblLoiNhuan.TabIndex = 0
-        Me.lblLoiNhuan.Text = "302,000,000"
+        Me.lblLoiNhuan.Text = "302,000,000,000"
         '
         'UltraLabel8
         '
@@ -610,9 +574,9 @@ Partial Class frmDashboard
         Me.UltraLabel8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel8.Location = New System.Drawing.Point(7, 162)
         Me.UltraLabel8.Name = "UltraLabel8"
-        Me.UltraLabel8.Size = New System.Drawing.Size(234, 23)
+        Me.UltraLabel8.Size = New System.Drawing.Size(274, 23)
         Me.UltraLabel8.TabIndex = 0
-        Me.UltraLabel8.Text = "Lợi nhuận"
+        Me.UltraLabel8.Text = "Ngoài EVN"
         '
         'UltraLabel7
         '
@@ -623,171 +587,9 @@ Partial Class frmDashboard
         Me.UltraLabel7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UltraLabel7.Location = New System.Drawing.Point(7, 63)
         Me.UltraLabel7.Name = "UltraLabel7"
-        Me.UltraLabel7.Size = New System.Drawing.Size(234, 23)
+        Me.UltraLabel7.Size = New System.Drawing.Size(274, 23)
         Me.UltraLabel7.TabIndex = 0
-        Me.UltraLabel7.Text = "Tiền thu về"
-        '
-        'lblGiaVon
-        '
-        Me.lblGiaVon.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance42.BackColor = System.Drawing.Color.Transparent
-        Appearance42.TextHAlignAsString = "Right"
-        Appearance42.TextVAlignAsString = "Middle"
-        Me.lblGiaVon.Appearance = Appearance42
-        Me.lblGiaVon.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGiaVon.Location = New System.Drawing.Point(223, 162)
-        Me.lblGiaVon.Name = "lblGiaVon"
-        Me.lblGiaVon.Size = New System.Drawing.Size(127, 23)
-        Me.lblGiaVon.TabIndex = 0
-        Me.lblGiaVon.Text = "6,036,913"
-        '
-        'UltraLabel6
-        '
-        Me.UltraLabel6.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance43.BackColor = System.Drawing.Color.Transparent
-        Appearance43.TextVAlignAsString = "Middle"
-        Me.UltraLabel6.Appearance = Appearance43
-        Me.UltraLabel6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel6.Location = New System.Drawing.Point(142, 162)
-        Me.UltraLabel6.Name = "UltraLabel6"
-        Me.UltraLabel6.Size = New System.Drawing.Size(76, 23)
-        Me.UltraLabel6.TabIndex = 0
-        Me.UltraLabel6.Text = "Giá vốn"
-        '
-        'lblDoanhSo
-        '
-        Me.lblDoanhSo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance44.BackColor = System.Drawing.Color.Transparent
-        Appearance44.TextHAlignAsString = "Right"
-        Appearance44.TextVAlignAsString = "Middle"
-        Me.lblDoanhSo.Appearance = Appearance44
-        Me.lblDoanhSo.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDoanhSo.Location = New System.Drawing.Point(223, 133)
-        Me.lblDoanhSo.Name = "lblDoanhSo"
-        Me.lblDoanhSo.Size = New System.Drawing.Size(127, 23)
-        Me.lblDoanhSo.TabIndex = 0
-        Me.lblDoanhSo.Text = "308,625,000"
-        '
-        'UltraLabel5
-        '
-        Me.UltraLabel5.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance45.BackColor = System.Drawing.Color.Transparent
-        Appearance45.TextVAlignAsString = "Middle"
-        Me.UltraLabel5.Appearance = Appearance45
-        Me.UltraLabel5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel5.Location = New System.Drawing.Point(142, 133)
-        Me.UltraLabel5.Name = "UltraLabel5"
-        Me.UltraLabel5.Size = New System.Drawing.Size(76, 23)
-        Me.UltraLabel5.TabIndex = 0
-        Me.UltraLabel5.Text = "Doanh số"
-        '
-        'lblPhaiThu
-        '
-        Me.lblPhaiThu.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance46.BackColor = System.Drawing.Color.Transparent
-        Appearance46.TextHAlignAsString = "Right"
-        Appearance46.TextVAlignAsString = "Middle"
-        Me.lblPhaiThu.Appearance = Appearance46
-        Me.lblPhaiThu.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPhaiThu.Location = New System.Drawing.Point(223, 104)
-        Me.lblPhaiThu.Name = "lblPhaiThu"
-        Me.lblPhaiThu.Size = New System.Drawing.Size(127, 23)
-        Me.lblPhaiThu.TabIndex = 0
-        Me.lblPhaiThu.Text = "308,625,000"
-        '
-        'lblGiamGia
-        '
-        Me.lblGiamGia.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance47.BackColor = System.Drawing.Color.Transparent
-        Appearance47.TextHAlignAsString = "Right"
-        Appearance47.TextVAlignAsString = "Middle"
-        Me.lblGiamGia.Appearance = Appearance47
-        Me.lblGiamGia.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGiamGia.Location = New System.Drawing.Point(223, 75)
-        Me.lblGiamGia.Name = "lblGiamGia"
-        Me.lblGiamGia.Size = New System.Drawing.Size(127, 23)
-        Me.lblGiamGia.TabIndex = 0
-        Me.lblGiamGia.Text = "650,000"
-        '
-        'UltraLabel4
-        '
-        Me.UltraLabel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance48.BackColor = System.Drawing.Color.Transparent
-        Appearance48.TextVAlignAsString = "Middle"
-        Me.UltraLabel4.Appearance = Appearance48
-        Me.UltraLabel4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel4.Location = New System.Drawing.Point(142, 104)
-        Me.UltraLabel4.Name = "UltraLabel4"
-        Me.UltraLabel4.Size = New System.Drawing.Size(76, 23)
-        Me.UltraLabel4.TabIndex = 0
-        Me.UltraLabel4.Text = "Phải thu"
-        '
-        'lblSoHoaDon
-        '
-        Me.lblSoHoaDon.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance49.BackColor = System.Drawing.Color.Transparent
-        Appearance49.TextHAlignAsString = "Right"
-        Appearance49.TextVAlignAsString = "Middle"
-        Me.lblSoHoaDon.Appearance = Appearance49
-        Me.lblSoHoaDon.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSoHoaDon.Location = New System.Drawing.Point(223, 46)
-        Me.lblSoHoaDon.Name = "lblSoHoaDon"
-        Me.lblSoHoaDon.Size = New System.Drawing.Size(127, 23)
-        Me.lblSoHoaDon.TabIndex = 0
-        Me.lblSoHoaDon.Text = "36"
-        '
-        'UltraLabel3
-        '
-        Me.UltraLabel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance50.BackColor = System.Drawing.Color.Transparent
-        Appearance50.TextVAlignAsString = "Middle"
-        Me.UltraLabel3.Appearance = Appearance50
-        Me.UltraLabel3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel3.Location = New System.Drawing.Point(142, 75)
-        Me.UltraLabel3.Name = "UltraLabel3"
-        Me.UltraLabel3.Size = New System.Drawing.Size(76, 23)
-        Me.UltraLabel3.TabIndex = 0
-        Me.UltraLabel3.Text = "Giảm giá"
-        '
-        'lblGiaTriBan
-        '
-        Me.lblGiaTriBan.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance51.BackColor = System.Drawing.Color.Transparent
-        Appearance51.TextHAlignAsString = "Right"
-        Appearance51.TextVAlignAsString = "Middle"
-        Me.lblGiaTriBan.Appearance = Appearance51
-        Me.lblGiaTriBan.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblGiaTriBan.Location = New System.Drawing.Point(223, 17)
-        Me.lblGiaTriBan.Name = "lblGiaTriBan"
-        Me.lblGiaTriBan.Size = New System.Drawing.Size(127, 23)
-        Me.lblGiaTriBan.TabIndex = 0
-        Me.lblGiaTriBan.Text = "309,275,000"
-        '
-        'UltraLabel2
-        '
-        Me.UltraLabel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance52.BackColor = System.Drawing.Color.Transparent
-        Appearance52.TextVAlignAsString = "Middle"
-        Me.UltraLabel2.Appearance = Appearance52
-        Me.UltraLabel2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel2.Location = New System.Drawing.Point(142, 46)
-        Me.UltraLabel2.Name = "UltraLabel2"
-        Me.UltraLabel2.Size = New System.Drawing.Size(76, 23)
-        Me.UltraLabel2.TabIndex = 0
-        Me.UltraLabel2.Text = "Số hóa đơn"
-        '
-        'UltraLabel1
-        '
-        Me.UltraLabel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Appearance53.BackColor = System.Drawing.Color.Transparent
-        Appearance53.TextVAlignAsString = "Middle"
-        Me.UltraLabel1.Appearance = Appearance53
-        Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel1.Location = New System.Drawing.Point(142, 17)
-        Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(76, 23)
-        Me.UltraLabel1.TabIndex = 0
-        Me.UltraLabel1.Text = "Giá trị bán"
+        Me.UltraLabel7.Text = "Trong EVN"
         '
         'grpRevenueByProGroup
         '
@@ -999,7 +801,7 @@ Partial Class frmDashboard
         Me.grpItemSaleToday.Name = "grpItemSaleToday"
         Me.grpItemSaleToday.Size = New System.Drawing.Size(430, 496)
         Me.grpItemSaleToday.TabIndex = 4
-        Me.grpItemSaleToday.Text = "Tình trạng thực hiện của hợp đồng"
+        Me.grpItemSaleToday.Text = "Tổng hợp các Hợp đồng sắp hết hạn"
         Me.grpItemSaleToday.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
         'GridProduct
@@ -1101,23 +903,11 @@ Partial Class frmDashboard
     Private WithEvents TotalSaleChart As Infragistics.Win.UltraWinChart.UltraChart
     Private WithEvents HourSaleChart As Infragistics.Win.UltraWinChart.UltraChart
     Private WithEvents GroupItemSaleChart As Infragistics.Win.UltraWinChart.UltraChart
-    Friend WithEvents UltraLabel1 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents lblTienThuVe As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents lblLoiNhuan As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents UltraLabel8 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents UltraLabel7 As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents lblGiaVon As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents UltraLabel6 As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents lblDoanhSo As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents UltraLabel5 As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents lblPhaiThu As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents lblGiamGia As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents UltraLabel4 As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents lblSoHoaDon As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents UltraLabel3 As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents lblGiaTriBan As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents UltraLabel2 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents grpItemSaleToday As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents GridProduct As Infragistics.Win.UltraWinGrid.UltraGrid
 End Class

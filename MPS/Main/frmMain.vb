@@ -144,6 +144,9 @@
         Select Case e.Tool.Key
             Case "Dashboard"
                 ShowForm(ModMain.m_Dashboard)
+            Case "Projects"
+                Dim frm As New frmProjects
+                ShowForm(frm)
             Case "Contracts"
                 Dim frm As New frmContracts
                 ShowForm(frm)

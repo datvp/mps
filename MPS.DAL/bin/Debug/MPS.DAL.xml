@@ -33,6 +33,34 @@ MPS.DAL
 	<param name="UID"></param>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="M:MPS.DAL.DAL_Public.GenRandomInt(System.Int32,System.Int32)">
+	<summary>
+ Generates a random Integer with any (inclusive) minimum or (inclusive) maximum values, with full range of Int32 values.
+ </summary>
+	<param name="inMin">Inclusive Minimum value. Lowest possible return value.</param>
+	<param name="inMax">Inclusive Maximum value. Highest possible return value.</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.DAL.DAL_Public.getChart_TotalSale(System.DateTime)">
+	<summary>
+ doanh số theo quý trong năm
+ </summary>
+	<param name="thang"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.DAL.DAL_Public.getChart_StateSale">
+	<summary>
+ doanh số theo trạng thái hợp đồng
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.DAL.DAL_Public.getListDeadlineContracts(System.Int32)">
+	<summary>
+ tổng hợp các hợp đồng sắp hết hạn
+ </summary>
+	<param name="deadline">số ngày hết hạn so với ngày hiện tại</param>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="M:MPS.DAL.DALSQL.getQueryBranch(System.String,System.String)">
 	<summary>
  truy vấn điều kiện filter theo chi nhánh

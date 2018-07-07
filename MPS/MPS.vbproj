@@ -459,6 +459,10 @@
       <DependentUpon>frmProjectDetail.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\Projects\frmProjects.resx">
+      <DependentUpon>frmProjects.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\FrmReport.resx">
       <DependentUpon>FrmReport.vb</DependentUpon>
       <SubType>Designer</SubType>

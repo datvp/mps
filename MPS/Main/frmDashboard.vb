@@ -2,6 +2,8 @@
 
 Public Class frmDashboard
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
+    Dim b As BLL.BPublic = BLL.BPublic.Instance
+
 #Region "SUB NEW"
     Sub New()
         ' This call is required by the Windows Form Designer.
@@ -27,54 +29,35 @@ Public Class frmDashboard
     End Sub
 
     Private Sub frmDashboard_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        ModMain.SetTitle(Me, "Tình hình kinh doanh tổng quan")
-        grpTotalSaleChart.Text += " tháng " & Now.ToString("MM/yyyy")
+        ModMain.SetTitle(Me, "Dashboard")
+        grpTotalSaleChart.Text += " trong năm " & Now.Year.ToString
         LoadChart()
     End Sub
     Public Sub LoadChart()
-        'Dim tb = b.getChart_TotalSale(Now)
-        'TotalSaleChart.Data.DataSource = tb
-        'TotalSaleChart.Data.DataBind()
+        Me.Cursor = Cursors.WaitCursor
 
-        'HourSaleChart.Data.DataSource = b.getChart_HourSale()
-        'HourSaleChart.Data.DataBind()
+        'Tổng doanh thu theo mốc thời gian
+        Dim tb = b.getChart_TotalSale(Now)
+        TotalSaleChart.Data.DataSource = tb
+        TotalSaleChart.Data.DataBind()
+        'doanh thu theo trạng thái: đã ký/chờ ký
+        HourSaleChart.Data.DataSource = b.getChart_StateSale()
+        HourSaleChart.Data.DataBind()
+        'doanh thu theo dự án
+        GroupItemSaleChart.Data.DataSource = b.getChartByProject()
+        GroupItemSaleChart.Data.DataBind()
+        'Tổng hợp các Hợp đồng sắp hết hạn
+        GridProduct.DataSource = b.getListDeadlineContracts(90) ' trong 90 ngày
 
-        'GroupItemSaleChart.Data.DataSource = b.getChart_ProductGroup()
-        'GroupItemSaleChart.Data.DataBind()
-
-        'Dim gtban = b.getGiaTriBan() ' ĐÃ CÓ GIẢM GIÁ
-        'Dim slg = b.getSoHoaDon()
-        'Dim giamgia = b.getGiamGia()
-        'Dim giavon = b.getGiaVonHangBan()
-        'lblGiaTriBan.Text = Format(gtban + giamgia, ModMain.m_strFormatCur)
-        'lblSoHoaDon.Text = slg
-        'lblGiamGia.Text = Format(giamgia, ModMain.m_strFormatCur)
-        'lblPhaiThu.Text = Format(gtban, ModMain.m_strFormatCur)
-        'lblDoanhSo.Text = lblPhaiThu.Text
-        'lblGiaVon.Text = Format(giavon, ModMain.m_strFormatCur)
-        'lblTienThuVe.Text = lblDoanhSo.Text
-        'lblLoiNhuan.Text = Format(gtban - giavon, ModMain.m_strFormatCur)
-
-        ''mua - bán trong ngày
-        'GridProduct.DataSource = b.getListItemSaleByDate(Now)
-        'If GridProduct.DataSource IsNot Nothing Then
-        '    For Each r In GridProduct.Rows
-        '        Dim mnv = r.Cells("MaNghiepVu").Value
-        '        If mnv.Equals("<--") Then
-        '            r.CellAppearance.ForeColor = Color.Red
-        '        Else
-        '            r.CellAppearance.ForeColor = Color.Blue
-        '        End If
-        '    Next
-        'End If
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub TotalSaleChart_ChartDataClicked(ByVal sender As System.Object, ByVal e As Infragistics.UltraChart.Shared.Events.ChartDataEventArgs) Handles TotalSaleChart.ChartDataClicked
-        Dim val = e.DataValue
-        Dim ngay = e.RowLabel
-        Dim dtDate = CDate(Now.Year.ToString & "-" & Now.Month.ToString & "-" & ngay)
-        Dim frm As New frmDashboardDetail
-        frm.ShowDialog(dtDate)
+        'Dim val = e.DataValue
+        'Dim ngay = e.RowLabel
+        'Dim dtDate = CDate(Now.Year.ToString & "-" & Now.Month.ToString & "-" & ngay)
+        'Dim frm As New frmDashboardDetail
+        'frm.ShowDialog(dtDate)
         'ShowMsg(val.ToString())
         'ModMain.ChartToExcel(TotalSaleChart)
     End Sub

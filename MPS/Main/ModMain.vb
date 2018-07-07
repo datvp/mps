@@ -168,6 +168,9 @@ Module ModMain
     Public m_Logo As System.Drawing.Icon
     Public m_fDemo As Boolean = False
     Public m_Dashboard As frmDashboard
+    Public m_CancelIcon = Global.MPS.My.Resources.Resources.thoatct
+    Public m_OkIcon = Global.MPS.My.Resources.Resources.check
+    Public m_SaveIcon = Global.MPS.My.Resources.Resources.Luu
 
     <System.Runtime.InteropServices.DllImportAttribute("user32.dll")> _
     Private Function DestroyIcon(ByVal handle As IntPtr) As Boolean
@@ -808,8 +811,8 @@ Module ModMain
         End If
 
         'show about
-        Dim frFlag As New frmFlash
-        frFlag.ShowDialog()
+        'Dim frFlag As New frmFlash
+        'frFlag.ShowDialog()
 
         'get connection
         Dim clsL As BLL.BLogin = BLL.BLogin.Instance
@@ -1601,7 +1604,7 @@ Module ModMain
         Dim tb As DataTable = db.getListByRightToExecute(UID)
         Return tb
     End Function
-    Public Sub RedButton(ByVal bt As Infragistics.Win.Misc.UltraButton)
+    Public Sub RedButton(ByVal bt As Infragistics.Win.Misc.UltraButton, Optional ByVal ico As System.Drawing.Bitmap = Nothing)
         Dim Appearance37 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance38 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance39 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -1612,6 +1615,9 @@ Module ModMain
         Appearance37.BorderColor = cDefault
         Appearance37.BorderColor2 = System.Drawing.Color.Transparent
         Appearance37.FontData.Bold = Infragistics.Win.DefaultableBoolean.True
+        If ico IsNot Nothing Then
+            Appearance37.Image = ico
+        End If
         bt.Appearance = Appearance37
 
         Appearance38.BackColor = cPressHot
@@ -1623,7 +1629,7 @@ Module ModMain
         bt.PressedAppearance = Appearance39
         bt.Cursor = Cursors.Hand
     End Sub
-    Public Sub GreenButton(ByVal bt As Infragistics.Win.Misc.UltraButton)
+    Public Sub GreenButton(ByVal bt As Infragistics.Win.Misc.UltraButton, Optional ByVal ico As System.Drawing.Bitmap = Nothing)
         Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance35 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance36 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -1634,6 +1640,9 @@ Module ModMain
         Appearance34.BorderColor = cDefault
         Appearance34.BorderColor2 = System.Drawing.Color.Transparent
         Appearance34.FontData.Bold = Infragistics.Win.DefaultableBoolean.True
+        If ico IsNot Nothing Then
+            Appearance34.Image = ico
+        End If
         bt.Appearance = Appearance34
 
         Appearance35.BackColor = cPressHot
@@ -1645,7 +1654,7 @@ Module ModMain
         bt.PressedAppearance = Appearance36
         bt.Cursor = Cursors.Hand
     End Sub
-    Public Sub BlueButton(ByVal bt As Infragistics.Win.Misc.UltraButton)
+    Public Sub BlueButton(ByVal bt As Infragistics.Win.Misc.UltraButton, Optional ByVal ico As System.Drawing.Bitmap = Nothing)
         Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance35 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance36 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -1656,6 +1665,9 @@ Module ModMain
         Appearance34.BorderColor = cDefault
         Appearance34.BorderColor2 = System.Drawing.Color.Transparent
         Appearance34.FontData.Bold = Infragistics.Win.DefaultableBoolean.True
+        If ico IsNot Nothing Then
+            Appearance34.Image = ico
+        End If
         bt.Appearance = Appearance34
 
         Appearance35.BackColor = cPressHot

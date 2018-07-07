@@ -185,4 +185,29 @@
     Public Function GetSmsContent() As String
         Return cls.GetSmsContent()
     End Function
+
+    Public Function getChart_TotalSale(ByVal thang As Date) As DataTable
+        Return cls.getChart_TotalSale(thang)
+    End Function
+    ''' <summary>
+    ''' doanh số theo trạng thái hợp đồng
+    ''' </summary>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function getChart_StateSale() As DataTable
+        Return cls.getChart_StateSale()
+    End Function
+
+    ''' <summary>
+    ''' tổng hợp các hợp đồng sắp hết hạn
+    ''' </summary>
+    ''' <param name="deadline">số ngày hết hạn so với ngày hiện tại</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function getListDeadlineContracts(ByVal deadline As Integer) As DataTable
+        Return cls.getListDeadlineContracts(deadline)
+    End Function
+    Public Function getChartByProject() As DataTable
+        Return cls.getChartByProject()
+    End Function
 End Class

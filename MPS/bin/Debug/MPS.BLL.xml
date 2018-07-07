@@ -6,7 +6,20 @@ MPS.BLL
 </name>
 </assembly>
 <members>
-<member name="M:MPS.BLL.B_Report.getListStoreNameSelect(System.String)">
+<member name="M:MPS.BLL.BPublic.getChart_StateSale">
+	<summary>
+ doanh số theo trạng thái hợp đồng
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.BLL.BPublic.getListDeadlineContracts(System.Int32)">
+	<summary>
+ tổng hợp các hợp đồng sắp hết hạn
+ </summary>
+	<param name="deadline">số ngày hết hạn so với ngày hiện tại</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.BLL.B_Report.getListStoreNameSelect(System.String)">
 	<summary>
  lấy ds tên kho đang chọn
  </summary>
