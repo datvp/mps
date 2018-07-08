@@ -2095,4 +2095,8 @@ Public Class DAL_Public
         tb.Rows.Add(dr)
         Return tb
     End Function
+
+    Public Function getListReports() As DataTable
+        Return getTableSQL("Select * from Ls_Reports where Valid=1 Order by IDSort asc")
+    End Function
 End Class

@@ -132,3 +132,4 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.pdb
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmContractDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmContracts.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmProjects.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmTotalReports.resources

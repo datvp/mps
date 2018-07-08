@@ -4,24 +4,24 @@ Public Class frmDashboard
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
     Dim b As BLL.BPublic = BLL.BPublic.Instance
 
-#Region "SUB NEW"
-    Sub New()
-        ' This call is required by the Windows Form Designer.
-        InitializeComponent()
+    '#Region "SUB NEW"
+    '    Sub New()
+    '        ' This call is required by the Windows Form Designer.
+    '        InitializeComponent()
 
-        ' Add any initialization after the InitializeComponent() call.
-    End Sub
+    '        ' Add any initialization after the InitializeComponent() call.
+    '    End Sub
 
-    Private Shared obj As frmDashboard
-    Public Shared ReadOnly Property Instance() As frmDashboard
-        Get
-            If obj Is Nothing Then
-                obj = New frmDashboard
-            End If
-            Return obj
-        End Get
-    End Property
-#End Region
+    '    Private Shared obj As frmDashboard
+    '    Public Shared ReadOnly Property Instance() As frmDashboard
+    '        Get
+    '            If obj Is Nothing Then
+    '                obj = New frmDashboard
+    '            End If
+    '            Return obj
+    '        End Get
+    '    End Property
+    '#End Region
     Private Sub frmDashboard_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
         If e.KeyCode = Keys.F5 Then
             LoadChart()

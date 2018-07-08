@@ -210,4 +210,8 @@
     Public Function getChartByProject() As DataTable
         Return cls.getChartByProject()
     End Function
+
+    Public Function getListReports() As DataTable
+        Return cls.getListReports()
+    End Function
 End Class

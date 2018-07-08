@@ -256,6 +256,12 @@
     <Compile Include="Report\FrmReport.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Report\frmTotalReports.Designer.vb">
+      <DependentUpon>frmTotalReports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Report\frmTotalReports.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Resources\ResBMS.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -465,6 +471,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FrmReport.resx">
       <DependentUpon>FrmReport.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\frmTotalReports.resx">
+      <DependentUpon>frmTotalReports.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ResBMS.resx">

@@ -167,10 +167,10 @@ Module ModMain
     Public m_isLoadImageProduct As Boolean = True
     Public m_Logo As System.Drawing.Icon
     Public m_fDemo As Boolean = False
-    Public m_Dashboard As frmDashboard
     Public m_CancelIcon = Global.MPS.My.Resources.Resources.thoatct
     Public m_OkIcon = Global.MPS.My.Resources.Resources.check
     Public m_SaveIcon = Global.MPS.My.Resources.Resources.Luu
+    Public clsu As New VsoftBMS.Ulti.ClsUti
 
     <System.Runtime.InteropServices.DllImportAttribute("user32.dll")> _
     Private Function DestroyIcon(ByVal handle As IntPtr) As Boolean
@@ -1793,4 +1793,25 @@ Module ModMain
         End Try
 
     End Sub
+
+    Public Sub UltraTextBox_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+        Dim k As Short = Asc(e.KeyChar)
+        If k <> 13 Then
+            clsu.UltraTextBox_KeyPress(k, sender)
+            If k = 0 Then
+                e.Handled = True
+            End If
+        End If
+    End Sub
+    Public Sub UltraTextBox_LostFocus(ByVal sender As System.Object)
+        clsu.UltraTextBox_LostFocus("", sender)
+    End Sub
+    Public Sub UltraTextBox_ValueChanged(ByVal sender As System.Object)
+        clsu.UltraTextBox_Change("", sender)
+    End Sub
+
+    Public Function convertMoney(ByVal value As Double) As String
+        Dim des = clsu.convertMoney(value, m_SysCurChar)
+        Return des
+    End Function
 End Module

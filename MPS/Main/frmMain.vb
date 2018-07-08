@@ -39,7 +39,8 @@
         Me.WindowState = FormWindowState.Maximized
 
         'load dashboard
-        ShowForm(ModMain.m_Dashboard)
+        Dim frm As New frmDashboard
+        ShowForm(frm)
     End Sub
     Private Sub frmMain_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         UltraStatusBar1.Panels("Branch").Text = "Company: " & ModMain.m_BranchName
@@ -142,8 +143,21 @@
 #Region "Toolbar manager"
     Private Sub tbManager_ToolClick(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) Handles tbManager.ToolClick
         Select Case e.Tool.Key
+            Case "Reports"
+                Dim frm As New frmTotalReports
+                ShowForm(frm)
             Case "Dashboard"
-                ShowForm(ModMain.m_Dashboard)
+                Dim frm As New frmDashboard
+                ShowForm(frm)
+            Case "Items"
+                Dim frm As New frmItems
+                ShowForm(frm)
+            Case "Clients"
+                Dim frm As New frmClients
+                ShowForm(frm)
+            Case "ClientGroups"
+                Dim frm As New frmClientGroups
+                ShowForm(frm)
             Case "Projects"
                 Dim frm As New frmProjects
                 ShowForm(frm)
@@ -161,14 +175,11 @@
                 '    Dim frm As New frmNguonKH
                 '    frm.ShowDialog()
             Case "btnLogin"
-                Dim frm As New frmContractDetail
-                frm.ShowDialog()
-
-                'While Not Me.ActiveMdiChild Is Nothing
-                '    Me.ActiveMdiChild.Close()
-                'End While
-                'Dim frm As New FrmLogin
-                'frm.ShowDialog(True)
+                While Not Me.ActiveMdiChild Is Nothing
+                    Me.ActiveMdiChild.Close()
+                End While
+                Dim frm As New FrmLogin
+                frm.ShowDialog(True)
 
                 'Me.Text = FormTitle
                 'Case "btnConfix"
