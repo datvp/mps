@@ -1,6 +1,7 @@
 # Microsoft Developer Studio Project File - Database Project
 Begin DataProject = "Doc_Ref"
    MSDTVersion = "80"
+   Node = "data.bak"
    Begin DBRefFolder = "Database References"
    End
    Begin Folder = "Ref"
