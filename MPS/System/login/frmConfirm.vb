@@ -12,10 +12,8 @@
     Private Sub Confirm()
         Dim tb As DataTable = b.getUser(txtUser.Text.Trim)
         If tb Is Nothing Then
-            ShowMsg(clsLang.getLang(1, 102), "")
             Exit Sub
         ElseIf tb.Rows.Count = 0 Then
-            ShowMsg(clsLang.getLang(1, 101), "")
             Exit Sub
         Else
             Dim sPWD As String = txtPass.Text

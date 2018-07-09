@@ -123,7 +123,6 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.FrmChangePWD.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.FrmGroupUser.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.FrmNewGroupUser.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.FrmNewUser.resources
-E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.FrmSecUserTest.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.vbproj.GenerateResource.Cache
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.exe.licenses
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.exe
@@ -133,3 +132,8 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmContractDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmContracts.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmProjects.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmTotalReports.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmClientGroups.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmClients.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmItems.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmUsers.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmSubContractors.resources

@@ -1,5 +1,17 @@
 ﻿Public Class BEvent
-    Private WithEvents cls As New DAL.DALEvent
+    Private Sub New()
+    End Sub
+    Private Shared obj As BEvent
+    Public Shared ReadOnly Property Instance() As BEvent
+        Get
+            If obj Is Nothing Then
+                obj = New BEvent
+            End If
+            Return obj
+        End Get
+    End Property
+
+    Private WithEvents cls As DAL.DALEvent = DAL.DALEvent.Instance
     Event _errorRaise(ByVal messege As String)
 
     Private Sub cls__error(ByVal message As String) Handles cls._error

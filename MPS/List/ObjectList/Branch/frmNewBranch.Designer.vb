@@ -66,19 +66,19 @@ Partial Class frmNewBranch
         'txtNote
         '
         Me.txtNote.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNote.Location = New System.Drawing.Point(102, 115)
+        Me.txtNote.Location = New System.Drawing.Point(108, 143)
         Me.txtNote.MaxLength = 1024
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
         Me.txtNote.Scrollbars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtNote.Size = New System.Drawing.Size(258, 99)
+        Me.txtNote.Size = New System.Drawing.Size(258, 69)
         Me.txtNote.TabIndex = 10
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(9, 122)
+        Me.Label4.Location = New System.Drawing.Point(15, 143)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 13)
         Me.Label4.TabIndex = 9
@@ -88,7 +88,7 @@ Partial Class frmNewBranch
         'txtBranch_ID
         '
         Me.txtBranch_ID.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBranch_ID.Location = New System.Drawing.Point(102, 5)
+        Me.txtBranch_ID.Location = New System.Drawing.Point(108, 12)
         Me.txtBranch_ID.MaxLength = 50
         Me.txtBranch_ID.Name = "txtBranch_ID"
         Me.txtBranch_ID.Size = New System.Drawing.Size(141, 22)
@@ -98,7 +98,7 @@ Partial Class frmNewBranch
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(9, 34)
+        Me.Label2.Location = New System.Drawing.Point(15, 46)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(88, 13)
         Me.Label2.TabIndex = 3
@@ -109,7 +109,7 @@ Partial Class frmNewBranch
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 8)
+        Me.Label1.Location = New System.Drawing.Point(15, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(87, 13)
         Me.Label1.TabIndex = 1
@@ -118,16 +118,16 @@ Partial Class frmNewBranch
         '
         'UltraGroupBox1
         '
-        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.None
+        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
         Me.UltraGroupBox1.Controls.Add(Me.btnSaveClose)
         Me.UltraGroupBox1.Controls.Add(Me.btnClose)
         Me.UltraGroupBox1.Controls.Add(Me.btnSave)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 271)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 307)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(374, 36)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(421, 36)
         Me.UltraGroupBox1.TabIndex = 11
-        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
+        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'btnSaveClose
         '
@@ -145,7 +145,7 @@ Partial Class frmNewBranch
         Appearance3.BackColor2 = System.Drawing.Color.White
         Appearance3.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnSaveClose.HotTrackAppearance = Appearance3
-        Me.btnSaveClose.Location = New System.Drawing.Point(54, 7)
+        Me.btnSaveClose.Location = New System.Drawing.Point(87, 7)
         Me.btnSaveClose.Name = "btnSaveClose"
         Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance9.BackColor2 = System.Drawing.Color.White
@@ -175,7 +175,7 @@ Partial Class frmNewBranch
         Appearance8.BackColor2 = System.Drawing.Color.White
         Appearance8.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnClose.HotTrackAppearance = Appearance8
-        Me.btnClose.Location = New System.Drawing.Point(275, 7)
+        Me.btnClose.Location = New System.Drawing.Point(308, 7)
         Me.btnClose.Name = "btnClose"
         Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance11.BackColor2 = System.Drawing.Color.White
@@ -204,7 +204,7 @@ Partial Class frmNewBranch
         Appearance14.BackColor2 = System.Drawing.Color.White
         Appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnSave.HotTrackAppearance = Appearance14
-        Me.btnSave.Location = New System.Drawing.Point(193, 7)
+        Me.btnSave.Location = New System.Drawing.Point(226, 7)
         Me.btnSave.Name = "btnSave"
         Appearance15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance15.BackColor2 = System.Drawing.Color.White
@@ -220,7 +220,7 @@ Partial Class frmNewBranch
         'txtIDSort
         '
         Me.txtIDSort.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIDSort.Location = New System.Drawing.Point(307, 5)
+        Me.txtIDSort.Location = New System.Drawing.Point(313, 12)
         Me.txtIDSort.MaxLength = 50
         Me.txtIDSort.Name = "txtIDSort"
         Me.txtIDSort.Size = New System.Drawing.Size(53, 22)
@@ -231,7 +231,7 @@ Partial Class frmNewBranch
         'txtName
         '
         Me.txtName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.Location = New System.Drawing.Point(102, 30)
+        Me.txtName.Location = New System.Drawing.Point(108, 42)
         Me.txtName.MaxLength = 50
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(258, 22)
@@ -240,7 +240,7 @@ Partial Class frmNewBranch
         'txtSID
         '
         Me.txtSID.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSID.Location = New System.Drawing.Point(248, 5)
+        Me.txtSID.Location = New System.Drawing.Point(254, 12)
         Me.txtSID.MaxLength = 50
         Me.txtSID.Name = "txtSID"
         Me.txtSID.Size = New System.Drawing.Size(53, 22)
@@ -263,14 +263,14 @@ Partial Class frmNewBranch
         Me.UltraLabel1.ImageSize = New System.Drawing.Size(32, 32)
         Me.UltraLabel1.Location = New System.Drawing.Point(0, 0)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(374, 46)
+        Me.UltraLabel1.Size = New System.Drawing.Size(421, 46)
         Me.UltraLabel1.TabIndex = 0
         Me.UltraLabel1.Text = "CHI NHÁNH"
         '
         'txtAddress
         '
         Me.txtAddress.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAddress.Location = New System.Drawing.Point(102, 55)
+        Me.txtAddress.Location = New System.Drawing.Point(108, 72)
         Me.txtAddress.MaxLength = 255
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
@@ -282,7 +282,7 @@ Partial Class frmNewBranch
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(9, 60)
+        Me.Label3.Location = New System.Drawing.Point(15, 77)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 13)
         Me.Label3.TabIndex = 5
@@ -292,7 +292,7 @@ Partial Class frmNewBranch
         'txtPhone
         '
         Me.txtPhone.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPhone.Location = New System.Drawing.Point(102, 90)
+        Me.txtPhone.Location = New System.Drawing.Point(108, 112)
         Me.txtPhone.MaxLength = 50
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(258, 22)
@@ -302,7 +302,7 @@ Partial Class frmNewBranch
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(9, 96)
+        Me.Label5.Location = New System.Drawing.Point(15, 118)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(59, 13)
         Me.Label5.TabIndex = 7
@@ -327,9 +327,9 @@ Partial Class frmNewBranch
         Me.UltraGroupBox2.Controls.Add(Me.txtIDSort)
         Me.UltraGroupBox2.Controls.Add(Me.txtSID)
         Me.UltraGroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(3, 49)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(13, 59)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(368, 220)
+        Me.UltraGroupBox2.Size = New System.Drawing.Size(394, 231)
         Me.UltraGroupBox2.TabIndex = 23
         '
         'frmNewBranch
@@ -337,7 +337,7 @@ Partial Class frmNewBranch
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.AliceBlue
-        Me.ClientSize = New System.Drawing.Size(374, 307)
+        Me.ClientSize = New System.Drawing.Size(421, 343)
         Me.Controls.Add(Me.UltraGroupBox2)
         Me.Controls.Add(Me.UltraLabel1)
         Me.Controls.Add(Me.UltraGroupBox1)

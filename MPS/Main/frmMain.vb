@@ -1,13 +1,8 @@
 ﻿Public Class frmMain
 
 #Region "Declare"
-    Dim value As Boolean = False
-    Dim vitri As Integer = -1
-    Dim strFormShowDialog As String = ""
-    Dim sUID As String = ""
     Dim cls As BLL.BPublic = BLL.BPublic.Instance
     Dim Add As Boolean = False
-    Dim fRec As Boolean = False
 #End Region
 
 #Region "Form event"
@@ -30,7 +25,6 @@
         Dim HostName As String = My.Computer.Name
         Dim IPAddress As String = m_strMyIPAddress
         clsL.UpDateComputerLogin(HostName, IPAddress, False)
-        SendMessageSRV(m_strMyIPAddress & ";out", sAddressServer)
         e.Cancel = False
     End Sub
 
@@ -48,13 +42,6 @@
         UltraStatusBar1.Panels("UserName").Text = "User: " & ModMain.m_UIDLogin
         UltraStatusBar1.Panels("DB").Text = "Database : " & ModMain.m_DB
         tbManager.Ribbon.Caption = FormTitle + " | " + m_Version
-        Dim f As Form = Me.ActiveMdiChild
-
-        If f Is Nothing Then Exit Sub
-        If strFormShowDialog.ToLower = f.Name.ToLower Then
-            'f.Text = f.Name & Now.ToString
-            strFormShowDialog = ""
-        End If
     End Sub
     Private Sub frmMain_MdiChildActivate(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.MdiChildActivate
         Dim f As Form = Me.ActiveMdiChild
@@ -149,6 +136,9 @@
             Case "Dashboard"
                 Dim frm As New frmDashboard
                 ShowForm(frm)
+            Case "SubContractors"
+                Dim frm As New frmSubContractors
+                ShowForm(frm)
             Case "Items"
                 Dim frm As New frmItems
                 ShowForm(frm)
@@ -164,16 +154,34 @@
             Case "Contracts"
                 Dim frm As New frmContracts
                 ShowForm(frm)
-                'Case "chinhanh"
-                '    If Not CheckSecurity(12, Add) Then
-                '        ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
-                '        Exit Sub
-                '    End If
-                '    Dim frm As New frmBranch
-                '    ShowForm(frm)
-                'Case "nguonkhachhang"
-                '    Dim frm As New frmNguonKH
-                '    frm.ShowDialog()
+            Case "Branchs"
+                If Not CheckSecurity(12, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
+                Dim frm As New frmBranch
+                ShowForm(frm)
+            Case "SetPermission"
+                If Not CheckSecurity(83, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
+                Dim frm As New FrmFuncRight
+                ShowForm(frm)
+            Case "Users"
+                If Not CheckSecurity(47, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
+                Dim frm As New frmUsers
+                ShowForm(frm)
+            Case "UserGroups"
+                If Not CheckSecurity(44, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
+                Dim frm As New FrmGroupUser
+                ShowForm(frm)
             Case "btnLogin"
                 While Not Me.ActiveMdiChild Is Nothing
                     Me.ActiveMdiChild.Close()
@@ -181,15 +189,14 @@
                 Dim frm As New FrmLogin
                 frm.ShowDialog(True)
 
-                'Me.Text = FormTitle
-                'Case "btnConfix"
-                '    If Not CheckSecurity(87, Add) Then
-                '        ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
-                '        Exit Sub
-                '    End If
-                '    Dim frm As New frmConfigProgram
-                '    frm.ShowDialog()
-            Case "btnEven"
+            Case "Configuations"
+                'If Not CheckSecurity(87, Add) Then
+                '    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                '    Exit Sub
+                'End If
+                'Dim frm As New frmConfigProgram
+                'frm.ShowDialog()
+            Case "EventHistory"
                 If Not CheckSecurity(53, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
                     Exit Sub

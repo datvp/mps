@@ -6,13 +6,6 @@ Imports System.Management
 Imports Microsoft.Office.Interop
 
 Module ModMain
-    Public m_IsSMS As Boolean = False
-
-    Public m_IsViewAllBranch As Boolean = False
-    Public m_IsViewAllStore As Boolean = False
-    Public m_BranchId As String = ""
-    Public m_BranchCode As String = ""
-    Public m_BranchName As String = ""
     Public m_MsgCaption As String = "Thông báo"
     Public m_PathDelFirst As String = "Xóa "
     Public m_MsgCloseApp As String = "Bạn chọn đóng chương trình?"
@@ -22,53 +15,18 @@ Module ModMain
     Public m_MsgAskDel As String = "Có thật sự xóa dòng đang chọn?"
     Public m_MsgAskSaveBeforeExit As String = "Có lưu thông tin trước khi thoát ?"
     Public m_MsgSaveSuccess As String = "Đã lưu dữ liệu!"
-    Public m_MsgCreateInMonth As String = "Bạn chỉ được tạo phiếu trong tháng."
-    Public m_MsgNotPermitLimitDay As String = "Bạn chỉ được cấp quyền xem đến ngày: "
-    Public m_MsgViewInDay As String = "Bạn chỉ được phép xem trong ngày."
-    Public m_MsgView10Day As String = "Bạn chỉ được phép xem trong 10 ngày."
-    Public m_MsgView30Day As String = "Bạn chỉ được phép xem trong 30 ngày."
-    Public m_MsgView60Day As String = "Bạn chỉ được phép xem trong 60 ngày."
-    Public m_MsgView90Day As String = "Bạn chỉ được phép xem trong 90 ngày."
-    Public m_MsgView420Day As String = "Bạn chỉ được phép xem trong 420 ngày."
-    Public m_MsgViewCurrentMonth As String = "Bạn chỉ được phép xem trong tháng hiện tại."
-    Public m_MsgDayError As String = "Thời gian trên máy không đúng với thời gian trên Máy chủ"
-
     Public m_MsgNotPermitAddNew As String = "Người dùng không được cấp quyền thêm mới !"
     Public m_MsgNotAddNewCombo As String = "Bạn không được quyền thêm mới !"
     Public m_MsgNotPermitUseThisFun As String = "Người dùng không được cấp quyền chạy chức năng này !"
     Public m_DelErrorOneItems As String = "Quá trình xóa bị lỗi. Kiểm tra và thực hiện lại !"
     Public m_SaveDataError As String = "Quá trình lưu dữ liệu có lỗi. Kiểm tra và thực hiện lại !"
-    Public m_PaymentOutcome As String = "Chi công nợ"
-    Public m_PaymentIncome As String = "Thu công nợ"
     Public m_AddNew As String = "Thêm mới"
-    Public m_LangUnit As String = "Đơn vị tính"
-    Public m_LangUnitExchange As String = "Tỉ lệ quy đổi"
     Public m_SelectAll As String = "Tất cả"
-    Public m_Lang As Integer = 1
-    Public clsLang As clsFormatLang
-
-    Public UnikeyID As Integer = 0
-    ''' <summary>
-    ''' 0: mặc định,1: thao tác nhanh
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public i_keyEnter As Integer = 0
-    Public b_IsMemberGroup As Boolean = True
-    Public iTimeAlert As Integer = 5
-    Public f_RefreshPurchase As Boolean = False
-    ''' <summary>
-    ''' True: có VAT(dùng cho bảng Offline)
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public m_IsBillVAT As Boolean = True
-
-    '---------------------
-    Public fAskClose As Boolean = True
-    Public m_nCheckKey As Integer = 1 '0 : key binh thuong; 1 : Key theo safenet
     Public FormTitle As String = "CONTRACT MANAGER SOFTWARE FOR ENERGY PROJECT" '18.06.09 
     Public m_Version As String = ""
-    Public m_sModuleID As String = "" '18.06.09 
-    Public isExist As Boolean = False '15.06.09
+
+    Public m_Lang As Integer = 1
+    Public fAskClose As Boolean = True
     Public m_FConnection As Boolean = False
     Public m_FLogin As Boolean = False
     Public m_Srv As String = ""
@@ -77,13 +35,12 @@ Module ModMain
     Public m_DB As String = ""
     Public m_UIDLogin As String = "" 'user đăng nhập
     Public m_LoginSystem As Boolean = False
-    Public m_isBackupDB As Boolean = False 'ko dung ; su dung kiem tra da bakup chua khi thu hien ket so
+
     Public m_CPUID As String = ""
     Public m_CompanyName As String = ""
     Public m_CompanyAddress As String = ""
     Public m_Companyphone As String = ""
     Public m_TaxNo As String = "" 'ma so thue cong ty 
-    '---------------------
     Private m_FormatCurTemp As String = "#,##0"
     Private m_FormatCurNumber As String = "#,##0"
     Public m_strFormatCur As String = m_FormatCurTemp '& m_strDecCur 'định dạng tiền tệ
@@ -91,50 +48,11 @@ Module ModMain
     Public m_SysCur As String = "VND" 'định dạng đơn vị tiền tệ
     Public m_KeySysCur As String = "" ' ma don vi tien te
     Public m_SysCurChar As String = "đồng" '26.11.09-doc tien bang chu
-    '---------------------
-    Public m_SysDiscountBeforeTax As Boolean = True 'tính chiết khấu trước thuế/sau thuế
-    Public m_SysDiscountProduct As Boolean = True '10.11.08-tính chiết khấu hàng
-    Public m_isTrackPurchaseOrder As Boolean = False '11.12.08-không theo dõi đơn đặt hàng/ngược lại
-    Public m_CheckInstock As Boolean = True 'Cho phep xuat hang am hay ko ; Lay tu thong tin cau hinh he thong 
-    Public m_s_PayTermHH As String = "" ' chi hoa hồng
-    Public m_s_PayTermCL As String = "" ' chi lương
-    Public m_s_PayTermTU As String = "" ' chi tạm ứng
-    Public m_s_ThuTamUng As String = "" 'Thu tạm ứng
-    Public m_s_PayImport As String = "" ' nhâp dieu chinh 
-    Public m_s_PayOrder As String = "" ' xuat dieu chinh
-    Public m_s_TransCurrInc As String = "" 'Phương thức Thu luân chuyển
-    Public m_s_TransCurrOut As String = "" 'Phương thức Chi luân chuyển
-    Public m_SysCommissionBeforeDiscount As Boolean = True '10.11.08-Truớc giảm giá
-    Public m_isAllowOrderOver As Boolean = False '18.01.10- cau hinh cho phep xuat, nhap vuot, mac dinh la k cho
-    Public m_isMultiStore As Boolean = False '26.05.10-cho phep xuat hang tu nhieu kho
-    Public m_b_isCheckBeforeTurnOut As Boolean = False '27.05.10-kiem tra hang nhap mua truoc khi xuat tra
-    Public m_isEmptyList As Integer = 0 '30.08.10-tuy chon load danh sach hang hoa tren man hinh nghiep vu
-    '=====m_isEmptyList=0: load danh sach hang hoa theo cau hinh (nhom hang theo setting/mac dinh nhom dau tien trong danh sach nhom)
-    '=====m_isEmptyList=1: load danh sach hang hoa co 0 dong du lieu vi nhom hien thi gia tri null
-    'Public m_TempEmpty As Integer = 0
-
-    '---------------------
-    Public m_RecordLimit As Integer = 50
-    Public m_strMsgDemo As String = "Đây là phiên bản dùng thử, số lượng dữ liệu bị giới hạn."
-    Public m_bIsBarcode As Boolean = True
-    Public m_strMsgRei As String = ""
     Public m_strMyIPAddress As String = ""
-    Public sAddressServer As String = ""
     Public m_strLableStatus As String = "Click phải trên danh sách phiếu chọn menu chức năng ..."
     Public m_strLableList As String = "Click phải trên danh sách chọn menu chức năng ..."
-    Public m_strLabelStatusSingle As String = "Click phải chọn Xem chi tiết hàng hóa"
-    Public m_strLabelStatusSingleBuy As String = "Click phải chọn Xem | Thêm hàng hóa"
-    Public m_strChooseProductTip As String = "Double click chọn hàng"
-    Public b_money As Boolean
     Public b_ItemClick As Boolean
-    Public m_b_isEDiscount As Boolean = False
-    Public m_b_isEProgressive As Boolean = False
-    Public m_i_NumColExchange As Integer = 2 'so cot toi thieu cho cong thuc qui doi
-    Public m_s_MethodExchange As String = "*" 'cong thuc mac dinh cho CT qui doi
 
-    Public m_DateUpdateDB As Date = CDate("2009-12-11") 'thay doi file UpdateDB.sql ngay nao thi Ghi vao day ngay do
-    Public m_NoteDB As String = "Nâng cấp dữ liệu" 'Ghi chu khi thay doi file UpdateDB.sql
-    '---------------------
     Public m_sysColor As Color = Color.White 'Color.FromArgb(255, 216, 228, 248)
     ''' <summary>
     ''' Tên nhân viên
@@ -146,35 +64,27 @@ Module ModMain
     ''' </summary>
     ''' <remarks></remarks>
     Public m_EmpLogin As String = "" 'dung de luu ma nhan vien khi nhan vien do login vao
-    Public m_CheckPurchase As Boolean = False
-    Public m_LimitRevenue As Double = 100000 'doanh so dinh muc ~ 1đ
+    Public m_BranchId As String = ""
+    Public m_BranchCode As String = ""
+    Public m_BranchName As String = ""
 
-    Public m_CheckKey As Boolean = False
-    Public m_ChoPhepXuatExcel As Boolean = False
-    Public m_ChoPhepTaoPhieuKhacNgay As Boolean = False
-    Public m_ChoPhepTaoPhieuTrongThang As Boolean = False
-    Public m_ChoPhepThayDoiSoPhieu As Boolean = False
-    ''' <summary>
-    ''' True: cho phép thay đổi giá bán
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public m_ChoPhepSuaGiaBan As Boolean = False
-    Public m_IsSendCode As Boolean = False
-    ''' <summary>
-    ''' true: load hình ảnh của hàng hóa
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public m_isLoadImageProduct As Boolean = True
-    Public m_Logo As System.Drawing.Icon
     Public m_fDemo As Boolean = False
+    Public m_RecordLimit As Integer = 50
+    Public m_strMsgDemo As String = "Đây là phiên bản dùng thử, số lượng dữ liệu bị giới hạn."
+
+    Public m_Logo As System.Drawing.Icon
     Public m_CancelIcon = Global.MPS.My.Resources.Resources.thoatct
     Public m_OkIcon = Global.MPS.My.Resources.Resources.check
     Public m_SaveIcon = Global.MPS.My.Resources.Resources.Luu
+    Public m_SaveCloseIcon = Global.MPS.My.Resources.Resources.Luu_Thoat
+
     Public clsu As New VsoftBMS.Ulti.ClsUti
+    Public mbc As Model.MConfigProgram
 
     <System.Runtime.InteropServices.DllImportAttribute("user32.dll")> _
     Private Function DestroyIcon(ByVal handle As IntPtr) As Boolean
     End Function
+
     Public Sub SetTitle(ByVal frm As Form, Optional ByVal title As String = "")
         frm.Text = IIf(title <> "", title, FormTitle)
         frm.BackColor = ModMain.m_sysColor
@@ -298,19 +208,6 @@ Module ModMain
         End If
 
     End Sub
-
-    Public Sub SendMessageSRV(ByVal sMsg As String, ByVal sServer As String)
-        Dim srv As New getDataSocket.Vsoft.Server
-        srv.Protocol = Net.Sockets.ProtocolType.Udp
-        srv.ClientPort = 1176
-        srv.Encode = getDataSocket.Vsoft.EncodingType.Unicode
-        Try
-            srv.ClientAddress = Net.IPAddress.Parse(sServer)
-            srv.SendMessage(sMsg)
-        Catch ex As Exception
-
-        End Try
-    End Sub
     Public Function HostName2IP(ByVal HostName As String) As String
         Try
             Dim ipEntry As System.Net.IPHostEntry = System.Net.Dns.GetHostEntry(HostName) '  System.Net.Dns.GetHostByName(HostName)
@@ -352,108 +249,11 @@ Module ModMain
         Next
 
     End Sub
-    Public mbc As Model.MConfigProgram
-    Public tbConfigReport As DataTable
 
-
-    ''' <summary>
-    ''' Tuy chon thoi gian de loc danh sach nghiep vu
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public Enum OptionTime
-        TatCa = 0
-        Ngay90 = 1
-        Ngay60 = 2
-        Ngay30 = 3
-        Ngay10 = 4
-        Ngay1 = 5
-        Thang1 = 6
-        Ngay420 = 7
-    End Enum
-
-    ''' <summary>
-    ''' xem
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public m_isView As OptionTime = OptionTime.TatCa
-    ''' <summary>
-    ''' tao moi phieu trong ngay
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public m_isAddInDay As Boolean = False
-
-    Public m_dtFrom As Date = CDate("1900-1-1")
-    Public m_dtTo As Date = CDate("1900-1-1")
-    ''' <summary>
-    ''' 
-    ''' </summary>
-    ''' <remarks></remarks>
-    Public Sub LoadFunRightByTime()
-        If m_UIDLogin.ToLower <> "admin" Then
-            m_isAddInDay = getPermitFunc(m_UIDLogin, 118).R
-        End If
-
-        Dim m_Tatca As Model.MFuncRight = getPermitFunc(m_UIDLogin, 117)
-        Dim m_90ngay As Model.MFuncRight = getPermitFunc(m_UIDLogin, 116)
-        Dim m_60ngay As Model.MFuncRight = getPermitFunc(m_UIDLogin, 115)
-        Dim m_30ngay As Model.MFuncRight = getPermitFunc(m_UIDLogin, 114)
-        Dim m_10ngay As Model.MFuncRight = getPermitFunc(m_UIDLogin, 113)
-        Dim m_1ngay As Model.MFuncRight = getPermitFunc(m_UIDLogin, 112)
-        Dim m_1thang As Model.MFuncRight = getPermitFunc(m_UIDLogin, 119)
-        Dim m_420ngay As Model.MFuncRight = getPermitFunc(m_UIDLogin, 121)
-
-        If Not m_Tatca.R Then
-            If Not m_420ngay.R Then
-                If Not m_90ngay.R Then
-                    If Not m_60ngay.R Then
-                        If Not m_30ngay.R Then
-                            If Not m_1thang.R Then
-                                If Not m_10ngay.R Then
-                                    If m_1ngay.R Then
-                                        m_isView = OptionTime.Ngay1
-                                        m_dtTo = Now
-                                        m_dtFrom = m_dtTo
-                                    End If
-                                Else
-                                    m_isView = OptionTime.Ngay10
-                                    m_dtTo = Now
-                                    m_dtFrom = m_dtTo.AddDays(-10)
-                                End If
-                            Else
-                                m_isView = OptionTime.Thang1
-                                m_dtFrom = Now.AddDays(-Now.Day + 1)
-                                m_dtTo = m_dtFrom.AddMonths(1).AddDays(-1)
-                            End If
-                        Else
-                            m_isView = OptionTime.Ngay30
-                            m_dtTo = Now
-                            m_dtFrom = m_dtTo.AddMonths(-1)
-                        End If
-                    Else
-                        m_isView = OptionTime.Ngay60
-                        m_dtTo = Now
-                        m_dtFrom = m_dtTo.AddMonths(-2)
-                    End If
-                Else
-                    m_isView = OptionTime.Ngay90
-                    m_dtTo = Now
-                    m_dtFrom = m_dtTo.AddMonths(-3)
-                End If
-            Else
-                m_isView = OptionTime.Ngay420
-                m_dtTo = Now
-                m_dtFrom = m_dtTo.AddDays(-420)
-            End If
-        Else
-            m_isView = OptionTime.TatCa
-            m_dtTo = CDate("1900-1-1")
-            m_dtFrom = CDate("1900-1-1")
-        End If
-    End Sub
     Public Sub LoadVariablesGlobally()
         Dim bCfg As BLL.B_ConfigProgram = BLL.B_ConfigProgram.Instance
         Dim m As Model.MConfigProgram = bCfg.getInfo()
-        tbConfigReport = bCfg.GetConfigReport
+        Dim tbConfigReport = bCfg.GetConfigReport
         mbc = m
         Dim s1 As String = ""
 
@@ -487,25 +287,8 @@ Module ModMain
         Else
             m_SysCurChar = m.s_SysCurChar
         End If
-        m_LimitRevenue = m.m_LimitRevenue
-        m_SysDiscountBeforeTax = m.b_SysDiscountBeforeTax
-        m_SysCommissionBeforeDiscount = m.b_SysCommission
-        m_SysDiscountProduct = True 'bỏ tính chiet khau hang
-        m_isTrackPurchaseOrder = m.b_isTrackPurchaseOrder
-        m_CheckInstock = m.b_CheckInstock
         m_CompanyName = m.s_CompanyName
         m_CompanyAddress = m.s_Address
-        m_s_PayTermHH = m.s_MethodHH
-        m_s_PayTermCL = m.s_MethodCL
-        m_s_PayTermTU = m.s_MethodTU
-        m_s_ThuTamUng = m.s_ThuTamUng
-        m_s_PayImport = m.s_MethodImport
-        m_s_PayOrder = m.s_MethodOrder
-        m_b_isEDiscount = m.b_isEDiscount
-        m_b_isEProgressive = m.b_isEProgressive
-        m_CheckPurchase = m.b_Purchase
-        m_s_TransCurrInc = m.s_TransCurrInc
-        m_s_TransCurrOut = m.s_TransCurrOut
         m_TaxNo = m.s_TaxNo.Trim
 
         If m.s_Phone2 <> "" Then
@@ -513,14 +296,6 @@ Module ModMain
         Else
             m_Companyphone = m.s_Phone1
         End If
-        m_isMultiStore = m.b_isMultiStore '26.05.10
-        m_b_isCheckBeforeTurnOut = m.b_isCheckBeforeTurnOut '27.05.10
-        m_isEmptyList = m.i_ShowForm
-        iTimeAlert = m.i_TimeAlertDown
-        i_keyEnter = My.Settings.KeyEnter
-        b_IsMemberGroup = My.Settings.IsMemberGroup
-        m_i_NumColExchange = m.i_NumColExchange
-        m_s_MethodExchange = m.s_MethodExchange
         m_EmpTitle = FormTitle
     End Sub
 
@@ -646,20 +421,6 @@ Module ModMain
         cls.CreateKeyInRegister("COLORSYS.R", m_sysColor.R.ToString)
         cls.CreateKeyInRegister("COLORSYS.G", m_sysColor.G.ToString)
         cls.CreateKeyInRegister("COLORSYS.B", m_sysColor.B.ToString)
-    End Sub
-    Public Sub LoadColorSystem()
-        'Dim cls As New VsoftBMS.Ulti.ClsUti
-        'Dim A As String = cls.GetKeyInRegister("COLORSYS.A")
-
-        'If A <> "" Then
-        '    Dim R As String = cls.GetKeyInRegister("COLORSYS.R")
-        '    Dim G As String = cls.GetKeyInRegister("COLORSYS.G")
-        '    Dim B As String = cls.GetKeyInRegister("COLORSYS.B")
-        '    m_sysColor = Color.FromArgb(CInt(A), CInt(R), CInt(G), CInt(B))
-        'Else
-        '    m_sysColor = Color.FromArgb(255, 216, 228, 248)
-        '    UPdateColorSystem()
-        'End If
     End Sub
 #Region "Kiem tra va udpate DB"
     Private fr As New FrmProcess
@@ -841,38 +602,6 @@ Module ModMain
             Exit Sub
         End If
 
-        'set multi language
-        clsLang = New clsFormatLang
-        If m_Lang <> 1 Then
-            Infragistics.Win.DrawUtility.UseGDIPlusTextRendering = False
-            m_MsgCaption = clsLang.getLang(m_Lang, 5)
-            m_PathDelFirst = clsLang.getLang(m_Lang, 11) & " "
-            m_PathDelLast = clsLang.getLang(m_Lang, 12)
-
-            m_DataRelation = clsLang.getLang(m_Lang, 22)
-            m_DelError = clsLang.getLang(m_Lang, 858)
-            m_MsgAskDel = clsLang.getLang(m_Lang, 84)
-            m_MsgAskSaveBeforeExit = clsLang.getLang(m_Lang, 2)
-            m_MsgSaveSuccess = clsLang.getLang(m_Lang, 10)
-            m_MsgNotPermitAddNew = clsLang.getLang(m_Lang, 8)
-            m_MsgNotAddNewCombo = clsLang.getLang(m_Lang, 1336)
-            m_MsgNotPermitUseThisFun = clsLang.getLang(m_Lang, 43)
-            m_DelErrorOneItems = clsLang.getLang(m_Lang, 1017)
-            m_SaveDataError = clsLang.getLang(m_Lang, 310)
-
-            m_PaymentOutcome = clsLang.getLang(m_Lang, 696)
-            m_PaymentIncome = clsLang.getLang(m_Lang, 668)
-            m_AddNew = clsLang.getLang(m_Lang, 1)
-
-            m_SelectAll = clsLang.getLang(m_Lang, 379)
-
-            m_LangUnit = clsLang.getLang(m_Lang, 698)
-            m_LangUnitExchange = clsLang.getLang(m_Lang, 1494)
-        End If
-
-        'load system color
-        LoadColorSystem()
-
         'get cpu id
         m_CPUID = getSerialNumber()
 
@@ -889,8 +618,8 @@ Module ModMain
 
         Application.EnableVisualStyles()
         Application.DoEvents()
-        Dim frm As New frmMain
-        Application.Run(frm)
+
+        Application.Run(New frmMain)
     End Sub
 
     Public Function IsNull(ByVal Exp As Object, ByVal ExpReplace As Object) As Object
@@ -922,30 +651,12 @@ Module ModMain
         If sFilePath = "" Then Exit Sub
         Try
             Exp.Export(Grid, sFilePath)
-            ShowMsgInfoMultiLang("Xuất file thành công!", 1162)
-            Dim p As New Process
+            ShowMsgInfo("Xuất file thành công!")
             Process.Start(sFilePath)
         Catch ex As Exception
-
+            ShowMsg(ex.Message)
         End Try
     End Sub
-    'Public Sub ShowMsg(ByVal sMsg As String, Optional ByVal sCaption As String = "Thông báo")
-    '    MessageBox.Show(sMsg, sCaption, MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-    'End Sub
-
-    'Public Sub ShowMsgInfo(ByVal sMsg As String, Optional ByVal sCaption As String = "Thông báo")
-    '    MessageBox.Show(sMsg, sCaption, MessageBoxButtons.OK, MessageBoxIcon.Information)
-    'End Sub
-
-    'Public Function ShowMsgYesNoCancel(ByVal sMsg As String, Optional ByVal sCaption As String = "Thông báo") As Windows.Forms.DialogResult
-    '    Return MessageBox.Show(sMsg, sCaption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
-    'End Function
-    'Public Function ShowMsgYesNo(ByVal sMsg As String, Optional ByVal sCaption As String = "Thông báo") As Windows.Forms.DialogResult
-    '    Return MessageBox.Show(sMsg, sCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
-    'End Function
-    'Public Function ShowMsgOKExclamation(ByVal sMsg As String, Optional ByVal sCaption As String = "Thông báo") As Windows.Forms.DialogResult
-    '    Return MessageBox.Show(sMsg, sCaption, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
-    'End Function
     Public Sub ShowAlert(ByVal sms As String, ByVal err As String, Optional ByVal caption As String = "")
         Dim frm As New frmDialog
         frm.ShowDialog(sms, err, caption)
@@ -968,51 +679,7 @@ Module ModMain
         Return MessageBox.Show(sMsg, sCaption, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
     End Function
 
-    'ShowMsgOKExclamation
-    'Thao:21.07.11
-    Public Function TextMultiLang(ByVal iLang As Integer, ByVal TextVN As String, ByVal IDTextEN As Integer) As String
-        Dim str As String = ""
-        If iLang = 1 Then
-            str = TextVN
-        Else
-            str = clsLang.getLang(iLang, IDTextEN)
-        End If
-
-        Return str
-    End Function
-    'Thao:21.07.11
-    Public Sub ShowMsgInfoMultiLang(ByVal MsgVN As String, ByVal IDMsgEN As Integer)
-        If m_Lang = 1 Then
-            ShowMsgInfo(MsgVN, m_MsgCaption)
-        Else
-            ShowMsgInfo(clsLang.getLang(m_Lang, IDMsgEN), m_MsgCaption)
-        End If
-    End Sub
-
-    Public Sub ShowMsgMultiLang(ByVal MsgVN As String, ByVal IDMsgEN As Integer)
-        If m_Lang = 1 Then
-            ShowMsg(MsgVN, m_MsgCaption)
-        Else
-            ShowMsg(clsLang.getLang(m_Lang, IDMsgEN), m_MsgCaption)
-        End If
-    End Sub
-    Public Function ShowMsgMultiLangYesNoCancel(ByVal MsgVN As String, ByVal ID As Integer) As Windows.Forms.DialogResult
-        If m_Lang = 1 Then
-            Return MessageBox.Show(MsgVN, m_MsgCaption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
-        Else
-            Return MessageBox.Show(clsLang.getLang(m_Lang, ID), m_MsgCaption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
-        End If
-
-    End Function
-    Public Function ShowMsgMultiLangYesNo(ByVal MsgVN As String, ByVal ID As Integer) As Windows.Forms.DialogResult
-        If m_Lang = 1 Then
-            Return MessageBox.Show(MsgVN, m_MsgCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
-        Else
-            Return MessageBox.Show(clsLang.getLang(m_Lang, ID), m_MsgCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
-        End If
-
-    End Function
-    '14/04/2009
+    
     Public Function Message(ByVal Title As String, ByVal Content As String, ByVal Icon As Integer) As Boolean
         Dim frm As New VsoftBMS.Ulti.frmMsg
         Dim fSelect As Boolean = frm.ShowDialog(Title, Content, Icon)
@@ -1039,24 +706,7 @@ Module ModMain
         Return tb
 
     End Function
-    Public Function getInfoDebtObject(ByVal Object_ID As String, ByVal isCustomer As Boolean) As InfoDebtObject
-        Dim clsP As BLL.BPublic = BLL.BPublic.Instance
-        Dim tb As DataTable = clsP.getInfoDebtObject(Object_ID, isCustomer)
-        Dim info As New InfoDebtObject
-        With info
-            .Over_1_30 = tb.Rows(0)("Over 1-30")
-            .Over_31_60 = tb.Rows(0)("Over 31-60")
-            .Over_61_90 = tb.Rows(0)("Over 61-90")
-            .Over_90 = tb.Rows(0)("Over 90")
-            .TotalIncome = tb.Rows(0)("TotalIncome")
-            .TotalOutcome = tb.Rows(0)("TotalOutcome")
-            .Trade_All = tb.Rows(0)("Trade All")
-            .Trade_Last_Year = tb.Rows(0)("Trade Last Year")
-            .Trade_Month = tb.Rows(0)("Trade Month")
-            .Trade_Year = tb.Rows(0)("Trade Year")
-        End With
-        Return info
-    End Function
+   
     Public Function getDatechar(ByVal d_Date As DateTime) As String
         Dim clsL As BLL.BLogin = BLL.BLogin.Instance
         Return clsL.getDatechar(d_Date)
@@ -1066,11 +716,11 @@ Module ModMain
         Return cls.getSrvDate()
     End Function
     Public Function UpdateEvent(ByVal s_UID As String, ByVal s_Desc As String, ByVal i_TypeID As TypeEvents) As Boolean
-        Dim cls As New BLL.BEvent
+        Dim cls As BLL.BEvent = BLL.BEvent.Instance
         Return cls.UPDATEDB(s_UID, s_Desc, i_TypeID)
     End Function
     Public Sub WriteLog(ByVal s_Desc As String, ByVal i_TypeID As TypeEvents)
-        Dim cls As New BLL.BEvent
+        Dim cls As BLL.BEvent = BLL.BEvent.Instance
         cls.UPDATEDB(m_UIDLogin, s_Desc, i_TypeID)
     End Sub
 
@@ -1133,145 +783,6 @@ Module ModMain
         Dim clsL As BLL.BLogin = BLL.BLogin.Instance
         Return clsL.DateDiff(Part, d1, d2)
     End Function
-
-    'ham filter danh sach hang hoa
-    Public Sub FilterProduct(ByVal GridProduct As UltraGrid, ByVal txtBarcode As UltraTextEditor, ByVal txtFind1 As UltraTextEditor, ByVal txtFind2 As UltraTextEditor, _
-                              ByVal RProductName As Boolean, ByVal fTextChange As Boolean)
-
-        Dim tb As DataTable = GridProduct.DataSource
-        If tb Is Nothing Then Exit Sub
-        Dim s As String = "", st As String = ""
-
-        Dim sBarcode As String = ""
-        If Not m_bIsBarcode And txtBarcode.Text <> "" And fTextChange Then
-            Dim ind As Integer = txtBarcode.SelectionStart
-            sBarcode = txtBarcode.Text.Substring(0, ind)
-            sBarcode = ReplaceSpecialCharacter(sBarcode)
-            If sBarcode <> "" Then
-                st = "s_Product_ID like '" & sBarcode.Replace("'", "''") & "%'"
-                st += " or iTemCode like '" & sBarcode.Replace("'", "''") & "%'"
-            End If
-        End If
-
-        s = ReplaceSpecialCharacter(txtFind1.Text).Trim.Replace("'", "''")
-        If txtFind1.Text <> "" Then
-            If RProductName Then
-                If st = "" Then
-                    st = "s_Name like '%" & s & "%'"
-                Else
-                    st += " and s_Name like '%" & s & "%'"
-                End If
-            Else
-                If st = "" Then
-                    st = "s_Product_ID like '%" & s & "%'"
-                    st += " or iTemCode like '%" & s & "%'"
-                Else
-                    st += " and s_Product_ID like '%" & s & "%'"
-                    st += " or iTemCode like '%" & s & "%'"
-                End If
-            End If
-
-        End If
-        s = ReplaceSpecialCharacter(txtFind2.Text).Trim.Replace("'", "''")
-        If txtFind2.Visible And txtFind2.Text <> "" Then
-            If st = "" Then
-                st = "s_Name like '%" & s & "%'"
-            Else
-                st += " and s_Name like '%" & s & "%'"
-            End If
-        End If
-
-        If st <> "" Then
-            tb.DefaultView.RowFilter = st
-        Else
-            tb.DefaultView.RowFilter = Nothing
-        End If
-
-        If GridProduct.Rows.Count > 0 Then
-            GridProduct.Rows(0).Activate()
-            If Not m_bIsBarcode And fTextChange Then
-                txtBarcode.Text = GridProduct.Rows(0).Cells("s_Product_ID").Value
-                'If sBarcode.Length < txtBarcode.Text.Length Then
-                txtBarcode.SelectionStart = sBarcode.Length
-                txtBarcode.SelectionLength = txtBarcode.Text.Length
-                'End If
-            End If
-        Else
-            If Not fTextChange Then
-                txtBarcode.Text = ""
-            End If
-        End If
-    End Sub
-    'ham tinh thue+CK
-
-    Public Sub SubTotalVAT_Dis(ByVal iLock As Integer, ByVal iKeyTax As Integer, ByVal txtTotalDiscount As UltraTextEditor, ByVal txtPercent As UltraTextEditor, ByVal txtMPercent As UltraTextEditor, _
-                                ByVal cboTax As UltraComboEditor, ByVal txtTotalTax As UltraTextEditor, ByVal txtEndTotal As UltraTextEditor)
-        Dim total As Decimal = 0
-        Dim tienhang As Double = 0
-        If IsNumeric(txtTotalDiscount.Text) Then
-            tienhang = CDbl(txtTotalDiscount.Text)
-        End If
-        total = tienhang
-        Dim dis As Double = 0
-        Dim vat As Double = 0
-
-        If ModMain.m_SysDiscountBeforeTax Then 'tính chiết khấu trưoc thuế
-            If iLock = 1 Then 'nhap % CK
-                dis = CDbl(txtPercent.Text) / 100
-                txtMPercent.Text = Format(total * dis, ModMain.m_strFormatCur)
-            Else 'nhap CK
-                If total <> 0 Then
-                    txtPercent.Text = Format(CDbl(txtMPercent.Text) * 100 / total, "#,##0.###")
-                Else
-                    txtPercent.Text = 0 : txtMPercent.Text = 0
-                End If
-            End If
-
-            total -= CDbl(txtMPercent.Text)
-
-            If iKeyTax = 1 Then 'nhap tax %
-                If IsNumeric(cboTax.Text) Then
-                    vat = CDbl(cboTax.Text) / 100
-                End If
-                txtTotalTax.Text = Format(total * vat, ModMain.m_strFormatCur)
-            Else
-                If total <> 0 Then
-                    cboTax.Value = Format(CDbl(txtTotalTax.Text) * 100 / total, "#,##0.###")
-                Else
-                    cboTax.SelectedIndex = 0 : txtTotalTax.Text = 0
-                End If
-            End If
-        Else 'tinh thue truoc CK
-            If iKeyTax = 1 Then 'nhap tax %
-                If IsNumeric(cboTax.Text) Then
-                    vat = CDbl(cboTax.Text) / 100
-                End If
-                txtTotalTax.Text = Format(total * vat, ModMain.m_strFormatCur)
-            Else
-                If total <> 0 Then
-                    cboTax.Value = Format(CDbl(txtTotalTax.Text) * 100 / total, "#,##0.###")
-                Else
-                    cboTax.SelectedIndex = 0 : txtTotalTax.Text = 0
-                End If
-            End If
-
-            total += CDbl(txtTotalTax.Text)
-
-            If iLock = 1 Then 'nhap % CK
-                dis = CDbl(txtPercent.Text) / 100
-                txtMPercent.Text = Format(total * dis, ModMain.m_strFormatCur)
-            Else 'nhap CK
-                If total <> 0 Then
-                    txtPercent.Text = Format(CDbl(txtMPercent.Text) * 100 / total, "#,##0.###")
-                Else
-                    txtPercent.Text = 0 : txtMPercent.Text = 0
-                End If
-            End If
-        End If
-
-        txtEndTotal.Text = Format((tienhang + CDbl(txtTotalTax.Text) - CDbl(txtMPercent.Text)), ModMain.m_strFormatCur)
-
-    End Sub
 
 #Region "Ultility"
     Public Sub SelectAll(ByVal gridName As Infragistics.Win.UltraWinGrid.UltraGrid)
@@ -1579,9 +1090,6 @@ Module ModMain
     End Function
     Public Function LoadBranchByRightWithAll() As DataTable
         Dim uid = m_UIDLogin
-        If ModMain.m_IsViewAllBranch Then 't/h quyền Chỉ xem Tất cả(xóa chi tiết ds chi nhánh, chỉ load 1 dòng Tất cả)
-            uid = "m_IsViewAllBranch" 'gán 1 giá trị nào đó
-        End If
         Dim db As BLL.B_Branchs = BLL.B_Branchs.Instance
         Dim tb As DataTable = db.getListByRight(uid)
         If Not IsNothing(tb) Then

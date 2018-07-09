@@ -122,6 +122,12 @@
       <Name>MPS.Reports</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ClientGroups\" />
+    <Folder Include="Clients\" />
+    <Folder Include="Items\" />
+    <Folder Include="SubContractors\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

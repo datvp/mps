@@ -135,12 +135,12 @@
     Public Sub Choose()
         If iCase = 0 Then
             If txtFile.Text = "" Then
-                ShowMsgMultiLang("Nhập tên file!", 1430)
+                ShowMsg("Nhập tên file!", 1430)
                 Exit Sub
             End If
         End If
         If Lb.Text = "" Then
-            ShowMsgMultiLang("Chọn thư mục chứa dữ liệu!", 58)
+            ShowMsg("Chọn thư mục chứa dữ liệu!", 58)
             Exit Sub
         End If
 

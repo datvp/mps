@@ -13,11 +13,6 @@
         If e.KeyCode = Keys.Escape Then
             Me.Close()
         End If
-        If e.Control Then
-            If e.KeyCode = Keys.L Then
-                FormatLang()
-            End If
-        End If
     End Sub
 
     Private Sub frmRestoreDB_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -25,9 +20,6 @@
         ModMain.BlueButton(btnApply)
         ModMain.GreenButton(btnCancel)
         Me.Security()
-        If m_Lang <> 1 Then
-            LoadLang(m_Lang)
-        End If
     End Sub
 
 #End Region
@@ -50,14 +42,6 @@
         'If Not f_SecA And Not f_SecE And Not f_secD Then
         '    Me.btnApply.Enabled = False
         'End If
-    End Sub
-
-    Private Sub LoadLang(ByVal lang As Integer)
-        clsLang.FormatLang(lang, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Me)
-    End Sub
-
-    Private Sub FormatLang()
-       
     End Sub
 #End Region
 #Region "Choose "
@@ -85,16 +69,16 @@
     Private Sub btnApply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApply.Click
         If Me.RBK.Checked Then
             If txtdirData.Text = "" Then
-                ShowMsgMultiLang("Chọn thư mục chứa dữ liệu", 58)
+                ShowMsg("Chọn thư mục chứa dữ liệu", 58)
                 Exit Sub
             End If
         End If
 
         If txtFileBK.Text = "" Then
-            ShowMsgMultiLang("Chọn file dữ liệu backup", 49)
+            ShowMsg("Chọn file dữ liệu backup", 49)
             Exit Sub
         End If
-        If ShowMsgMultiLangYesNo("Có thật sự phục hồi dữ liệu ?", 59) <> MsgBoxResult.Yes Then Exit Sub
+        If ShowMsgYesNo("Có thật sự phục hồi dữ liệu ?", 59) <> MsgBoxResult.Yes Then Exit Sub
         Dim sData As String = txtdirData.Text & "\" & ModMain.m_DB & ".mdf"
         Dim sLog As String = txtdirData.Text & "\" & ModMain.m_DB & "_LOG.ldf"
         sData = sData.Replace("\\", "\")
@@ -104,9 +88,9 @@
         Else
             If cls.AttachDB(txtFileBK.Text) Then
                 ModMain.UpdateEvent(ModMain.m_UIDLogin, "Thực hiện phục hồi dữ liệu ngày " & Format(Now, "dd/MM/yyyy"), TypeEvents.System)
-                ShowMsgInfoMultiLang("Dữ liệu đã được phục hồi !", 56)
+                ShowMsgInfo("Dữ liệu đã được phục hồi !", 56)
             Else
-                ShowMsgMultiLang("Không thực hiện phục hồi được, xin vui lòng gọi tới số :0903.721.721 để chúng tôi hỗ trợ bạn !", 57)
+                ShowMsg("Không thực hiện phục hồi được, xin vui lòng gọi tới số :0903.721.721 để chúng tôi hỗ trợ bạn !", 57)
             End If
         End If
 
@@ -126,15 +110,10 @@
         thread.Start()
 
         If cls.RestoreDB("VsBMS", ModMain.m_DB, txtFileBK.Text, sData, sLog) Then
-            If m_Lang = 1 Then
-                ModMain.UpdateEvent(ModMain.m_UIDLogin, "Thực hiện phục hồi dữ liệu ngày " & Format(Now, "dd/MM/yyyy"), TypeEvents.System)
-            Else
-                ModMain.UpdateEvent(ModMain.m_UIDLogin, TextMultiLang(m_Lang, "Thực hiện phục hồi dữ liệu ngày ", 55) & Format(Now, "dd/MM/yyyy"), TypeEvents.System)
-            End If
-
-            ShowMsgInfoMultiLang("Dữ liệu đã được phục hồi !", 56)
+            ModMain.UpdateEvent(ModMain.m_UIDLogin, "Thực hiện phục hồi dữ liệu ngày " & Format(Now, "dd/MM/yyyy"), TypeEvents.System)
+            ShowMsgInfo("Dữ liệu đã được phục hồi !", 56)
         Else
-            ShowMsgMultiLang("Không thực hiện phục hồi được, xin vui lòng gọi tới số :0903.721.721 để chúng tôi hỗ trợ bạn !", 57)
+            ShowMsg("Không thực hiện phục hồi được, xin vui lòng gọi tới số :0903.721.721 để chúng tôi hỗ trợ bạn !", 57)
         End If
 
         If Not frmPro Is Nothing Then frmPro.Close()

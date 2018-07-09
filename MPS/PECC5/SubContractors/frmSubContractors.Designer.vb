@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmItems
+Partial Class frmSubContractors
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -92,7 +92,7 @@ Partial Class frmItems
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(726, 23)
         Me.lblTitle.TabIndex = 36
-        Me.lblTitle.Text = "Danh Mục Hạng Mục"
+        Me.lblTitle.Text = "Danh Mục Nhà Thầu Phụ"
         '
         'Panel1
         '
@@ -381,7 +381,7 @@ Partial Class frmItems
         Me.T_Export.Size = New System.Drawing.Size(200, 22)
         Me.T_Export.Text = "Xuất ra Excel"
         '
-        'frmItems
+        'frmSubContractors
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -393,7 +393,7 @@ Partial Class frmItems
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmItems"
+        Me.Name = "frmSubContractors"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).EndInit()

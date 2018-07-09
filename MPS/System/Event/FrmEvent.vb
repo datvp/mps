@@ -2,7 +2,7 @@ Imports Infragistics.Win.UltraWinGrid
 Imports Infragistics.Win.UltraWinToolbars
 
 Public Class FrmEvent
-    Private WithEvents cls As New BLL.BEvent
+    Private WithEvents cls As BLL.BEvent = BLL.BEvent.Instance
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
     Dim m_isLoad As Boolean = False
 

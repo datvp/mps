@@ -207,7 +207,6 @@ Public Class FrmEmployee
     End Sub
 
     Private Sub AddNew()
-
         Dim frm As New FrmNewEmployee
         Dim sEdit As String = frm.ShowDialog(False)
         If sEdit <> "" Then
@@ -224,7 +223,6 @@ Public Class FrmEmployee
         Dim id As String = ""
         Dim idchar As String = ""
         Dim name As String = ""
-        Dim sEvent As String = ""
 
         Try
             If Grid.Selected.Rows.Count > 1 Then 'xóa nhiếu dòng
@@ -244,12 +242,7 @@ Public Class FrmEmployee
                         ShowMsg(m_DelError, m_MsgCaption)
                         Exit For
                     Else
-                        If m_Lang = 1 Then
-                            sEvent = "Xóa nhân viên có mã '" & idchar & "'"
-                        Else
-                            sEvent = clsLang.getLangEvent(m_Lang, 20) & " '" & idchar & "'"
-                        End If
-                        ModMain.UpdateEvent(ModMain.m_UIDLogin, sEvent, TypeEvents.List)
+                        ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa nhân viên có mã '" & idchar & "'", TypeEvents.List)
                     End If
                 Next
 
@@ -268,12 +261,7 @@ Public Class FrmEmployee
                     ShowMsg(m_DelError, m_MsgCaption)
                     Exit Sub
                 Else
-                    If m_Lang = 1 Then
-                        sEvent = "Xóa nhân viên có mã '" & idchar & "'"
-                    Else
-                        sEvent = clsLang.getLangEvent(m_Lang, 20) & " '" & idchar & "'"
-                    End If
-                    ModMain.UpdateEvent(ModMain.m_UIDLogin, sEvent, TypeEvents.List)
+                    ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa nhân viên có mã '" & idchar & "'", TypeEvents.List)
                 End If
 
             End If

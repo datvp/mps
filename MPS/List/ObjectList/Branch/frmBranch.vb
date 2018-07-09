@@ -217,11 +217,7 @@ Public Class frmBranch
                             LoadList()
                             Exit Sub
                         Else
-                            If m_Lang = 1 Then
-                                ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa chi nhánh hàng có mã '" & idchar & "'", TypeEvents.List)
-                            Else
-                                ModMain.UpdateEvent(ModMain.m_UIDLogin, clsLang.getLangEvent(m_Lang, 67) & " ('" & idchar & "'", TypeEvents.List)
-                            End If
+                            ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa chi nhánh hàng có mã '" & idchar & "'", TypeEvents.List)
                         End If
                     End If
                 Next
@@ -231,12 +227,7 @@ Public Class frmBranch
                 name = r.Cells("s_Name").Value
 
                 If cls.checkDelete(id) Then
-                    If m_Lang = 1 Then
-                        ShowMsg("Có dữ liệu liên quan đến chi nhánh hàng " & name & " có mã là " & idchar & " !", m_MsgCaption)
-                    Else
-                        ShowMsg(clsLang.getLang(m_Lang, 22) & "(" & name & ")", m_MsgCaption)
-                    End If
-
+                    ShowMsg("Có dữ liệu liên quan đến chi nhánh hàng " & name & " có mã là " & idchar & " !", m_MsgCaption)
                     Exit Sub
                 End If
 
@@ -251,12 +242,7 @@ Public Class frmBranch
 
                     Exit Sub
                 Else
-                    If m_Lang = 1 Then
-                        ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa chi nhánh hàng có mã '" & idchar & "'", TypeEvents.List)
-                    Else
-                        ModMain.UpdateEvent(ModMain.m_UIDLogin, clsLang.getLangEvent(m_Lang, 67) & " '" & idchar & "'", TypeEvents.List)
-                    End If
-
+                    ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa chi nhánh hàng có mã '" & idchar & "'", TypeEvents.List)
                 End If
 
             End If

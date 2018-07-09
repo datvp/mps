@@ -38,12 +38,10 @@ Partial Class frmMain
         Dim UltraStatusPanel7 As Infragistics.Win.UltraWinStatusBar.UltraStatusPanel = New Infragistics.Win.UltraWinStatusBar.UltraStatusPanel
         Dim UltraStatusPanel8 As Infragistics.Win.UltraWinStatusBar.UltraStatusPanel = New Infragistics.Win.UltraWinStatusBar.UltraStatusPanel
         Dim Appearance100 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool187 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnLogin")
-        Dim ButtonTool207 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("danhsachnhomnguoidung")
-        Dim ButtonTool208 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("danhsachnguoisudung")
-        Dim ButtonTool209 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("capquyensudung")
+        Dim ButtonTool207 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("UserGroups")
+        Dim ButtonTool208 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Users")
+        Dim ButtonTool209 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("SetPermission")
         Dim ButtonTool183 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnSLDP")
         Dim ButtonTool191 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnExit")
         Dim RibbonTab1 As Infragistics.Win.UltraWinToolbars.RibbonTab = New Infragistics.Win.UltraWinToolbars.RibbonTab("ribbon1")
@@ -51,8 +49,8 @@ Partial Class frmMain
         Dim ButtonTool145 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ClientGroups")
         Dim ButtonTool241 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Clients")
         Dim ButtonTool242 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Items")
-        Dim ButtonTool243 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ProjectTypes")
         Dim ButtonTool258 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ConstructionLevels")
+        Dim ButtonTool243 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ProjectTypes")
         Dim RibbonGroup2 As Infragistics.Win.UltraWinToolbars.RibbonGroup = New Infragistics.Win.UltraWinToolbars.RibbonGroup("Projects")
         Dim ButtonTool252 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Projects")
         Dim ButtonTool253 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Contracts")
@@ -69,25 +67,25 @@ Partial Class frmMain
         Dim Appearance201 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool8 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnExit")
         Dim Appearance205 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ButtonTool10 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnEven")
+        Dim ButtonTool10 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("EventHistory")
         Dim Appearance204 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ButtonTool26 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnConfix")
+        Dim ButtonTool26 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Configuations")
         Dim Appearance213 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ButtonTool92 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnNV")
+        Dim ButtonTool92 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Employees")
         Dim Appearance253 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool121 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnSLDP")
         Dim Appearance269 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool122 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnPHDL")
         Dim Appearance270 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ButtonTool210 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("danhsachnhomnguoidung")
+        Dim ButtonTool210 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("UserGroups")
         Dim Appearance38 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ButtonTool211 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("danhsachnguoisudung")
+        Dim ButtonTool211 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Users")
         Dim Appearance39 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ButtonTool212 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("capquyensudung")
+        Dim ButtonTool212 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("SetPermission")
         Dim Appearance37 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool214 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Dashboard")
         Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim ButtonTool236 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("chinhanh")
+        Dim ButtonTool236 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Branchs")
         Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool247 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Clients")
         Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -109,19 +107,21 @@ Partial Class frmMain
         Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool185 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ClientGroups")
         Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel
         Me.UltraStatusBar1 = New Infragistics.Win.UltraWinStatusBar.UltraStatusBar
         Me.lblRight = New Infragistics.Win.Misc.UltraLabel
         Me.UltraLabel4 = New Infragistics.Win.Misc.UltraLabel
         Me._frmMain_Toolbars_Dock_Area_Left = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
+        Me.tbManager = New Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(Me.components)
         Me._frmMain_Toolbars_Dock_Area_Right = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me._frmMain_Toolbars_Dock_Area_Top = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me._frmMain_Toolbars_Dock_Area_Bottom = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me.uTabbedMdi = New Infragistics.Win.UltraWinTabbedMdi.UltraTabbedMdiManager(Me.components)
-        Me.tbManager = New Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(Me.components)
-        CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbManager, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ImageList1
@@ -254,65 +254,6 @@ Partial Class frmMain
         Me._frmMain_Toolbars_Dock_Area_Left.Size = New System.Drawing.Size(4, 523)
         Me._frmMain_Toolbars_Dock_Area_Left.ToolbarsManager = Me.tbManager
         '
-        '_frmMain_Toolbars_Dock_Area_Right
-        '
-        Me._frmMain_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
-        Me._frmMain_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me._frmMain_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right
-        Me._frmMain_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._frmMain_Toolbars_Dock_Area_Right.InitialResizeAreaExtent = 4
-        Me._frmMain_Toolbars_Dock_Area_Right.Location = New System.Drawing.Point(1196, 156)
-        Me._frmMain_Toolbars_Dock_Area_Right.Name = "_frmMain_Toolbars_Dock_Area_Right"
-        Me._frmMain_Toolbars_Dock_Area_Right.Size = New System.Drawing.Size(4, 523)
-        Me._frmMain_Toolbars_Dock_Area_Right.ToolbarsManager = Me.tbManager
-        '
-        '_frmMain_Toolbars_Dock_Area_Top
-        '
-        Me._frmMain_Toolbars_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
-        Me._frmMain_Toolbars_Dock_Area_Top.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me._frmMain_Toolbars_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Top
-        Me._frmMain_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._frmMain_Toolbars_Dock_Area_Top.Location = New System.Drawing.Point(0, 0)
-        Me._frmMain_Toolbars_Dock_Area_Top.Name = "_frmMain_Toolbars_Dock_Area_Top"
-        Me._frmMain_Toolbars_Dock_Area_Top.Size = New System.Drawing.Size(1200, 156)
-        Me._frmMain_Toolbars_Dock_Area_Top.ToolbarsManager = Me.tbManager
-        '
-        '_frmMain_Toolbars_Dock_Area_Bottom
-        '
-        Me._frmMain_Toolbars_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
-        Me._frmMain_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me._frmMain_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom
-        Me._frmMain_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._frmMain_Toolbars_Dock_Area_Bottom.Location = New System.Drawing.Point(0, 679)
-        Me._frmMain_Toolbars_Dock_Area_Bottom.Name = "_frmMain_Toolbars_Dock_Area_Bottom"
-        Me._frmMain_Toolbars_Dock_Area_Bottom.Size = New System.Drawing.Size(1200, 0)
-        Me._frmMain_Toolbars_Dock_Area_Bottom.ToolbarsManager = Me.tbManager
-        '
-        'uTabbedMdi
-        '
-        Me.uTabbedMdi.MdiParent = Me
-        Me.uTabbedMdi.TabGroupSettings.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007RibbonButton
-        Me.uTabbedMdi.TabGroupSettings.CloseButtonLocation = Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab
-        Me.uTabbedMdi.TabGroupSettings.ScrollButtons = Infragistics.Win.UltraWinTabbedMdi.DefaultableTabScrollButtons.Automatic
-        Me.uTabbedMdi.TabGroupSettings.ScrollButtonTypes = Infragistics.Win.UltraWinTabs.ScrollButtonTypes.Thumb
-        Me.uTabbedMdi.TabGroupSettings.ShowButtonSeparators = Infragistics.Win.DefaultableBoolean.[True]
-        Me.uTabbedMdi.TabGroupSettings.ShowPartialTabs = Infragistics.Win.DefaultableBoolean.[True]
-        Me.uTabbedMdi.TabGroupSettings.ShowTabListButton = Infragistics.Win.DefaultableBoolean.[True]
-        Me.uTabbedMdi.TabGroupSettings.TabButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007RibbonButton
-        Me.uTabbedMdi.TabGroupSettings.TabOrientation = Infragistics.Win.UltraWinTabs.TabOrientation.BottomLeft
-        Me.uTabbedMdi.TabGroupSettings.TabStyle = Infragistics.Win.UltraWinTabs.TabStyle.Office2007Ribbon
-        Me.uTabbedMdi.TabSettings.AllowClose = Infragistics.Win.DefaultableBoolean.[True]
-        Me.uTabbedMdi.TabSettings.AllowDrag = Infragistics.Win.UltraWinTabbedMdi.MdiTabDragStyle.WithinAndAcrossGroups
-        Me.uTabbedMdi.TabSettings.CloseButtonAlignment = Infragistics.Win.UltraWinTabs.TabCloseButtonAlignment.AfterContent
-        Me.uTabbedMdi.TabSettings.CloseButtonVisibility = Infragistics.Win.UltraWinTabs.TabCloseButtonVisibility.WhenSelectedOrHotTracked
-        Me.uTabbedMdi.TabSettings.HotTrack = Infragistics.Win.DefaultableBoolean.[True]
-        Appearance30.FontData.BoldAsString = "True"
-        Me.uTabbedMdi.TabSettings.HotTrackTabAppearance = Appearance30
-        Appearance29.FontData.BoldAsString = "True"
-        Me.uTabbedMdi.TabSettings.SelectedTabAppearance = Appearance29
-        Me.uTabbedMdi.TabSettings.TabCloseAction = Infragistics.Win.UltraWinTabbedMdi.MdiTabCloseAction.Close
-        Me.uTabbedMdi.ViewStyle = Infragistics.Win.UltraWinTabbedMdi.ViewStyle.Office2007
-        '
         'tbManager
         '
         Me.tbManager.DesignerFlags = 1
@@ -333,9 +274,9 @@ Partial Class frmMain
         ButtonTool241.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
         ButtonTool242.InstanceProps.IsFirstInGroup = True
         ButtonTool242.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        ButtonTool243.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
         ButtonTool258.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        RibbonGroup1.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool145, ButtonTool241, ButtonTool242, ButtonTool243, ButtonTool258})
+        ButtonTool243.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        RibbonGroup1.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool145, ButtonTool241, ButtonTool242, ButtonTool258, ButtonTool243})
         RibbonGroup2.Caption = "Dự Án"
         ButtonTool252.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
         ButtonTool253.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
@@ -412,7 +353,7 @@ Partial Class frmMain
         ButtonTool250.SharedProps.Caption = "Nhà Thầu Phụ"
         Appearance48.Image = Global.MPS.My.Resources.Resources.id_cards
         ButtonTool251.SharedProps.AppearancesLarge.Appearance = Appearance48
-        ButtonTool251.SharedProps.Caption = "Các Đơn Vị Thuộc SPECC5"
+        ButtonTool251.SharedProps.Caption = "Các Đơn Vị Thuộc PECC 5"
         Appearance49.Image = Global.MPS.My.Resources.Resources.Danh_Muc2
         ButtonTool254.SharedProps.AppearancesLarge.Appearance = Appearance49
         ButtonTool254.SharedProps.Caption = "Dự Án Công Trình"
@@ -429,6 +370,65 @@ Partial Class frmMain
         ButtonTool185.SharedProps.AppearancesLarge.Appearance = Appearance51
         ButtonTool185.SharedProps.Caption = "Nhóm Khách Hàng"
         Me.tbManager.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool2, ButtonTool8, ButtonTool10, ButtonTool26, ButtonTool92, ButtonTool121, ButtonTool122, ButtonTool210, ButtonTool211, ButtonTool212, ButtonTool214, ButtonTool236, ButtonTool247, ButtonTool248, ButtonTool249, ButtonTool250, ButtonTool251, ButtonTool254, ButtonTool255, ButtonTool257, ButtonTool260, ButtonTool185})
+        '
+        '_frmMain_Toolbars_Dock_Area_Right
+        '
+        Me._frmMain_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
+        Me._frmMain_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me._frmMain_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right
+        Me._frmMain_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText
+        Me._frmMain_Toolbars_Dock_Area_Right.InitialResizeAreaExtent = 4
+        Me._frmMain_Toolbars_Dock_Area_Right.Location = New System.Drawing.Point(1196, 156)
+        Me._frmMain_Toolbars_Dock_Area_Right.Name = "_frmMain_Toolbars_Dock_Area_Right"
+        Me._frmMain_Toolbars_Dock_Area_Right.Size = New System.Drawing.Size(4, 523)
+        Me._frmMain_Toolbars_Dock_Area_Right.ToolbarsManager = Me.tbManager
+        '
+        '_frmMain_Toolbars_Dock_Area_Top
+        '
+        Me._frmMain_Toolbars_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
+        Me._frmMain_Toolbars_Dock_Area_Top.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me._frmMain_Toolbars_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Top
+        Me._frmMain_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText
+        Me._frmMain_Toolbars_Dock_Area_Top.Location = New System.Drawing.Point(0, 0)
+        Me._frmMain_Toolbars_Dock_Area_Top.Name = "_frmMain_Toolbars_Dock_Area_Top"
+        Me._frmMain_Toolbars_Dock_Area_Top.Size = New System.Drawing.Size(1200, 156)
+        Me._frmMain_Toolbars_Dock_Area_Top.ToolbarsManager = Me.tbManager
+        '
+        '_frmMain_Toolbars_Dock_Area_Bottom
+        '
+        Me._frmMain_Toolbars_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
+        Me._frmMain_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me._frmMain_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom
+        Me._frmMain_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText
+        Me._frmMain_Toolbars_Dock_Area_Bottom.Location = New System.Drawing.Point(0, 679)
+        Me._frmMain_Toolbars_Dock_Area_Bottom.Name = "_frmMain_Toolbars_Dock_Area_Bottom"
+        Me._frmMain_Toolbars_Dock_Area_Bottom.Size = New System.Drawing.Size(1200, 0)
+        Me._frmMain_Toolbars_Dock_Area_Bottom.ToolbarsManager = Me.tbManager
+        '
+        'uTabbedMdi
+        '
+        Me.uTabbedMdi.MdiParent = Me
+        Me.uTabbedMdi.TabGroupSettings.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007RibbonButton
+        Me.uTabbedMdi.TabGroupSettings.CloseButtonLocation = Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab
+        Me.uTabbedMdi.TabGroupSettings.ScrollButtons = Infragistics.Win.UltraWinTabbedMdi.DefaultableTabScrollButtons.Automatic
+        Me.uTabbedMdi.TabGroupSettings.ScrollButtonTypes = Infragistics.Win.UltraWinTabs.ScrollButtonTypes.Thumb
+        Me.uTabbedMdi.TabGroupSettings.ShowButtonSeparators = Infragistics.Win.DefaultableBoolean.[True]
+        Me.uTabbedMdi.TabGroupSettings.ShowPartialTabs = Infragistics.Win.DefaultableBoolean.[True]
+        Me.uTabbedMdi.TabGroupSettings.ShowTabListButton = Infragistics.Win.DefaultableBoolean.[True]
+        Me.uTabbedMdi.TabGroupSettings.TabButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007RibbonButton
+        Me.uTabbedMdi.TabGroupSettings.TabOrientation = Infragistics.Win.UltraWinTabs.TabOrientation.BottomLeft
+        Me.uTabbedMdi.TabGroupSettings.TabStyle = Infragistics.Win.UltraWinTabs.TabStyle.Office2007Ribbon
+        Me.uTabbedMdi.TabSettings.AllowClose = Infragistics.Win.DefaultableBoolean.[True]
+        Me.uTabbedMdi.TabSettings.AllowDrag = Infragistics.Win.UltraWinTabbedMdi.MdiTabDragStyle.WithinAndAcrossGroups
+        Me.uTabbedMdi.TabSettings.CloseButtonAlignment = Infragistics.Win.UltraWinTabs.TabCloseButtonAlignment.AfterContent
+        Me.uTabbedMdi.TabSettings.CloseButtonVisibility = Infragistics.Win.UltraWinTabs.TabCloseButtonVisibility.WhenSelectedOrHotTracked
+        Me.uTabbedMdi.TabSettings.HotTrack = Infragistics.Win.DefaultableBoolean.[True]
+        Appearance30.FontData.BoldAsString = "True"
+        Me.uTabbedMdi.TabSettings.HotTrackTabAppearance = Appearance30
+        Appearance29.FontData.BoldAsString = "True"
+        Me.uTabbedMdi.TabSettings.SelectedTabAppearance = Appearance29
+        Me.uTabbedMdi.TabSettings.TabCloseAction = Infragistics.Win.UltraWinTabbedMdi.MdiTabCloseAction.Close
+        Me.uTabbedMdi.ViewStyle = Infragistics.Win.UltraWinTabbedMdi.ViewStyle.Office2007
         '
         'frmMain
         '
@@ -452,8 +452,8 @@ Partial Class frmMain
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MPS"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbManager, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

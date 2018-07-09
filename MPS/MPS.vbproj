@@ -247,6 +247,18 @@
     <Compile Include="PECC5\Projects\frmProjects.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PECC5\SubContractors\frmSubContractorDetail.Designer.vb">
+      <DependentUpon>frmSubContractorDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\SubContractors\frmSubContractorDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\SubContractors\frmSubContractors.Designer.vb">
+      <DependentUpon>frmSubContractors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\SubContractors\frmSubContractors.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Report\ClsReport.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -412,10 +424,10 @@
     <Compile Include="System\User\FrmNewUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System\User\FrmSecUser.designer.vb">
-      <DependentUpon>FrmSecUser.vb</DependentUpon>
+    <Compile Include="System\User\frmUsers.designer.vb">
+      <DependentUpon>frmUsers.vb</DependentUpon>
     </Compile>
-    <Compile Include="System\User\FrmSecUser.vb">
+    <Compile Include="System\User\frmUsers.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -453,6 +465,14 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="PECC5\ClientGroups\frmClientGroups.resx">
+      <DependentUpon>frmClientGroups.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\Clients\frmClients.resx">
+      <DependentUpon>frmClients.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Contracts\frmContractDetail.resx">
       <DependentUpon>frmContractDetail.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -461,12 +481,20 @@
       <DependentUpon>frmContracts.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\Items\frmItems.resx">
+      <DependentUpon>frmItems.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Projects\frmProjectDetail.resx">
       <DependentUpon>frmProjectDetail.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Projects\frmProjects.resx">
       <DependentUpon>frmProjects.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\SubContractors\frmSubContractors.resx">
+      <DependentUpon>frmSubContractors.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\FrmReport.resx">
@@ -573,8 +601,8 @@
       <DependentUpon>FrmNewUser.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="System\User\FrmSecUser.resx">
-      <DependentUpon>FrmSecUser.vb</DependentUpon>
+    <EmbeddedResource Include="System\User\frmUsers.resx">
+      <DependentUpon>frmUsers.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

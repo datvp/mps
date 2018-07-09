@@ -29,7 +29,7 @@ Partial Class FrmNewEmployee
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance96 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
+        Dim UltraGridBand3 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
         Dim Appearance122 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance123 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance124 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -43,7 +43,7 @@ Partial Class FrmNewEmployee
         Dim Appearance132 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance84 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraGridBand2 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
+        Dim UltraGridBand4 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
         Dim Appearance85 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance86 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance87 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -62,7 +62,7 @@ Partial Class FrmNewEmployee
         Dim Appearance55 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance56 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraGridBand3 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
+        Dim UltraGridBand2 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -75,7 +75,7 @@ Partial Class FrmNewEmployee
         Dim Appearance36 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance37 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance61 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraGridBand4 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
+        Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
         Dim Appearance62 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance63 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance64 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -354,9 +354,9 @@ Partial Class FrmNewEmployee
         Me.grContact.Controls.Add(Me.txtPhone2)
         Me.grContact.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grContact.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.grContact.Location = New System.Drawing.Point(5, 273)
+        Me.grContact.Location = New System.Drawing.Point(5, 254)
         Me.grContact.Name = "grContact"
-        Me.grContact.Size = New System.Drawing.Size(435, 109)
+        Me.grContact.Size = New System.Drawing.Size(435, 128)
         Me.grContact.TabIndex = 1
         Me.grContact.Text = "Thông tin liên lạc"
         '
@@ -364,7 +364,7 @@ Partial Class FrmNewEmployee
         '
         Me.txtPhone1.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtPhone1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPhone1.Location = New System.Drawing.Point(115, 56)
+        Me.txtPhone1.Location = New System.Drawing.Point(115, 59)
         Me.txtPhone1.MaxLength = 50
         Me.txtPhone1.Name = "txtPhone1"
         Me.txtPhone1.Scrollbars = System.Windows.Forms.ScrollBars.Vertical
@@ -375,7 +375,7 @@ Partial Class FrmNewEmployee
         '
         Me.Label20.AutoSize = True
         Me.Label20.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label20.Location = New System.Drawing.Point(13, 84)
+        Me.Label20.Location = New System.Drawing.Point(13, 87)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(31, 13)
         Me.Label20.TabIndex = 6
@@ -397,7 +397,7 @@ Partial Class FrmNewEmployee
         '
         Me.txtEmail.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtEmail.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmail.Location = New System.Drawing.Point(115, 81)
+        Me.txtEmail.Location = New System.Drawing.Point(115, 87)
         Me.txtEmail.MaxLength = 50
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Scrollbars = System.Windows.Forms.ScrollBars.Vertical
@@ -419,7 +419,7 @@ Partial Class FrmNewEmployee
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(13, 59)
+        Me.Label3.Location = New System.Drawing.Point(13, 62)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(78, 13)
         Me.Label3.TabIndex = 8
@@ -430,7 +430,7 @@ Partial Class FrmNewEmployee
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(232, 59)
+        Me.Label4.Location = New System.Drawing.Point(232, 62)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(78, 13)
         Me.Label4.TabIndex = 8
@@ -441,7 +441,7 @@ Partial Class FrmNewEmployee
         '
         Me.txtPhone2.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtPhone2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPhone2.Location = New System.Drawing.Point(316, 56)
+        Me.txtPhone2.Location = New System.Drawing.Point(316, 59)
         Me.txtPhone2.MaxLength = 50
         Me.txtPhone2.Name = "txtPhone2"
         Me.txtPhone2.Scrollbars = System.Windows.Forms.ScrollBars.Vertical
@@ -455,10 +455,16 @@ Partial Class FrmNewEmployee
         Me.grIncome.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
         Appearance74.BorderColor = System.Drawing.SystemColors.ActiveCaption
         Me.grIncome.ContentAreaAppearance = Appearance74
+        Me.grIncome.Controls.Add(Me.linkBank)
+        Me.grIncome.Controls.Add(Me.chkCTV)
+        Me.grIncome.Controls.Add(Me.cboBank)
+        Me.grIncome.Controls.Add(Me.txtAccountID)
+        Me.grIncome.Controls.Add(Me.cboReferrer)
         Me.grIncome.Controls.Add(Me.txtSalaryOf)
         Me.grIncome.Controls.Add(Me.txtBasicSalary)
         Me.grIncome.Controls.Add(Me.txtNofDay)
         Me.grIncome.Controls.Add(Me.chDS)
+        Me.grIncome.Controls.Add(Me.Label11)
         Me.grIncome.Controls.Add(Me.cboCur2)
         Me.grIncome.Controls.Add(Me.cboCur1)
         Me.grIncome.Controls.Add(Me.radSalaryOf)
@@ -472,6 +478,7 @@ Partial Class FrmNewEmployee
         Me.grIncome.Size = New System.Drawing.Size(344, 181)
         Me.grIncome.TabIndex = 3
         Me.grIncome.Text = "Thông tin thu nhập"
+        Me.grIncome.Visible = False
         '
         'txtSalaryOf
         '
@@ -524,7 +531,7 @@ Partial Class FrmNewEmployee
         '
         Me.chDS.AutoSize = True
         Me.chDS.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chDS.Location = New System.Drawing.Point(119, 108)
+        Me.chDS.Location = New System.Drawing.Point(234, 86)
         Me.chDS.Name = "chDS"
         Me.chDS.Size = New System.Drawing.Size(108, 17)
         Me.chDS.TabIndex = 9
@@ -541,8 +548,8 @@ Partial Class FrmNewEmployee
         Appearance96.BorderColor = System.Drawing.SystemColors.InactiveCaption
         Me.cboCur2.DisplayLayout.Appearance = Appearance96
         Me.cboCur2.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
-        UltraGridBand1.ColHeadersVisible = False
-        Me.cboCur2.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
+        UltraGridBand3.ColHeadersVisible = False
+        Me.cboCur2.DisplayLayout.BandsSerializer.Add(UltraGridBand3)
         Me.cboCur2.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Me.cboCur2.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance122.BackColor = System.Drawing.SystemColors.ActiveBorder
@@ -611,8 +618,8 @@ Partial Class FrmNewEmployee
         Appearance84.BorderColor = System.Drawing.SystemColors.InactiveCaption
         Me.cboCur1.DisplayLayout.Appearance = Appearance84
         Me.cboCur1.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
-        UltraGridBand2.ColHeadersVisible = False
-        Me.cboCur1.DisplayLayout.BandsSerializer.Add(UltraGridBand2)
+        UltraGridBand4.ColHeadersVisible = False
+        Me.cboCur1.DisplayLayout.BandsSerializer.Add(UltraGridBand4)
         Me.cboCur1.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Me.cboCur1.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance85.BackColor = System.Drawing.SystemColors.ActiveBorder
@@ -730,13 +737,14 @@ Partial Class FrmNewEmployee
         Me.grVacation.Controls.Add(Me.lblDateHoliday)
         Me.grVacation.Controls.Add(Me.chHoliday)
         Me.grVacation.Controls.Add(Me.lblReason)
+        Me.grVacation.Controls.Add(Me.chActive)
         Me.grVacation.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grVacation.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
         Me.grVacation.Location = New System.Drawing.Point(443, 18)
         Me.grVacation.Name = "grVacation"
         Me.grVacation.Size = New System.Drawing.Size(344, 194)
         Me.grVacation.TabIndex = 2
-        Me.grVacation.Text = "Nghỉ việc"
+        Me.grVacation.Text = "Thông tin Nghỉ việc"
         '
         'dtHolidays
         '
@@ -750,7 +758,7 @@ Partial Class FrmNewEmployee
         Me.dtHolidays.MaskInput = "dd/mm/yyyy"
         Me.dtHolidays.Name = "dtHolidays"
         Me.dtHolidays.ReadOnly = True
-        Me.dtHolidays.Size = New System.Drawing.Size(167, 22)
+        Me.dtHolidays.Size = New System.Drawing.Size(262, 22)
         Me.dtHolidays.TabIndex = 1
         Me.dtHolidays.Value = Nothing
         '
@@ -761,13 +769,13 @@ Partial Class FrmNewEmployee
         Me.txtReason.BackColor = System.Drawing.Color.Transparent
         Me.txtReason.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtReason.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtReason.Location = New System.Drawing.Point(74, 79)
+        Me.txtReason.Location = New System.Drawing.Point(74, 83)
         Me.txtReason.MaxLength = 300
         Me.txtReason.Multiline = True
         Me.txtReason.Name = "txtReason"
         Me.txtReason.ReadOnly = True
         Me.txtReason.Scrollbars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtReason.Size = New System.Drawing.Size(262, 89)
+        Me.txtReason.Size = New System.Drawing.Size(262, 78)
         Me.txtReason.TabIndex = 2
         '
         'lblDateHoliday
@@ -785,22 +793,22 @@ Partial Class FrmNewEmployee
         '
         Me.chHoliday.AutoSize = True
         Me.chHoliday.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chHoliday.Location = New System.Drawing.Point(16, 31)
+        Me.chHoliday.Location = New System.Drawing.Point(74, 29)
         Me.chHoliday.Name = "chHoliday"
-        Me.chHoliday.Size = New System.Drawing.Size(95, 17)
+        Me.chHoliday.Size = New System.Drawing.Size(130, 17)
         Me.chHoliday.TabIndex = 0
-        Me.chHoliday.Text = "Đã nghỉ việc"
+        Me.chHoliday.Text = "Xác nhận Nghỉ việc"
         Me.chHoliday.UseVisualStyleBackColor = True
         '
         'lblReason
         '
         Me.lblReason.AutoSize = True
         Me.lblReason.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReason.Location = New System.Drawing.Point(13, 79)
+        Me.lblReason.Location = New System.Drawing.Point(13, 83)
         Me.lblReason.Name = "lblReason"
-        Me.lblReason.Size = New System.Drawing.Size(33, 13)
+        Me.lblReason.Size = New System.Drawing.Size(56, 13)
         Me.lblReason.TabIndex = 6
-        Me.lblReason.Text = "Lý do"
+        Me.lblReason.Text = "Lý do nghỉ"
         Me.lblReason.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'grEmployee
@@ -810,21 +818,14 @@ Partial Class FrmNewEmployee
         Me.grEmployee.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
         Appearance56.BorderColor = System.Drawing.SystemColors.ActiveCaption
         Me.grEmployee.ContentAreaAppearance = Appearance56
-        Me.grEmployee.Controls.Add(Me.cboReferrer)
-        Me.grEmployee.Controls.Add(Me.chkCTV)
-        Me.grEmployee.Controls.Add(Me.linkBank)
-        Me.grEmployee.Controls.Add(Me.txtAccountID)
-        Me.grEmployee.Controls.Add(Me.cboBank)
         Me.grEmployee.Controls.Add(Me.LinkLabel2)
         Me.grEmployee.Controls.Add(Me.LinkLabel1)
         Me.grEmployee.Controls.Add(Me.dtDaysToWork)
         Me.grEmployee.Controls.Add(Me.dtDOB)
         Me.grEmployee.Controls.Add(Me.pic1)
-        Me.grEmployee.Controls.Add(Me.chActive)
         Me.grEmployee.Controls.Add(Me.cboPosition)
         Me.grEmployee.Controls.Add(Me.radFemale)
         Me.grEmployee.Controls.Add(Me.radMale)
-        Me.grEmployee.Controls.Add(Me.Label11)
         Me.grEmployee.Controls.Add(Me.Label6)
         Me.grEmployee.Controls.Add(Me.txtEmployeeID)
         Me.grEmployee.Controls.Add(Me.Label8)
@@ -839,7 +840,7 @@ Partial Class FrmNewEmployee
         Me.grEmployee.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
         Me.grEmployee.Location = New System.Drawing.Point(5, 18)
         Me.grEmployee.Name = "grEmployee"
-        Me.grEmployee.Size = New System.Drawing.Size(435, 255)
+        Me.grEmployee.Size = New System.Drawing.Size(435, 227)
         Me.grEmployee.TabIndex = 0
         Me.grEmployee.Text = "Thông tin nhân viên"
         '
@@ -851,8 +852,8 @@ Partial Class FrmNewEmployee
         Appearance11.BorderColor = System.Drawing.SystemColors.InactiveCaption
         Me.cboReferrer.DisplayLayout.Appearance = Appearance11
         Me.cboReferrer.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
-        UltraGridBand3.ColHeadersVisible = False
-        Me.cboReferrer.DisplayLayout.BandsSerializer.Add(UltraGridBand3)
+        UltraGridBand2.ColHeadersVisible = False
+        Me.cboReferrer.DisplayLayout.BandsSerializer.Add(UltraGridBand2)
         Me.cboReferrer.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Me.cboReferrer.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance13.BackColor = System.Drawing.SystemColors.ActiveBorder
@@ -908,10 +909,11 @@ Partial Class FrmNewEmployee
         Me.cboReferrer.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
         Me.cboReferrer.Enabled = False
         Me.cboReferrer.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboReferrer.Location = New System.Drawing.Point(185, 223)
+        Me.cboReferrer.Location = New System.Drawing.Point(16, 108)
         Me.cboReferrer.Name = "cboReferrer"
         Me.cboReferrer.Size = New System.Drawing.Size(245, 22)
         Me.cboReferrer.TabIndex = 23
+        Me.cboReferrer.Visible = False
         '
         'chkCTV
         '
@@ -919,32 +921,35 @@ Partial Class FrmNewEmployee
         Me.chkCTV.Checked = True
         Me.chkCTV.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkCTV.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkCTV.Location = New System.Drawing.Point(16, 224)
+        Me.chkCTV.Location = New System.Drawing.Point(16, 132)
         Me.chkCTV.Name = "chkCTV"
         Me.chkCTV.Size = New System.Drawing.Size(160, 17)
         Me.chkCTV.TabIndex = 22
         Me.chkCTV.Text = "Cộng tác viên | Liên kết"
         Me.chkCTV.UseVisualStyleBackColor = True
+        Me.chkCTV.Visible = False
         '
         'linkBank
         '
         Me.linkBank.AutoSize = True
-        Me.linkBank.Location = New System.Drawing.Point(13, 178)
+        Me.linkBank.Location = New System.Drawing.Point(267, 111)
         Me.linkBank.Name = "linkBank"
         Me.linkBank.Size = New System.Drawing.Size(66, 13)
         Me.linkBank.TabIndex = 21
         Me.linkBank.TabStop = True
         Me.linkBank.Text = "Ngân hàng"
+        Me.linkBank.Visible = False
         '
         'txtAccountID
         '
         Me.txtAccountID.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtAccountID.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAccountID.Location = New System.Drawing.Point(115, 198)
+        Me.txtAccountID.Location = New System.Drawing.Point(16, 152)
         Me.txtAccountID.MaxLength = 50
         Me.txtAccountID.Name = "txtAccountID"
         Me.txtAccountID.Size = New System.Drawing.Size(195, 22)
         Me.txtAccountID.TabIndex = 17
+        Me.txtAccountID.Visible = False
         '
         'cboBank
         '
@@ -954,8 +959,8 @@ Partial Class FrmNewEmployee
         Appearance61.BorderColor = System.Drawing.SystemColors.InactiveCaption
         Me.cboBank.DisplayLayout.Appearance = Appearance61
         Me.cboBank.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
-        UltraGridBand4.ColHeadersVisible = False
-        Me.cboBank.DisplayLayout.BandsSerializer.Add(UltraGridBand4)
+        UltraGridBand1.ColHeadersVisible = False
+        Me.cboBank.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
         Me.cboBank.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Me.cboBank.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance62.BackColor = System.Drawing.SystemColors.ActiveBorder
@@ -1009,16 +1014,17 @@ Partial Class FrmNewEmployee
         Me.cboBank.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.cboBank.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.cboBank.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboBank.Location = New System.Drawing.Point(115, 173)
+        Me.cboBank.Location = New System.Drawing.Point(141, 133)
         Me.cboBank.Name = "cboBank"
         Me.cboBank.Size = New System.Drawing.Size(195, 22)
         Me.cboBank.TabIndex = 15
+        Me.cboBank.Visible = False
         '
         'LinkLabel2
         '
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel2.Location = New System.Drawing.Point(399, 201)
+        Me.LinkLabel2.Location = New System.Drawing.Point(399, 204)
         Me.LinkLabel2.Name = "LinkLabel2"
         Me.LinkLabel2.Size = New System.Drawing.Size(25, 13)
         Me.LinkLabel2.TabIndex = 20
@@ -1029,7 +1035,7 @@ Partial Class FrmNewEmployee
         '
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(320, 201)
+        Me.LinkLabel1.Location = New System.Drawing.Point(320, 204)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(55, 13)
         Me.LinkLabel1.TabIndex = 19
@@ -1041,10 +1047,10 @@ Partial Class FrmNewEmployee
         Me.dtDaysToWork.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.dtDaysToWork.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtDaysToWork.FormatString = "dd/MM/yyyy"
-        Me.dtDaysToWork.Location = New System.Drawing.Point(115, 148)
+        Me.dtDaysToWork.Location = New System.Drawing.Point(115, 169)
         Me.dtDaysToWork.MaskInput = "dd/mm/yyyy"
         Me.dtDaysToWork.Name = "dtDaysToWork"
-        Me.dtDaysToWork.Size = New System.Drawing.Size(150, 22)
+        Me.dtDaysToWork.Size = New System.Drawing.Size(195, 22)
         Me.dtDaysToWork.TabIndex = 13
         Me.dtDaysToWork.Value = Nothing
         '
@@ -1053,10 +1059,10 @@ Partial Class FrmNewEmployee
         Me.dtDOB.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.dtDOB.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dtDOB.FormatString = "dd/MM/yyyy"
-        Me.dtDOB.Location = New System.Drawing.Point(115, 123)
+        Me.dtDOB.Location = New System.Drawing.Point(115, 141)
         Me.dtDOB.MaskInput = "dd/mm/yyyy"
         Me.dtDOB.Name = "dtDOB"
-        Me.dtDOB.Size = New System.Drawing.Size(150, 22)
+        Me.dtDOB.Size = New System.Drawing.Size(195, 22)
         Me.dtDOB.TabIndex = 11
         Me.dtDOB.Value = Nothing
         '
@@ -1069,7 +1075,7 @@ Partial Class FrmNewEmployee
         Me.pic1.BorderStyle = Infragistics.Win.UIElementBorderStyle.Rounded4
         Me.pic1.ContextMenuStrip = Me.ctMenuPic1
         Me.pic1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pic1.Location = New System.Drawing.Point(316, 79)
+        Me.pic1.Location = New System.Drawing.Point(316, 82)
         Me.pic1.Name = "pic1"
         Me.pic1.Size = New System.Drawing.Size(114, 112)
         Me.pic1.TabIndex = 18
@@ -1103,12 +1109,13 @@ Partial Class FrmNewEmployee
         Me.chActive.Checked = True
         Me.chActive.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chActive.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chActive.Location = New System.Drawing.Point(323, 32)
+        Me.chActive.Location = New System.Drawing.Point(265, 32)
         Me.chActive.Name = "chActive"
         Me.chActive.Size = New System.Drawing.Size(71, 17)
         Me.chActive.TabIndex = 2
         Me.chActive.Text = "Hiệu lực"
         Me.chActive.UseVisualStyleBackColor = True
+        Me.chActive.Visible = False
         '
         'cboPosition
         '
@@ -1174,7 +1181,7 @@ Partial Class FrmNewEmployee
         Me.cboPosition.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.cboPosition.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
         Me.cboPosition.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboPosition.Location = New System.Drawing.Point(115, 77)
+        Me.cboPosition.Location = New System.Drawing.Point(115, 83)
         Me.cboPosition.Name = "cboPosition"
         Me.cboPosition.Size = New System.Drawing.Size(195, 22)
         Me.cboPosition.TabIndex = 6
@@ -1183,7 +1190,7 @@ Partial Class FrmNewEmployee
         '
         Me.radFemale.AutoSize = True
         Me.radFemale.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radFemale.Location = New System.Drawing.Point(178, 102)
+        Me.radFemale.Location = New System.Drawing.Point(178, 114)
         Me.radFemale.Name = "radFemale"
         Me.radFemale.Size = New System.Drawing.Size(39, 17)
         Me.radFemale.TabIndex = 9
@@ -1195,7 +1202,7 @@ Partial Class FrmNewEmployee
         Me.radMale.AutoSize = True
         Me.radMale.Checked = True
         Me.radMale.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.radMale.Location = New System.Drawing.Point(115, 102)
+        Me.radMale.Location = New System.Drawing.Point(115, 114)
         Me.radMale.Name = "radMale"
         Me.radMale.Size = New System.Drawing.Size(46, 17)
         Me.radMale.TabIndex = 8
@@ -1207,18 +1214,19 @@ Partial Class FrmNewEmployee
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(14, 202)
+        Me.Label11.Location = New System.Drawing.Point(236, 158)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(69, 13)
         Me.Label11.TabIndex = 16
         Me.Label11.Text = "Số tài khoản "
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Label11.Visible = False
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(14, 151)
+        Me.Label6.Location = New System.Drawing.Point(14, 172)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(62, 13)
         Me.Label6.TabIndex = 12
@@ -1239,7 +1247,7 @@ Partial Class FrmNewEmployee
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(14, 126)
+        Me.Label8.Location = New System.Drawing.Point(14, 144)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(54, 13)
         Me.Label8.TabIndex = 10
@@ -1273,7 +1281,7 @@ Partial Class FrmNewEmployee
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(14, 56)
+        Me.Label2.Location = New System.Drawing.Point(14, 59)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(92, 13)
         Me.Label2.TabIndex = 3
@@ -1284,7 +1292,7 @@ Partial Class FrmNewEmployee
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(14, 79)
+        Me.Label12.Location = New System.Drawing.Point(14, 85)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(47, 13)
         Me.Label12.TabIndex = 5
@@ -1305,7 +1313,7 @@ Partial Class FrmNewEmployee
         '
         Me.txtEmployeeName.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtEmployeeName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmployeeName.Location = New System.Drawing.Point(115, 52)
+        Me.txtEmployeeName.Location = New System.Drawing.Point(115, 55)
         Me.txtEmployeeName.MaxLength = 50
         Me.txtEmployeeName.Name = "txtEmployeeName"
         Me.txtEmployeeName.Scrollbars = System.Windows.Forms.ScrollBars.Vertical
@@ -1316,7 +1324,7 @@ Partial Class FrmNewEmployee
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(14, 103)
+        Me.Label10.Location = New System.Drawing.Point(14, 115)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(45, 13)
         Me.Label10.TabIndex = 7
@@ -1955,7 +1963,6 @@ Partial Class FrmNewEmployee
         Me.MinimizeBox = False
         Me.Name = "FrmNewEmployee"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "VsoftBMS.net"
         Me.UltraTabPageControl1.ResumeLayout(False)
         CType(Me.grContact, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grContact.ResumeLayout(False)

@@ -1612,13 +1612,13 @@ Public Class DAL_Public
     End Function
 
     Public Function getEmployeeCode(ByVal GroupID As String) As String
-        Dim p(0) As SqlParameter
-        p(0) = New SqlParameter("@GroupID", GroupID)
-        Dim tb As DataTable = getTableSQL("Exec sp_getEmployeeCode @GroupID", p)
-        If tb Is Nothing Then Return ""
-        If tb.Rows.Count = 0 Then Return ""
-        Return tb.Rows(0)("ProductCode")
-
+        'Dim p(0) As SqlParameter
+        'p(0) = New SqlParameter("@GroupID", GroupID)
+        'Dim tb As DataTable = getTableSQL("Exec sp_getEmployeeCode @GroupID", p)
+        'If tb Is Nothing Then Return ""
+        'If tb.Rows.Count = 0 Then Return ""
+        'Return tb.Rows(0)("ProductCode")
+        Return ""
     End Function
 
     'Phần cấu hình hiển thị cho từng User 12.06.09=====================================================

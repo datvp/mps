@@ -1,7 +1,7 @@
 ﻿Imports CrystalDecisions.CrystalReports.Engine
 Imports Infragistics.Win.UltraWinToolbars
 Imports Infragistics.Win.UltraWinGrid
-Public Class frmClients
+Public Class frmSubContractors
     Private WithEvents cls As New BLL.BGroupUser
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
     Dim fselect As Boolean = False
@@ -17,14 +17,14 @@ Public Class frmClients
         Return Sselect
     End Function
 
-    Private Sub frmClients_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
+    Private Sub frmSubContractors_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         Loadlist()
 
     End Sub
 
 
 
-    Private Sub frmClients_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+    Private Sub frmSubContractors_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
         If e.KeyCode = Keys.F3 Then
             T_Search.PerformClick()
         End If
@@ -58,7 +58,7 @@ Public Class frmClients
         End If
     End Sub
 
-    Private Sub frmClients_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmSubContractors_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ModMain.SetTitle(Me, lblTitle.Text)
         LabelBottom.Text = ModMain.m_strLableList
         Me.Loadlist()

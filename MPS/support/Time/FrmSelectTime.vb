@@ -103,17 +103,8 @@ Public Class FrmSelectTime
 
     End Sub
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        'd1 = Me.UltraCalendarInfo1.ActiveDay.Date
-        'd2 = Me.UltraCalendarInfo2.ActiveDay.Date
         d1 = dtFrom.Value
         d2 = dtTo.Value
-        Dim val As Integer = DateDiffM("day", m_dtFrom, d1)
-        If val < 0 Then
-            ShowMsg(m_MsgNotPermitLimitDay & m_dtFrom.ToString("dd/MM/yyyy"), m_MsgCaption)
-            dtFrom.Value = m_dtFrom
-            dtFrom.Focus()
-            Exit Sub
-        End If
         isView = True
         Me.Close()
     End Sub

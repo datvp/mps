@@ -95,7 +95,7 @@ Public Class FrmNewEmployee
     End Sub
 
     Private Sub FrmNewEmployee_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        ModMain.SetTitle(Me)
+        ModMain.SetTitle(Me, lblTitle.Text)
         If txtSID.Text = "" Then '26.05.09
             Me.LoadCombo()
             Me.cboCur1.Text = ModMain.m_SysCur
@@ -281,7 +281,7 @@ Public Class FrmNewEmployee
 
     Private Sub OpenImage(ByVal PIM As Infragistics.Win.UltraWinEditors.UltraPictureBox)
         Dim OpenFileDialog1 As New OpenFileDialog
-        OpenFileDialog1.Title = TextMultiLang(m_Lang, "Chọn file nội dung", 163)
+        OpenFileDialog1.Title = "Chọn file nội dung"
         OpenFileDialog1.Filter = "Image Files(*.JPG;*.JPEG;*.JPE;*.JFIF)|*.JPG;*.JPEG;*.JPE;*.JFIF"
         OpenFileDialog1.FilterIndex = 1
         OpenFileDialog1.FileName = ""
@@ -317,7 +317,7 @@ Public Class FrmNewEmployee
 
     Private Sub OpenImage2(ByVal PIM As Infragistics.Win.UltraWinEditors.UltraPictureBox)
         Dim OpenFileDialog1 As New OpenFileDialog
-        OpenFileDialog1.Title = TextMultiLang(m_Lang, "Chọn file nội dung", 163)
+        OpenFileDialog1.Title = "Chọn file nội dung"
         OpenFileDialog1.Filter = "Image Files(*.JPG;*.JPEG;*.JPE;*.JFIF)|*.JPG;*.JPEG;*.JPE;*.JFIF"
         OpenFileDialog1.FilterIndex = 1
         OpenFileDialog1.FileName = ""
@@ -428,35 +428,35 @@ Public Class FrmNewEmployee
 
     Private Function CheckOK() As Boolean
         If txtEmployeeID.Text.Trim = "" Then
-            ShowMsgMultiLang("Nhập mã nhân viên!", 164)
+            ShowMsg("Nhập mã nhân viên!", 164)
             txtEmployeeID.Focus()
             Return False
         Else
             If b.CheckDulicate(txtEmployeeID.Text, txtSID.Text) Then
-                ShowMsgMultiLang("Mã nhân viên bị trùng!", 165)
+                ShowMsg("Mã nhân viên bị trùng!", 165)
                 txtEmployeeID.Focus()
                 Return False
             End If
         End If
         If txtEmployeeName.Text.Trim = "" Then
-            ShowMsgMultiLang("Nhập tên nhân viên!", 166)
+            ShowMsg("Nhập tên nhân viên!", 166)
             txtEmployeeName.Focus()
             Return False
         End If
 
         If Me.cboPosition.SelectedRow Is Nothing AndAlso cboPosition.Text.Trim <> "" Then
-            ShowMsgMultiLang("Dữ liệu không hợp lệ.", 167)
+            ShowMsg("Dữ liệu không hợp lệ.", 167)
             Me.cboPosition.Select()
             Return False
         End If
         If Me.cboPosition.SelectedRow Is Nothing Then
-            ShowMsgMultiLang("Chưa chọn chức vụ", 168)
+            ShowMsg("Chưa chọn chức vụ", 168)
             cboPosition.Focus()
             Return False
         End If
 
         If Not CompareValidDate(dtDOB, dtDaysToWork) Then
-            ShowMsgMultiLang("Ngày vào làm không hợp lệ !", 170)
+            ShowMsg("Ngày vào làm không hợp lệ !", 170)
             dtDaysToWork.Focus()
             dtDaysToWork.SelectAll()
             Return False
@@ -464,7 +464,7 @@ Public Class FrmNewEmployee
 
         If Not Me.cboBank.SelectedRow Is Nothing AndAlso cboBank.Text.Trim <> "" AndAlso cboBank.Text.Trim <> "0" Then
             If txtAccountID.Text.Trim = "" Then
-                ShowMsgMultiLang("Chưa nhập số tài khoản ngân hàng !", 894)
+                ShowMsg("Chưa nhập số tài khoản ngân hàng !", 894)
                 txtAccountID.Focus()
                 Return False
             End If
@@ -480,7 +480,7 @@ Public Class FrmNewEmployee
 
         If chHoliday.Checked Then
             If dtHolidays.Value Is Nothing Then
-                ShowMsgMultiLang("Nhập thông tin ngày nghỉ việc", 172)
+                ShowMsg("Nhập thông tin ngày nghỉ việc", 172)
                 dtHolidays.Focus()
                 Return False
             End If
@@ -535,18 +535,9 @@ Public Class FrmNewEmployee
         Dim m As Model.MLS_Employees = Me.setInfo()
         Dim strEvent As String = ""
         If m.s_ID = "" Then 'Them moi
-            If m_Lang = 1 Then
-                strEvent = "Thêm mới nhân viên có mã '" & m.s_Employee_ID & "'"
-            Else
-                strEvent = clsLang.getLangEvent(m_Lang, 21) & " '" & m.s_Employee_ID & "'"
-            End If
+           strEvent = "Thêm mới nhân viên có mã '" & m.s_Employee_ID & "'"
         Else 'Hieu chinh
-            If m_Lang = 1 Then
-                strEvent = "Hiệu chỉnh nhân viên có mã '" & m.s_Employee_ID & "'"
-            Else
-                strEvent = clsLang.getLang(m_Lang, 22) & " '" & m.s_Employee_ID & "'"
-            End If
-
+            strEvent = "Hiệu chỉnh nhân viên có mã '" & m.s_Employee_ID & "'"
         End If
         If b.UPDATEDB(m) Then
             ModMain.UpdateEvent(ModMain.m_UIDLogin, strEvent, TypeEvents.List)
@@ -1115,9 +1106,7 @@ Public Class FrmNewEmployee
 
     Private Sub cboBank_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboBank.Validated
         If Me.cboBank.SelectedRow Is Nothing AndAlso Me.cboBank.Text.Trim <> "" Then
-            ShowMsg(clsLang.getLang(m_Lang, 408) & " " & My.Resources.ResBMS.Info, m_MsgCaption)
             cboBank.Focus()
-            Exit Sub
         End If
     End Sub
 
@@ -1205,12 +1194,6 @@ Public Class FrmNewEmployee
 #Region "RadionButton"
     Private Sub cboPosition_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboPosition.Validated
         If Me.cboPosition.SelectedRow Is Nothing AndAlso Me.cboPosition.Text.Trim <> "" Then
-            If m_Lang = 1 Then
-                MessageBox.Show("Chức vụ " & My.Resources.ResBMS.Info, "VsoftBMS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Else
-                MessageBox.Show(clsLang.getLang(m_Lang, 173) & " " & My.Resources.ResBMS.Info, "VsoftBMS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            End If
-
             cboPosition.Focus()
             Exit Sub
         End If

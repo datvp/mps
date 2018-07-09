@@ -130,24 +130,24 @@
 
     Private Function CheckOK() As Boolean
         If txtSID.Text.Trim = "" Then
-            ShowMsgMultiLang("Nhập mã nhóm người dùng !", 126)
+            ShowMsg("Nhập mã nhóm người dùng !", 126)
             txtSID.Focus()
             Return False
         Else
             If b.CheckDulicate(txtSID.Text, Me.SID) Then
-                ShowMsgMultiLang("Mã nhóm người dùng đã tồn tại!", 127)
+                ShowMsg("Mã nhóm người dùng đã tồn tại!", 127)
                 txtSID.Focus()
                 Return False
             End If
         End If
 
         If txtName.Text.Trim = "" Then
-            ShowMsgMultiLang("Nhập tên nhóm người dùng !", 128)
+            ShowMsg("Nhập tên nhóm người dùng !", 128)
             txtName.Focus()
             Return False
         Else
             If b.CheckDulicateName(txtName.Text, Me.SID) Then
-                ShowMsgMultiLang("Tên nhóm người dùng đã tồn tại!", 129)
+                ShowMsg("Tên nhóm người dùng đã tồn tại!", 129)
                 txtName.Focus()
                 Return False
             End If

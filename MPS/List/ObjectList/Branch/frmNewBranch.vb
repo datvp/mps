@@ -36,7 +36,7 @@
             End If
         End If
         If ask Then
-            Dim re As DialogResult = ShowMsgMultiLangYesNoCancel(m_MsgAskSaveBeforeExit, 2)
+            Dim re As DialogResult = ShowMsgYesNoCancel(m_MsgAskSaveBeforeExit, 2)
             Select Case re
                 Case Windows.Forms.DialogResult.Yes
                     If Not SAVE() Then
@@ -61,7 +61,10 @@
     End Sub
 
     Private Sub FrmNewBranch_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ModMain.SetTitle(Me,UltraLabel1.Text)
+        ModMain.SetTitle(Me, UltraLabel1.Text)
+        ModMain.BlueButton(btnSave, ModMain.m_SaveIcon)
+        ModMain.RedButton(btnSaveClose, ModMain.m_SaveCloseIcon)
+        ModMain.GreenButton(btnClose, ModMain.m_CancelIcon)
         If txtIDSort.Text = "0" Then
             If showDAL Then
                 btnSaveClose.Visible = False
@@ -178,19 +181,19 @@
     End Function
     Private Function CheckOK() As Boolean
         If txtBranch_ID.Text.Trim = "" Then
-            ShowMsgMultiLang("Nhập mã chi nhánh !", 152)
+            ShowMsg("Nhập mã chi nhánh !", 152)
             txtBranch_ID.Focus()
             Return False
         Else
             If b.CheckDulicate(txtBranch_ID.Text, txtSID.Text) Then
-                ShowMsgMultiLang("Mã chi nhánh đã tồn tại !", 153)
+                ShowMsg("Mã chi nhánh đã tồn tại !", 153)
                 txtBranch_ID.Focus()
                 Return False
             End If
         End If
 
         If txtName.Text.Trim = "" Then
-            ShowMsgMultiLang("Nhập tên chi nhánh !", 154)
+            ShowMsg("Nhập tên chi nhánh !", 154)
             txtBranch_ID.Focus()
             Return False
         End If
@@ -204,20 +207,12 @@
             Exit Function
         End If
 
-        Dim m As Model.MLs_Branchs = Me.setInfo
+        Dim m As Model.MLs_Branchs = Me.setInfo()
         Dim strEvent As String = ""
         If m.s_ID = "" Then 'Them moi
-            If m_Lang = 1 Then
-                strEvent = "Thêm mới chi nhánh hàng có mã '" & m.s_Branch_ID & "'"
-            Else
-                strEvent = clsLang.getLangEvent(m_Lang, 65) & " '" & m.s_Branch_ID & "'"
-            End If
+            strEvent = "Thêm mới chi nhánh hàng có mã '" & m.s_Branch_ID & "'"
         Else 'Hieu chinh
-            If m_Lang = 1 Then
-                strEvent = "Hiệu chỉnh chi nhánh hàng có mã '" & m.s_Branch_ID & "'"
-            Else
-                strEvent = clsLang.getLangEvent(m_Lang, 66) & " '" & m.s_Branch_ID & "'"
-            End If
+            strEvent = "Hiệu chỉnh chi nhánh hàng có mã '" & m.s_Branch_ID & "'"
         End If
 
         If b.UPDATEDB(m) Then
@@ -226,7 +221,6 @@
             ' set quyen mac dinh chi nhánh cac chi nhánh hang
             Dim cf As New BLL.BFuncRight
             cf.SetFuncBranch("")
-
             Return True
         End If
 
@@ -237,14 +231,14 @@
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         If SAVE() Then
             If Me.txtIDSort.Text = "0" Then
-                ShowMsgInfoMultiLang("Đã lưu dữ liệu !", 10)
+                ShowMsgInfo(m_MsgSaveSuccess)
                 Me.ClearInfo()
                 If showDAL Then
                     Me.Close()
                 End If
 
             Else
-                ShowMsgInfoMultiLang("Đã lưu dữ liệu !", 10)
+                ShowMsgInfo(m_MsgSaveSuccess)
                 Me.Close()
             End If
 
@@ -254,7 +248,7 @@
         If SAVE() Then
             Me.ClearInfo() 'Nếu chi nhánh có thì nó chạy vao FormClosing
             Me.Close()
-            ShowMsgInfoMultiLang("Đã lưu dữ liệu !", 10)
+            ShowMsgInfo(m_MsgSaveSuccess)
         End If
     End Sub
 

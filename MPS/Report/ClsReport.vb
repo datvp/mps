@@ -139,58 +139,14 @@ Public Class ClsReport
             Dim sFile As String = strFileName.Substring(Application.StartupPath.Length, strFileName.Length - Application.StartupPath.Length)
 
             If m_Lang <> 1 Then
-                'For Each fl As FormulaFieldDefinition In rp.DataDefinition.FormulaFields
-                '    Dim sName As String = fl.Name
-                '    Dim s As String = fl.Text
-                'Next
                 For Each obj As ReportObject In rp.ReportDefinition.ReportObjects
                     Try
-                        'Dim s As String = obj.Name.ToString
                         Dim stype As String = obj.GetType.ToString
-                        'InputBox("", "", stype)
-
-                        'CrystalDecisions.CrystalReports.Engine.RunningTotalFieldDefinition 
-                        'CrystalDecisions.CrystalReports.Engine.SummaryFieldDefinition 
-                        'CrystalDecisions.CrystalReports.Engine.FormulaFieldDefinition 
-
-                        '"CrystalDecisions.CrystalReports.Engine.SubreportObject"
-                        '"CrystalDecisions.CrystalReports.Engine.TextObject"
-                        '"CrystalDecisions.CrystalReports.Engine.BoxObject"
-                        '"CrystalDecisions.CrystalReports.Engine.LineObject"
-                        '"CrystalDecisions.CrystalReports.Engine.FieldObject"
 
                         If stype = "CrystalDecisions.CrystalReports.Engine.TextObject" Then
                             Dim objtxt As CrystalDecisions.CrystalReports.Engine.TextObject = obj
-                            'Dim arrs() As String = objtxt.Text.Split(Chr(10))
-                            'For Each s As String In arrs
-                            '    Dim a() As String = s.Split(Chr(13))
-                            '    If a.Length > 1 Then
-
-                            '    End If
-                            'Next
-                            'Dim n = 0
-                            'For i As Integer = 0 To objtxt.Text.Length - 1
-                            '    Dim ch As String = objtxt.Text.Substring(i, 1)
-                            '    If ch = Chr(10) Then
-                            '        n += 1
-
-                            '    End If
-                            'Next
-
-                            'Dim tb As DataTable = DetachFomular(objtxt.Text)
-
-                            'Dim ss As String = TranslateStringToCRFormula(objtxt.Text)
-                            'ss = TranslateStringToCRFormula11(objtxt.Text)
-
-                            'If objtxt.Name.ToLower = "text10".ToLower Then
-                            '    objtxt.Text = "Trang:" & Chr(10) & "{PageNumber}"
-                            '    'objtxt.Text = "Trang: Chr(10)PageNumberChr(10)"
-                            'End If
-
                             If objtxt.Text.ToString.Trim <> "" AndAlso objtxt.Text.IndexOf(Chr(10)) = -1 Then
-                                clsLang.InsertMsgRpt(objtxt.Text)
-                                Dim sLang As String = clsLang.getMsgRpt(objtxt.Text, m_Lang)
-                                objtxt.Text = sLang
+                                objtxt.Text = objtxt.Text
                             Else
                                 Dim sDate As String = objtxt.Text
                                 sDate = sDate.Replace("  ", " ")
@@ -201,7 +157,7 @@ Public Class ClsReport
                                     Dim sD As String = Format(Now, "dd")
                                     Dim sM As String = Format(Now, "MM")
                                     Dim sY As String = Format(Now, "yyyy")
-                                    Dim sInfo As String = clsLang.getMsgRpt("Ngày", m_Lang) & " " & sD & " " & clsLang.getMsgRpt("tháng", m_Lang) & " " & sM & " " & clsLang.getMsgRpt("năm", m_Lang) & " " & sY
+                                    Dim sInfo As String = "Ngày " & sD & " tháng " & sM & " năm " & sY
                                     objtxt.Text = sInfo
                                 End If
                             End If
@@ -210,9 +166,7 @@ Public Class ClsReport
                         If stype = "CrystalDecisions.CrystalReports.Engine.FieldHeadingObject" Then
                             Dim objtxt As CrystalDecisions.CrystalReports.Engine.FieldHeadingObject = obj
                             If objtxt.Text.ToString.Trim <> "" AndAlso objtxt.Text.IndexOf(Chr(10)) = -1 Then
-                                clsLang.InsertMsgRpt(objtxt.Text)
-                                Dim sLang As String = clsLang.getMsgRpt(objtxt.Text, m_Lang)
-                                objtxt.Text = sLang
+                                objtxt.Text = objtxt.Text
                             End If
                         End If
                         If stype = "CrystalDecisions.CrystalReports.Engine.SubreportObject" Then
@@ -227,20 +181,17 @@ Public Class ClsReport
                                             Dim sInfo As String = ""
                                             Select Case objtxt.Name.ToLower
                                                 Case "text22", "text23"
-                                                    sInfo = clsLang.getMsgRpt("Địa chỉ:", m_Lang) & " " & mbc.s_Address
+                                                    sInfo = "Địa chỉ: " & mbc.s_Address
                                                 Case "text24", "text26"
-                                                    sInfo = clsLang.getMsgRpt("Điện thoại:", m_Lang) & " " & mbc.s_Phone1.Trim
+                                                    sInfo = "Điện thoại: " & mbc.s_Phone1.Trim
                                                     If mbc.s_Phone2 <> "" Then
                                                         sInfo += " " & mbc.s_Phone2.Trim
                                                     End If
-                                                    'If mbc.s_Fax <> "" Then
-                                                    '    sInfo += " " & clsLang.getMsgRpt("Fax:", m_Lang) & " " & mbc.s_Fax.Trim
-                                                    'End If
-                                                    sInfo += " - " & clsLang.getMsgRpt("Fax:", m_Lang) & " " & mbc.s_Fax.Trim
+                                                    sInfo += " - Fax: " & mbc.s_Fax.Trim
 
                                                 Case "text25", "text27"
-                                                    sInfo = clsLang.getMsgRpt("Email:", m_Lang) & " " & mbc.s_Email.Trim
-                                                    sInfo += " - " & clsLang.getMsgRpt("Website:", m_Lang) & " " & mbc.s_Website.Trim
+                                                    sInfo = "Email: " & mbc.s_Email.Trim
+                                                    sInfo += " - Website: " & mbc.s_Website.Trim
                                             End Select
                                             objtxt.Text = sInfo
                                         End If
@@ -249,9 +200,7 @@ Public Class ClsReport
                                     Else
                                         Dim objtxt As CrystalDecisions.CrystalReports.Engine.TextObject = objsub
                                         If objtxt.Text.ToString.Trim <> "" AndAlso objtxt.Text.IndexOf(Chr(10)) = -1 Then
-                                            clsLang.InsertMsgRpt(objtxt.Text)
-                                            Dim sLang As String = clsLang.getMsgRpt(objtxt.Text, m_Lang)
-                                            objtxt.Text = sLang
+                                            objtxt.Text = objtxt.Text
                                         End If
                                     End If
 
@@ -262,21 +211,8 @@ Public Class ClsReport
                     Catch ex1 As Exception
                         Dim strError As String = ex1.Message
                     End Try
-                    
+
                 Next
-
-                'Dim crFormulas As FormulaFieldDefinitions
-
-                ''formulas that will contain the field name 
-                'Dim crFormulaTextField1 As FormulaFieldDefinition
-
-                ''set the Formulas collection to the current report's formula 
-                ''collection 
-                'crFormulas = rpt.DataDefinition.FormulaFields
-
-                'crFormulaTextField1 = crFormulas.Item("PersonalCommentsFormula")
-                'crFormulaTextField1.Text = TranslateStringToCRFormula(Me.txtFormula.Text)
-
             End If
 
 
@@ -363,62 +299,6 @@ Public Class ClsReport
         Return Returnstring
 
     End Function
-    Private Sub TestTest(ByVal crReportDocument As ReportDocument)
-        'Dim crreportobject As CrystalDecisions.CrystalReports.Engine.ReportObject
-        'For Each crreportobject In crReportDocument.ReportDefinition.ReportObjects
-        '    If TypeOf (crreportobject) Is CrystalDecisions.CrystalReports.Engine.TextObject Then
-        '        Dim crtextobject As CrystalDecisions.CrystalReports.Engine.TextObject = crreportobject
-        '        If Trim(crreportobject.Name) = "Text8" Then
-        '            crtextobject = DirectCast(crreportobject, CrystalDecisions.CrystalReports.Engine.TextObject)
-        '            crtextobject.Text = "Lista Condensada de Componentes para Electrificação da Encomenda"
-        '        End If
-        '        If TypeOf (crreportobject) Is CrystalDecisions.CrystalReports.Engine.FieldObject Then '' << never true??
-        '            Dim field As CrystalDecisions.CrystalReports.Engine.FieldObject = crreportobject
-        '            If Trim(field.Name) = "Field16" Then
-        '                field = DirectCast(field, CrystalDecisions.CrystalReports.Engine.FieldObject)
-        '                field.ObjectFormat.EnableSuppress = False
-
-        '            End If
-        '        End If
-        '    End If
-        'Next
-
-        'Dim crreportobject As CrystalDecisions.CrystalReports.Engine.ReportObject
-        'For Each crreportobject In crReportDocument.ReportDefinition.ReportObjects
-        '    If TypeOf (crreportobject) Is CrystalDecisions.CrystalReports.Engine.TextObject Then
-        '        Dim crtextobject As CrystalDecisions.CrystalReports.Engine.TextObject
-        '        If Trim(crreportobject.Name) = "Text8" Then
-        '            crtextobject = DirectCast(crreportobject, CrystalDecisions.CrystalReports.Engine.TextObject)
-        '            crtextobject.Text = "Lista Condensada de Componentes para Electrificação da Encomenda"
-        '        End If
-        '    End If
-        '    If TypeOf (crreportobject) Is CrystalDecisions.CrystalReports.Engine.FieldObject Then
-        '        Dim field As CrystalDecisions.CrystalReports.Engine.FieldObject
-        '        If Trim(field.Name) = "Field16" Then '' >> null exception here
-        '            field = DirectCast(field, CrystalDecisions.CrystalReports.Engine.FieldObject)
-        '            field.ObjectFormat.EnableSuppress = False
-
-        '        End If
-        '    End If
-
-        'Next
-        'Dim crreportobject As CrystalDecisions.CrystalReports.Engine.ReportObject
-        'For Each crreportobject In crReportDocument.ReportDefinition.ReportObjects
-        '    If TypeOf (crreportobject) Is CrystalDecisions.CrystalReports.Engine.TextObject Then
-        '        Dim crtextobject As CrystalDecisions.CrystalReports.Engine.TextObject = DirectCast(crreportobject, CrystalDecisions.CrystalReports.Engine.TextObject)
-        '        If crreportobject.Name.TrimEnd = "Text8" Then
-        '            crtextobject.Text = "Lista Condensada de Componentes para Electrificação da Encomenda"
-        '        End If
-        '    End If
-        '    If TypeOf (crreportobject) Is CrystalDecisions.CrystalReports.Engine.FieldObject Then
-        '        Dim field As CrystalDecisions.CrystalReports.Engine.FieldObject = DirectCast(crreportobject, CrystalDecisions.CrystalReports.Engine.FieldObject)
-        '        If field.Name.TrimEnd = "Field16" Then
-        '            field.ObjectFormat.EnableSuppress = False
-        '        End If
-        '    End If
-        'Next
-
-    End Sub
     Public Sub SetParameter(ByRef rp As ReportDocument, ByVal value1 As Object)
         rp.SetParameterValue(0, value1)
     End Sub
