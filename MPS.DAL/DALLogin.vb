@@ -2,6 +2,18 @@
 Public Class DALLogin
     Inherits DALSQL
 
+    Private Sub New()
+    End Sub
+    Private Shared obj As DALLogin
+    Public Shared ReadOnly Property Instance() As DALLogin
+        Get
+            If obj Is Nothing Then
+                obj = New DALLogin
+            End If
+            Return obj
+        End Get
+    End Property
+
     Public Function getUnikeyIDfromDB() As Integer
         Dim tb As DataTable = getTableSQL("Select * from sysvsoft where [ID]=2")
         If Not tb Is Nothing Then

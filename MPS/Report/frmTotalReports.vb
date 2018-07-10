@@ -51,7 +51,8 @@ Public Class frmTotalReports
 
     Private Sub frmTotalReports_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ModMain.SetTitle(Me)
-        ModMain.BlueButton(btnView)
+        ModMain.BlueButton(btnView, ModMain.m_OkIcon)
+        ModMain.GreenButton(btnExportExcel)
         Me.GetListReports()
     End Sub
 End Class

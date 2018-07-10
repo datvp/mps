@@ -90,11 +90,6 @@ Public Class DALFuncRight
         sql += " isnull(r.IDSort,0) as IDSort"
         sql += " From (Select cast(-98 as int) as i_ID,'-1' as s_ID ) f"
         sql += " left outer join (Select * from PR_FunRight_EXT where [UID]=@UID) as r On f.s_ID=r.FuncID"
-        sql += " Union all"
-        sql += " Select f.s_ID as sFunID,N'Danh sách Kho hàng' as s_Name,f.i_ID,isnull(r.U,0) as U,isnull(r.A,0) as A,isnull(r.D,0) as D,isnull(r.R,0) as R,"
-        sql += " isnull(r.IDSort,0) as IDSort"
-        sql += " From (Select cast(-99 as int) as i_ID,'-2' as s_ID ) f"
-        sql += " left outer join (Select * from PR_FunRight_EXT where [UID]=@UID) as r On f.s_ID=r.FuncID"
         sql += " order by IDSort"
 
         Dim tb As DataTable = getTableSQL(sql, New SqlParameter("@UID", UID))
@@ -111,11 +106,6 @@ Public Class DALFuncRight
         sql += " Select f.s_ID as sFunID,f.[s_Name] as s_Name,cast(0 as int) as i_ID,cast(-98 as int) i_Uplevel,"
         sql += " isnull(r.U,0) as U,isnull(r.A,0) as A,isnull(r.D,0) as D,isnull(r.R,0) as R,isnull(r.IDSort,0) as IDSort"
         sql += " from Ls_Branchs f"
-        sql += " left outer join (Select * from PR_FunRight_EXT where [UID]=@UID) as r On f.s_ID=r.FuncID"
-        sql += " Union all"
-        sql += " Select f.s_ID as sFunID,f.[s_Name] as s_Name,cast(0 as int) as i_ID,cast(-99 as int) i_Uplevel,"
-        sql += " isnull(r.U,0) as U,isnull(r.A,0) as A,isnull(r.D,0) as D,isnull(r.R,0) as R,isnull(r.IDSort,0) as IDSort"
-        sql += " from Ls_Stores f"
         sql += " left outer join (Select * from PR_FunRight_EXT where [UID]=@UID) as r On f.s_ID=r.FuncID"
         sql += " order by IDSort"
 

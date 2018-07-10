@@ -50,6 +50,8 @@
 
     Private Sub FrmPWDSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ModMain.SetTitle(Me)
+        ModMain.BlueButton(btnOK, ModMain.m_SaveIcon)
+        ModMain.GreenButton(btnExit, ModMain.m_CancelIcon)
         Me.txtUser.Select()
     End Sub
 

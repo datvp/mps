@@ -21,11 +21,11 @@
             End If
         End If
 
+        ' log out
         Dim clsL As BLL.BLogin = BLL.BLogin.Instance
-        Dim HostName As String = My.Computer.Name
-        Dim IPAddress As String = m_strMyIPAddress
-        clsL.UpDateComputerLogin(HostName, IPAddress, False)
-        e.Cancel = False
+        Dim hostName = My.Computer.Name
+        clsL.UpDateComputerLogin(hostName, ModMain.HostName2IP(hostName), False)
+        'e.Cancel = False
     End Sub
 
     Private Sub frmMain_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load

@@ -92,7 +92,7 @@ Partial Class FrmGroupUser
         Me.UltraLabel1.Name = "UltraLabel1"
         Me.UltraLabel1.Size = New System.Drawing.Size(726, 23)
         Me.UltraLabel1.TabIndex = 36
-        Me.UltraLabel1.Text = "Danh sách Nhóm người sử dụng"
+        Me.UltraLabel1.Text = "Danh mục Nhóm tài khoản sử dụng"
         '
         'Panel1
         '

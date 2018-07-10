@@ -62,7 +62,11 @@
     End Sub
 
     Private Sub FrmNewGroupUser_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        ModMain.SetTitle(Me,UltraLabel1.Text)
+        ModMain.SetTitle(Me, UltraLabel1.Text)
+        ModMain.BlueButton(btnSave, ModMain.m_SaveIcon)
+        ModMain.RedButton(btnSaveClose, ModMain.m_SaveCloseIcon)
+        ModMain.GreenButton(btnClose, ModMain.m_CancelIcon)
+
         If SID = "" Then
             txtOrderNo.Text = b.GetMaxOrdinal() + 1
         End If

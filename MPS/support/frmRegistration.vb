@@ -14,6 +14,8 @@
     End Sub
     Private Sub frmRegistration_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ModMain.SetTitle(Me)
+        ModMain.BlueButton(btnOk, ModMain.m_OkIcon)
+        ModMain.GreenButton(btnExit, ModMain.m_CancelIcon)
         txtID.Text = ModMain.m_HDDSerial
         txtGenegateCode.Text = ModMain.m_SerialKey
     End Sub

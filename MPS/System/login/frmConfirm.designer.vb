@@ -49,15 +49,16 @@ Partial Class frmConfirm
         '
         'UltraGroupBox1
         '
-        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.None
+        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
         Me.UltraGroupBox1.Controls.Add(Me.btnOK)
         Me.UltraGroupBox1.Controls.Add(Me.btnExit)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 140)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 189)
+        Me.UltraGroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(306, 33)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(370, 57)
         Me.UltraGroupBox1.TabIndex = 2
-        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
+        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'btnOK
         '
@@ -74,13 +75,14 @@ Partial Class frmConfirm
         Appearance7.BackColor2 = System.Drawing.Color.White
         Appearance7.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnOK.HotTrackAppearance = Appearance7
-        Me.btnOK.Location = New System.Drawing.Point(85, 5)
+        Me.btnOK.Location = New System.Drawing.Point(106, 13)
+        Me.btnOK.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnOK.Name = "btnOK"
         Appearance8.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance8.BackColor2 = System.Drawing.Color.White
         Appearance8.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnOK.PressedAppearance = Appearance8
-        Me.btnOK.Size = New System.Drawing.Size(105, 25)
+        Me.btnOK.Size = New System.Drawing.Size(122, 31)
         Me.btnOK.TabIndex = 4
         Me.btnOK.Text = "Nhận(Enter)"
         Me.btnOK.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
@@ -102,13 +104,14 @@ Partial Class frmConfirm
         Appearance11.BackColor2 = System.Drawing.Color.White
         Appearance11.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnExit.HotTrackAppearance = Appearance11
-        Me.btnExit.Location = New System.Drawing.Point(196, 5)
+        Me.btnExit.Location = New System.Drawing.Point(236, 13)
+        Me.btnExit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnExit.Name = "btnExit"
         Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance12.BackColor2 = System.Drawing.Color.White
         Appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnExit.PressedAppearance = Appearance12
-        Me.btnExit.Size = New System.Drawing.Size(103, 25)
+        Me.btnExit.Size = New System.Drawing.Size(120, 31)
         Me.btnExit.TabIndex = 3
         Me.btnExit.Text = "Thoát(ESC)"
         Me.btnExit.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
@@ -129,8 +132,9 @@ Partial Class frmConfirm
         Me.lblTitle.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTitle.ImageSize = New System.Drawing.Size(22, 22)
         Me.lblTitle.Location = New System.Drawing.Point(0, 0)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(306, 43)
+        Me.lblTitle.Size = New System.Drawing.Size(370, 53)
         Me.lblTitle.TabIndex = 0
         Me.lblTitle.Text = "XÁC NHẬN"
         '
@@ -145,64 +149,68 @@ Partial Class frmConfirm
         Me.UltraGroupBox2.Controls.Add(Me.txtUser)
         Me.UltraGroupBox2.Controls.Add(Me.lblPWD)
         Me.UltraGroupBox2.Controls.Add(Me.txtPass)
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(5, 49)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(13, 68)
+        Me.UltraGroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(294, 85)
+        Me.UltraGroupBox2.Size = New System.Drawing.Size(343, 105)
         Me.UltraGroupBox2.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(7, 21)
+        Me.Label1.Location = New System.Drawing.Point(8, 26)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 13)
+        Me.Label1.Size = New System.Drawing.Size(73, 16)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Người dùng"
         '
         'txtUser
         '
         Me.txtUser.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtUser.Location = New System.Drawing.Point(80, 18)
+        Me.txtUser.Location = New System.Drawing.Point(93, 22)
+        Me.txtUser.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtUser.MaxLength = 50
         Me.txtUser.Name = "txtUser"
         Me.txtUser.ReadOnly = True
-        Me.txtUser.Size = New System.Drawing.Size(196, 22)
+        Me.txtUser.Size = New System.Drawing.Size(229, 25)
         Me.txtUser.TabIndex = 0
         '
         'lblPWD
         '
         Me.lblPWD.AutoSize = True
         Me.lblPWD.BackColor = System.Drawing.Color.Transparent
-        Me.lblPWD.Location = New System.Drawing.Point(7, 49)
+        Me.lblPWD.Location = New System.Drawing.Point(8, 60)
         Me.lblPWD.Name = "lblPWD"
-        Me.lblPWD.Size = New System.Drawing.Size(51, 13)
+        Me.lblPWD.Size = New System.Drawing.Size(60, 16)
         Me.lblPWD.TabIndex = 3
         Me.lblPWD.Text = "Mật khẩu"
         '
         'txtPass
         '
         Me.txtPass.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtPass.Location = New System.Drawing.Point(80, 46)
+        Me.txtPass.Location = New System.Drawing.Point(93, 57)
+        Me.txtPass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtPass.MaxLength = 255
         Me.txtPass.Name = "txtPass"
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPass.Size = New System.Drawing.Size(196, 22)
+        Me.txtPass.Size = New System.Drawing.Size(229, 25)
         Me.txtPass.TabIndex = 1
         '
         'frmConfirm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(215, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(245, Byte), Integer))
         Me.CancelButton = Me.btnExit
-        Me.ClientSize = New System.Drawing.Size(306, 173)
+        Me.ClientSize = New System.Drawing.Size(370, 246)
         Me.Controls.Add(Me.UltraGroupBox2)
         Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.UltraGroupBox1)
-        Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmConfirm"

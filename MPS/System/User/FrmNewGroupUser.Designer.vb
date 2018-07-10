@@ -75,14 +75,14 @@ Partial Class FrmNewGroupUser
         Me.UltraLabel1.ImageSize = New System.Drawing.Size(32, 32)
         Me.UltraLabel1.Location = New System.Drawing.Point(0, 0)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(427, 46)
+        Me.UltraLabel1.Size = New System.Drawing.Size(447, 46)
         Me.UltraLabel1.TabIndex = 1
-        Me.UltraLabel1.Text = "NHÓM NGƯỜI DÙNG"
+        Me.UltraLabel1.Text = "NHÓM TÀI KHOẢN"
         '
         'txtSID
         '
         Me.txtSID.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSID.Location = New System.Drawing.Point(143, 8)
+        Me.txtSID.Location = New System.Drawing.Point(128, 14)
         Me.txtSID.MaxLength = 50
         Me.txtSID.Name = "txtSID"
         Me.txtSID.Size = New System.Drawing.Size(148, 22)
@@ -102,9 +102,9 @@ Partial Class FrmNewGroupUser
         Me.UltraGroupBox2.Controls.Add(Me.Label2)
         Me.UltraGroupBox2.Controls.Add(Me.txtNote)
         Me.UltraGroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(3, 49)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(13, 61)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(420, 165)
+        Me.UltraGroupBox2.Size = New System.Drawing.Size(420, 190)
         Me.UltraGroupBox2.TabIndex = 13
         '
         'txtOrderNo
@@ -112,7 +112,7 @@ Partial Class FrmNewGroupUser
         Appearance2.TextHAlignAsString = "Right"
         Me.txtOrderNo.Appearance = Appearance2
         Me.txtOrderNo.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOrderNo.Location = New System.Drawing.Point(356, 8)
+        Me.txtOrderNo.Location = New System.Drawing.Point(341, 14)
         Me.txtOrderNo.MaxLength = 50
         Me.txtOrderNo.Name = "txtOrderNo"
         Me.txtOrderNo.Size = New System.Drawing.Size(54, 22)
@@ -122,7 +122,7 @@ Partial Class FrmNewGroupUser
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(297, 12)
+        Me.Label3.Location = New System.Drawing.Point(282, 18)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(53, 13)
         Me.Label3.TabIndex = 15
@@ -133,17 +133,17 @@ Partial Class FrmNewGroupUser
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 12)
+        Me.Label1.Location = New System.Drawing.Point(24, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(124, 13)
+        Me.Label1.Size = New System.Drawing.Size(67, 13)
         Me.Label1.TabIndex = 8
-        Me.Label1.Text = "Mã nhóm người dùng (*)"
+        Me.Label1.Text = "Mã nhóm (*)"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtName
         '
         Me.txtName.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtName.Location = New System.Drawing.Point(143, 33)
+        Me.txtName.Location = New System.Drawing.Point(128, 44)
         Me.txtName.MaxLength = 50
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(267, 22)
@@ -153,7 +153,7 @@ Partial Class FrmNewGroupUser
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 60)
+        Me.Label4.Location = New System.Drawing.Point(24, 76)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 13)
         Me.Label4.TabIndex = 10
@@ -164,17 +164,17 @@ Partial Class FrmNewGroupUser
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(6, 37)
+        Me.Label2.Location = New System.Drawing.Point(24, 48)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(128, 13)
+        Me.Label2.Size = New System.Drawing.Size(71, 13)
         Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Tên nhóm người dùng (*)"
+        Me.Label2.Text = "Tên nhóm (*)"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtNote
         '
         Me.txtNote.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNote.Location = New System.Drawing.Point(143, 58)
+        Me.txtNote.Location = New System.Drawing.Point(128, 74)
         Me.txtNote.MaxLength = 1024
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
@@ -198,7 +198,7 @@ Partial Class FrmNewGroupUser
         Appearance14.BackColor2 = System.Drawing.Color.White
         Appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnSave.HotTrackAppearance = Appearance14
-        Me.btnSave.Location = New System.Drawing.Point(244, 7)
+        Me.btnSave.Location = New System.Drawing.Point(254, 7)
         Me.btnSave.Name = "btnSave"
         Appearance15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance15.BackColor2 = System.Drawing.Color.White
@@ -227,7 +227,7 @@ Partial Class FrmNewGroupUser
         Appearance3.BackColor2 = System.Drawing.Color.White
         Appearance3.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnSaveClose.HotTrackAppearance = Appearance3
-        Me.btnSaveClose.Location = New System.Drawing.Point(108, 7)
+        Me.btnSaveClose.Location = New System.Drawing.Point(118, 7)
         Me.btnSaveClose.Name = "btnSaveClose"
         Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance9.BackColor2 = System.Drawing.Color.White
@@ -242,16 +242,16 @@ Partial Class FrmNewGroupUser
         '
         'UltraGroupBox1
         '
-        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.None
+        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
         Me.UltraGroupBox1.Controls.Add(Me.btnSaveClose)
         Me.UltraGroupBox1.Controls.Add(Me.btnClose)
         Me.UltraGroupBox1.Controls.Add(Me.btnSave)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 216)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 264)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(427, 36)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(447, 36)
         Me.UltraGroupBox1.TabIndex = 12
-        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
+        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'btnClose
         '
@@ -270,7 +270,7 @@ Partial Class FrmNewGroupUser
         Appearance8.BackColor2 = System.Drawing.Color.White
         Appearance8.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnClose.HotTrackAppearance = Appearance8
-        Me.btnClose.Location = New System.Drawing.Point(324, 7)
+        Me.btnClose.Location = New System.Drawing.Point(334, 7)
         Me.btnClose.Name = "btnClose"
         Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance11.BackColor2 = System.Drawing.Color.White
@@ -288,17 +288,17 @@ Partial Class FrmNewGroupUser
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.AliceBlue
-        Me.ClientSize = New System.Drawing.Size(427, 252)
+        Me.ClientSize = New System.Drawing.Size(447, 300)
         Me.Controls.Add(Me.UltraGroupBox2)
         Me.Controls.Add(Me.UltraGroupBox1)
         Me.Controls.Add(Me.UltraLabel1)
+        Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmNewGroupUser"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "POS"
         CType(Me.txtSID, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)

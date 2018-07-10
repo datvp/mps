@@ -26,7 +26,10 @@
 
    
     Private Sub FrmPWDSystem_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ModMain.SetTitle(Me, UltraLabel1.Text)
+        ModMain.SetTitle(Me, lblTitle.Text)
+        ModMain.BlueButton(btnOK, ModMain.m_OkIcon)
+        ModMain.GreenButton(btnExit, ModMain.m_CancelIcon)
+
         Me.TextBox1.Select()
     End Sub
 

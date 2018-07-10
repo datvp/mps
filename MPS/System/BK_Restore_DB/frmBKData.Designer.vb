@@ -133,7 +133,7 @@ Partial Class frmBKData
         Appearance5.BackColor2 = System.Drawing.Color.White
         Appearance5.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnApply.HotTrackAppearance = Appearance5
-        Me.btnApply.Location = New System.Drawing.Point(254, 8)
+        Me.btnApply.Location = New System.Drawing.Point(254, 11)
         Me.btnApply.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnApply.Name = "btnApply"
         Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -163,7 +163,7 @@ Partial Class frmBKData
         Appearance14.BackColor2 = System.Drawing.Color.White
         Appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnCancel.HotTrackAppearance = Appearance14
-        Me.btnCancel.Location = New System.Drawing.Point(376, 8)
+        Me.btnCancel.Location = New System.Drawing.Point(376, 11)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnCancel.Name = "btnCancel"
         Appearance10.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))

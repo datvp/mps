@@ -79,7 +79,7 @@ Partial Class frmRegistration
         Me.UltraGroupBox2.Controls.Add(Me.lblSMS)
         Me.UltraGroupBox2.Controls.Add(Me.Label2)
         Me.UltraGroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(12, 46)
+        Me.UltraGroupBox2.Location = New System.Drawing.Point(12, 52)
         Me.UltraGroupBox2.Name = "UltraGroupBox2"
         Me.UltraGroupBox2.Size = New System.Drawing.Size(466, 165)
         Me.UltraGroupBox2.TabIndex = 6
@@ -145,15 +145,15 @@ Partial Class frmRegistration
         '
         'UltraGroupBox1
         '
-        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.None
+        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
         Me.UltraGroupBox1.Controls.Add(Me.btnOk)
         Me.UltraGroupBox1.Controls.Add(Me.btnExit)
         Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 219)
+        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 223)
         Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(490, 36)
+        Me.UltraGroupBox1.Size = New System.Drawing.Size(490, 56)
         Me.UltraGroupBox1.TabIndex = 7
-        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
+        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'btnOk
         '
@@ -165,7 +165,7 @@ Partial Class frmRegistration
         Me.btnOk.Appearance = Appearance9
         Me.btnOk.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
         Me.btnOk.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnOk.Location = New System.Drawing.Point(272, 6)
+        Me.btnOk.Location = New System.Drawing.Point(270, 18)
         Me.btnOk.Name = "btnOk"
         Me.btnOk.Size = New System.Drawing.Size(100, 26)
         Me.btnOk.TabIndex = 8
@@ -184,7 +184,7 @@ Partial Class frmRegistration
         Me.btnExit.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
         Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnExit.Location = New System.Drawing.Point(378, 6)
+        Me.btnExit.Location = New System.Drawing.Point(376, 18)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(100, 26)
         Me.btnExit.TabIndex = 7
@@ -196,7 +196,7 @@ Partial Class frmRegistration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(490, 255)
+        Me.ClientSize = New System.Drawing.Size(490, 279)
         Me.Controls.Add(Me.UltraGroupBox2)
         Me.Controls.Add(Me.UltraGroupBox1)
         Me.Controls.Add(Me.lblTitle)

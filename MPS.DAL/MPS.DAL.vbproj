@@ -64,7 +64,6 @@
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsReportHQ.vb" />
     <Compile Include="DALEvent.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -120,6 +119,10 @@
       <Project>{E6E87EF1-21F4-4A44-9121-421220D91371}</Project>
       <Name>MPS.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="List\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
