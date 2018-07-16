@@ -28,7 +28,6 @@ Partial Class frmContractDetail
         Dim Appearance66 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance67 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance68 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
@@ -146,10 +145,10 @@ Partial Class frmContractDetail
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.grpBottom = New Infragistics.Win.Misc.UltraGroupBox
         Me.btnSave = New Infragistics.Win.Misc.UltraButton
         Me.btnExit = New Infragistics.Win.Misc.UltraButton
-        Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.grpMainInfo = New Infragistics.Win.Misc.UltraGroupBox
         Me.dtExpireDate = New System.Windows.Forms.DateTimePicker
         Me.cboProject = New Infragistics.Win.UltraWinGrid.UltraCombo
@@ -160,6 +159,7 @@ Partial Class frmContractDetail
         Me.txtContractName = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.lblUnit = New System.Windows.Forms.Label
         Me.lblExample = New System.Windows.Forms.Label
+        Me.lblConvertMoney = New System.Windows.Forms.Label
         Me.lblContractValue = New System.Windows.Forms.Label
         Me.lblExpireDate = New System.Windows.Forms.Label
         Me.lblContractId = New System.Windows.Forms.Label
@@ -192,7 +192,7 @@ Partial Class frmContractDetail
         Me.UltraGrid5 = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
         Me.UltraGrid1 = New Infragistics.Win.UltraWinGrid.UltraGrid
-        Me.lblConvertMoney = New System.Windows.Forms.Label
+        Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMainInfo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -303,28 +303,6 @@ Partial Class frmContractDetail
         Me.btnExit.Text = "Thoát (Esc)"
         Me.btnExit.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
         Me.btnExit.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
-        '
-        'lblTitle
-        '
-        Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(250, Byte), Integer))
-        Appearance12.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(255, Byte), Integer))
-        Appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
-        Appearance12.FontData.BoldAsString = "True"
-        Appearance12.FontData.SizeInPoints = 14.0!
-        Appearance12.ForeColor = System.Drawing.Color.Black
-        Appearance12.Image = Global.MPS.My.Resources.Resources.document_new
-        Appearance12.TextHAlignAsString = "Left"
-        Appearance12.TextVAlignAsString = "Middle"
-        Me.lblTitle.Appearance = Appearance12
-        Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Top
-        Me.lblTitle.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.ImageSize = New System.Drawing.Size(32, 32)
-        Me.lblTitle.Location = New System.Drawing.Point(0, 0)
-        Me.lblTitle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(988, 47)
-        Me.lblTitle.TabIndex = 12
-        Me.lblTitle.Text = "HỢP ĐỒNG"
         '
         'grpMainInfo
         '
@@ -509,6 +487,17 @@ Partial Class frmContractDetail
         Me.lblExample.Size = New System.Drawing.Size(108, 16)
         Me.lblExample.TabIndex = 11
         Me.lblExample.Text = "Ví dụ: 11819.BNN"
+        '
+        'lblConvertMoney
+        '
+        Me.lblConvertMoney.BackColor = System.Drawing.Color.Transparent
+        Me.lblConvertMoney.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.lblConvertMoney.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblConvertMoney.Location = New System.Drawing.Point(1, 274)
+        Me.lblConvertMoney.Name = "lblConvertMoney"
+        Me.lblConvertMoney.Size = New System.Drawing.Size(468, 38)
+        Me.lblConvertMoney.TabIndex = 11
+        Me.lblConvertMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblContractValue
         '
@@ -1390,16 +1379,27 @@ Partial Class frmContractDetail
         Me.UltraGrid1.Size = New System.Drawing.Size(437, 392)
         Me.UltraGrid1.TabIndex = 44
         '
-        'lblConvertMoney
+        'lblTitle
         '
-        Me.lblConvertMoney.BackColor = System.Drawing.Color.Transparent
-        Me.lblConvertMoney.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblConvertMoney.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblConvertMoney.Location = New System.Drawing.Point(1, 274)
-        Me.lblConvertMoney.Name = "lblConvertMoney"
-        Me.lblConvertMoney.Size = New System.Drawing.Size(468, 38)
-        Me.lblConvertMoney.TabIndex = 11
-        Me.lblConvertMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(250, Byte), Integer))
+        Appearance12.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(255, Byte), Integer))
+        Appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance12.FontData.BoldAsString = "True"
+        Appearance12.FontData.SizeInPoints = 14.0!
+        Appearance12.ForeColor = System.Drawing.Color.Black
+        Appearance12.Image = Global.MPS.My.Resources.Resources.document_new
+        Appearance12.TextHAlignAsString = "Left"
+        Appearance12.TextVAlignAsString = "Middle"
+        Me.lblTitle.Appearance = Appearance12
+        Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Top
+        Me.lblTitle.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.ImageSize = New System.Drawing.Size(32, 32)
+        Me.lblTitle.Location = New System.Drawing.Point(0, 0)
+        Me.lblTitle.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(988, 47)
+        Me.lblTitle.TabIndex = 12
+        Me.lblTitle.Text = "HỢP ĐỒNG"
         '
         'frmContractDetail
         '
@@ -1467,7 +1467,6 @@ Partial Class frmContractDetail
     Friend WithEvents grpBottom As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents btnSave As Infragistics.Win.Misc.UltraButton
     Friend WithEvents btnExit As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents lblTitle As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents grpMainInfo As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents grpNote As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents txtNote As Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -1511,4 +1510,5 @@ Partial Class frmContractDetail
     Friend WithEvents cboProject As Infragistics.Win.UltraWinGrid.UltraCombo
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents lblConvertMoney As System.Windows.Forms.Label
+    Friend WithEvents lblTitle As Infragistics.Win.Misc.UltraLabel
 End Class

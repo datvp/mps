@@ -137,3 +137,4 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmClients.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmItems.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmUsers.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmSubContractors.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmClientDetail.resources

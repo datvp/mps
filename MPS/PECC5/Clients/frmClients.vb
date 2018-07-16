@@ -2,7 +2,7 @@
 Imports Infragistics.Win.UltraWinToolbars
 Imports Infragistics.Win.UltraWinGrid
 Public Class frmClients
-    Private WithEvents cls As New BLL.BGroupUser
+    Private WithEvents cls As BLL.BClients = BLL.BClients.Instance
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
     Dim fselect As Boolean = False
     Dim Sselect As String = ""
@@ -19,9 +19,7 @@ Public Class frmClients
 
     Private Sub frmClients_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         Loadlist()
-
     End Sub
-
 
 
     Private Sub frmClients_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
@@ -107,26 +105,24 @@ Public Class frmClients
         If Not Grid.DataSource Is Nothing Then
             If Not Grid.ActiveRow Is Nothing Then
                 If Grid.ActiveRow.Index <> -1 And Not Grid.ActiveRow.Cells Is Nothing Then
-                    s_ID = Grid.ActiveRow.Cells("s_ID").Value
+                    s_ID = Grid.ActiveRow.Cells("ClientId").Value
                 End If
             End If
         End If
 
-        Grid.DataSource = cls.Getlist
+        Grid.DataSource = cls.getListClients()
 
         If s_ID <> "" Then
             If Grid.Rows.Count > 0 Then
                 For i As Integer = 0 To Grid.Rows.Count - 1
                     Dim r As UltraGridRow = Grid.Rows(i)
                     If r.ChildBands Is Nothing Then
-                        If r.Cells("s_ID").Value = s_ID Then
+                        If r.Cells("ClientId").Value = s_ID Then
                             r.Activated = True
                             Exit Sub
                         End If
-
                     Else
-                        FindItem(r, "s_ID", s_ID)
-
+                        FindItem(r, "ClientId", s_ID)
                         If fFinish Then
                             r.ExpandAll()
                             Exit Sub
@@ -138,8 +134,11 @@ Public Class frmClients
 
     End Sub
     Private Sub ADDNew()
-        Dim frm As New frmContractDetail
-        frm.ShowDialog()
+        Dim frm As New frmClientDetail
+        Dim result = frm.ShowDialog("")
+        If result <> "" Then
+            Me.Loadlist()
+        End If
     End Sub
 
     Private Sub Edit()
@@ -147,24 +146,26 @@ Public Class frmClients
         If r Is Nothing Then Exit Sub
         If r.Index = -1 Then Exit Sub
         If Not r.ChildBands Is Nothing Then Exit Sub
-        Dim frm As New FrmNewGroupUser
-        frm.Loadinfo(r.Cells("s_ID").Value)
-        Dim s As String = frm.ShowDialog(True)
-        If s <> "" Then
-            Loadlist()
+        Dim frm As New frmClientDetail
+        Dim result = frm.ShowDialog(r.Cells("ClientId").Value)
+        If result <> "" Then
+            Me.Loadlist()
             For i As Integer = 0 To Grid.Rows.Count - 1
-                If Grid.Rows(i).Cells("s_ID").Value.ToString = s Then
+                If Grid.Rows(i).Cells("ClientId").Value.ToString = result Then
                     Grid.Rows(i).Selected = True
                     Grid.Rows(i).Activated = True
                     Exit For
                 End If
-
             Next
         End If
-
-
     End Sub
-
+    Private Function DeleteDetail(ByVal id As String) As Boolean
+        If Not cls.isDelete(id) Then
+            ShowMsg(m_DataRelation)
+            Return False
+        End If
+        Return cls.deleteDB(id)
+    End Function
     Public Sub DEL()
         Dim r As UltraGridRow = Grid.ActiveRow
         If r Is Nothing OrElse r.Index = -1 Then Exit Sub
@@ -173,54 +174,34 @@ Public Class frmClients
         Dim name As String = ""
 
         Try
-            If Grid.Selected.Rows.Count > 1 Then 'XÓA NHIỀU DÒNG
+            If Grid.Selected.Rows.Count > 1 Then
                 If ShowMsgYesNo(m_MsgAskDel, m_MsgCaption) = Windows.Forms.DialogResult.No Then
                     Exit Sub
                 End If
 
                 For i As Integer = 0 To Grid.Selected.Rows.Count - 1
-                    id = Grid.Selected.Rows(i).Cells("s_ID").Value
-                    name = Grid.Selected.Rows(i).Cells("s_Group_Name").Value
+                    id = Grid.Selected.Rows(i).Cells("ClientId").Value
+                    name = Grid.Selected.Rows(i).Cells("ClientName").Value
 
-                    If cls.CheckDelete(id) Then
-                        ShowMsg(m_DataRelation, m_MsgCaption)
-                        Loadlist()
-                        Exit Sub
-                    Else
-                        If Not cls.DELETEDB(id) Then
-                            ShowMsg(m_DelError, m_MsgCaption)
-                            Loadlist()
-                            Exit Sub
-                        Else
-                            ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa nhóm người dùng tên " & name & " có mã " & id, TypeEvents.System)
-                        End If
-
+                    If Not Me.DeleteDetail(id) Then
+                        Exit For
                     End If
-
                 Next
-
             Else 'xóa 1 dòng
-                id = r.Cells("s_ID").Value
-                name = r.Cells("s_Group_Name").Value
-
-                If cls.CheckDelete(id) Then
-                    ShowMsg(m_DataRelation, m_MsgCaption)
-                    Exit Sub
-                End If
+                id = r.Cells("ClientId").Value
+                name = r.Cells("ClientName").Value
 
                 If ShowMsgYesNo(m_MsgAskDel, m_MsgCaption) = Windows.Forms.DialogResult.No Then
                     Exit Sub
                 End If
 
-                If Not cls.DELETEDB(id) Then
-                    ShowMsg(m_DelError, m_MsgCaption)
+                If Not Me.DeleteDetail(id) Then
+                    Loadlist()
                     Exit Sub
-                Else
-                    ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa nhóm người dùng tên " & name & " có mã " & id, TypeEvents.System)
                 End If
             End If
 
-            Loadlist()
+            Me.Loadlist()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -262,7 +243,7 @@ Public Class frmClients
         If fExit = True Then Exit Sub
 
         If fselect Then
-            Sselect = r.Cells("s_ID").Value
+            Sselect = r.Cells("ClientId").Value
             Me.Close()
             Exit Sub
         End If
@@ -357,4 +338,8 @@ Public Class frmClients
         SelectAll(Grid)
     End Sub
 #End Region
+
+    Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
+        ShowMsg(messege)
+    End Sub
 End Class

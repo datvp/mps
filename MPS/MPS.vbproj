@@ -469,6 +469,9 @@
       <DependentUpon>frmClientGroups.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\Clients\frmClientDetail.resx">
+      <DependentUpon>frmClientDetail.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Clients\frmClients.resx">
       <DependentUpon>frmClients.vb</DependentUpon>
       <SubType>Designer</SubType>

@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="B_Report.vb" />
+    <Compile Include="Clients\BClients.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,7 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClientGroups\" />
-    <Folder Include="Clients\" />
     <Folder Include="Items\" />
     <Folder Include="SubContractors\" />
   </ItemGroup>
