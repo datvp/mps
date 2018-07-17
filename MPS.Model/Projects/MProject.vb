@@ -90,4 +90,34 @@
             m_UpdatedAt = value
         End Set
     End Property
+
+    Private m_ConstructionLevelId As String = ""
+    Public Property ConstructionLevelId() As String
+        Get
+            Return m_ConstructionLevelId
+        End Get
+        Set(ByVal value As String)
+            m_ConstructionLevelId = value
+        End Set
+    End Property
+
+    Private m_PerformanceUnit As String = ""
+    Public Property PerformanceUnit() As String
+        Get
+            Return m_PerformanceUnit
+        End Get
+        Set(ByVal value As String)
+            m_PerformanceUnit = value
+        End Set
+    End Property
+
+    Private m_LengthUnit As String = ""
+    Public Property LengthUnit() As String
+        Get
+            Return m_LengthUnit
+        End Get
+        Set(ByVal value As String)
+            m_LengthUnit = value
+        End Set
+    End Property
 End Class

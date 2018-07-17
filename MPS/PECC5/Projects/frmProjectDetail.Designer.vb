@@ -103,49 +103,49 @@ Partial Class frmProjectDetail
         Dim Appearance60 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance69 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
-        Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.grpAction = New Infragistics.Win.Misc.UltraGroupBox
         Me.btnSave = New Infragistics.Win.Misc.UltraButton
         Me.btnExit = New Infragistics.Win.Misc.UltraButton
-        Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
-        Me.UltraGroupBox4 = New Infragistics.Win.Misc.UltraGroupBox
-        Me.UltraTextEditor1 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.UltraGroupBox3 = New Infragistics.Win.Misc.UltraGroupBox
-        Me.UltraCombo4 = New Infragistics.Win.UltraWinGrid.UltraCombo
-        Me.UltraCombo3 = New Infragistics.Win.UltraWinGrid.UltraCombo
-        Me.UltraTextEditor4 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.UltraTextEditor3 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.grpMain = New Infragistics.Win.Misc.UltraGroupBox
+        Me.grpNote = New Infragistics.Win.Misc.UltraGroupBox
+        Me.txtNote = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.grpQuiMoLapDat = New Infragistics.Win.Misc.UltraGroupBox
+        Me.cboLengthUnit = New Infragistics.Win.UltraWinGrid.UltraCombo
+        Me.cboPerformUnit = New Infragistics.Win.UltraWinGrid.UltraCombo
+        Me.txtLength = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtPerformance = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
-        Me.UltraCombo2 = New Infragistics.Win.UltraWinGrid.UltraCombo
-        Me.UltraCombo1 = New Infragistics.Win.UltraWinGrid.UltraCombo
-        Me.cmbDB = New Infragistics.Win.UltraWinGrid.UltraCombo
+        Me.cboConstructionLevel = New Infragistics.Win.UltraWinGrid.UltraCombo
+        Me.cboProjectGroup = New Infragistics.Win.UltraWinGrid.UltraCombo
+        Me.cboProjectType = New Infragistics.Win.UltraWinGrid.UltraCombo
         Me.Label5 = New System.Windows.Forms.Label
-        Me.UltraTextEditor2 = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.txtUID = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtProjectId = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtProjectName = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox1.SuspendLayout()
-        CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox2.SuspendLayout()
-        CType(Me.UltraGroupBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox4.SuspendLayout()
-        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox3.SuspendLayout()
-        CType(Me.UltraCombo4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraCombo3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraTextEditor4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraTextEditor3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraCombo2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraCombo1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cmbDB, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtUID, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grpAction, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpAction.SuspendLayout()
+        CType(Me.grpMain, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpMain.SuspendLayout()
+        CType(Me.grpNote, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpNote.SuspendLayout()
+        CType(Me.txtNote, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grpQuiMoLapDat, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpQuiMoLapDat.SuspendLayout()
+        CType(Me.cboLengthUnit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPerformUnit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtLength, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPerformance, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboConstructionLevel, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboProjectGroup, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboProjectType, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtProjectId, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtProjectName, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblTitle
@@ -170,18 +170,18 @@ Partial Class frmProjectDetail
         Me.lblTitle.TabIndex = 1
         Me.lblTitle.Text = "DỰ ÁN CÔNG TRÌNH"
         '
-        'UltraGroupBox1
+        'grpAction
         '
-        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
-        Me.UltraGroupBox1.Controls.Add(Me.btnSave)
-        Me.UltraGroupBox1.Controls.Add(Me.btnExit)
-        Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 577)
-        Me.UltraGroupBox1.Margin = New System.Windows.Forms.Padding(0)
-        Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(758, 46)
-        Me.UltraGroupBox1.TabIndex = 10
-        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpAction.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
+        Me.grpAction.Controls.Add(Me.btnSave)
+        Me.grpAction.Controls.Add(Me.btnExit)
+        Me.grpAction.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.grpAction.Location = New System.Drawing.Point(0, 577)
+        Me.grpAction.Margin = New System.Windows.Forms.Padding(0)
+        Me.grpAction.Name = "grpAction"
+        Me.grpAction.Size = New System.Drawing.Size(758, 46)
+        Me.grpAction.TabIndex = 10
+        Me.grpAction.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'btnSave
         '
@@ -207,7 +207,7 @@ Partial Class frmProjectDetail
         Appearance65.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnSave.PressedAppearance = Appearance65
         Me.btnSave.Size = New System.Drawing.Size(121, 31)
-        Me.btnSave.TabIndex = 9
+        Me.btnSave.TabIndex = 10
         Me.btnSave.Text = "Cập nhật"
         Me.btnSave.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
         Me.btnSave.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
@@ -237,254 +237,256 @@ Partial Class frmProjectDetail
         Appearance68.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnExit.PressedAppearance = Appearance68
         Me.btnExit.Size = New System.Drawing.Size(124, 31)
-        Me.btnExit.TabIndex = 8
+        Me.btnExit.TabIndex = 11
         Me.btnExit.Text = "Thoát (Esc)"
         Me.btnExit.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
         Me.btnExit.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
         '
-        'UltraGroupBox2
+        'grpMain
         '
         Appearance8.BorderColor = System.Drawing.Color.LightSteelBlue
         Appearance8.FontData.BoldAsString = "True"
-        Me.UltraGroupBox2.Appearance = Appearance8
-        Me.UltraGroupBox2.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
-        Me.UltraGroupBox2.Controls.Add(Me.UltraGroupBox4)
-        Me.UltraGroupBox2.Controls.Add(Me.UltraGroupBox3)
-        Me.UltraGroupBox2.Controls.Add(Me.UltraCombo2)
-        Me.UltraGroupBox2.Controls.Add(Me.UltraCombo1)
-        Me.UltraGroupBox2.Controls.Add(Me.cmbDB)
-        Me.UltraGroupBox2.Controls.Add(Me.Label5)
-        Me.UltraGroupBox2.Controls.Add(Me.UltraTextEditor2)
-        Me.UltraGroupBox2.Controls.Add(Me.txtUID)
-        Me.UltraGroupBox2.Controls.Add(Me.Label4)
-        Me.UltraGroupBox2.Controls.Add(Me.Label8)
-        Me.UltraGroupBox2.Controls.Add(Me.Label7)
-        Me.UltraGroupBox2.Controls.Add(Me.Label3)
-        Me.UltraGroupBox2.Controls.Add(Me.Label2)
-        Me.UltraGroupBox2.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(14, 60)
-        Me.UltraGroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(728, 525)
-        Me.UltraGroupBox2.TabIndex = 11
-        Me.UltraGroupBox2.Text = "THÔNG TIN CHÍNH"
-        Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpMain.Appearance = Appearance8
+        Me.grpMain.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
+        Me.grpMain.Controls.Add(Me.grpNote)
+        Me.grpMain.Controls.Add(Me.grpQuiMoLapDat)
+        Me.grpMain.Controls.Add(Me.cboConstructionLevel)
+        Me.grpMain.Controls.Add(Me.cboProjectGroup)
+        Me.grpMain.Controls.Add(Me.cboProjectType)
+        Me.grpMain.Controls.Add(Me.Label5)
+        Me.grpMain.Controls.Add(Me.txtProjectId)
+        Me.grpMain.Controls.Add(Me.txtProjectName)
+        Me.grpMain.Controls.Add(Me.Label4)
+        Me.grpMain.Controls.Add(Me.Label8)
+        Me.grpMain.Controls.Add(Me.Label7)
+        Me.grpMain.Controls.Add(Me.Label3)
+        Me.grpMain.Controls.Add(Me.Label2)
+        Me.grpMain.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
+        Me.grpMain.Location = New System.Drawing.Point(14, 60)
+        Me.grpMain.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.grpMain.Name = "grpMain"
+        Me.grpMain.Size = New System.Drawing.Size(728, 517)
+        Me.grpMain.TabIndex = 0
+        Me.grpMain.Text = "THÔNG TIN CHÍNH"
+        Me.grpMain.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
-        'UltraGroupBox4
+        'grpNote
         '
-        Me.UltraGroupBox4.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
-        Me.UltraGroupBox4.Controls.Add(Me.UltraTextEditor1)
-        Me.UltraGroupBox4.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.UltraGroupBox4.Location = New System.Drawing.Point(4, 365)
-        Me.UltraGroupBox4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraGroupBox4.Name = "UltraGroupBox4"
-        Me.UltraGroupBox4.Size = New System.Drawing.Size(706, 144)
-        Me.UltraGroupBox4.TabIndex = 17
-        Me.UltraGroupBox4.Text = "6. Ghi chú"
-        Me.UltraGroupBox4.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpNote.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
+        Me.grpNote.Controls.Add(Me.txtNote)
+        Me.grpNote.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
+        Me.grpNote.Location = New System.Drawing.Point(4, 365)
+        Me.grpNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.grpNote.Name = "grpNote"
+        Me.grpNote.Size = New System.Drawing.Size(706, 121)
+        Me.grpNote.TabIndex = 9
+        Me.grpNote.Text = "6. Ghi chú"
+        Me.grpNote.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
-        'UltraTextEditor1
+        'txtNote
         '
-        Me.UltraTextEditor1.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.UltraTextEditor1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraTextEditor1.Location = New System.Drawing.Point(122, 38)
-        Me.UltraTextEditor1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraTextEditor1.MaxLength = 500
-        Me.UltraTextEditor1.Multiline = True
-        Me.UltraTextEditor1.Name = "UltraTextEditor1"
-        Me.UltraTextEditor1.Size = New System.Drawing.Size(581, 77)
-        Me.UltraTextEditor1.TabIndex = 3
+        Me.txtNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtNote.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNote.Location = New System.Drawing.Point(122, 38)
+        Me.txtNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtNote.MaxLength = 500
+        Me.txtNote.Multiline = True
+        Me.txtNote.Name = "txtNote"
+        Me.txtNote.Size = New System.Drawing.Size(581, 77)
+        Me.txtNote.TabIndex = 9
         '
-        'UltraGroupBox3
+        'grpQuiMoLapDat
         '
-        Me.UltraGroupBox3.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
-        Me.UltraGroupBox3.Controls.Add(Me.UltraCombo4)
-        Me.UltraGroupBox3.Controls.Add(Me.UltraCombo3)
-        Me.UltraGroupBox3.Controls.Add(Me.UltraTextEditor4)
-        Me.UltraGroupBox3.Controls.Add(Me.UltraTextEditor3)
-        Me.UltraGroupBox3.Controls.Add(Me.Label1)
-        Me.UltraGroupBox3.Controls.Add(Me.Label6)
+        Me.grpQuiMoLapDat.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
+        Me.grpQuiMoLapDat.Controls.Add(Me.cboLengthUnit)
+        Me.grpQuiMoLapDat.Controls.Add(Me.cboPerformUnit)
+        Me.grpQuiMoLapDat.Controls.Add(Me.txtLength)
+        Me.grpQuiMoLapDat.Controls.Add(Me.txtPerformance)
+        Me.grpQuiMoLapDat.Controls.Add(Me.Label1)
+        Me.grpQuiMoLapDat.Controls.Add(Me.Label6)
         Appearance3.BorderColor = System.Drawing.Color.Green
-        Me.UltraGroupBox3.HeaderAppearance = Appearance3
-        Me.UltraGroupBox3.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.UltraGroupBox3.Location = New System.Drawing.Point(4, 257)
-        Me.UltraGroupBox3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraGroupBox3.Name = "UltraGroupBox3"
-        Me.UltraGroupBox3.Size = New System.Drawing.Size(706, 104)
-        Me.UltraGroupBox3.TabIndex = 16
-        Me.UltraGroupBox3.Text = "5. Qui mô lắp đặt"
-        Me.UltraGroupBox3.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Me.grpQuiMoLapDat.HeaderAppearance = Appearance3
+        Me.grpQuiMoLapDat.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
+        Me.grpQuiMoLapDat.Location = New System.Drawing.Point(4, 257)
+        Me.grpQuiMoLapDat.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.grpQuiMoLapDat.Name = "grpQuiMoLapDat"
+        Me.grpQuiMoLapDat.Size = New System.Drawing.Size(706, 104)
+        Me.grpQuiMoLapDat.TabIndex = 5
+        Me.grpQuiMoLapDat.Text = "5. Qui mô lắp đặt"
+        Me.grpQuiMoLapDat.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
-        'UltraCombo4
+        'cboLengthUnit
         '
         Appearance4.TextHAlignAsString = "Center"
-        Me.UltraCombo4.Appearance = Appearance4
-        Me.UltraCombo4.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.cboLengthUnit.Appearance = Appearance4
+        Me.cboLengthUnit.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Appearance106.BackColor = System.Drawing.SystemColors.Window
         Appearance106.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.UltraCombo4.DisplayLayout.Appearance = Appearance106
-        Me.UltraCombo4.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
+        Me.cboLengthUnit.DisplayLayout.Appearance = Appearance106
+        Me.cboLengthUnit.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
         UltraGridBand1.ColHeadersVisible = False
-        Me.UltraCombo4.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
-        Me.UltraCombo4.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.UltraCombo4.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboLengthUnit.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
+        Me.cboLengthUnit.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboLengthUnit.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance107.BackColor = System.Drawing.SystemColors.ActiveBorder
         Appearance107.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance107.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance107.BorderColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo4.DisplayLayout.GroupByBox.Appearance = Appearance107
+        Me.cboLengthUnit.DisplayLayout.GroupByBox.Appearance = Appearance107
         Appearance108.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.UltraCombo4.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance108
-        Me.UltraCombo4.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboLengthUnit.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance108
+        Me.cboLengthUnit.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance109.BackColor = System.Drawing.SystemColors.ControlLightLight
         Appearance109.BackColor2 = System.Drawing.SystemColors.Control
         Appearance109.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance109.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.UltraCombo4.DisplayLayout.GroupByBox.PromptAppearance = Appearance109
-        Me.UltraCombo4.DisplayLayout.MaxColScrollRegions = 1
-        Me.UltraCombo4.DisplayLayout.MaxRowScrollRegions = 1
+        Me.cboLengthUnit.DisplayLayout.GroupByBox.PromptAppearance = Appearance109
+        Me.cboLengthUnit.DisplayLayout.MaxColScrollRegions = 1
+        Me.cboLengthUnit.DisplayLayout.MaxRowScrollRegions = 1
         Appearance110.BackColor = System.Drawing.SystemColors.Window
         Appearance110.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.UltraCombo4.DisplayLayout.Override.ActiveCellAppearance = Appearance110
+        Me.cboLengthUnit.DisplayLayout.Override.ActiveCellAppearance = Appearance110
         Appearance111.BackColor = System.Drawing.SystemColors.Highlight
         Appearance111.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.UltraCombo4.DisplayLayout.Override.ActiveRowAppearance = Appearance111
-        Me.UltraCombo4.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
-        Me.UltraCombo4.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboLengthUnit.DisplayLayout.Override.ActiveRowAppearance = Appearance111
+        Me.cboLengthUnit.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboLengthUnit.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
         Appearance112.BackColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo4.DisplayLayout.Override.CardAreaAppearance = Appearance112
+        Me.cboLengthUnit.DisplayLayout.Override.CardAreaAppearance = Appearance112
         Appearance113.BorderColor = System.Drawing.Color.Silver
         Appearance113.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.UltraCombo4.DisplayLayout.Override.CellAppearance = Appearance113
-        Me.UltraCombo4.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
-        Me.UltraCombo4.DisplayLayout.Override.CellPadding = 0
+        Me.cboLengthUnit.DisplayLayout.Override.CellAppearance = Appearance113
+        Me.cboLengthUnit.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.cboLengthUnit.DisplayLayout.Override.CellPadding = 0
         Appearance114.BackColor = System.Drawing.SystemColors.Control
         Appearance114.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance114.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
         Appearance114.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance114.BorderColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo4.DisplayLayout.Override.GroupByRowAppearance = Appearance114
+        Me.cboLengthUnit.DisplayLayout.Override.GroupByRowAppearance = Appearance114
         Appearance115.TextHAlignAsString = "Left"
-        Me.UltraCombo4.DisplayLayout.Override.HeaderAppearance = Appearance115
-        Me.UltraCombo4.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.UltraCombo4.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Me.cboLengthUnit.DisplayLayout.Override.HeaderAppearance = Appearance115
+        Me.cboLengthUnit.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.cboLengthUnit.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
         Appearance116.BackColor = System.Drawing.SystemColors.Window
         Appearance116.BorderColor = System.Drawing.Color.Silver
-        Me.UltraCombo4.DisplayLayout.Override.RowAppearance = Appearance116
-        Me.UltraCombo4.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboLengthUnit.DisplayLayout.Override.RowAppearance = Appearance116
+        Me.cboLengthUnit.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
         Appearance117.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.UltraCombo4.DisplayLayout.Override.TemplateAddRowAppearance = Appearance117
-        Me.UltraCombo4.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.UltraCombo4.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.UltraCombo4.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.UltraCombo4.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.UltraCombo4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraCombo4.Location = New System.Drawing.Point(329, 74)
-        Me.UltraCombo4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraCombo4.Name = "UltraCombo4"
-        Me.UltraCombo4.Size = New System.Drawing.Size(67, 26)
-        Me.UltraCombo4.TabIndex = 14
-        Me.UltraCombo4.Text = "KM"
+        Me.cboLengthUnit.DisplayLayout.Override.TemplateAddRowAppearance = Appearance117
+        Me.cboLengthUnit.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.cboLengthUnit.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.cboLengthUnit.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.cboLengthUnit.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.cboLengthUnit.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
+        Me.cboLengthUnit.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboLengthUnit.Location = New System.Drawing.Point(329, 74)
+        Me.cboLengthUnit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cboLengthUnit.Name = "cboLengthUnit"
+        Me.cboLengthUnit.Size = New System.Drawing.Size(67, 26)
+        Me.cboLengthUnit.TabIndex = 8
         '
-        'UltraCombo3
+        'cboPerformUnit
         '
         Appearance1.TextHAlignAsString = "Center"
-        Me.UltraCombo3.Appearance = Appearance1
-        Me.UltraCombo3.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.cboPerformUnit.Appearance = Appearance1
+        Me.cboPerformUnit.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Appearance118.BackColor = System.Drawing.SystemColors.Window
         Appearance118.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.UltraCombo3.DisplayLayout.Appearance = Appearance118
-        Me.UltraCombo3.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
+        Me.cboPerformUnit.DisplayLayout.Appearance = Appearance118
+        Me.cboPerformUnit.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
         UltraGridBand2.ColHeadersVisible = False
-        Me.UltraCombo3.DisplayLayout.BandsSerializer.Add(UltraGridBand2)
-        Me.UltraCombo3.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.UltraCombo3.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboPerformUnit.DisplayLayout.BandsSerializer.Add(UltraGridBand2)
+        Me.cboPerformUnit.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboPerformUnit.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance119.BackColor = System.Drawing.SystemColors.ActiveBorder
         Appearance119.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance119.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance119.BorderColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo3.DisplayLayout.GroupByBox.Appearance = Appearance119
+        Me.cboPerformUnit.DisplayLayout.GroupByBox.Appearance = Appearance119
         Appearance120.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.UltraCombo3.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance120
-        Me.UltraCombo3.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboPerformUnit.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance120
+        Me.cboPerformUnit.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance121.BackColor = System.Drawing.SystemColors.ControlLightLight
         Appearance121.BackColor2 = System.Drawing.SystemColors.Control
         Appearance121.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance121.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.UltraCombo3.DisplayLayout.GroupByBox.PromptAppearance = Appearance121
-        Me.UltraCombo3.DisplayLayout.MaxColScrollRegions = 1
-        Me.UltraCombo3.DisplayLayout.MaxRowScrollRegions = 1
+        Me.cboPerformUnit.DisplayLayout.GroupByBox.PromptAppearance = Appearance121
+        Me.cboPerformUnit.DisplayLayout.MaxColScrollRegions = 1
+        Me.cboPerformUnit.DisplayLayout.MaxRowScrollRegions = 1
         Appearance122.BackColor = System.Drawing.SystemColors.Window
         Appearance122.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.UltraCombo3.DisplayLayout.Override.ActiveCellAppearance = Appearance122
+        Me.cboPerformUnit.DisplayLayout.Override.ActiveCellAppearance = Appearance122
         Appearance123.BackColor = System.Drawing.SystemColors.Highlight
         Appearance123.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.UltraCombo3.DisplayLayout.Override.ActiveRowAppearance = Appearance123
-        Me.UltraCombo3.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
-        Me.UltraCombo3.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboPerformUnit.DisplayLayout.Override.ActiveRowAppearance = Appearance123
+        Me.cboPerformUnit.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboPerformUnit.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
         Appearance124.BackColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo3.DisplayLayout.Override.CardAreaAppearance = Appearance124
+        Me.cboPerformUnit.DisplayLayout.Override.CardAreaAppearance = Appearance124
         Appearance125.BorderColor = System.Drawing.Color.Silver
         Appearance125.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.UltraCombo3.DisplayLayout.Override.CellAppearance = Appearance125
-        Me.UltraCombo3.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
-        Me.UltraCombo3.DisplayLayout.Override.CellPadding = 0
+        Me.cboPerformUnit.DisplayLayout.Override.CellAppearance = Appearance125
+        Me.cboPerformUnit.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.cboPerformUnit.DisplayLayout.Override.CellPadding = 0
         Appearance126.BackColor = System.Drawing.SystemColors.Control
         Appearance126.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance126.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
         Appearance126.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance126.BorderColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo3.DisplayLayout.Override.GroupByRowAppearance = Appearance126
+        Me.cboPerformUnit.DisplayLayout.Override.GroupByRowAppearance = Appearance126
         Appearance127.TextHAlignAsString = "Left"
-        Me.UltraCombo3.DisplayLayout.Override.HeaderAppearance = Appearance127
-        Me.UltraCombo3.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.UltraCombo3.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Me.cboPerformUnit.DisplayLayout.Override.HeaderAppearance = Appearance127
+        Me.cboPerformUnit.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.cboPerformUnit.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
         Appearance128.BackColor = System.Drawing.SystemColors.Window
         Appearance128.BorderColor = System.Drawing.Color.Silver
-        Me.UltraCombo3.DisplayLayout.Override.RowAppearance = Appearance128
-        Me.UltraCombo3.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboPerformUnit.DisplayLayout.Override.RowAppearance = Appearance128
+        Me.cboPerformUnit.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
         Appearance129.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.UltraCombo3.DisplayLayout.Override.TemplateAddRowAppearance = Appearance129
-        Me.UltraCombo3.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.UltraCombo3.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.UltraCombo3.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.UltraCombo3.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.UltraCombo3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraCombo3.Location = New System.Drawing.Point(329, 40)
-        Me.UltraCombo3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraCombo3.Name = "UltraCombo3"
-        Me.UltraCombo3.Size = New System.Drawing.Size(67, 26)
-        Me.UltraCombo3.TabIndex = 14
-        Me.UltraCombo3.Text = "MW"
+        Me.cboPerformUnit.DisplayLayout.Override.TemplateAddRowAppearance = Appearance129
+        Me.cboPerformUnit.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.cboPerformUnit.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.cboPerformUnit.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.cboPerformUnit.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.cboPerformUnit.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
+        Me.cboPerformUnit.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboPerformUnit.Location = New System.Drawing.Point(329, 40)
+        Me.cboPerformUnit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cboPerformUnit.Name = "cboPerformUnit"
+        Me.cboPerformUnit.Size = New System.Drawing.Size(67, 26)
+        Me.cboPerformUnit.TabIndex = 6
         '
-        'UltraTextEditor4
+        'txtLength
         '
         Appearance130.TextHAlignAsString = "Center"
-        Me.UltraTextEditor4.Appearance = Appearance130
-        Me.UltraTextEditor4.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.UltraTextEditor4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraTextEditor4.Location = New System.Drawing.Point(233, 75)
-        Me.UltraTextEditor4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraTextEditor4.MaxLength = 9
-        Me.UltraTextEditor4.Name = "UltraTextEditor4"
-        Me.UltraTextEditor4.Size = New System.Drawing.Size(90, 25)
-        Me.UltraTextEditor4.TabIndex = 13
-        Me.ToolTip1.SetToolTip(Me.UltraTextEditor4, "Công trình Được quản lý bằng Mã số rút gọn gồm 05 số và 03 chữ cái" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VD: 18119.BNN" & _
+        Me.txtLength.Appearance = Appearance130
+        Me.txtLength.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtLength.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLength.Location = New System.Drawing.Point(233, 75)
+        Me.txtLength.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtLength.MaxLength = 15
+        Me.txtLength.Name = "txtLength"
+        Me.txtLength.Size = New System.Drawing.Size(90, 25)
+        Me.txtLength.TabIndex = 7
+        Me.txtLength.Text = "0"
+        Me.ToolTip1.SetToolTip(Me.txtLength, "Công trình Được quản lý bằng Mã số rút gọn gồm 05 số và 03 chữ cái" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VD: 18119.BNN" & _
                 "")
         '
-        'UltraTextEditor3
+        'txtPerformance
         '
         Appearance131.TextHAlignAsString = "Center"
-        Me.UltraTextEditor3.Appearance = Appearance131
-        Me.UltraTextEditor3.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.UltraTextEditor3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraTextEditor3.Location = New System.Drawing.Point(233, 41)
-        Me.UltraTextEditor3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraTextEditor3.MaxLength = 9
-        Me.UltraTextEditor3.Name = "UltraTextEditor3"
-        Me.UltraTextEditor3.Size = New System.Drawing.Size(90, 25)
-        Me.UltraTextEditor3.TabIndex = 12
-        Me.ToolTip1.SetToolTip(Me.UltraTextEditor3, "Công trình Được quản lý bằng Mã số rút gọn gồm 05 số và 03 chữ cái" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VD: 18119.BNN" & _
+        Me.txtPerformance.Appearance = Appearance131
+        Me.txtPerformance.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtPerformance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPerformance.Location = New System.Drawing.Point(233, 41)
+        Me.txtPerformance.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtPerformance.MaxLength = 15
+        Me.txtPerformance.Name = "txtPerformance"
+        Me.txtPerformance.Size = New System.Drawing.Size(90, 25)
+        Me.txtPerformance.TabIndex = 5
+        Me.txtPerformance.Text = "0"
+        Me.ToolTip1.SetToolTip(Me.txtPerformance, "Công trình Được quản lý bằng Mã số rút gọn gồm 05 số và 03 chữ cái" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VD: 18119.BNN" & _
                 "")
         '
         'Label1
@@ -509,209 +511,212 @@ Partial Class frmProjectDetail
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Công suất lắp đặt"
         '
-        'UltraCombo2
+        'cboConstructionLevel
         '
-        Me.UltraCombo2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.cboConstructionLevel.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Appearance94.BackColor = System.Drawing.SystemColors.Window
         Appearance94.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.UltraCombo2.DisplayLayout.Appearance = Appearance94
-        Me.UltraCombo2.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
+        Me.cboConstructionLevel.DisplayLayout.Appearance = Appearance94
+        Me.cboConstructionLevel.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
         UltraGridBand3.ColHeadersVisible = False
-        Me.UltraCombo2.DisplayLayout.BandsSerializer.Add(UltraGridBand3)
-        Me.UltraCombo2.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.UltraCombo2.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboConstructionLevel.DisplayLayout.BandsSerializer.Add(UltraGridBand3)
+        Me.cboConstructionLevel.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboConstructionLevel.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance95.BackColor = System.Drawing.SystemColors.ActiveBorder
         Appearance95.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance95.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance95.BorderColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo2.DisplayLayout.GroupByBox.Appearance = Appearance95
+        Me.cboConstructionLevel.DisplayLayout.GroupByBox.Appearance = Appearance95
         Appearance96.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.UltraCombo2.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance96
-        Me.UltraCombo2.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboConstructionLevel.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance96
+        Me.cboConstructionLevel.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance97.BackColor = System.Drawing.SystemColors.ControlLightLight
         Appearance97.BackColor2 = System.Drawing.SystemColors.Control
         Appearance97.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance97.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.UltraCombo2.DisplayLayout.GroupByBox.PromptAppearance = Appearance97
-        Me.UltraCombo2.DisplayLayout.MaxColScrollRegions = 1
-        Me.UltraCombo2.DisplayLayout.MaxRowScrollRegions = 1
+        Me.cboConstructionLevel.DisplayLayout.GroupByBox.PromptAppearance = Appearance97
+        Me.cboConstructionLevel.DisplayLayout.MaxColScrollRegions = 1
+        Me.cboConstructionLevel.DisplayLayout.MaxRowScrollRegions = 1
         Appearance98.BackColor = System.Drawing.SystemColors.Window
         Appearance98.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.UltraCombo2.DisplayLayout.Override.ActiveCellAppearance = Appearance98
+        Me.cboConstructionLevel.DisplayLayout.Override.ActiveCellAppearance = Appearance98
         Appearance99.BackColor = System.Drawing.SystemColors.Highlight
         Appearance99.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.UltraCombo2.DisplayLayout.Override.ActiveRowAppearance = Appearance99
-        Me.UltraCombo2.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
-        Me.UltraCombo2.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboConstructionLevel.DisplayLayout.Override.ActiveRowAppearance = Appearance99
+        Me.cboConstructionLevel.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboConstructionLevel.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
         Appearance100.BackColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo2.DisplayLayout.Override.CardAreaAppearance = Appearance100
+        Me.cboConstructionLevel.DisplayLayout.Override.CardAreaAppearance = Appearance100
         Appearance101.BorderColor = System.Drawing.Color.Silver
         Appearance101.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.UltraCombo2.DisplayLayout.Override.CellAppearance = Appearance101
-        Me.UltraCombo2.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
-        Me.UltraCombo2.DisplayLayout.Override.CellPadding = 0
+        Me.cboConstructionLevel.DisplayLayout.Override.CellAppearance = Appearance101
+        Me.cboConstructionLevel.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.cboConstructionLevel.DisplayLayout.Override.CellPadding = 0
         Appearance102.BackColor = System.Drawing.SystemColors.Control
         Appearance102.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance102.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
         Appearance102.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance102.BorderColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo2.DisplayLayout.Override.GroupByRowAppearance = Appearance102
+        Me.cboConstructionLevel.DisplayLayout.Override.GroupByRowAppearance = Appearance102
         Appearance103.TextHAlignAsString = "Left"
-        Me.UltraCombo2.DisplayLayout.Override.HeaderAppearance = Appearance103
-        Me.UltraCombo2.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.UltraCombo2.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Me.cboConstructionLevel.DisplayLayout.Override.HeaderAppearance = Appearance103
+        Me.cboConstructionLevel.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.cboConstructionLevel.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
         Appearance104.BackColor = System.Drawing.SystemColors.Window
         Appearance104.BorderColor = System.Drawing.Color.Silver
-        Me.UltraCombo2.DisplayLayout.Override.RowAppearance = Appearance104
-        Me.UltraCombo2.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboConstructionLevel.DisplayLayout.Override.RowAppearance = Appearance104
+        Me.cboConstructionLevel.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
         Appearance105.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.UltraCombo2.DisplayLayout.Override.TemplateAddRowAppearance = Appearance105
-        Me.UltraCombo2.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.UltraCombo2.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.UltraCombo2.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.UltraCombo2.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.UltraCombo2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraCombo2.Location = New System.Drawing.Point(126, 218)
-        Me.UltraCombo2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraCombo2.Name = "UltraCombo2"
-        Me.UltraCombo2.Size = New System.Drawing.Size(581, 26)
-        Me.UltraCombo2.TabIndex = 5
+        Me.cboConstructionLevel.DisplayLayout.Override.TemplateAddRowAppearance = Appearance105
+        Me.cboConstructionLevel.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.cboConstructionLevel.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.cboConstructionLevel.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.cboConstructionLevel.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.cboConstructionLevel.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
+        Me.cboConstructionLevel.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboConstructionLevel.Location = New System.Drawing.Point(126, 218)
+        Me.cboConstructionLevel.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cboConstructionLevel.Name = "cboConstructionLevel"
+        Me.cboConstructionLevel.Size = New System.Drawing.Size(274, 26)
+        Me.cboConstructionLevel.TabIndex = 4
         '
-        'UltraCombo1
+        'cboProjectGroup
         '
-        Me.UltraCombo1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.cboProjectGroup.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Appearance21.BackColor = System.Drawing.SystemColors.Window
         Appearance21.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.UltraCombo1.DisplayLayout.Appearance = Appearance21
-        Me.UltraCombo1.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
+        Me.cboProjectGroup.DisplayLayout.Appearance = Appearance21
+        Me.cboProjectGroup.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
         UltraGridBand4.ColHeadersVisible = False
-        Me.UltraCombo1.DisplayLayout.BandsSerializer.Add(UltraGridBand4)
-        Me.UltraCombo1.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.UltraCombo1.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboProjectGroup.DisplayLayout.BandsSerializer.Add(UltraGridBand4)
+        Me.cboProjectGroup.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboProjectGroup.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance22.BackColor = System.Drawing.SystemColors.ActiveBorder
         Appearance22.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance22.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance22.BorderColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo1.DisplayLayout.GroupByBox.Appearance = Appearance22
+        Me.cboProjectGroup.DisplayLayout.GroupByBox.Appearance = Appearance22
         Appearance23.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.UltraCombo1.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance23
-        Me.UltraCombo1.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboProjectGroup.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance23
+        Me.cboProjectGroup.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance24.BackColor = System.Drawing.SystemColors.ControlLightLight
         Appearance24.BackColor2 = System.Drawing.SystemColors.Control
         Appearance24.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance24.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.UltraCombo1.DisplayLayout.GroupByBox.PromptAppearance = Appearance24
-        Me.UltraCombo1.DisplayLayout.MaxColScrollRegions = 1
-        Me.UltraCombo1.DisplayLayout.MaxRowScrollRegions = 1
+        Me.cboProjectGroup.DisplayLayout.GroupByBox.PromptAppearance = Appearance24
+        Me.cboProjectGroup.DisplayLayout.MaxColScrollRegions = 1
+        Me.cboProjectGroup.DisplayLayout.MaxRowScrollRegions = 1
         Appearance25.BackColor = System.Drawing.SystemColors.Window
         Appearance25.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.UltraCombo1.DisplayLayout.Override.ActiveCellAppearance = Appearance25
+        Me.cboProjectGroup.DisplayLayout.Override.ActiveCellAppearance = Appearance25
         Appearance26.BackColor = System.Drawing.SystemColors.Highlight
         Appearance26.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.UltraCombo1.DisplayLayout.Override.ActiveRowAppearance = Appearance26
-        Me.UltraCombo1.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
-        Me.UltraCombo1.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboProjectGroup.DisplayLayout.Override.ActiveRowAppearance = Appearance26
+        Me.cboProjectGroup.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboProjectGroup.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
         Appearance30.BackColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo1.DisplayLayout.Override.CardAreaAppearance = Appearance30
+        Me.cboProjectGroup.DisplayLayout.Override.CardAreaAppearance = Appearance30
         Appearance32.BorderColor = System.Drawing.Color.Silver
         Appearance32.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.UltraCombo1.DisplayLayout.Override.CellAppearance = Appearance32
-        Me.UltraCombo1.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
-        Me.UltraCombo1.DisplayLayout.Override.CellPadding = 0
+        Me.cboProjectGroup.DisplayLayout.Override.CellAppearance = Appearance32
+        Me.cboProjectGroup.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.cboProjectGroup.DisplayLayout.Override.CellPadding = 0
         Appearance33.BackColor = System.Drawing.SystemColors.Control
         Appearance33.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance33.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
         Appearance33.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance33.BorderColor = System.Drawing.SystemColors.Window
-        Me.UltraCombo1.DisplayLayout.Override.GroupByRowAppearance = Appearance33
+        Me.cboProjectGroup.DisplayLayout.Override.GroupByRowAppearance = Appearance33
         Appearance34.TextHAlignAsString = "Left"
-        Me.UltraCombo1.DisplayLayout.Override.HeaderAppearance = Appearance34
-        Me.UltraCombo1.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.UltraCombo1.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Me.cboProjectGroup.DisplayLayout.Override.HeaderAppearance = Appearance34
+        Me.cboProjectGroup.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.cboProjectGroup.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
         Appearance35.BackColor = System.Drawing.SystemColors.Window
         Appearance35.BorderColor = System.Drawing.Color.Silver
-        Me.UltraCombo1.DisplayLayout.Override.RowAppearance = Appearance35
-        Me.UltraCombo1.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboProjectGroup.DisplayLayout.Override.RowAppearance = Appearance35
+        Me.cboProjectGroup.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
         Appearance36.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.UltraCombo1.DisplayLayout.Override.TemplateAddRowAppearance = Appearance36
-        Me.UltraCombo1.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.UltraCombo1.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.UltraCombo1.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.UltraCombo1.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.UltraCombo1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraCombo1.Location = New System.Drawing.Point(126, 174)
-        Me.UltraCombo1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraCombo1.Name = "UltraCombo1"
-        Me.UltraCombo1.Size = New System.Drawing.Size(581, 26)
-        Me.UltraCombo1.TabIndex = 5
+        Me.cboProjectGroup.DisplayLayout.Override.TemplateAddRowAppearance = Appearance36
+        Me.cboProjectGroup.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.cboProjectGroup.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.cboProjectGroup.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.cboProjectGroup.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.cboProjectGroup.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
+        Me.cboProjectGroup.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProjectGroup.Location = New System.Drawing.Point(126, 174)
+        Me.cboProjectGroup.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cboProjectGroup.Name = "cboProjectGroup"
+        Me.cboProjectGroup.Size = New System.Drawing.Size(274, 26)
+        Me.cboProjectGroup.TabIndex = 3
         '
-        'cmbDB
+        'cboProjectType
         '
-        Me.cmbDB.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.cboProjectType.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Appearance49.BackColor = System.Drawing.SystemColors.Window
         Appearance49.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.cmbDB.DisplayLayout.Appearance = Appearance49
-        Me.cmbDB.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
+        Me.cboProjectType.DisplayLayout.Appearance = Appearance49
+        Me.cboProjectType.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
         UltraGridBand5.ColHeadersVisible = False
-        Me.cmbDB.DisplayLayout.BandsSerializer.Add(UltraGridBand5)
-        Me.cmbDB.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.cmbDB.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboProjectType.DisplayLayout.BandsSerializer.Add(UltraGridBand5)
+        Me.cboProjectType.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboProjectType.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance50.BackColor = System.Drawing.SystemColors.ActiveBorder
         Appearance50.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance50.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance50.BorderColor = System.Drawing.SystemColors.Window
-        Me.cmbDB.DisplayLayout.GroupByBox.Appearance = Appearance50
+        Me.cboProjectType.DisplayLayout.GroupByBox.Appearance = Appearance50
         Appearance51.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.cmbDB.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance51
-        Me.cmbDB.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboProjectType.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance51
+        Me.cboProjectType.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance52.BackColor = System.Drawing.SystemColors.ControlLightLight
         Appearance52.BackColor2 = System.Drawing.SystemColors.Control
         Appearance52.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance52.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.cmbDB.DisplayLayout.GroupByBox.PromptAppearance = Appearance52
-        Me.cmbDB.DisplayLayout.MaxColScrollRegions = 1
-        Me.cmbDB.DisplayLayout.MaxRowScrollRegions = 1
+        Me.cboProjectType.DisplayLayout.GroupByBox.PromptAppearance = Appearance52
+        Me.cboProjectType.DisplayLayout.MaxColScrollRegions = 1
+        Me.cboProjectType.DisplayLayout.MaxRowScrollRegions = 1
         Appearance53.BackColor = System.Drawing.SystemColors.Window
         Appearance53.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cmbDB.DisplayLayout.Override.ActiveCellAppearance = Appearance53
+        Me.cboProjectType.DisplayLayout.Override.ActiveCellAppearance = Appearance53
         Appearance54.BackColor = System.Drawing.SystemColors.Highlight
         Appearance54.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.cmbDB.DisplayLayout.Override.ActiveRowAppearance = Appearance54
-        Me.cmbDB.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
-        Me.cmbDB.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboProjectType.DisplayLayout.Override.ActiveRowAppearance = Appearance54
+        Me.cboProjectType.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboProjectType.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
         Appearance55.BackColor = System.Drawing.SystemColors.Window
-        Me.cmbDB.DisplayLayout.Override.CardAreaAppearance = Appearance55
+        Me.cboProjectType.DisplayLayout.Override.CardAreaAppearance = Appearance55
         Appearance56.BorderColor = System.Drawing.Color.Silver
         Appearance56.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.cmbDB.DisplayLayout.Override.CellAppearance = Appearance56
-        Me.cmbDB.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
-        Me.cmbDB.DisplayLayout.Override.CellPadding = 0
+        Me.cboProjectType.DisplayLayout.Override.CellAppearance = Appearance56
+        Me.cboProjectType.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.cboProjectType.DisplayLayout.Override.CellPadding = 0
         Appearance57.BackColor = System.Drawing.SystemColors.Control
         Appearance57.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance57.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
         Appearance57.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance57.BorderColor = System.Drawing.SystemColors.Window
-        Me.cmbDB.DisplayLayout.Override.GroupByRowAppearance = Appearance57
+        Me.cboProjectType.DisplayLayout.Override.GroupByRowAppearance = Appearance57
         Appearance58.TextHAlignAsString = "Left"
-        Me.cmbDB.DisplayLayout.Override.HeaderAppearance = Appearance58
-        Me.cmbDB.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.cmbDB.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Me.cboProjectType.DisplayLayout.Override.HeaderAppearance = Appearance58
+        Me.cboProjectType.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.cboProjectType.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
         Appearance59.BackColor = System.Drawing.SystemColors.Window
         Appearance59.BorderColor = System.Drawing.Color.Silver
-        Me.cmbDB.DisplayLayout.Override.RowAppearance = Appearance59
-        Me.cmbDB.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboProjectType.DisplayLayout.Override.RowAppearance = Appearance59
+        Me.cboProjectType.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
         Appearance60.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.cmbDB.DisplayLayout.Override.TemplateAddRowAppearance = Appearance60
-        Me.cmbDB.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.cmbDB.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.cmbDB.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.cmbDB.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.cmbDB.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmbDB.Location = New System.Drawing.Point(126, 128)
-        Me.cmbDB.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.cmbDB.Name = "cmbDB"
-        Me.cmbDB.Size = New System.Drawing.Size(581, 26)
-        Me.cmbDB.TabIndex = 5
+        Me.cboProjectType.DisplayLayout.Override.TemplateAddRowAppearance = Appearance60
+        Me.cboProjectType.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.cboProjectType.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.cboProjectType.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.cboProjectType.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.cboProjectType.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
+        Me.cboProjectType.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboProjectType.Location = New System.Drawing.Point(126, 128)
+        Me.cboProjectType.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cboProjectType.Name = "cboProjectType"
+        Me.cboProjectType.Size = New System.Drawing.Size(274, 26)
+        Me.cboProjectType.TabIndex = 2
         '
         'Label5
         '
@@ -724,31 +729,31 @@ Partial Class frmProjectDetail
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "4. Công trình"
         '
-        'UltraTextEditor2
+        'txtProjectId
         '
         Appearance69.TextHAlignAsString = "Center"
-        Me.UltraTextEditor2.Appearance = Appearance69
-        Me.UltraTextEditor2.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.UltraTextEditor2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraTextEditor2.Location = New System.Drawing.Point(126, 81)
-        Me.UltraTextEditor2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraTextEditor2.MaxLength = 9
-        Me.UltraTextEditor2.Name = "UltraTextEditor2"
-        Me.UltraTextEditor2.Size = New System.Drawing.Size(191, 25)
-        Me.UltraTextEditor2.TabIndex = 2
-        Me.ToolTip1.SetToolTip(Me.UltraTextEditor2, "Công trình Được quản lý bằng Mã số rút gọn gồm 05 số và 03 chữ cái" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VD: 18119.BNN" & _
+        Me.txtProjectId.Appearance = Appearance69
+        Me.txtProjectId.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtProjectId.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProjectId.Location = New System.Drawing.Point(126, 87)
+        Me.txtProjectId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtProjectId.MaxLength = 50
+        Me.txtProjectId.Name = "txtProjectId"
+        Me.txtProjectId.Size = New System.Drawing.Size(274, 25)
+        Me.txtProjectId.TabIndex = 1
+        Me.ToolTip1.SetToolTip(Me.txtProjectId, "Công trình Được quản lý bằng Mã số rút gọn gồm 05 số và 03 chữ cái" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "VD: 18119.BNN" & _
                 "")
         '
-        'txtUID
+        'txtProjectName
         '
-        Me.txtUID.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtUID.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUID.Location = New System.Drawing.Point(126, 47)
-        Me.txtUID.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtUID.MaxLength = 255
-        Me.txtUID.Name = "txtUID"
-        Me.txtUID.Size = New System.Drawing.Size(581, 25)
-        Me.txtUID.TabIndex = 2
+        Me.txtProjectName.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtProjectName.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtProjectName.Location = New System.Drawing.Point(126, 47)
+        Me.txtProjectName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtProjectName.MaxLength = 255
+        Me.txtProjectName.Name = "txtProjectName"
+        Me.txtProjectName.Size = New System.Drawing.Size(581, 25)
+        Me.txtProjectName.TabIndex = 0
         '
         'Label4
         '
@@ -766,7 +771,7 @@ Partial Class frmProjectDetail
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(324, 86)
+        Me.Label8.Location = New System.Drawing.Point(422, 91)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(108, 16)
         Me.Label8.TabIndex = 11
@@ -777,7 +782,7 @@ Partial Class frmProjectDetail
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(50, 83)
+        Me.Label7.Location = New System.Drawing.Point(50, 89)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(64, 16)
         Me.Label7.TabIndex = 11
@@ -812,8 +817,8 @@ Partial Class frmProjectDetail
         Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnExit
         Me.ClientSize = New System.Drawing.Size(758, 623)
-        Me.Controls.Add(Me.UltraGroupBox1)
-        Me.Controls.Add(Me.UltraGroupBox2)
+        Me.Controls.Add(Me.grpAction)
+        Me.Controls.Add(Me.grpMain)
         Me.Controls.Add(Me.lblTitle)
         Me.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -824,54 +829,54 @@ Partial Class frmProjectDetail
         Me.Name = "frmProjectDetail"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "CONTRACT MANAGER SOFTWARE FOR ENERGY PROJECT"
-        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox1.ResumeLayout(False)
-        CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox2.ResumeLayout(False)
-        Me.UltraGroupBox2.PerformLayout()
-        CType(Me.UltraGroupBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox4.ResumeLayout(False)
-        Me.UltraGroupBox4.PerformLayout()
-        CType(Me.UltraTextEditor1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox3.ResumeLayout(False)
-        Me.UltraGroupBox3.PerformLayout()
-        CType(Me.UltraCombo4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraCombo3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraTextEditor4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraTextEditor3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraCombo2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraCombo1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cmbDB, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraTextEditor2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtUID, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grpAction, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpAction.ResumeLayout(False)
+        CType(Me.grpMain, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpMain.ResumeLayout(False)
+        Me.grpMain.PerformLayout()
+        CType(Me.grpNote, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpNote.ResumeLayout(False)
+        Me.grpNote.PerformLayout()
+        CType(Me.txtNote, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grpQuiMoLapDat, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpQuiMoLapDat.ResumeLayout(False)
+        Me.grpQuiMoLapDat.PerformLayout()
+        CType(Me.cboLengthUnit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPerformUnit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtLength, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPerformance, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboConstructionLevel, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboProjectGroup, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboProjectType, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtProjectId, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtProjectName, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents lblTitle As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents grpAction As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents btnSave As Infragistics.Win.Misc.UltraButton
     Friend WithEvents btnExit As Infragistics.Win.Misc.UltraButton
-    Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents cmbDB As Infragistics.Win.UltraWinGrid.UltraCombo
-    Friend WithEvents txtUID As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents grpMain As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents cboProjectType As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents txtProjectName As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents UltraCombo2 As Infragistics.Win.UltraWinGrid.UltraCombo
-    Friend WithEvents UltraCombo1 As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents cboConstructionLevel As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents cboProjectGroup As Infragistics.Win.UltraWinGrid.UltraCombo
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents UltraTextEditor2 As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents txtProjectId As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
-    Friend WithEvents UltraGroupBox3 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents UltraTextEditor4 As Infragistics.Win.UltraWinEditors.UltraTextEditor
-    Friend WithEvents UltraTextEditor3 As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents grpQuiMoLapDat As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents txtLength As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents txtPerformance As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents UltraCombo4 As Infragistics.Win.UltraWinGrid.UltraCombo
-    Friend WithEvents UltraCombo3 As Infragistics.Win.UltraWinGrid.UltraCombo
-    Friend WithEvents UltraGroupBox4 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents UltraTextEditor1 As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents cboLengthUnit As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents cboPerformUnit As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents grpNote As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents txtNote As Infragistics.Win.UltraWinEditors.UltraTextEditor
 End Class
