@@ -64,7 +64,9 @@
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientGroups\DAL_ClientGroups.vb" />
     <Compile Include="Clients\DAL_Clients.vb" />
+    <Compile Include="ConstructionLevels\DAL_ConstructionLevels.vb" />
     <Compile Include="DALEvent.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -79,6 +81,7 @@
     <Compile Include="DAL_BK_Restore_DB.vb" />
     <Compile Include="DAL_ConfigProgram.vb" />
     <Compile Include="DAL_Public.vb" />
+    <Compile Include="Items\DAL_Items.vb" />
     <Compile Include="ModFunction.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -96,6 +99,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Projects\DAL_Projects.vb" />
+    <Compile Include="ProjectTypes\DAL_ProjectTypes.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

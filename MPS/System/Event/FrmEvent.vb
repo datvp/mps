@@ -33,10 +33,6 @@ Public Class FrmEvent
         End If
     End Sub
     Private Sub FrmEvent_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
-        If e.KeyCode = Keys.F3 Then 'tìm kiếm
-            Me.T_Search.PerformClick()
-        End If
-
         If fSelect Then
             If e.KeyCode = Keys.Escape Then
                 Me.Close()
@@ -259,7 +255,7 @@ Public Class FrmEvent
         Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, Grid, m_Lang)
         frm.ShowDialog()
     End Sub
-    Private Sub T_Search_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Search.Click
+    Private Sub T_Search_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim frm As New VsoftBMS.Ulti.FrmFind(Grid, m_Lang)
         frm.ShowDialog()
     End Sub

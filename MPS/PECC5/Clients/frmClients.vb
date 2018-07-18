@@ -23,10 +23,6 @@ Public Class frmClients
 
 
     Private Sub frmClients_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
-        If e.KeyCode = Keys.F3 Then
-            T_Search.PerformClick()
-        End If
-
         If e.KeyCode = Keys.Delete And Toolbars.Tools("btnDel").SharedProps.Enabled = True Then
             ' DEL()
             T_DEL.PerformClick()
@@ -48,8 +44,6 @@ Public Class frmClients
                     T_Layout.PerformClick()
                 Case Keys.E
                     T_Export.PerformClick()
-                Case Keys.P
-                    Me.T_Print.PerformClick()
                 Case Keys.A
                     T_SelectAll.PerformClick()
             End Select
@@ -248,7 +242,9 @@ Public Class frmClients
             Exit Sub
         End If
 
-        T_Edit.PerformClick()
+        If f_SecE Then
+            Me.Edit()
+        End If
     End Sub
 
     Private Sub Grid_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, Optional ByRef fExit As Boolean = False) Handles Grid.MouseDown
@@ -259,8 +255,6 @@ Public Class frmClients
         T_Refresh.Enabled = True
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
-        T_Search.Enabled = True
-        T_Print.Enabled = True
         T_Export.Enabled = True
 
         Dim r As UltraGridRow = Grid.ActiveRow
@@ -284,8 +278,6 @@ Public Class frmClients
             If Grid.Rows.Count < 1 Then
                 T_SelectAll.Enabled = False
                 T_Export.Enabled = False
-                T_Search.Enabled = False
-                T_Print.Enabled = False
             End If
         Else
             If Not result.IsDataRow Then
@@ -321,7 +313,7 @@ Public Class frmClients
         frm.ShowDialog()
     End Sub
 
-    Private Sub T_Search_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Search.Click
+    Private Sub T_Search_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim frm As New VsoftBMS.Ulti.FrmFind(Grid, m_Lang)
         frm.ShowDialog()
     End Sub

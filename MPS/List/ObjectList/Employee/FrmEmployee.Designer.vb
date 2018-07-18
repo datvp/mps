@@ -63,11 +63,7 @@ Partial Class FrmEmployee
         Me.T_SelectAll = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Layout = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_search = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_Print = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
-        Me.T_SentSMS = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_Import = New System.Windows.Forms.ToolStripMenuItem
         Me.T_Export = New System.Windows.Forms.ToolStripMenuItem
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -288,9 +284,9 @@ Partial Class FrmEmployee
         'MenuStrip1
         '
         Me.MenuStrip1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_ViewEdit, Me.T_Add, Me.T_DEL, Me.ToolStripSeparator1, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem2, Me.T_Layout, Me.T_search, Me.T_Print, Me.ToolStripMenuItem1, Me.T_SentSMS, Me.T_Import, Me.T_Export})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_ViewEdit, Me.T_Add, Me.T_DEL, Me.ToolStripSeparator1, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem2, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export})
         Me.MenuStrip1.Name = "ContextMenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(201, 286)
+        Me.MenuStrip1.Size = New System.Drawing.Size(201, 176)
         '
         'T_ViewEdit
         '
@@ -356,45 +352,10 @@ Partial Class FrmEmployee
         Me.T_Layout.Size = New System.Drawing.Size(200, 22)
         Me.T_Layout.Text = "Điều chỉnh hiển thị"
         '
-        'T_search
-        '
-        Me.T_search.ForeColor = System.Drawing.Color.Navy
-        Me.T_search.Image = Global.MPS.My.Resources.Resources.find
-        Me.T_search.Name = "T_search"
-        Me.T_search.ShortcutKeyDisplayString = "F3"
-        Me.T_search.Size = New System.Drawing.Size(200, 22)
-        Me.T_search.Text = "Tìm kiếm"
-        '
-        'T_Print
-        '
-        Me.T_Print.ForeColor = System.Drawing.Color.Navy
-        Me.T_Print.Image = Global.MPS.My.Resources.Resources.printer
-        Me.T_Print.Name = "T_Print"
-        Me.T_Print.ShortcutKeyDisplayString = "Ctrl+P"
-        Me.T_Print.Size = New System.Drawing.Size(200, 22)
-        Me.T_Print.Text = "In ấn"
-        '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
         Me.ToolStripMenuItem1.Size = New System.Drawing.Size(197, 6)
-        '
-        'T_SentSMS
-        '
-        Me.T_SentSMS.ForeColor = System.Drawing.Color.Navy
-        Me.T_SentSMS.Image = Global.MPS.My.Resources.Resources._1SMS
-        Me.T_SentSMS.Name = "T_SentSMS"
-        Me.T_SentSMS.Size = New System.Drawing.Size(200, 22)
-        Me.T_SentSMS.Text = "Nhắn tin SMS"
-        '
-        'T_Import
-        '
-        Me.T_Import.ForeColor = System.Drawing.Color.Navy
-        Me.T_Import.Image = Global.MPS.My.Resources.Resources.import3
-        Me.T_Import.Name = "T_Import"
-        Me.T_Import.ShortcutKeyDisplayString = "Ctrl+I"
-        Me.T_Import.Size = New System.Drawing.Size(200, 22)
-        Me.T_Import.Text = "Nhập từ Excel"
         '
         'T_Export
         '
@@ -445,13 +406,9 @@ Partial Class FrmEmployee
     Friend WithEvents T_DEL As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents T_Export As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents T_search As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents T_Print As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents T_Layout As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents T_Import As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents T_SelectAll As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents T_Refresh As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents T_SentSMS As System.Windows.Forms.ToolStripMenuItem
 End Class

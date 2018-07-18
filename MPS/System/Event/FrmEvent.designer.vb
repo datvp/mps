@@ -62,11 +62,11 @@ Partial Class FrmEvent
         Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.ctMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.T_Refresh = New System.Windows.Forms.ToolStripMenuItem
         Me.T_DEL = New System.Windows.Forms.ToolStripMenuItem
         Me.T_SelectAll = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Layout = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_Search = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Export = New System.Windows.Forms.ToolStripMenuItem
         Me.Panel1 = New System.Windows.Forms.Panel
@@ -81,7 +81,6 @@ Partial Class FrmEvent
         Me.LabelStatus = New Infragistics.Win.Misc.UltraLabel
         Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.T_Refresh = New System.Windows.Forms.ToolStripMenuItem
         Me.ctMenu.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,9 +91,18 @@ Partial Class FrmEvent
         'ctMenu
         '
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Refresh, Me.T_DEL, Me.T_SelectAll, Me.ToolStripMenuItem2, Me.T_Layout, Me.T_Search, Me.ToolStripSeparator1, Me.T_Export})
+        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Refresh, Me.T_DEL, Me.T_SelectAll, Me.ToolStripMenuItem2, Me.T_Layout, Me.ToolStripSeparator1, Me.T_Export})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 170)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 148)
+        '
+        'T_Refresh
+        '
+        Me.T_Refresh.ForeColor = System.Drawing.Color.Navy
+        Me.T_Refresh.Image = Global.MPS.My.Resources.Resources.refresh
+        Me.T_Refresh.Name = "T_Refresh"
+        Me.T_Refresh.ShortcutKeys = System.Windows.Forms.Keys.F5
+        Me.T_Refresh.Size = New System.Drawing.Size(200, 22)
+        Me.T_Refresh.Text = "Refresh"
         '
         'T_DEL
         '
@@ -127,15 +135,6 @@ Partial Class FrmEvent
         Me.T_Layout.ShortcutKeyDisplayString = "Ctrl+V"
         Me.T_Layout.Size = New System.Drawing.Size(200, 22)
         Me.T_Layout.Text = "Điều chỉnh hiển thị"
-        '
-        'T_Search
-        '
-        Me.T_Search.ForeColor = System.Drawing.Color.Navy
-        Me.T_Search.Image = Global.MPS.My.Resources.Resources.find
-        Me.T_Search.Name = "T_Search"
-        Me.T_Search.ShortcutKeyDisplayString = "F3"
-        Me.T_Search.Size = New System.Drawing.Size(200, 22)
-        Me.T_Search.Text = "Tìm kiếm"
         '
         'ToolStripSeparator1
         '
@@ -401,15 +400,6 @@ Partial Class FrmEvent
         Me.Panel2.Size = New System.Drawing.Size(638, 23)
         Me.Panel2.TabIndex = 0
         '
-        'T_Refresh
-        '
-        Me.T_Refresh.ForeColor = System.Drawing.Color.Navy
-        Me.T_Refresh.Image = Global.MPS.My.Resources.Resources.refresh
-        Me.T_Refresh.Name = "T_Refresh"
-        Me.T_Refresh.ShortcutKeys = System.Windows.Forms.Keys.F5
-        Me.T_Refresh.Size = New System.Drawing.Size(200, 22)
-        Me.T_Refresh.Text = "Refresh"
-        '
         'FrmEvent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -435,7 +425,6 @@ Partial Class FrmEvent
     Friend WithEvents T_DEL As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents T_Layout As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents T_Search As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents T_Export As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Panel1 As System.Windows.Forms.Panel

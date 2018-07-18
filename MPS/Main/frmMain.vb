@@ -142,6 +142,12 @@
             Case "Items"
                 Dim frm As New frmItems
                 ShowForm(frm)
+            Case "ConstructionLevels"
+                Dim frm As New frmConstructionLevels
+                ShowForm(frm)
+            Case "ProjectTypes"
+                Dim frm As New frmProjectTypes
+                ShowForm(frm)
             Case "Clients"
                 Dim frm As New frmClients
                 ShowForm(frm)

@@ -67,8 +67,6 @@ Partial Class frmContracts
         Me.T_SelectAll = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem3 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Layout = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_Search = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_Print = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Export = New System.Windows.Forms.ToolStripMenuItem
         Me.Panel1.SuspendLayout()
@@ -281,9 +279,9 @@ Partial Class frmContracts
         'ctMenu
         '
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.T_Search, Me.T_Print, Me.ToolStripMenuItem1, Me.T_Export})
+        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 220)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 198)
         '
         'T_Add
         '
@@ -349,24 +347,6 @@ Partial Class frmContracts
         Me.T_Layout.Size = New System.Drawing.Size(200, 22)
         Me.T_Layout.Text = "Điều chỉnh hiển thị"
         '
-        'T_Search
-        '
-        Me.T_Search.ForeColor = System.Drawing.Color.Navy
-        Me.T_Search.Image = Global.MPS.My.Resources.Resources.find
-        Me.T_Search.Name = "T_Search"
-        Me.T_Search.ShortcutKeyDisplayString = "F3"
-        Me.T_Search.Size = New System.Drawing.Size(200, 22)
-        Me.T_Search.Text = "Tìm kiếm"
-        '
-        'T_Print
-        '
-        Me.T_Print.ForeColor = System.Drawing.Color.Navy
-        Me.T_Print.Image = Global.MPS.My.Resources.Resources.printer
-        Me.T_Print.Name = "T_Print"
-        Me.T_Print.ShortcutKeyDisplayString = "Ctrl+P"
-        Me.T_Print.Size = New System.Drawing.Size(200, 22)
-        Me.T_Print.Text = "In ấn"
-        '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
@@ -417,8 +397,6 @@ Partial Class frmContracts
     Friend WithEvents T_DEL As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents T_Layout As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents T_Search As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents T_Print As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents T_Export As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents T_Refresh As System.Windows.Forms.ToolStripMenuItem

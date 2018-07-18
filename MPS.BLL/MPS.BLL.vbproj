@@ -73,7 +73,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="B_Report.vb" />
+    <Compile Include="ClientGroups\BClientGroups.vb" />
     <Compile Include="Clients\BClients.vb" />
+    <Compile Include="ConstructionLevels\BConstructionLevels.vb" />
+    <Compile Include="Items\BItems.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -90,6 +93,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Projects\BProjects.vb" />
+    <Compile Include="ProjectTypes\BProjectTypes.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -125,8 +129,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ClientGroups\" />
-    <Folder Include="Items\" />
     <Folder Include="SubContractors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

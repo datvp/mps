@@ -63,6 +63,7 @@
     <Compile Include="Contracts\MContractDetails.vb" />
     <Compile Include="Contracts\MContractHistory.vb" />
     <Compile Include="Contracts\MSubContracts.vb" />
+    <Compile Include="Lists\MConstructionLevel.vb" />
     <Compile Include="Lists\MMainContractor.vb" />
     <Compile Include="Lists\MClient.vb" />
     <Compile Include="Lists\MClientGroup.vb" />
@@ -97,9 +98,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="MConfigProgram.vb" />
-    <Compile Include="Projects\MProjectType.vb" />
-    <Compile Include="Projects\MProject.vb" />
     <Compile Include="Projects\MProjectGroup.vb" />
+    <Compile Include="Projects\MProject.vb" />
+    <Compile Include="Projects\MProjectType.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

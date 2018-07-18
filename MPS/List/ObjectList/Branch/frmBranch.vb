@@ -24,9 +24,6 @@ Public Class frmBranch
 #Region "FORM"
 
     Private Sub FrmBranch_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.F3 Then 'tìm kiếm
-            Me.T_Search.PerformClick()
-        End If
         If e.KeyCode = Keys.F5 Then
             Me.T_Refresh.PerformClick()
         End If
@@ -47,14 +44,10 @@ Public Class frmBranch
             Select Case e.KeyCode
                 Case Keys.T
                     Me.T_Add.PerformClick()
-                    'Case Keys.H
-                    '    Me.T_Edit.PerformClick()
                 Case Keys.V
                     Me.T_Layout.PerformClick()
                 Case Keys.E
                     Me.T_Export.PerformClick()
-                Case Keys.P '18/05/2009
-                    Me.T_Print.PerformClick()
                 Case Keys.A
                     Me.T_SelectAll.PerformClick()
             End Select
@@ -294,8 +287,6 @@ Public Class frmBranch
         T_Refresh.Enabled = True
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
-        T_Search.Enabled = True
-        T_Print.Enabled = True
         T_Export.Enabled = True
 
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
@@ -308,8 +299,6 @@ Public Class frmBranch
             If Grid.Rows.Count < 1 Then
                 T_SelectAll.Enabled = False
                 T_Export.Enabled = False
-                T_Search.Enabled = False
-                T_Print.Enabled = False
             End If
             If e.Button <> Windows.Forms.MouseButtons.Right Then Exit Sub
         Else
@@ -347,11 +336,11 @@ Public Class frmBranch
         Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, Grid, m_Lang)
         frm.ShowDialog()
     End Sub
-    Private Sub T_Search_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Search.Click
+    Private Sub T_Search_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim frm As New VsoftBMS.Ulti.FrmFind(Grid, m_Lang)
         frm.ShowDialog()
     End Sub
-    Private Sub T_Print_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Print.Click
+    Private Sub T_Print_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.ViewReport()
     End Sub
     Private Sub T_Export_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Export.Click

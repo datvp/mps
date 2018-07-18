@@ -1,22 +1,22 @@
-﻿Public Class MProjectType
+﻿Public Class MProjectGroup
 
-    Private m_ProjectTypeId As String
-    Public Property ProjectTypeId() As String
+    Private m_ProjectGroupId As String
+    Public Property ProjectGroupId() As String
         Get
-            Return m_ProjectTypeId
+            Return m_ProjectGroupId
         End Get
         Set(ByVal value As String)
-            m_ProjectTypeId = value
+            m_ProjectGroupId = value
         End Set
     End Property
 
-    Private m_ProjectTypeName As String
-    Public Property ProjectTypeName() As String
+    Private m_ProjectGroupName As String
+    Public Property ProjectGroupName() As String
         Get
-            Return m_ProjectTypeName
+            Return m_ProjectGroupName
         End Get
         Set(ByVal value As String)
-            m_ProjectTypeName = value
+            m_ProjectGroupName = value
         End Set
     End Property
 

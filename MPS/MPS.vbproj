@@ -211,6 +211,18 @@
     <Compile Include="PECC5\Clients\frmClients.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PECC5\ConstructionLevels\frmConstructionLevelDetail.Designer.vb">
+      <DependentUpon>frmConstructionLevelDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\ConstructionLevels\frmConstructionLevelDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\ConstructionLevels\frmConstructionLevels.Designer.vb">
+      <DependentUpon>frmConstructionLevels.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\ConstructionLevels\frmConstructionLevels.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PECC5\Contracts\frmContractDetail.Designer.vb">
       <DependentUpon>frmContractDetail.vb</DependentUpon>
     </Compile>
@@ -245,6 +257,18 @@
       <DependentUpon>frmProjects.vb</DependentUpon>
     </Compile>
     <Compile Include="PECC5\Projects\frmProjects.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\ProjectTypes\frmProjectTypeDetail.Designer.vb">
+      <DependentUpon>frmProjectTypeDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\ProjectTypes\frmProjectTypeDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PECC5\ProjectTypes\frmProjectTypes.Designer.vb">
+      <DependentUpon>frmProjectTypes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\ProjectTypes\frmProjectTypes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PECC5\SubContractors\frmSubContractorDetail.Designer.vb">
@@ -476,12 +500,24 @@
       <DependentUpon>frmClients.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\ConstructionLevels\frmConstructionLevelDetail.resx">
+      <DependentUpon>frmConstructionLevelDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\ConstructionLevels\frmConstructionLevels.resx">
+      <DependentUpon>frmConstructionLevels.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Contracts\frmContractDetail.resx">
       <DependentUpon>frmContractDetail.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Contracts\frmContracts.resx">
       <DependentUpon>frmContracts.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\Items\frmItemDetail.resx">
+      <DependentUpon>frmItemDetail.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Items\frmItems.resx">
@@ -494,6 +530,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Projects\frmProjects.resx">
       <DependentUpon>frmProjects.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\ProjectTypes\frmProjectTypeDetail.resx">
+      <DependentUpon>frmProjectTypeDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\ProjectTypes\frmProjectTypes.resx">
+      <DependentUpon>frmProjectTypes.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\SubContractors\frmSubContractors.resx">

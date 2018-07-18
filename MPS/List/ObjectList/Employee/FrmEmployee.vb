@@ -65,10 +65,6 @@ Public Class FrmEmployee
                     frm.ShowDialog()
                 Case Keys.E
                     ExportExcel(Grid)
-                Case Keys.I
-                    Me.T_Import.PerformClick()
-                Case Keys.P '18/05/2009
-                    Me.T_Print.PerformClick()
                 Case Keys.A
                     Me.T_SelectAll.PerformClick()
             End Select
@@ -371,19 +367,13 @@ Public Class FrmEmployee
     End Sub
 
     Private Sub Grid_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, Optional ByRef fExit As Boolean = False) Handles Grid.MouseDown
-
         T_Add.Enabled = f_SecA
         T_ViewEdit.Enabled = True
         T_DEL.Enabled = f_SecD
         T_Refresh.Enabled = True
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
-        T_search.Enabled = True
-        T_Print.Enabled = True
         T_Export.Enabled = True
-        T_Import.Enabled = f_SecA
-        T_SentSMS.Enabled = True
-
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(e.Location)
         Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))
 
@@ -394,9 +384,6 @@ Public Class FrmEmployee
             If Grid.Rows.Count < 1 Then
                 T_SelectAll.Enabled = False
                 T_Export.Enabled = False
-                T_search.Enabled = False
-                T_Print.Enabled = False
-                T_SentSMS.Enabled = False
             End If
         Else
             result.Activated = True
@@ -442,11 +429,11 @@ Public Class FrmEmployee
         Me.DEL()
     End Sub
 
-    Private Sub InToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Print.Click
+    Private Sub InToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.ViewReport()
     End Sub
 
-    Private Sub TìmKiếmToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_search.Click
+    Private Sub TìmKiếmToolStripMenuItem_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim frm As New VsoftBMS.Ulti.FrmFind(Grid, m_Lang)
         frm.ShowDialog()
     End Sub
@@ -454,7 +441,7 @@ Public Class FrmEmployee
     Private Sub XuấtToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Export.Click
         ExportExcel(Grid)
     End Sub
-    Private Sub NhaptuExcelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Import.Click
+    Private Sub NhaptuExcelToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         'Dim frm As New frmImportDatas
         'Dim fOK As Boolean = frm.ShowDialog("Employee")
         'If fOK Then
