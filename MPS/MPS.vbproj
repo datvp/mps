@@ -163,6 +163,18 @@
     <Compile Include="List\ObjectList\Employee\FrmNewEmployee.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainContractors\frmMainContractorDetail.Designer.vb">
+      <DependentUpon>frmMainContractorDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainContractors\frmMainContractorDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainContractors\frmMainContractors.Designer.vb">
+      <DependentUpon>frmMainContractors.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainContractors\frmMainContractors.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main\frmDashboard.Designer.vb">
       <DependentUpon>frmDashboard.vb</DependentUpon>
     </Compile>
@@ -472,6 +484,14 @@
       <DependentUpon>FrmNewEmployee.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainContractors\frmMainContractorDetail.resx">
+      <DependentUpon>frmMainContractorDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainContractors\frmMainContractors.resx">
+      <DependentUpon>frmMainContractors.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main\frmDashboard.resx">
       <DependentUpon>frmDashboard.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -538,6 +558,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\ProjectTypes\frmProjectTypes.resx">
       <DependentUpon>frmProjectTypes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\SubContractors\frmSubContractorDetail.resx">
+      <DependentUpon>frmSubContractorDetail.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\SubContractors\frmSubContractors.resx">

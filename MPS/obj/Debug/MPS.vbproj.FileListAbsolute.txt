@@ -143,3 +143,6 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmConstructionLevelDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmConstructionLevels.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmProjectTypeDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmProjectTypes.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmSubContractorDetail.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmMainContractorDetail.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmMainContractors.resources

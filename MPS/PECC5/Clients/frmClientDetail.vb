@@ -11,6 +11,14 @@
         Return Me.clientId
     End Function
 
+    Private Sub frmClientDetail_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+        If e.Control Then
+            If e.KeyCode = Keys.S Then
+                Me.Save()
+            End If
+        End If
+    End Sub
+
     Private Sub frmClientDetail_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ModMain.SetTitle(Me, lblTitle.Text)
         ModMain.BlueButton(btnSave, ModMain.m_SaveIcon)

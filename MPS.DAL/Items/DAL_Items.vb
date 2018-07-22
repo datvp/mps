@@ -69,7 +69,7 @@ Public Class DAL_Items
     End Function
 
     Public Function getListItems() As DataTable
-        Dim sql As String = "Select * from Items order by CreatedAt"
+        Dim sql As String = "Select '' as Choose,* from Items order by CreatedAt"
         Return Me.getTableSQL(sql)
     End Function
 

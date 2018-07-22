@@ -36,6 +36,9 @@ Partial Class frmTotalReports
         Dim Appearance58 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance75 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance76 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance84 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance85 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance86 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -50,16 +53,15 @@ Partial Class frmTotalReports
         Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance84 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance85 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance86 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.dtFrom = New System.Windows.Forms.DateTimePicker
         Me.Panel2 = New System.Windows.Forms.Panel
-        Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel
+        Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.pnlCondition = New System.Windows.Forms.Panel
+        Me.grpLineBorder = New Infragistics.Win.Misc.UltraGroupBox
         Me.cboBranch = New Infragistics.Win.UltraWinGrid.UltraCombo
         Me.Label4 = New System.Windows.Forms.Label
         Me.cboTime = New System.Windows.Forms.ComboBox
+        Me.btnExportExcel = New Infragistics.Win.Misc.UltraButton
         Me.btnView = New Infragistics.Win.Misc.UltraButton
         Me.dtTo = New System.Windows.Forms.DateTimePicker
         Me.Label2 = New System.Windows.Forms.Label
@@ -67,14 +69,12 @@ Partial Class frmTotalReports
         Me.pnlListReportName = New System.Windows.Forms.Panel
         Me.CollapsibleSplitter2 = New NJFLib.Controls.CollapsibleSplitter
         Me.Grid = New Infragistics.Win.UltraWinGrid.UltraGrid
-        Me.btnExportExcel = New Infragistics.Win.Misc.UltraButton
-        Me.grpLineBorder = New Infragistics.Win.Misc.UltraGroupBox
         Me.Panel2.SuspendLayout()
         Me.pnlCondition.SuspendLayout()
+        CType(Me.grpLineBorder, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboBranch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlListReportName.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grpLineBorder, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dtFrom
@@ -90,14 +90,14 @@ Partial Class frmTotalReports
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.Transparent
-        Me.Panel2.Controls.Add(Me.UltraLabel1)
+        Me.Panel2.Controls.Add(Me.lblTitle)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(758, 24)
         Me.Panel2.TabIndex = 3
         '
-        'UltraLabel1
+        'lblTitle
         '
         Appearance95.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(243, Byte), Integer), CType(CType(250, Byte), Integer))
         Appearance95.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(189, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -107,14 +107,14 @@ Partial Class frmTotalReports
         Appearance95.ForeColor = System.Drawing.Color.Black
         Appearance95.Image = Global.MPS.My.Resources.Resources.statistics4
         Appearance95.TextVAlignAsString = "Middle"
-        Me.UltraLabel1.Appearance = Appearance95
-        Me.UltraLabel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UltraLabel1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UltraLabel1.Location = New System.Drawing.Point(0, 0)
-        Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(758, 24)
-        Me.UltraLabel1.TabIndex = 2
-        Me.UltraLabel1.Text = "Báo cáo - Thống kê"
+        Me.lblTitle.Appearance = Appearance95
+        Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblTitle.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTitle.Location = New System.Drawing.Point(0, 0)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Size = New System.Drawing.Size(758, 24)
+        Me.lblTitle.TabIndex = 2
+        Me.lblTitle.Text = "Báo cáo - Thống kê"
         '
         'pnlCondition
         '
@@ -134,6 +134,17 @@ Partial Class frmTotalReports
         Me.pnlCondition.Name = "pnlCondition"
         Me.pnlCondition.Size = New System.Drawing.Size(325, 161)
         Me.pnlCondition.TabIndex = 12
+        '
+        'grpLineBorder
+        '
+        Me.grpLineBorder.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
+        Me.grpLineBorder.Dock = System.Windows.Forms.DockStyle.Top
+        Me.grpLineBorder.Location = New System.Drawing.Point(0, 0)
+        Me.grpLineBorder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.grpLineBorder.Name = "grpLineBorder"
+        Me.grpLineBorder.Size = New System.Drawing.Size(325, 1)
+        Me.grpLineBorder.TabIndex = 70
+        Me.grpLineBorder.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'cboBranch
         '
@@ -221,6 +232,34 @@ Partial Class frmTotalReports
         Me.cboTime.Name = "cboTime"
         Me.cboTime.Size = New System.Drawing.Size(100, 21)
         Me.cboTime.TabIndex = 65
+        '
+        'btnExportExcel
+        '
+        Appearance84.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance84.BackColor2 = System.Drawing.Color.White
+        Appearance84.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
+        Appearance84.BorderColor = System.Drawing.Color.LightSteelBlue
+        Appearance84.FontData.BoldAsString = "True"
+        Appearance84.ForeColor = System.Drawing.Color.Black
+        Me.btnExportExcel.Appearance = Appearance84
+        Me.btnExportExcel.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
+        Me.btnExportExcel.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btnExportExcel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Appearance85.BackColor = System.Drawing.Color.Yellow
+        Appearance85.BackColor2 = System.Drawing.Color.White
+        Appearance85.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
+        Me.btnExportExcel.HotTrackAppearance = Appearance85
+        Me.btnExportExcel.Location = New System.Drawing.Point(153, 104)
+        Me.btnExportExcel.Name = "btnExportExcel"
+        Appearance86.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Appearance86.BackColor2 = System.Drawing.Color.White
+        Appearance86.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
+        Me.btnExportExcel.PressedAppearance = Appearance86
+        Me.btnExportExcel.Size = New System.Drawing.Size(99, 25)
+        Me.btnExportExcel.TabIndex = 21
+        Me.btnExportExcel.Text = "Xuất Excel"
+        Me.btnExportExcel.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
+        Me.btnExportExcel.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
         '
         'btnView
         '
@@ -381,45 +420,6 @@ Partial Class frmTotalReports
         Me.Grid.Size = New System.Drawing.Size(395, 461)
         Me.Grid.TabIndex = 44
         '
-        'btnExportExcel
-        '
-        Appearance84.BackColor = System.Drawing.Color.LightSteelBlue
-        Appearance84.BackColor2 = System.Drawing.Color.White
-        Appearance84.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
-        Appearance84.BorderColor = System.Drawing.Color.LightSteelBlue
-        Appearance84.FontData.BoldAsString = "True"
-        Appearance84.ForeColor = System.Drawing.Color.Black
-        Me.btnExportExcel.Appearance = Appearance84
-        Me.btnExportExcel.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
-        Me.btnExportExcel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnExportExcel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance85.BackColor = System.Drawing.Color.Yellow
-        Appearance85.BackColor2 = System.Drawing.Color.White
-        Appearance85.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
-        Me.btnExportExcel.HotTrackAppearance = Appearance85
-        Me.btnExportExcel.Location = New System.Drawing.Point(153, 104)
-        Me.btnExportExcel.Name = "btnExportExcel"
-        Appearance86.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Appearance86.BackColor2 = System.Drawing.Color.White
-        Appearance86.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
-        Me.btnExportExcel.PressedAppearance = Appearance86
-        Me.btnExportExcel.Size = New System.Drawing.Size(99, 25)
-        Me.btnExportExcel.TabIndex = 21
-        Me.btnExportExcel.Text = "Xuất Excel"
-        Me.btnExportExcel.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
-        Me.btnExportExcel.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
-        '
-        'grpLineBorder
-        '
-        Me.grpLineBorder.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
-        Me.grpLineBorder.Dock = System.Windows.Forms.DockStyle.Top
-        Me.grpLineBorder.Location = New System.Drawing.Point(0, 0)
-        Me.grpLineBorder.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.grpLineBorder.Name = "grpLineBorder"
-        Me.grpLineBorder.Size = New System.Drawing.Size(325, 1)
-        Me.grpLineBorder.TabIndex = 70
-        Me.grpLineBorder.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
-        '
         'frmTotalReports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -438,16 +438,16 @@ Partial Class frmTotalReports
         Me.Panel2.ResumeLayout(False)
         Me.pnlCondition.ResumeLayout(False)
         Me.pnlCondition.PerformLayout()
+        CType(Me.grpLineBorder, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboBranch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlListReportName.ResumeLayout(False)
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grpLineBorder, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents dtFrom As System.Windows.Forms.DateTimePicker
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents UltraLabel1 As Infragistics.Win.Misc.UltraLabel
+    Friend WithEvents lblTitle As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents pnlCondition As System.Windows.Forms.Panel
     Friend WithEvents lstFunc As System.Windows.Forms.ListBox
     Friend WithEvents pnlListReportName As System.Windows.Forms.Panel

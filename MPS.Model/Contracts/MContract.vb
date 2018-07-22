@@ -102,6 +102,40 @@
     End Property
 
 
+    Private m_MainContractorId As String = ""
+    ''' <summary>
+    ''' nhà thầu chính
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property MainContractorId() As String
+        Get
+            Return m_MainContractorId
+        End Get
+        Set(ByVal value As String)
+            m_MainContractorId = value
+        End Set
+    End Property
+
+    Private m_ContractLevelId As String = ""
+    ''' <summary>
+    ''' mã phân cấp hợp đồng
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property ContractLevelId() As String
+        Get
+            Return m_ContractLevelId
+        End Get
+        Set(ByVal value As String)
+            m_ContractLevelId = value
+        End Set
+    End Property
+
+
+
     Private m_ContractState As String = ""
     ''' <summary>
     ''' Trạng thái hợp đồng
@@ -165,6 +199,87 @@
         End Get
         Set(ByVal value As Date)
             m_UpdatedAt = value
+        End Set
+    End Property
+
+
+    Private m_arrContractDetail As IList(Of MContractDetail) = New List(Of MContractDetail)
+    ''' <summary>
+    ''' ds nội dung hợp đồng
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrContractDetail() As IList(Of MContractDetail)
+        Get
+            Return m_arrContractDetail
+        End Get
+        Set(ByVal value As IList(Of MContractDetail))
+            m_arrContractDetail = value
+        End Set
+    End Property
+
+    Private m_arrSubContract As IList(Of MSubContract) = New List(Of MSubContract)
+    ''' <summary>
+    ''' ds phụ lục hợp đồng
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrSubContract() As IList(Of MSubContract)
+        Get
+            Return m_arrSubContract
+        End Get
+        Set(ByVal value As IList(Of MSubContract))
+            m_arrSubContract = value
+        End Set
+    End Property
+
+    Private m_arrFile As IList(Of MAttachFileContract) = New List(Of MAttachFileContract)
+    ''' <summary>
+    ''' ds tập tin đính kèm
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrFile() As IList(Of MAttachFileContract)
+        Get
+            Return m_arrFile
+        End Get
+        Set(ByVal value As IList(Of MAttachFileContract))
+            m_arrFile = value
+        End Set
+    End Property
+
+    Private m_arrHistory As IList(Of MContractHistory) = New List(Of MContractHistory)
+    ''' <summary>
+    ''' ds lịch sử hợp đồng
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrHistory() As IList(Of MContractHistory)
+        Get
+            Return m_arrHistory
+        End Get
+        Set(ByVal value As IList(Of MContractHistory))
+            m_arrHistory = value
+        End Set
+    End Property
+
+    Private m_arrSubContractor As IList(Of MContract_SubContractor) = New List(Of MContract_SubContractor)
+    ''' <summary>
+    ''' ds lịch sử hợp đồng
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrSubContractor() As IList(Of MContract_SubContractor)
+        Get
+            Return m_arrSubContractor
+        End Get
+        Set(ByVal value As IList(Of MContract_SubContractor))
+            m_arrSubContractor = value
         End Set
     End Property
 End Class

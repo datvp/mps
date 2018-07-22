@@ -1,6 +1,5 @@
 ﻿Public Class MSubContractor
-
-    Private m_SubContractorId As String
+    Private m_SubContractorId As String = ""
     Public Property SubContractorId() As String
         Get
             Return m_SubContractorId
@@ -11,17 +10,17 @@
     End Property
 
 
-    Private m_SubContratorName As String
-    Public Property SubContratorName() As String
+    Private m_SubContractorName As String = ""
+    Public Property SubContractorName() As String
         Get
-            Return m_SubContratorName
+            Return m_SubContractorName
         End Get
         Set(ByVal value As String)
-            m_SubContratorName = value
+            m_SubContractorName = value
         End Set
     End Property
 
-    Private m_ShortName As String
+    Private m_ShortName As String = ""
     Public Property ShortName() As String
         Get
             Return m_ShortName
@@ -31,7 +30,7 @@
         End Set
     End Property
 
-    Private m_Address As String
+    Private m_Address As String = ""
     Public Property Address() As String
         Get
             Return m_Address
@@ -41,7 +40,7 @@
         End Set
     End Property
 
-    Private m_Phone As String
+    Private m_Phone As String = ""
     Public Property Phone() As String
         Get
             Return m_Phone
@@ -51,7 +50,7 @@
         End Set
     End Property
 
-    Private m_Email As String
+    Private m_Email As String = ""
     Public Property Email() As String
         Get
             Return m_Email
@@ -61,17 +60,7 @@
         End Set
     End Property
 
-    Private m_Website As String
-    Public Property Website() As String
-        Get
-            Return m_Website
-        End Get
-        Set(ByVal value As String)
-            m_Website = value
-        End Set
-    End Property
-
-    Private m_ContactName As String
+    Private m_ContactName As String = ""
     Public Property ContactName() As String
         Get
             Return m_ContactName
@@ -81,7 +70,7 @@
         End Set
     End Property
 
-    Private m_ContactPhone As String
+    Private m_ContactPhone As String = ""
     Public Property ContactPhone() As String
         Get
             Return m_ContactPhone
@@ -91,7 +80,7 @@
         End Set
     End Property
 
-    Private m_ContactEmail As String
+    Private m_ContactEmail As String = ""
     Public Property ContactEmail() As String
         Get
             Return m_ContactEmail
@@ -101,7 +90,7 @@
         End Set
     End Property
 
-    Private m_Note As String
+    Private m_Note As String = ""
     Public Property Note() As String
         Get
             Return m_Note

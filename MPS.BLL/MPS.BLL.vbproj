@@ -76,7 +76,9 @@
     <Compile Include="ClientGroups\BClientGroups.vb" />
     <Compile Include="Clients\BClients.vb" />
     <Compile Include="ConstructionLevels\BConstructionLevels.vb" />
+    <Compile Include="Contracts\BContracts.vb" />
     <Compile Include="Items\BItems.vb" />
+    <Compile Include="MainContractors\BMainContractors.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -94,6 +96,7 @@
     </Compile>
     <Compile Include="Projects\BProjects.vb" />
     <Compile Include="ProjectTypes\BProjectTypes.vb" />
+    <Compile Include="SubContractors\BSubContractors.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -127,9 +130,6 @@
       <Project>{82E5B392-5E30-4C53-8EFD-30CC913ADEF9}</Project>
       <Name>MPS.Reports</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="SubContractors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -136,6 +136,9 @@
             Case "Dashboard"
                 Dim frm As New frmDashboard
                 ShowForm(frm)
+            Case "Uniteds"
+                Dim frm As New frmMainContractors
+                ShowForm(frm)
             Case "SubContractors"
                 Dim frm As New frmSubContractors
                 ShowForm(frm)

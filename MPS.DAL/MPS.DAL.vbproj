@@ -67,6 +67,7 @@
     <Compile Include="ClientGroups\DAL_ClientGroups.vb" />
     <Compile Include="Clients\DAL_Clients.vb" />
     <Compile Include="ConstructionLevels\DAL_ConstructionLevels.vb" />
+    <Compile Include="Contracts\DAL_Contracts.vb" />
     <Compile Include="DALEvent.vb">
       <SubType>Code</SubType>
     </Compile>
@@ -82,6 +83,7 @@
     <Compile Include="DAL_ConfigProgram.vb" />
     <Compile Include="DAL_Public.vb" />
     <Compile Include="Items\DAL_Items.vb" />
+    <Compile Include="MainContractors\DAL_MainContractors.vb" />
     <Compile Include="ModFunction.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -100,6 +102,7 @@
     </Compile>
     <Compile Include="Projects\DAL_Projects.vb" />
     <Compile Include="ProjectTypes\DAL_ProjectTypes.vb" />
+    <Compile Include="SubContractors\DAL_SubContractors.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -125,9 +128,6 @@
       <Project>{E6E87EF1-21F4-4A44-9121-421220D91371}</Project>
       <Name>MPS.Model</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

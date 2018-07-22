@@ -5,16 +5,16 @@ Public Class frmItems
     Private WithEvents cls As BLL.BItems = BLL.BItems.Instance
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
     Dim fselect As Boolean = False
-    Dim Sselect As String = ""
+    Dim selectedItem As Model.MItem
     Private fFinish As Boolean = False
 
 
 #Region "Form "
 
-    Public Overloads Function ShowDialog(ByVal f As Boolean) As String
+    Public Overloads Function ShowDialog(ByVal f As Boolean) As Model.MItem
         fselect = f
         Me.ShowDialog()
-        Return Sselect
+        Return selectedItem
     End Function
 
     Private Sub frmItems_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
@@ -73,6 +73,9 @@ Public Class frmItems
         Me.Toolbars.Tools("btnAdd").SharedProps.Enabled = f_SecA
         Me.Toolbars.Tools("btnEdit").SharedProps.Enabled = f_SecE
         Me.Toolbars.Tools("btnDel").SharedProps.Enabled = f_SecD
+        Me.Toolbars.Visible = Not fselect
+        Me.ctMenu.Visible = Not fselect
+        Me.LabelBottom.Visible = Not fselect
     End Sub
 
     Private Sub FindItem(ByVal rParent As Infragistics.Win.UltraWinGrid.UltraGridRow, ByVal ColName As String, ByVal Value As String)
@@ -222,12 +225,35 @@ Public Class frmItems
 
 #Region "Grid "
     Dim fGrid As Boolean = False
+
+    Private Sub Grid_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles Grid.ClickCellButton
+        If fselect Then
+            Dim r As UltraGridRow = Grid.ActiveRow
+            If r IsNot Nothing Then
+                selectedItem = cls.getItemDetailById(r.Cells("ItemId").Value)
+                Me.Close()
+            End If
+
+        End If
+    End Sub
     Private Sub Grid_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles Grid.InitializeLayout
         If fGrid Then Exit Sub
         fGrid = True
         Grid.DisplayLayout.Override.RowAlternateAppearance.BackColor = ModMain.m_sysColor
         clsuf.FormatGridFromDB(Me.Name, Grid, m_Lang)
-
+        
+        With e.Layout.Bands(0).Columns("Choose")
+            .Header.VisiblePosition = 0
+            .Hidden = Not fselect
+            .Header.Caption = ModMain.m_Choose
+            .Style = ColumnStyle.Button
+            .ButtonDisplayStyle = ButtonDisplayStyle.Always
+            .CellButtonAppearance.Cursor = Cursors.Hand
+            .CellButtonAppearance.ImageHAlign = Infragistics.Win.HAlign.Center
+            .CellButtonAppearance.Image = ModMain.m_OkIcon
+            .CellClickAction = CellClickAction.CellSelect
+            .Width = 50
+        End With
     End Sub
 
     Private Sub Grid_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Grid.DoubleClick
@@ -240,7 +266,7 @@ Public Class frmItems
         If fExit = True Then Exit Sub
 
         If fselect Then
-            Sselect = r.Cells("ItemId").Value
+            selectedItem = cls.getItemDetailById(r.Cells("ItemId").Value)
             Me.Close()
             Exit Sub
         End If
@@ -291,7 +317,9 @@ Public Class frmItems
             r = result
 
         End If
-        '-------
+
+        'nếu chọn thì ko show ct menu
+        If fselect Then Exit Sub
 
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ctMenu.Show(Grid, New Point(e.X, e.Y))

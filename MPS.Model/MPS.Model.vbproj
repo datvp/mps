@@ -58,11 +58,12 @@
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\MAttachFileContracts.vb" />
+    <Compile Include="Contracts\MAttachFileContract.vb" />
     <Compile Include="Contracts\MContract.vb" />
-    <Compile Include="Contracts\MContractDetails.vb" />
+    <Compile Include="Contracts\MContractDetail.vb" />
     <Compile Include="Contracts\MContractHistory.vb" />
-    <Compile Include="Contracts\MSubContracts.vb" />
+    <Compile Include="Contracts\MContract_SubContractor.vb" />
+    <Compile Include="Contracts\MSubContract.vb" />
     <Compile Include="Lists\MConstructionLevel.vb" />
     <Compile Include="Lists\MMainContractor.vb" />
     <Compile Include="Lists\MClient.vb" />

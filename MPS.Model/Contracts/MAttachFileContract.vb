@@ -1,4 +1,4 @@
-﻿Public Class MAttachFileContracts
+﻿Public Class MAttachFileContract
 
     Private m_ContractId As String
     Public Property ContractId() As String

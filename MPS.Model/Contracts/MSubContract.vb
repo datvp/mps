@@ -1,4 +1,4 @@
-﻿Public Class MSubContracts
+﻿Public Class MSubContract
 
     Private m_ContractId As String
     Public Property ContractId() As String

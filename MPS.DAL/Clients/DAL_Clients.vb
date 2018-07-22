@@ -89,6 +89,7 @@ Public Class DAL_Clients
             m.ClientId = IsNull(tb.Rows(0)("ClientId"), "")
             m.ClientName = IsNull(tb.Rows(0)("ClientName"), "")
             m.ShortName = IsNull(tb.Rows(0)("ShortName"), "")
+            m.Address = IsNull(tb.Rows(0)("Address"), "")
             m.Email = IsNull(tb.Rows(0)("Email"), "")
             m.Phone = IsNull(tb.Rows(0)("Phone"), "")
             m.Website = IsNull(tb.Rows(0)("Website"), "")

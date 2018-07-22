@@ -22,6 +22,7 @@ Module ModMain
     Public m_SaveDataError As String = "Quá trình lưu dữ liệu có lỗi. Kiểm tra và thực hiện lại !"
     Public m_AddNew As String = "Thêm mới"
     Public m_SelectAll As String = "Tất cả"
+    Public m_Choose As String = "Chọn"
     Public FormTitle As String = "CONTRACT MANAGER SOFTWARE FOR ENERGY PROJECT" '18.06.09 
     Public m_Version As String = ""
 
@@ -77,6 +78,7 @@ Module ModMain
     Public m_OkIcon = Global.MPS.My.Resources.Resources.check
     Public m_SaveIcon = Global.MPS.My.Resources.Resources.Luu
     Public m_SaveCloseIcon = Global.MPS.My.Resources.Resources.Luu_Thoat
+    Public m_DeleteIcon = Global.MPS.My.Resources.Resources.del_32
 
     Public clsu As New VsoftBMS.Ulti.ClsUti
     Public mbc As Model.MConfigProgram

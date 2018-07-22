@@ -6,7 +6,14 @@ MPS.Model
 </name>
 </assembly>
 <members>
-<member name="P:MPS.Model.MConfigProgram.i_ConfigID">
+<member name="P:MPS.Model.MContractDetail.DelItem">
+	<summary>
+ nút xóa item
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MConfigProgram.i_ConfigID">
 	<summary>
  Lưu giữ 1:dùng màn hình POS cho bán hàng, 0 là mặc định màn hình thường
  </summary>
@@ -69,6 +76,20 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.MainContractorId">
+	<summary>
+ nhà thầu chính
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ContractLevelId">
+	<summary>
+ mã phân cấp hợp đồng
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.MContract.ContractState">
 	<summary>
  Trạng thái hợp đồng
@@ -79,6 +100,41 @@ MPS.Model
 </member><member name="P:MPS.Model.MContract.SubContracts">
 	<summary>
  danh sách phụ lục hợp đồng (nếu có)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.arrContractDetail">
+	<summary>
+ ds nội dung hợp đồng
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.arrSubContract">
+	<summary>
+ ds phụ lục hợp đồng
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.arrFile">
+	<summary>
+ ds tập tin đính kèm
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.arrHistory">
+	<summary>
+ ds lịch sử hợp đồng
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.arrSubContractor">
+	<summary>
+ ds lịch sử hợp đồng
  </summary>
 	<value></value>
 	<returns></returns>

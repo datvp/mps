@@ -50,9 +50,13 @@ Public Class frmTotalReports
     End Sub
 
     Private Sub frmTotalReports_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        ModMain.SetTitle(Me)
+        ModMain.SetTitle(Me, lblTitle.Text)
         ModMain.BlueButton(btnView, ModMain.m_OkIcon)
         ModMain.GreenButton(btnExportExcel)
         Me.GetListReports()
+    End Sub
+
+    Private Sub Grid_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles Grid.InitializeLayout
+
     End Sub
 End Class
