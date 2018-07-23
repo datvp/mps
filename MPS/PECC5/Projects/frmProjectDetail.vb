@@ -1,5 +1,7 @@
 ﻿Public Class frmProjectDetail
     Private WithEvents b As BLL.BProjects = BLL.BProjects.Instance
+    Private bClient As BLL.BClients = BLL.BClients.Instance
+
     Private Sub b__errorRaise(ByVal messege As String) Handles b._errorRaise
         ShowMsg(messege)
     End Sub
@@ -72,6 +74,11 @@
                 cboLengthUnit.Rows(0).Activate()
             End If
         End If
+
+        Dim tbClient = bClient.getListClients()
+        cboClient.ValueMember = "ClientId"
+        cboClient.DisplayMember = "ClientName"
+        cboClient.DataSource = tbClient
     End Sub
     Private Sub ClearInfo()
         Dim m As New Model.MProject
@@ -92,6 +99,7 @@
         cboProjectType.Value = m.ProjectTypeId
         cboProjectGroup.Value = m.ProjectGroupId
         cboConstructionLevel.Value = m.ConstructionLevelId
+        cboClient.Value = m.ClientId
         txtPerformance.Text = m.Performance
         cboPerformUnit.Value = m.PerformanceUnit
         txtLength.Text = m.Length
@@ -111,6 +119,9 @@
         End If
         If cboConstructionLevel.Value IsNot Nothing Then
             m.ConstructionLevelId = cboConstructionLevel.Value
+        End If
+        If cboClient.Value IsNot Nothing Then
+            m.ClientId = cboClient.Value
         End If
         m.Performance = CInt(txtPerformance.Text)
         If cboPerformUnit.Value IsNot Nothing Then
@@ -150,6 +161,11 @@
         If m.ConstructionLevelId = "" Then
             ShowMsg("Chọn phân cấp công trình")
             cboConstructionLevel.Focus()
+            Return False
+        End If
+        If m.ClientId = "" Then
+            ShowMsg("Chọn khách hàng")
+            cboClient.Focus()
             Return False
         End If
         If m.PerformanceUnit = "" Then
@@ -249,5 +265,13 @@
 
     Private Sub txtLength_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtLength.ValueChanged
         ModMain.UltraTextBox_ValueChanged(sender)
+    End Sub
+
+    Private Sub cboClient_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboClient.InitializeLayout
+        If Me.cboClient.DataSource Is Nothing Then Exit Sub
+        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
+            e.Layout.Bands(0).Columns(i).Hidden = True
+        Next
+        e.Layout.Bands(0).Columns("ClientName").Hidden = False
     End Sub
 End Class

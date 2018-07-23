@@ -120,4 +120,15 @@
             m_LengthUnit = value
         End Set
     End Property
+
+    Private m_ClientId As String = ""
+    Public Property ClientId() As String
+        Get
+            Return m_ClientId
+        End Get
+        Set(ByVal value As String)
+            m_ClientId = value
+        End Set
+    End Property
+
 End Class

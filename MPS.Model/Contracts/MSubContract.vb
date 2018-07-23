@@ -1,4 +1,19 @@
 ﻿Public Class MSubContract
+    Private m_DelItem As String
+    ''' <summary>
+    ''' nút xóa item
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property DelItem() As String
+        Get
+            Return m_DelItem
+        End Get
+        Set(ByVal value As String)
+            m_DelItem = value
+        End Set
+    End Property
 
     Private m_ContractId As String
     Public Property ContractId() As String
@@ -31,32 +46,32 @@
         End Set
     End Property
 
-    Private m_SubContractDate As String
-    Public Property SubContractDate() As String
+    Private m_SubContractDate As Date = CDate("2000-1-1")
+    Public Property SubContractDate() As Date
         Get
             Return m_SubContractDate
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Date)
             m_SubContractDate = value
         End Set
     End Property
 
-    Private m_SubContractValue As String
-    Public Property SubContractValue() As String
+    Private m_SubContractValue As Double = 0
+    Public Property SubContractValue() As Double
         Get
             Return m_SubContractValue
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Double)
             m_SubContractValue = value
         End Set
     End Property
 
-    Private m_SubContractDeadLine As String
-    Public Property SubContractDeadLine() As String
+    Private m_SubContractDeadLine As Date = CDate("2000-1-1")
+    Public Property SubContractDeadLine() As Date
         Get
             Return m_SubContractDeadLine
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Date)
             m_SubContractDeadLine = value
         End Set
     End Property

@@ -1,5 +1,6 @@
 ﻿Imports Infragistics.Win.UltraWinGrid
 Public Class frmContractDetail
+#Region "Declares"
     Private WithEvents b As BLL.BContracts = BLL.BContracts.Instance
     Private clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
     Private bItem As BLL.BItems = BLL.BItems.Instance
@@ -11,7 +12,9 @@ Public Class frmContractDetail
     Private Sub b__errorRaise(ByVal messege As String) Handles b._errorRaise
         ShowMsg(messege)
     End Sub
+#End Region
 
+#Region "Form Load"
     Private ContractId As String = ""
     Public Overloads Function ShowDialog(ByVal ContractId As String) As String
         Me.ContractId = ContractId
@@ -38,7 +41,9 @@ Public Class frmContractDetail
             Me.LoadInfo(ContractId)
         End If
     End Sub
+#End Region
 
+#Region "Subs"
     Private Sub LoadComboBox()
         Dim tbProject = bProject.getListProjects()
         cboProject.ValueMember = "ProjectId"
@@ -69,6 +74,7 @@ Public Class frmContractDetail
         grdSubContractors.DataSource = m.arrSubContractor
         grdFiles.DataSource = m.arrFile
         txtNote.Text = m.Note
+        Me.SumTotal()
     End Sub
     Private Sub LoadInfo(ByVal ContractId As String)
         Dim m = b.getContractDetailById(ContractId)
@@ -88,6 +94,7 @@ Public Class frmContractDetail
         grdSubContracts.DataSource = m.arrSubContract
         grdFiles.DataSource = m.arrFile
         txtNote.Text = m.Note
+        Me.SumTotal()
     End Sub
     Private Function setInfo() As Model.MContract
         Dim m As New Model.MContract
@@ -154,7 +161,22 @@ Public Class frmContractDetail
 
         Return True
     End Function
-    Public Sub Save()
+    Private Sub SumTotal()
+        If txtTotalValue.Text = "" Then Exit Sub
+        Dim total As Double = CDbl(txtContractValue.Text)
+        Dim arr As IList(Of Model.MSubContract) = grdSubContracts.DataSource
+        If arr IsNot Nothing Then
+            Dim extentValue As Double = 0
+            For Each it In arr
+                extentValue += it.SubContractValue
+            Next
+            txtExtentValue.Text = Format(extentValue, ModMain.m_strFormatCur)
+            total += extentValue
+        End If
+        txtTotalValue.Text = Format(total, ModMain.m_strFormatCur)
+        lblConvertMoney.Text = ModMain.convertMoney(total)
+    End Sub
+    Private Sub Save()
         Dim m = Me.setInfo()
         If Not CheckOK(m) Then Exit Sub
 
@@ -171,6 +193,30 @@ Public Class frmContractDetail
         End If
     End Sub
 
+    Private Sub showSubContractDetail(ByVal item As Model.MSubContract)
+        Dim frm As New frmSubContractDetail
+        item = frm.ShowDialog(item)
+        If item IsNot Nothing Then
+            Dim arr As IList(Of Model.MSubContract) = grdSubContracts.DataSource
+            If arr IsNot Nothing Then
+                Dim found = Me.findSubContract(item, arr)
+                If Not found Then
+                    Dim m As New Model.MSubContract
+                    m.SubContractId = item.SubContractId
+                    m.SubContractName = item.SubContractName
+                    m.SubContractValue = item.SubContractValue
+                    m.SubContractDate = m.SubContractDate
+                    m.SubContractDeadLine = m.SubContractDeadLine
+                    arr.Insert(arr.Count, m)
+                End If
+                grdSubContracts.Rows.Refresh(RefreshRow.RefreshDisplay)
+                Me.SumTotal()
+            End If
+        End If
+    End Sub
+#End Region
+
+#Region "Combobox InitializeLayout"
     Private Sub cboProject_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboProject.InitializeLayout
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
@@ -189,6 +235,9 @@ Public Class frmContractDetail
         Next
         e.Layout.Bands(0).Columns("ConstructionLevelName").Hidden = False
     End Sub
+#End Region
+
+#Region "Buttons"
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
         Me.Save()
     End Sub
@@ -196,7 +245,9 @@ Public Class frmContractDetail
     Private Sub btnExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
+#End Region
 
+#Region "txtContractValue"
     Private Sub txtContractValue_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtContractValue.KeyPress
         ModMain.UltraTextBox_KeyPress(sender, e)
     End Sub
@@ -207,10 +258,11 @@ Public Class frmContractDetail
 
     Private Sub txtContractValue_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtContractValue.ValueChanged
         ModMain.UltraTextBox_ValueChanged(sender)
-        If txtContractValue.Text = "" Then Exit Sub
-        lblConvertMoney.Text = ModMain.convertMoney(CDbl(txtContractValue.Text))
+        Me.SumTotal()
     End Sub
+#End Region
 
+#Region "Find item into array"
     Private Function findItem(ByVal itemId As String, ByVal arr As IList(Of Model.MContractDetail)) As Boolean
         Dim found As Boolean = False
         Dim i = 0
@@ -223,6 +275,7 @@ Public Class frmContractDetail
 
         Return found
     End Function
+
     Private Function findSubContractor(ByVal subContractorId As String, ByVal arr As IList(Of Model.MContract_SubContractor)) As Boolean
         Dim found As Boolean = False
         Dim i = 0
@@ -236,6 +289,25 @@ Public Class frmContractDetail
         Return found
     End Function
 
+    Private Function findSubContract(ByVal item As Model.MSubContract, ByVal arr As IList(Of Model.MSubContract)) As Boolean
+        Dim found As Boolean = False
+        Dim i = 0
+        While i < arr.Count And Not found
+            If arr.Item(i).SubContractId = item.SubContractId Then
+                arr.Item(i).SubContractName = item.SubContractName
+                arr.Item(i).SubContractValue = item.SubContractValue
+                arr.Item(i).SubContractDate = item.SubContractDate
+                arr.Item(i).SubContractDeadLine = item.SubContractDeadLine
+                found = True
+            End If
+            i = i + 1
+        End While
+
+        Return found
+    End Function
+#End Region
+
+#Region "Links"
     Private Sub lnkAddItem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkAddItem.Click
         Dim frm As New frmItems
         Dim selectedObj = frm.ShowDialog(True)
@@ -275,13 +347,15 @@ Public Class frmContractDetail
     End Sub
 
     Private Sub lnkAddSubContract_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkAddSubContract.Click
-
+        Me.showSubContractDetail(Nothing)
     End Sub
 
     Private Sub lnkAddFile_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkAddFile.Click
 
     End Sub
+#End Region
 
+#Region "Grids"
     Dim fGridIem As Boolean = False
 
     Private Sub grdItems_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdItems.ClickCellButton
@@ -323,7 +397,6 @@ Public Class frmContractDetail
         End If
     End Sub
 
-    Dim fgrdSubContractors As Boolean = False
 
     Private Sub grdSubContractors_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdSubContractors.ClickCellButton
         Dim r As UltraGridRow = grdSubContractors.ActiveRow
@@ -335,6 +408,8 @@ Public Class frmContractDetail
             End If
         End If
     End Sub
+
+    Dim fgrdSubContractors As Boolean = False
     Private Sub grdSubContractors_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdSubContractors.InitializeLayout
         If fgrdSubContractors Then Exit Sub
         fgrdSubContractors = True
@@ -363,12 +438,50 @@ Public Class frmContractDetail
         End If
     End Sub
 
+
+    Private Sub grdSubContracts_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdSubContracts.ClickCellButton
+        Dim r As UltraGridRow = grdSubContracts.ActiveRow
+        If r IsNot Nothing Then
+            Dim arr As IList(Of Model.MSubContract) = grdSubContracts.DataSource
+            If arr IsNot Nothing Then
+                arr.RemoveAt(r.Index)
+                grdSubContracts.Rows.Refresh(RefreshRow.RefreshDisplay)
+                Me.SumTotal()
+            End If
+        End If
+    End Sub
+
     Dim fgrdSubContracts As Boolean = False
+
+    Private Sub grdSubContracts_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles grdSubContracts.DoubleClick
+        Dim r As UltraGridRow = grdSubContracts.ActiveRow
+        If r IsNot Nothing Then
+            Dim m As New Model.MSubContract
+            m.SubContractId = r.Cells("SubContractId").Value
+            m.SubContractName = r.Cells("SubContractName").Value
+            m.SubContractValue = CDbl(r.Cells("SubContractValue").Value)
+            m.SubContractDate = CDate(r.Cells("SubContractDate").Value)
+            m.SubContractDeadLine = CDate(r.Cells("SubContractDeadLine").Value)
+            Me.showSubContractDetail(m)
+        End If
+    End Sub
     Private Sub grdSubContracts_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdSubContracts.InitializeLayout
         If fgrdSubContracts Then Exit Sub
         fgrdSubContracts = True
         grdSubContracts.DisplayLayout.Override.RowAlternateAppearance.BackColor = ModMain.m_sysColor
         clsuf.FormatGridFromDB(Me.Name, grdSubContracts, m_Lang)
+        With e.Layout.Bands(0).Columns("DelItem")
+            .Header.VisiblePosition = 100
+            .Hidden = False
+            .Header.Caption = ""
+            .Style = ColumnStyle.Button
+            .ButtonDisplayStyle = ButtonDisplayStyle.Always
+            .CellButtonAppearance.Cursor = Cursors.Hand
+            .CellButtonAppearance.ImageHAlign = Infragistics.Win.HAlign.Center
+            .CellButtonAppearance.Image = ModMain.m_DeleteIcon
+            .CellClickAction = CellClickAction.CellSelect
+            .Width = 50
+        End With
     End Sub
 
     Private Sub grdSubContracts_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdSubContracts.KeyUp
@@ -396,4 +509,6 @@ Public Class frmContractDetail
             End If
         End If
     End Sub
+#End Region
+
 End Class

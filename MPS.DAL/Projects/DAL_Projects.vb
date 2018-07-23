@@ -25,19 +25,19 @@ Public Class DAL_Projects
         Dim sql = ""
 
         If isExist(m.ProjectId) Then
-            sql = "Update Projects set ProjectName=@ProjectName,ProjectTypeId=@ProjectTypeId,ProjectGroupId=@ProjectGroupId"
+            sql = "Update Projects set ClientId=@ClientId,ProjectName=@ProjectName,ProjectTypeId=@ProjectTypeId,ProjectGroupId=@ProjectGroupId"
             sql += ",ConstructionLevelId=@ConstructionLevelId,Performance=@Performance,Length=@Length,Note=@Note"
             sql += ",PerformanceUnit=@PerformanceUnit,LengthUnit=@LengthUnit,UpdatedAt=getdate() where ProjectId=@ProjectId"
         Else
-            sql = "Insert into Projects(ProjectId,ProjectName,ProjectTypeId,ProjectGroupId,ConstructionLevelId,Performance,Length,Note,PerformanceUnit,LengthUnit,CreatedAt)"
-            sql += "values(@ProjectId,@ProjectName,@ProjectTypeId,@ProjectGroupId,@ConstructionLevelId,@Performance,@Length,@Note,@PerformanceUnit,@LengthUnit,getdate())"
+            sql = "Insert into Projects(ClientId,ProjectId,ProjectName,ProjectTypeId,ProjectGroupId,ConstructionLevelId,Performance,Length,Note,PerformanceUnit,LengthUnit,CreatedAt)"
+            sql += "values(@ClientId,@ProjectId,@ProjectName,@ProjectTypeId,@ProjectGroupId,@ConstructionLevelId,@Performance,@Length,@Note,@PerformanceUnit,@LengthUnit,getdate())"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(9) As SqlParameter
+        Dim p(10) As SqlParameter
         p(0) = New SqlParameter("@ProjectId", m.ProjectId)
         p(1) = New SqlParameter("@ProjectName", m.ProjectName)
         p(2) = New SqlParameter("@ProjectTypeId", m.ProjectTypeId)
@@ -47,6 +47,7 @@ Public Class DAL_Projects
         p(6) = New SqlParameter("@Length", m.Length)
         p(7) = New SqlParameter("@Note", m.Note)
         p(8) = New SqlParameter("@PerformanceUnit", m.PerformanceUnit)        p(9) = New SqlParameter("@LengthUnit", m.LengthUnit)
+        p(10) = New SqlParameter("@ClientId", m.ClientId)
         Return execSQL(sql, p)
     End Function
 
@@ -76,10 +77,12 @@ Public Class DAL_Projects
     End Function
 
     Public Function getListProjects() As DataTable
-        Dim sql As String = "Select p.*, t.ProjectTypeName, g.ProjectGroupName, c.ConstructionLevelName from Projects p"
+        Dim sql As String = "Select p.*, t.ProjectTypeName, g.ProjectGroupName, cl.ConstructionLevelName, c.ClientName, cg.ClientGroupName from Projects p"
+        sql += " left join Clients c on p.ClientId=c.ClientId"
+        sql += " left join ClientGroups cg on c.ClientGroupId=cg.ClientGroupId"
         sql += " left join ProjectTypes t on p.ProjectTypeId=t.ProjectTypeId"
         sql += " left join ProjectGroups g on p.ProjectGroupId=g.ProjectGroupId"
-        sql += " left join ConstructionLevels c on p.ConstructionLevelId=c.ConstructionLevelId"
+        sql += " left join ConstructionLevels cl on p.ConstructionLevelId=cl.ConstructionLevelId"
         sql += " order by p.CreatedAt"
         Return Me.getTableSQL(sql)
     End Function

@@ -13,6 +13,13 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:MPS.Model.MSubContract.DelItem">
+	<summary>
+ nút xóa item
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.MConfigProgram.i_ConfigID">
 	<summary>
  Lưu giữ 1:dùng màn hình POS cho bán hàng, 0 là mặc định màn hình thường

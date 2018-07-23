@@ -88,7 +88,7 @@ Partial Class frmMainContractors
         Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblTitle.Location = New System.Drawing.Point(0, 0)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(726, 23)
+        Me.lblTitle.Size = New System.Drawing.Size(504, 23)
         Me.lblTitle.TabIndex = 36
         Me.lblTitle.Text = "Danh Mục Các Đơn Vị Thuộc PECC5"
         '
@@ -103,7 +103,7 @@ Partial Class frmMainContractors
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 23)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(726, 485)
+        Me.Panel1.Size = New System.Drawing.Size(504, 258)
         Me.Panel1.TabIndex = 37
         '
         'Grid
@@ -170,7 +170,7 @@ Partial Class frmMainContractors
         Me.Grid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Grid.Location = New System.Drawing.Point(0, 26)
         Me.Grid.Name = "Grid"
-        Me.Grid.Size = New System.Drawing.Size(726, 429)
+        Me.Grid.Size = New System.Drawing.Size(504, 202)
         Me.Grid.TabIndex = 43
         '
         'LabelBottom
@@ -185,9 +185,9 @@ Partial Class frmMainContractors
         Appearance43.TextVAlignAsString = "Middle"
         Me.LabelBottom.Appearance = Appearance43
         Me.LabelBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.LabelBottom.Location = New System.Drawing.Point(0, 455)
+        Me.LabelBottom.Location = New System.Drawing.Point(0, 228)
         Me.LabelBottom.Name = "LabelBottom"
-        Me.LabelBottom.Size = New System.Drawing.Size(726, 30)
+        Me.LabelBottom.Size = New System.Drawing.Size(504, 30)
         Me.LabelBottom.TabIndex = 42
         '
         '_Panel1_Toolbars_Dock_Area_Left
@@ -198,7 +198,7 @@ Partial Class frmMainContractors
         Me._Panel1_Toolbars_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText
         Me._Panel1_Toolbars_Dock_Area_Left.Location = New System.Drawing.Point(0, 26)
         Me._Panel1_Toolbars_Dock_Area_Left.Name = "_Panel1_Toolbars_Dock_Area_Left"
-        Me._Panel1_Toolbars_Dock_Area_Left.Size = New System.Drawing.Size(0, 459)
+        Me._Panel1_Toolbars_Dock_Area_Left.Size = New System.Drawing.Size(0, 232)
         Me._Panel1_Toolbars_Dock_Area_Left.ToolbarsManager = Me.Toolbars
         '
         'Toolbars
@@ -249,9 +249,9 @@ Partial Class frmMainContractors
         Me._Panel1_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me._Panel1_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right
         Me._Panel1_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._Panel1_Toolbars_Dock_Area_Right.Location = New System.Drawing.Point(726, 26)
+        Me._Panel1_Toolbars_Dock_Area_Right.Location = New System.Drawing.Point(504, 26)
         Me._Panel1_Toolbars_Dock_Area_Right.Name = "_Panel1_Toolbars_Dock_Area_Right"
-        Me._Panel1_Toolbars_Dock_Area_Right.Size = New System.Drawing.Size(0, 459)
+        Me._Panel1_Toolbars_Dock_Area_Right.Size = New System.Drawing.Size(0, 232)
         Me._Panel1_Toolbars_Dock_Area_Right.ToolbarsManager = Me.Toolbars
         '
         '_Panel1_Toolbars_Dock_Area_Top
@@ -262,7 +262,7 @@ Partial Class frmMainContractors
         Me._Panel1_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText
         Me._Panel1_Toolbars_Dock_Area_Top.Location = New System.Drawing.Point(0, 0)
         Me._Panel1_Toolbars_Dock_Area_Top.Name = "_Panel1_Toolbars_Dock_Area_Top"
-        Me._Panel1_Toolbars_Dock_Area_Top.Size = New System.Drawing.Size(726, 26)
+        Me._Panel1_Toolbars_Dock_Area_Top.Size = New System.Drawing.Size(504, 26)
         Me._Panel1_Toolbars_Dock_Area_Top.ToolbarsManager = Me.Toolbars
         '
         '_Panel1_Toolbars_Dock_Area_Bottom
@@ -271,9 +271,9 @@ Partial Class frmMainContractors
         Me._Panel1_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me._Panel1_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom
         Me._Panel1_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._Panel1_Toolbars_Dock_Area_Bottom.Location = New System.Drawing.Point(0, 485)
+        Me._Panel1_Toolbars_Dock_Area_Bottom.Location = New System.Drawing.Point(0, 258)
         Me._Panel1_Toolbars_Dock_Area_Bottom.Name = "_Panel1_Toolbars_Dock_Area_Bottom"
-        Me._Panel1_Toolbars_Dock_Area_Bottom.Size = New System.Drawing.Size(726, 0)
+        Me._Panel1_Toolbars_Dock_Area_Bottom.Size = New System.Drawing.Size(504, 0)
         Me._Panel1_Toolbars_Dock_Area_Bottom.ToolbarsManager = Me.Toolbars
         '
         'ctMenu
@@ -361,19 +361,19 @@ Partial Class frmMainContractors
         Me.T_Export.Size = New System.Drawing.Size(200, 22)
         Me.T_Export.Text = "Xuất ra Excel"
         '
-        'frmMainContractos
+        'frmMainContractors
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.AliceBlue
-        Me.ClientSize = New System.Drawing.Size(726, 508)
+        Me.ClientSize = New System.Drawing.Size(504, 281)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblTitle)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "frmMainContractos"
+        Me.Name = "frmMainContractors"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).EndInit()

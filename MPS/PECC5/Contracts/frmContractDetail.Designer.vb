@@ -43,6 +43,8 @@ Partial Class frmContractDetail
         Dim Appearance114 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance115 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance69 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance22 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance60 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraGridBand2 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
@@ -154,11 +156,17 @@ Partial Class frmContractDetail
         Me.cboProject = New Infragistics.Win.UltraWinGrid.UltraCombo
         Me.dtCreateDate = New System.Windows.Forms.DateTimePicker
         Me.Label7 = New System.Windows.Forms.Label
+        Me.txtTotalValue = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.txtExtentValue = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.txtContractValue = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.Label9 = New System.Windows.Forms.Label
         Me.txtContractId = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.Label5 = New System.Windows.Forms.Label
         Me.txtContractName = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.lblUnit = New System.Windows.Forms.Label
+        Me.Label8 = New System.Windows.Forms.Label
         Me.lblExample = New System.Windows.Forms.Label
+        Me.Label4 = New System.Windows.Forms.Label
         Me.lblConvertMoney = New System.Windows.Forms.Label
         Me.lblContractValue = New System.Windows.Forms.Label
         Me.lblExpireDate = New System.Windows.Forms.Label
@@ -201,6 +209,8 @@ Partial Class frmContractDetail
         CType(Me.grpMainInfo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpMainInfo.SuspendLayout()
         CType(Me.cboProject, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtTotalValue, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtExtentValue, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtContractValue, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtContractId, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtContractName, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -317,11 +327,17 @@ Partial Class frmContractDetail
         Me.grpMainInfo.Controls.Add(Me.cboProject)
         Me.grpMainInfo.Controls.Add(Me.dtCreateDate)
         Me.grpMainInfo.Controls.Add(Me.Label7)
+        Me.grpMainInfo.Controls.Add(Me.txtTotalValue)
+        Me.grpMainInfo.Controls.Add(Me.txtExtentValue)
         Me.grpMainInfo.Controls.Add(Me.txtContractValue)
+        Me.grpMainInfo.Controls.Add(Me.Label9)
         Me.grpMainInfo.Controls.Add(Me.txtContractId)
+        Me.grpMainInfo.Controls.Add(Me.Label5)
         Me.grpMainInfo.Controls.Add(Me.txtContractName)
         Me.grpMainInfo.Controls.Add(Me.lblUnit)
+        Me.grpMainInfo.Controls.Add(Me.Label8)
         Me.grpMainInfo.Controls.Add(Me.lblExample)
+        Me.grpMainInfo.Controls.Add(Me.Label4)
         Me.grpMainInfo.Controls.Add(Me.lblConvertMoney)
         Me.grpMainInfo.Controls.Add(Me.lblContractValue)
         Me.grpMainInfo.Controls.Add(Me.lblExpireDate)
@@ -332,14 +348,14 @@ Partial Class frmContractDetail
         Me.grpMainInfo.Location = New System.Drawing.Point(15, 20)
         Me.grpMainInfo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpMainInfo.Name = "grpMainInfo"
-        Me.grpMainInfo.Size = New System.Drawing.Size(470, 313)
+        Me.grpMainInfo.Size = New System.Drawing.Size(470, 344)
         Me.grpMainInfo.TabIndex = 0
         Me.grpMainInfo.Text = "THÔNG TIN CHUNG"
         Me.grpMainInfo.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'dtExpireDate
         '
-        Me.dtExpireDate.Location = New System.Drawing.Point(161, 159)
+        Me.dtExpireDate.Location = New System.Drawing.Point(161, 136)
         Me.dtExpireDate.Name = "dtExpireDate"
         Me.dtExpireDate.Size = New System.Drawing.Size(191, 23)
         Me.dtExpireDate.TabIndex = 3
@@ -407,7 +423,7 @@ Partial Class frmContractDetail
         Me.cboProject.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.cboProject.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
         Me.cboProject.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboProject.Location = New System.Drawing.Point(161, 197)
+        Me.cboProject.Location = New System.Drawing.Point(161, 169)
         Me.cboProject.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboProject.Name = "cboProject"
         Me.cboProject.Size = New System.Drawing.Size(295, 26)
@@ -415,7 +431,7 @@ Partial Class frmContractDetail
         '
         'dtCreateDate
         '
-        Me.dtCreateDate.Location = New System.Drawing.Point(161, 118)
+        Me.dtCreateDate.Location = New System.Drawing.Point(161, 104)
         Me.dtCreateDate.Name = "dtCreateDate"
         Me.dtCreateDate.Size = New System.Drawing.Size(191, 23)
         Me.dtCreateDate.TabIndex = 2
@@ -425,20 +441,57 @@ Partial Class frmContractDetail
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(10, 199)
+        Me.Label7.Location = New System.Drawing.Point(10, 171)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(117, 16)
         Me.Label7.TabIndex = 11
-        Me.Label7.Text = "6. Thuộc dự án (*)"
+        Me.Label7.Text = "5. Thuộc dự án (*)"
+        '
+        'txtTotalValue
+        '
+        Appearance69.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance69.FontData.BoldAsString = "True"
+        Appearance69.ForeColor = System.Drawing.Color.Red
+        Appearance69.TextHAlignAsString = "Right"
+        Me.txtTotalValue.Appearance = Appearance69
+        Me.txtTotalValue.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txtTotalValue.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtTotalValue.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtTotalValue.Location = New System.Drawing.Point(161, 271)
+        Me.txtTotalValue.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtTotalValue.MaxLength = 20
+        Me.txtTotalValue.Name = "txtTotalValue"
+        Me.txtTotalValue.ReadOnly = True
+        Me.txtTotalValue.Size = New System.Drawing.Size(191, 25)
+        Me.txtTotalValue.TabIndex = 5
+        Me.txtTotalValue.Text = "0"
+        '
+        'txtExtentValue
+        '
+        Appearance22.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Appearance22.FontData.BoldAsString = "True"
+        Appearance22.TextHAlignAsString = "Right"
+        Me.txtExtentValue.Appearance = Appearance22
+        Me.txtExtentValue.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.txtExtentValue.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtExtentValue.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtExtentValue.Location = New System.Drawing.Point(161, 238)
+        Me.txtExtentValue.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtExtentValue.MaxLength = 20
+        Me.txtExtentValue.Name = "txtExtentValue"
+        Me.txtExtentValue.ReadOnly = True
+        Me.txtExtentValue.Size = New System.Drawing.Size(191, 25)
+        Me.txtExtentValue.TabIndex = 5
+        Me.txtExtentValue.Text = "0"
         '
         'txtContractValue
         '
-        Appearance69.FontData.BoldAsString = "True"
-        Appearance69.TextHAlignAsString = "Right"
-        Me.txtContractValue.Appearance = Appearance69
+        Appearance21.FontData.BoldAsString = "True"
+        Appearance21.TextHAlignAsString = "Right"
+        Me.txtContractValue.Appearance = Appearance21
         Me.txtContractValue.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtContractValue.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContractValue.Location = New System.Drawing.Point(161, 240)
+        Me.txtContractValue.Location = New System.Drawing.Point(161, 205)
         Me.txtContractValue.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtContractValue.MaxLength = 20
         Me.txtContractValue.Name = "txtContractValue"
@@ -446,18 +499,40 @@ Partial Class frmContractDetail
         Me.txtContractValue.TabIndex = 5
         Me.txtContractValue.Text = "0"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(358, 275)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(33, 16)
+        Me.Label9.TabIndex = 11
+        Me.Label9.Text = "VNĐ"
+        '
         'txtContractId
         '
         Appearance14.TextHAlignAsString = "Center"
         Me.txtContractId.Appearance = Appearance14
         Me.txtContractId.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtContractId.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtContractId.Location = New System.Drawing.Point(161, 76)
+        Me.txtContractId.Location = New System.Drawing.Point(161, 70)
         Me.txtContractId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtContractId.MaxLength = 9
         Me.txtContractId.Name = "txtContractId"
         Me.txtContractId.Size = New System.Drawing.Size(191, 25)
         Me.txtContractId.TabIndex = 1
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
+        Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(358, 242)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(33, 16)
+        Me.Label5.TabIndex = 11
+        Me.Label5.Text = "VNĐ"
         '
         'txtContractName
         '
@@ -475,29 +550,51 @@ Partial Class frmContractDetail
         Me.lblUnit.AutoSize = True
         Me.lblUnit.BackColor = System.Drawing.Color.Transparent
         Me.lblUnit.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUnit.Location = New System.Drawing.Point(358, 244)
+        Me.lblUnit.Location = New System.Drawing.Point(358, 209)
         Me.lblUnit.Name = "lblUnit"
         Me.lblUnit.Size = New System.Drawing.Size(33, 16)
         Me.lblUnit.TabIndex = 11
         Me.lblUnit.Text = "VNĐ"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(10, 273)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(110, 16)
+        Me.Label8.TabIndex = 11
+        Me.Label8.Text = "8. Tổng giá trị HĐ"
         '
         'lblExample
         '
         Me.lblExample.AutoSize = True
         Me.lblExample.BackColor = System.Drawing.Color.Transparent
         Me.lblExample.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblExample.Location = New System.Drawing.Point(358, 80)
+        Me.lblExample.Location = New System.Drawing.Point(358, 74)
         Me.lblExample.Name = "lblExample"
         Me.lblExample.Size = New System.Drawing.Size(108, 16)
         Me.lblExample.TabIndex = 11
         Me.lblExample.Text = "Ví dụ: 11819.BNN"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(10, 240)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(121, 16)
+        Me.Label4.TabIndex = 11
+        Me.Label4.Text = "7. Giá trị cộng thêm"
         '
         'lblConvertMoney
         '
         Me.lblConvertMoney.BackColor = System.Drawing.Color.Transparent
         Me.lblConvertMoney.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.lblConvertMoney.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblConvertMoney.Location = New System.Drawing.Point(1, 274)
+        Me.lblConvertMoney.Location = New System.Drawing.Point(1, 305)
         Me.lblConvertMoney.Name = "lblConvertMoney"
         Me.lblConvertMoney.Size = New System.Drawing.Size(468, 38)
         Me.lblConvertMoney.TabIndex = 11
@@ -508,29 +605,29 @@ Partial Class frmContractDetail
         Me.lblContractValue.AutoSize = True
         Me.lblContractValue.BackColor = System.Drawing.Color.Transparent
         Me.lblContractValue.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContractValue.Location = New System.Drawing.Point(10, 242)
+        Me.lblContractValue.Location = New System.Drawing.Point(10, 207)
         Me.lblContractValue.Name = "lblContractValue"
-        Me.lblContractValue.Size = New System.Drawing.Size(114, 16)
+        Me.lblContractValue.Size = New System.Drawing.Size(136, 16)
         Me.lblContractValue.TabIndex = 11
-        Me.lblContractValue.Text = "5. Giá trị hợp đồng"
+        Me.lblContractValue.Text = "6. Giá trị hợp đồng (*)"
         '
         'lblExpireDate
         '
         Me.lblExpireDate.AutoSize = True
         Me.lblExpireDate.BackColor = System.Drawing.Color.Transparent
         Me.lblExpireDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblExpireDate.Location = New System.Drawing.Point(10, 161)
+        Me.lblExpireDate.Location = New System.Drawing.Point(10, 138)
         Me.lblExpireDate.Name = "lblExpireDate"
-        Me.lblExpireDate.Size = New System.Drawing.Size(98, 16)
+        Me.lblExpireDate.Size = New System.Drawing.Size(120, 16)
         Me.lblExpireDate.TabIndex = 13
-        Me.lblExpireDate.Text = "4. Ngày hết hạn"
+        Me.lblExpireDate.Text = "4. Ngày hết hạn (*)"
         '
         'lblContractId
         '
         Me.lblContractId.AutoSize = True
         Me.lblContractId.BackColor = System.Drawing.Color.Transparent
         Me.lblContractId.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblContractId.Location = New System.Drawing.Point(10, 78)
+        Me.lblContractId.Location = New System.Drawing.Point(10, 72)
         Me.lblContractId.Name = "lblContractId"
         Me.lblContractId.Size = New System.Drawing.Size(145, 16)
         Me.lblContractId.TabIndex = 11
@@ -541,11 +638,11 @@ Partial Class frmContractDetail
         Me.lblCreateDate.AutoSize = True
         Me.lblCreateDate.BackColor = System.Drawing.Color.Transparent
         Me.lblCreateDate.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCreateDate.Location = New System.Drawing.Point(10, 120)
+        Me.lblCreateDate.Location = New System.Drawing.Point(10, 106)
         Me.lblCreateDate.Name = "lblCreateDate"
-        Me.lblCreateDate.Size = New System.Drawing.Size(67, 16)
+        Me.lblCreateDate.Size = New System.Drawing.Size(89, 16)
         Me.lblCreateDate.TabIndex = 13
-        Me.lblCreateDate.Text = "3. Ngày ký"
+        Me.lblCreateDate.Text = "3. Ngày ký (*)"
         '
         'lblContractName
         '
@@ -621,10 +718,10 @@ Partial Class frmContractDetail
         Me.cboMainContractor.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.cboMainContractor.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
         Me.cboMainContractor.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboMainContractor.Location = New System.Drawing.Point(111, 39)
+        Me.cboMainContractor.Location = New System.Drawing.Point(130, 39)
         Me.cboMainContractor.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cboMainContractor.Name = "cboMainContractor"
-        Me.cboMainContractor.Size = New System.Drawing.Size(322, 26)
+        Me.cboMainContractor.Size = New System.Drawing.Size(303, 26)
         Me.cboMainContractor.TabIndex = 8
         '
         'grpNote
@@ -651,6 +748,7 @@ Partial Class frmContractDetail
         Me.txtNote.MaxLength = 500
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
+        Me.txtNote.Scrollbars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtNote.Size = New System.Drawing.Size(394, 73)
         Me.txtNote.TabIndex = 12
         '
@@ -847,9 +945,9 @@ Partial Class frmContractDetail
         Me.grdSubContractors.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
         Me.grdSubContractors.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.grdSubContractors.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.grdSubContractors.Location = New System.Drawing.Point(111, 74)
+        Me.grdSubContractors.Location = New System.Drawing.Point(130, 74)
         Me.grdSubContractors.Name = "grdSubContractors"
-        Me.grdSubContractors.Size = New System.Drawing.Size(322, 158)
+        Me.grdSubContractors.Size = New System.Drawing.Size(303, 158)
         Me.grdSubContractors.TabIndex = 9
         '
         'Label6
@@ -870,9 +968,9 @@ Partial Class frmContractDetail
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(9, 42)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(93, 16)
+        Me.Label1.Size = New System.Drawing.Size(115, 16)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Nhà thầu chính"
+        Me.Label1.Text = "Nhà thầu chính (*)"
         '
         'grpContents
         '
@@ -891,7 +989,7 @@ Partial Class frmContractDetail
         Me.grpContents.Name = "grpContents"
         Me.grpContents.Size = New System.Drawing.Size(445, 200)
         Me.grpContents.TabIndex = 7
-        Me.grpContents.Text = "NỘI DUNG CÔNG VIỆC / HẠNG MỤC"
+        Me.grpContents.Text = "NỘI DUNG CÔNG VIỆC / HẠNG MỤC (*)"
         Me.grpContents.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'lnkAddItem
@@ -1109,9 +1207,9 @@ Partial Class frmContractDetail
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(10, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(122, 16)
+        Me.Label2.Size = New System.Drawing.Size(139, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Phân cấp hợp đồng:"
+        Me.Label2.Text = "Phân cấp hợp đồng (*)"
         '
         'lblStatus
         '
@@ -1164,7 +1262,7 @@ Partial Class frmContractDetail
         '
         Me.lnkAddFile.AutoSize = True
         Me.lnkAddFile.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.lnkAddFile.Location = New System.Drawing.Point(393, 9)
+        Me.lnkAddFile.Location = New System.Drawing.Point(393, 5)
         Me.lnkAddFile.Name = "lnkAddFile"
         Me.lnkAddFile.Size = New System.Drawing.Size(41, 16)
         Me.lnkAddFile.TabIndex = 15
@@ -1470,6 +1568,8 @@ Partial Class frmContractDetail
         Me.grpMainInfo.ResumeLayout(False)
         Me.grpMainInfo.PerformLayout()
         CType(Me.cboProject, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtTotalValue, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtExtentValue, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContractValue, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContractId, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContractName, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1561,4 +1661,10 @@ Partial Class frmContractDetail
     Friend WithEvents lnkAddItem As System.Windows.Forms.LinkLabel
     Friend WithEvents lnkAddSubContract As System.Windows.Forms.LinkLabel
     Friend WithEvents lnkAddFile As System.Windows.Forms.LinkLabel
+    Friend WithEvents txtExtentValue As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents txtTotalValue As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 End Class

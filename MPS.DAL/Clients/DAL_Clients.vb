@@ -52,19 +52,16 @@ Public Class DAL_Clients
     End Function
 
     Public Function isDelete(ByVal ID As String) As Boolean
-        Dim isOk As Boolean = True
-        'Dim sql As String = "Exec sp_CheckDelete_Employees @s_ID"
-
-        'Dim p(0) As SqlParameter
-        'p(0) = New SqlParameter("@s_ID", ID)
-        'Dim tb As DataTable = Me.getTableSQL(sql, p)
-        'If tb Is Nothing Then Return False
-        'For Each r As DataRow In tb.Rows
-        '    If r("C") > 0 Then
-        '        isOk = False
-        '        Exit For
-        '    End If
-        'Next
+        Dim isOk = True
+        Dim sql = "Select count(*) as C from Projects where ClientId=@ClientId"
+        Dim tb = Me.getTableSQL(sql, New SqlParameter("@ClientId", ID))
+        If tb Is Nothing Then Return False
+        For Each r As DataRow In tb.Rows
+            If r("C") > 0 Then
+                isOk = False
+                Exit For
+            End If
+        Next
         Return isOk
     End Function
 
