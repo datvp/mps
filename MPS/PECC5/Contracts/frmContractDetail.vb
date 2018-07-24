@@ -351,7 +351,34 @@ Public Class frmContractDetail
     End Sub
 
     Private Sub lnkAddFile_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkAddFile.Click
+        Dim fd As New OpenFileDialog()
 
+        fd.Title = "Open File Dialog"
+        fd.InitialDirectory = "C:\"
+        fd.Filter = "All files (*.*)|*.*|All files (*.*)|*.*"
+        fd.FilterIndex = 2
+        fd.Multiselect = True
+        fd.RestoreDirectory = True
+
+        If fd.ShowDialog() = DialogResult.OK Then
+            Dim s = fd.FileNames
+            Dim arr As IList(Of Model.MAttachFileContract) = grdFiles.DataSource
+            If arr IsNot Nothing Then
+                For i = 0 To s.Length - 1
+                    Dim path = s(i).ToString
+                    Dim fileName = System.IO.Path.GetFileName(path)
+                    Dim ext = System.IO.Path.GetExtension(path)
+                    Dim item As New Model.MAttachFileContract
+                    item.FileId = fileName
+                    item.FileName = fileName
+                    item.FileType = ext
+                    item.FilePath = path
+                    arr.Insert(arr.Count, item)
+                Next
+                grdFiles.Rows.Refresh(RefreshRow.RefreshDisplay)
+            End If
+
+        End If
     End Sub
 #End Region
 
@@ -442,6 +469,7 @@ Public Class frmContractDetail
     Private Sub grdSubContracts_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdSubContracts.ClickCellButton
         Dim r As UltraGridRow = grdSubContracts.ActiveRow
         If r IsNot Nothing Then
+
             Dim arr As IList(Of Model.MSubContract) = grdSubContracts.DataSource
             If arr IsNot Nothing Then
                 arr.RemoveAt(r.Index)
@@ -494,11 +522,61 @@ Public Class frmContractDetail
     End Sub
 
     Dim fgrdFiles As Boolean = False
+
+    Private Sub grdFiles_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdFiles.ClickCellButton
+        Dim r As UltraGridRow = grdFiles.ActiveRow
+        If r IsNot Nothing Then
+            Dim arr As IList(Of Model.MAttachFileContract) = grdFiles.DataSource
+            If arr IsNot Nothing Then
+                If e.Cell.Column.Key = "OpenFile" Then
+                    Try
+                        Dim item = arr.Item(r.Index)
+                        'Dim P As New Process
+                        'P.StartInfo.FileName = item.FilePath
+                        'P.StartInfo.Verb = "Open"
+                        'P.Start()
+                        Process.Start(item.FilePath)
+                    Catch ex As Exception
+                        ShowMsg("Đã xảy ra lỗi khi mở file: " & vbCrLf & ex.Message)
+                    End Try
+                Else
+                    Dim item = arr.Item(r.Index)
+                    arr.Remove(item)
+                    grdFiles.Rows.Refresh(RefreshRow.RefreshDisplay)
+                End If
+            End If
+
+        End If
+    End Sub
     Private Sub grdFiles_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdFiles.InitializeLayout
         If fgrdFiles Then Exit Sub
         fgrdFiles = True
         grdFiles.DisplayLayout.Override.RowAlternateAppearance.BackColor = ModMain.m_sysColor
         clsuf.FormatGridFromDB(Me.Name, grdFiles, m_Lang)
+        With e.Layout.Bands(0).Columns("OpenFile")
+            .Header.VisiblePosition = 99
+            .Hidden = False
+            .Header.Caption = ""
+            .Style = ColumnStyle.Button
+            .ButtonDisplayStyle = ButtonDisplayStyle.Always
+            .CellButtonAppearance.Cursor = Cursors.Hand
+            .CellButtonAppearance.ImageHAlign = Infragistics.Win.HAlign.Center
+            .CellButtonAppearance.Image = ModMain.m_OkIcon
+            .CellClickAction = CellClickAction.CellSelect
+            .Width = 50
+        End With
+        With e.Layout.Bands(0).Columns("DelItem")
+            .Header.VisiblePosition = 100
+            .Hidden = False
+            .Header.Caption = ""
+            .Style = ColumnStyle.Button
+            .ButtonDisplayStyle = ButtonDisplayStyle.Always
+            .CellButtonAppearance.Cursor = Cursors.Hand
+            .CellButtonAppearance.ImageHAlign = Infragistics.Win.HAlign.Center
+            .CellButtonAppearance.Image = ModMain.m_DeleteIcon
+            .CellClickAction = CellClickAction.CellSelect
+            .Width = 50
+        End With
     End Sub
 
     Private Sub grdFiles_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdFiles.KeyUp

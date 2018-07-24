@@ -1,4 +1,30 @@
 ﻿Public Class MAttachFileContract
+    Private m_DelItem As String
+    ''' <summary>
+    ''' nút xóa item
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property DelItem() As String
+        Get
+            Return m_DelItem
+        End Get
+        Set(ByVal value As String)
+            m_DelItem = value
+        End Set
+    End Property
+
+
+    Private m_OpenFile As String
+    Public Property OpenFile() As String
+        Get
+            Return m_OpenFile
+        End Get
+        Set(ByVal value As String)
+            m_OpenFile = value
+        End Set
+    End Property
 
     Private m_ContractId As String
     Public Property ContractId() As String
