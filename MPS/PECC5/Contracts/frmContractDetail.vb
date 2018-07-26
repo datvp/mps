@@ -191,9 +191,6 @@ Public Class frmContractDetail
             If m.ProjectId <> mInfo.ProjectId Then
                 desc += vbCrLf & "Mã dự án: [" + mInfo.ProjectId + "] -> [" + m.ProjectId + "]"
             End If
-            If m.ProjectId <> mInfo.ProjectId Then
-                desc += vbCrLf & "Mã dự án: [" + mInfo.ProjectId + "] -> [" + m.ProjectId + "]"
-            End If
             If m.ContractDate <> mInfo.ContractDate Then
                 desc += vbCrLf & "Ngày ký: [" + mInfo.ContractDate + "] -> [" + m.ContractDate + "]"
             End If
