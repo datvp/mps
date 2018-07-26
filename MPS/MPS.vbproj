@@ -247,6 +247,12 @@
     <Compile Include="PECC5\Contracts\frmContracts.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PECC5\Contracts\frmPaymentDetail.Designer.vb">
+      <DependentUpon>frmPaymentDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PECC5\Contracts\frmPaymentDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PECC5\Contracts\frmSubContractDetail.Designer.vb">
       <DependentUpon>frmSubContractDetail.vb</DependentUpon>
     </Compile>
@@ -540,6 +546,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Contracts\frmContracts.resx">
       <DependentUpon>frmContracts.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PECC5\Contracts\frmPaymentDetail.resx">
+      <DependentUpon>frmPaymentDetail.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="PECC5\Contracts\frmSubContractDetail.resx">

@@ -151,10 +151,13 @@ Partial Class frmContractDetail
         Me.grpBottom = New Infragistics.Win.Misc.UltraGroupBox
         Me.btnSave = New Infragistics.Win.Misc.UltraButton
         Me.btnExit = New Infragistics.Win.Misc.UltraButton
+        Me.lblConvertMoney = New System.Windows.Forms.Label
         Me.grpMainInfo = New Infragistics.Win.Misc.UltraGroupBox
+        Me.dtCreateDate = New System.Windows.Forms.DateTimePicker
+        Me.dtDeadlineExt = New System.Windows.Forms.DateTimePicker
+        Me.Label10 = New System.Windows.Forms.Label
         Me.dtExpireDate = New System.Windows.Forms.DateTimePicker
         Me.cboProject = New Infragistics.Win.UltraWinGrid.UltraCombo
-        Me.dtCreateDate = New System.Windows.Forms.DateTimePicker
         Me.Label7 = New System.Windows.Forms.Label
         Me.txtTotalValue = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.txtExtentValue = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -167,7 +170,6 @@ Partial Class frmContractDetail
         Me.Label8 = New System.Windows.Forms.Label
         Me.lblExample = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
-        Me.lblConvertMoney = New System.Windows.Forms.Label
         Me.lblContractValue = New System.Windows.Forms.Label
         Me.lblExpireDate = New System.Windows.Forms.Label
         Me.lblContractId = New System.Windows.Forms.Label
@@ -200,8 +202,9 @@ Partial Class frmContractDetail
         Me.grdFiles = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.TabPage3 = New System.Windows.Forms.TabPage
         Me.grpCompleted = New Infragistics.Win.Misc.UltraGroupBox
-        Me.grdCompletedItems = New Infragistics.Win.UltraWinGrid.UltraGrid
+        Me.grdHistory = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.grpPayment = New Infragistics.Win.Misc.UltraGroupBox
+        Me.lnkAddPayment = New System.Windows.Forms.LinkLabel
         Me.grdPayment = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -239,7 +242,7 @@ Partial Class frmContractDetail
         Me.TabPage3.SuspendLayout()
         CType(Me.grpCompleted, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpCompleted.SuspendLayout()
-        CType(Me.grdCompletedItems, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdHistory, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpPayment, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpPayment.SuspendLayout()
         CType(Me.grdPayment, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -250,6 +253,7 @@ Partial Class frmContractDetail
         Me.grpBottom.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.None
         Me.grpBottom.Controls.Add(Me.btnSave)
         Me.grpBottom.Controls.Add(Me.btnExit)
+        Me.grpBottom.Controls.Add(Me.lblConvertMoney)
         Me.grpBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.grpBottom.Location = New System.Drawing.Point(0, 564)
         Me.grpBottom.Margin = New System.Windows.Forms.Padding(0)
@@ -317,15 +321,28 @@ Partial Class frmContractDetail
         Me.btnExit.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
         Me.btnExit.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
         '
+        'lblConvertMoney
+        '
+        Me.lblConvertMoney.BackColor = System.Drawing.Color.Transparent
+        Me.lblConvertMoney.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblConvertMoney.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.lblConvertMoney.Location = New System.Drawing.Point(7, 12)
+        Me.lblConvertMoney.Name = "lblConvertMoney"
+        Me.lblConvertMoney.Size = New System.Drawing.Size(637, 38)
+        Me.lblConvertMoney.TabIndex = 11
+        Me.lblConvertMoney.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'grpMainInfo
         '
         Appearance13.BorderColor = System.Drawing.Color.LightSteelBlue
         Appearance13.FontData.BoldAsString = "True"
         Me.grpMainInfo.Appearance = Appearance13
         Me.grpMainInfo.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
+        Me.grpMainInfo.Controls.Add(Me.dtCreateDate)
+        Me.grpMainInfo.Controls.Add(Me.dtDeadlineExt)
+        Me.grpMainInfo.Controls.Add(Me.Label10)
         Me.grpMainInfo.Controls.Add(Me.dtExpireDate)
         Me.grpMainInfo.Controls.Add(Me.cboProject)
-        Me.grpMainInfo.Controls.Add(Me.dtCreateDate)
         Me.grpMainInfo.Controls.Add(Me.Label7)
         Me.grpMainInfo.Controls.Add(Me.txtTotalValue)
         Me.grpMainInfo.Controls.Add(Me.txtExtentValue)
@@ -338,7 +355,6 @@ Partial Class frmContractDetail
         Me.grpMainInfo.Controls.Add(Me.Label8)
         Me.grpMainInfo.Controls.Add(Me.lblExample)
         Me.grpMainInfo.Controls.Add(Me.Label4)
-        Me.grpMainInfo.Controls.Add(Me.lblConvertMoney)
         Me.grpMainInfo.Controls.Add(Me.lblContractValue)
         Me.grpMainInfo.Controls.Add(Me.lblExpireDate)
         Me.grpMainInfo.Controls.Add(Me.lblContractId)
@@ -352,6 +368,34 @@ Partial Class frmContractDetail
         Me.grpMainInfo.TabIndex = 0
         Me.grpMainInfo.Text = "THÔNG TIN CHUNG"
         Me.grpMainInfo.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        '
+        'dtCreateDate
+        '
+        Me.dtCreateDate.Location = New System.Drawing.Point(161, 104)
+        Me.dtCreateDate.Name = "dtCreateDate"
+        Me.dtCreateDate.Size = New System.Drawing.Size(191, 23)
+        Me.dtCreateDate.TabIndex = 2
+        '
+        'dtDeadlineExt
+        '
+        Me.dtDeadlineExt.CalendarForeColor = System.Drawing.Color.Teal
+        Me.dtDeadlineExt.Enabled = False
+        Me.dtDeadlineExt.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtDeadlineExt.Location = New System.Drawing.Point(230, 303)
+        Me.dtDeadlineExt.Name = "dtDeadlineExt"
+        Me.dtDeadlineExt.Size = New System.Drawing.Size(122, 23)
+        Me.dtDeadlineExt.TabIndex = 14
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(10, 304)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(191, 16)
+        Me.Label10.TabIndex = 15
+        Me.Label10.Text = "9. Ngày gia hạn thêm từ phụ lục"
         '
         'dtExpireDate
         '
@@ -428,13 +472,6 @@ Partial Class frmContractDetail
         Me.cboProject.Name = "cboProject"
         Me.cboProject.Size = New System.Drawing.Size(295, 26)
         Me.cboProject.TabIndex = 4
-        '
-        'dtCreateDate
-        '
-        Me.dtCreateDate.Location = New System.Drawing.Point(161, 104)
-        Me.dtCreateDate.Name = "dtCreateDate"
-        Me.dtCreateDate.Size = New System.Drawing.Size(191, 23)
-        Me.dtCreateDate.TabIndex = 2
         '
         'Label7
         '
@@ -589,17 +626,6 @@ Partial Class frmContractDetail
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "7. Giá trị cộng thêm"
         '
-        'lblConvertMoney
-        '
-        Me.lblConvertMoney.BackColor = System.Drawing.Color.Transparent
-        Me.lblConvertMoney.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblConvertMoney.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblConvertMoney.Location = New System.Drawing.Point(1, 305)
-        Me.lblConvertMoney.Name = "lblConvertMoney"
-        Me.lblConvertMoney.Size = New System.Drawing.Size(468, 38)
-        Me.lblConvertMoney.TabIndex = 11
-        Me.lblConvertMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'lblContractValue
         '
         Me.lblContractValue.AutoSize = True
@@ -731,10 +757,10 @@ Partial Class frmContractDetail
         Appearance15.FontData.BoldAsString = "True"
         Me.grpNote.HeaderAppearance = Appearance15
         Me.grpNote.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.grpNote.Location = New System.Drawing.Point(509, 342)
+        Me.grpNote.Location = New System.Drawing.Point(19, 351)
         Me.grpNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpNote.Name = "grpNote"
-        Me.grpNote.Size = New System.Drawing.Size(443, 122)
+        Me.grpNote.Size = New System.Drawing.Size(459, 119)
         Me.grpNote.TabIndex = 12
         Me.grpNote.Text = "GHI CHÚ"
         Me.grpNote.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
@@ -743,13 +769,13 @@ Partial Class frmContractDetail
         '
         Me.txtNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtNote.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNote.Location = New System.Drawing.Point(26, 38)
+        Me.txtNote.Location = New System.Drawing.Point(11, 38)
         Me.txtNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNote.MaxLength = 500
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
         Me.txtNote.Scrollbars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtNote.Size = New System.Drawing.Size(394, 73)
+        Me.txtNote.Size = New System.Drawing.Size(437, 73)
         Me.txtNote.TabIndex = 12
         '
         'grpSubContracts
@@ -765,10 +791,10 @@ Partial Class frmContractDetail
         Appearance19.FontData.BoldAsString = "True"
         Me.grpSubContracts.HeaderAppearance = Appearance19
         Me.grpSubContracts.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.grpSubContracts.Location = New System.Drawing.Point(29, 29)
+        Me.grpSubContracts.Location = New System.Drawing.Point(29, 17)
         Me.grpSubContracts.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpSubContracts.Name = "grpSubContracts"
-        Me.grpSubContracts.Size = New System.Drawing.Size(439, 435)
+        Me.grpSubContracts.Size = New System.Drawing.Size(903, 248)
         Me.grpSubContracts.TabIndex = 10
         Me.grpSubContracts.Text = "PHỤ LỤC HỢP ĐỒNG"
         Me.grpSubContracts.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
@@ -777,7 +803,7 @@ Partial Class frmContractDetail
         '
         Me.lnkAddSubContract.AutoSize = True
         Me.lnkAddSubContract.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.lnkAddSubContract.Location = New System.Drawing.Point(387, 1)
+        Me.lnkAddSubContract.Location = New System.Drawing.Point(851, 1)
         Me.lnkAddSubContract.Name = "lnkAddSubContract"
         Me.lnkAddSubContract.Size = New System.Drawing.Size(41, 16)
         Me.lnkAddSubContract.TabIndex = 15
@@ -848,7 +874,7 @@ Partial Class frmContractDetail
         Me.grdSubContracts.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdSubContracts.Location = New System.Drawing.Point(11, 34)
         Me.grdSubContracts.Name = "grdSubContracts"
-        Me.grdSubContracts.Size = New System.Drawing.Size(417, 390)
+        Me.grdSubContracts.Size = New System.Drawing.Size(881, 203)
         Me.grdSubContracts.TabIndex = 10
         '
         'grpUnits
@@ -1219,15 +1245,14 @@ Partial Class frmContractDetail
         Me.lblStatus.ForeColor = System.Drawing.Color.Blue
         Me.lblStatus.Location = New System.Drawing.Point(158, 69)
         Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(45, 16)
+        Me.lblStatus.Size = New System.Drawing.Size(51, 16)
         Me.lblStatus.TabIndex = 11
-        Me.lblStatus.Text = "Đã ký"
+        Me.lblStatus.Text = "Chờ ký"
         '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.grpAttachFile)
         Me.TabPage2.Controls.Add(Me.grpSubContracts)
-        Me.TabPage2.Controls.Add(Me.grpNote)
         Me.TabPage2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TabPage2.Location = New System.Drawing.Point(4, 39)
         Me.TabPage2.Name = "TabPage2"
@@ -1250,10 +1275,10 @@ Partial Class frmContractDetail
         Appearance42.FontData.BoldAsString = "True"
         Me.grpAttachFile.HeaderAppearance = Appearance42
         Me.grpAttachFile.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.grpAttachFile.Location = New System.Drawing.Point(509, 29)
+        Me.grpAttachFile.Location = New System.Drawing.Point(29, 273)
         Me.grpAttachFile.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpAttachFile.Name = "grpAttachFile"
-        Me.grpAttachFile.Size = New System.Drawing.Size(445, 270)
+        Me.grpAttachFile.Size = New System.Drawing.Size(903, 194)
         Me.grpAttachFile.TabIndex = 11
         Me.grpAttachFile.Text = "TẬP TIN ĐÍNH KÈM"
         Me.grpAttachFile.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
@@ -1262,7 +1287,7 @@ Partial Class frmContractDetail
         '
         Me.lnkAddFile.AutoSize = True
         Me.lnkAddFile.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.lnkAddFile.Location = New System.Drawing.Point(390, 1)
+        Me.lnkAddFile.Location = New System.Drawing.Point(851, 1)
         Me.lnkAddFile.Name = "lnkAddFile"
         Me.lnkAddFile.Size = New System.Drawing.Size(41, 16)
         Me.lnkAddFile.TabIndex = 15
@@ -1333,13 +1358,14 @@ Partial Class frmContractDetail
         Me.grdFiles.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdFiles.Location = New System.Drawing.Point(11, 34)
         Me.grdFiles.Name = "grdFiles"
-        Me.grdFiles.Size = New System.Drawing.Size(423, 225)
+        Me.grdFiles.Size = New System.Drawing.Size(881, 149)
         Me.grdFiles.TabIndex = 11
         '
         'TabPage3
         '
         Me.TabPage3.Controls.Add(Me.grpCompleted)
         Me.TabPage3.Controls.Add(Me.grpPayment)
+        Me.TabPage3.Controls.Add(Me.grpNote)
         Me.TabPage3.Location = New System.Drawing.Point(4, 39)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(980, 474)
@@ -1354,85 +1380,86 @@ Partial Class frmContractDetail
         Me.grpCompleted.ContentPadding.Left = 10
         Me.grpCompleted.ContentPadding.Right = 10
         Me.grpCompleted.ContentPadding.Top = 20
-        Me.grpCompleted.Controls.Add(Me.grdCompletedItems)
+        Me.grpCompleted.Controls.Add(Me.grdHistory)
         Appearance16.BorderColor = System.Drawing.Color.Green
         Appearance16.FontData.BoldAsString = "True"
         Me.grpCompleted.HeaderAppearance = Appearance16
         Me.grpCompleted.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.grpCompleted.Location = New System.Drawing.Point(28, 22)
+        Me.grpCompleted.Location = New System.Drawing.Point(496, 18)
         Me.grpCompleted.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpCompleted.Name = "grpCompleted"
-        Me.grpCompleted.Size = New System.Drawing.Size(446, 448)
+        Me.grpCompleted.Size = New System.Drawing.Size(476, 444)
         Me.grpCompleted.TabIndex = 13
-        Me.grpCompleted.Text = "HẠNG MỤC HOÀN THÀNH"
+        Me.grpCompleted.Text = "LỊCH SỬ HOẠT ĐỘNG"
         Me.grpCompleted.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
-        'grdCompletedItems
+        'grdHistory
         '
         Appearance43.BackColor = System.Drawing.Color.White
-        Me.grdCompletedItems.DisplayLayout.Appearance = Appearance43
+        Me.grdHistory.DisplayLayout.Appearance = Appearance43
         UltraGridBand8.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Solid
         UltraGridBand8.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance44.BorderColor = System.Drawing.SystemColors.InactiveCaption
         UltraGridBand8.Override.RowAppearance = Appearance44
-        Me.grdCompletedItems.DisplayLayout.BandsSerializer.Add(UltraGridBand8)
-        Me.grdCompletedItems.DisplayLayout.EmptyRowSettings.ShowEmptyRows = True
-        Me.grdCompletedItems.DisplayLayout.GroupByBox.Hidden = True
-        Me.grdCompletedItems.DisplayLayout.InterBandSpacing = 10
-        Me.grdCompletedItems.DisplayLayout.MaxColScrollRegions = 1
-        Me.grdCompletedItems.DisplayLayout.MaxRowScrollRegions = 1
+        Me.grdHistory.DisplayLayout.BandsSerializer.Add(UltraGridBand8)
+        Me.grdHistory.DisplayLayout.EmptyRowSettings.ShowEmptyRows = True
+        Me.grdHistory.DisplayLayout.GroupByBox.Hidden = True
+        Me.grdHistory.DisplayLayout.InterBandSpacing = 10
+        Me.grdHistory.DisplayLayout.MaxColScrollRegions = 1
+        Me.grdHistory.DisplayLayout.MaxRowScrollRegions = 1
         Appearance45.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Appearance45.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.grdCompletedItems.DisplayLayout.Override.ActiveCellAppearance = Appearance45
+        Me.grdHistory.DisplayLayout.Override.ActiveCellAppearance = Appearance45
         Appearance46.BackColor = System.Drawing.Color.RoyalBlue
         Appearance46.BackColor2 = System.Drawing.Color.CornflowerBlue
         Appearance46.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance46.FontData.BoldAsString = "True"
         Appearance46.ForeColor = System.Drawing.Color.White
-        Me.grdCompletedItems.DisplayLayout.Override.ActiveRowAppearance = Appearance46
-        Me.grdCompletedItems.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
-        Me.grdCompletedItems.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[True]
-        Me.grdCompletedItems.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdHistory.DisplayLayout.Override.ActiveRowAppearance = Appearance46
+        Me.grdHistory.DisplayLayout.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.No
+        Me.grdHistory.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdHistory.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[True]
+        Me.grdHistory.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
         Appearance47.BackColor = System.Drawing.Color.Transparent
-        Me.grdCompletedItems.DisplayLayout.Override.CardAreaAppearance = Appearance47
-        Me.grdCompletedItems.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
-        Me.grdCompletedItems.DisplayLayout.Override.FilterClearButtonLocation = Infragistics.Win.UltraWinGrid.FilterClearButtonLocation.Cell
-        Me.grdCompletedItems.DisplayLayout.Override.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.UseColumnEditor
-        Me.grdCompletedItems.DisplayLayout.Override.FilterOperatorLocation = Infragistics.Win.UltraWinGrid.FilterOperatorLocation.Hidden
+        Me.grdHistory.DisplayLayout.Override.CardAreaAppearance = Appearance47
+        Me.grdHistory.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
+        Me.grdHistory.DisplayLayout.Override.FilterClearButtonLocation = Infragistics.Win.UltraWinGrid.FilterClearButtonLocation.Cell
+        Me.grdHistory.DisplayLayout.Override.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.UseColumnEditor
+        Me.grdHistory.DisplayLayout.Override.FilterOperatorLocation = Infragistics.Win.UltraWinGrid.FilterOperatorLocation.Hidden
         Appearance48.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdCompletedItems.DisplayLayout.Override.FilterRowAppearance = Appearance48
-        Me.grdCompletedItems.DisplayLayout.Override.FilterUIType = Infragistics.Win.UltraWinGrid.FilterUIType.FilterRow
+        Me.grdHistory.DisplayLayout.Override.FilterRowAppearance = Appearance48
+        Me.grdHistory.DisplayLayout.Override.FilterUIType = Infragistics.Win.UltraWinGrid.FilterUIType.FilterRow
         Appearance61.BackColor = System.Drawing.Color.AliceBlue
         Appearance61.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption
         Appearance61.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance61.FontData.BoldAsString = "True"
         Appearance61.TextHAlignAsString = "Left"
         Appearance61.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
-        Me.grdCompletedItems.DisplayLayout.Override.HeaderAppearance = Appearance61
-        Me.grdCompletedItems.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.grdHistory.DisplayLayout.Override.HeaderAppearance = Appearance61
+        Me.grdHistory.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
         Appearance62.BackColor = System.Drawing.Color.AliceBlue
-        Me.grdCompletedItems.DisplayLayout.Override.RowAlternateAppearance = Appearance62
+        Me.grdHistory.DisplayLayout.Override.RowAlternateAppearance = Appearance62
         Appearance70.BackColor = System.Drawing.Color.AliceBlue
         Appearance70.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption
         Appearance70.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
-        Me.grdCompletedItems.DisplayLayout.Override.RowSelectorAppearance = Appearance70
-        Me.grdCompletedItems.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
-        Me.grdCompletedItems.DisplayLayout.Override.RowSelectorWidth = 12
-        Me.grdCompletedItems.DisplayLayout.Override.RowSpacingBefore = 0
+        Me.grdHistory.DisplayLayout.Override.RowSelectorAppearance = Appearance70
+        Me.grdHistory.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdHistory.DisplayLayout.Override.RowSelectorWidth = 12
+        Me.grdHistory.DisplayLayout.Override.RowSpacingBefore = 0
         Appearance71.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Appearance71.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance71.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance71.ForeColor = System.Drawing.Color.Black
-        Me.grdCompletedItems.DisplayLayout.Override.SelectedRowAppearance = Appearance71
-        Me.grdCompletedItems.DisplayLayout.RowConnectorStyle = Infragistics.Win.UltraWinGrid.RowConnectorStyle.Solid
-        Me.grdCompletedItems.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.grdCompletedItems.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.grdCompletedItems.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.grdCompletedItems.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdCompletedItems.Location = New System.Drawing.Point(11, 44)
-        Me.grdCompletedItems.Name = "grdCompletedItems"
-        Me.grdCompletedItems.Size = New System.Drawing.Size(424, 393)
-        Me.grdCompletedItems.TabIndex = 13
+        Me.grdHistory.DisplayLayout.Override.SelectedRowAppearance = Appearance71
+        Me.grdHistory.DisplayLayout.RowConnectorStyle = Infragistics.Win.UltraWinGrid.RowConnectorStyle.Solid
+        Me.grdHistory.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.grdHistory.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.grdHistory.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.grdHistory.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdHistory.Location = New System.Drawing.Point(11, 44)
+        Me.grdHistory.Name = "grdHistory"
+        Me.grdHistory.Size = New System.Drawing.Size(454, 389)
+        Me.grdHistory.TabIndex = 13
         '
         'grpPayment
         '
@@ -1441,18 +1468,30 @@ Partial Class frmContractDetail
         Me.grpPayment.ContentPadding.Left = 10
         Me.grpPayment.ContentPadding.Right = 10
         Me.grpPayment.ContentPadding.Top = 20
+        Me.grpPayment.Controls.Add(Me.lnkAddPayment)
         Me.grpPayment.Controls.Add(Me.grdPayment)
         Appearance18.BorderColor = System.Drawing.Color.Green
         Appearance18.FontData.BoldAsString = "True"
         Me.grpPayment.HeaderAppearance = Appearance18
         Me.grpPayment.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.grpPayment.Location = New System.Drawing.Point(502, 22)
+        Me.grpPayment.Location = New System.Drawing.Point(19, 18)
         Me.grpPayment.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpPayment.Name = "grpPayment"
-        Me.grpPayment.Size = New System.Drawing.Size(459, 447)
+        Me.grpPayment.Size = New System.Drawing.Size(459, 325)
         Me.grpPayment.TabIndex = 14
-        Me.grpPayment.Text = "THANH TOÁN"
+        Me.grpPayment.Text = "CÁC ĐỢT THANH TOÁN"
         Me.grpPayment.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        '
+        'lnkAddPayment
+        '
+        Me.lnkAddPayment.AutoSize = True
+        Me.lnkAddPayment.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.lnkAddPayment.Location = New System.Drawing.Point(407, 1)
+        Me.lnkAddPayment.Name = "lnkAddPayment"
+        Me.lnkAddPayment.Size = New System.Drawing.Size(41, 16)
+        Me.lnkAddPayment.TabIndex = 16
+        Me.lnkAddPayment.TabStop = True
+        Me.lnkAddPayment.Text = "Thêm"
         '
         'grdPayment
         '
@@ -1477,8 +1516,9 @@ Partial Class frmContractDetail
         Appearance7.FontData.BoldAsString = "True"
         Appearance7.ForeColor = System.Drawing.Color.White
         Me.grdPayment.DisplayLayout.Override.ActiveRowAppearance = Appearance7
+        Me.grdPayment.DisplayLayout.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.No
         Me.grdPayment.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
-        Me.grdPayment.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[True]
+        Me.grdPayment.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[False]
         Me.grdPayment.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
         Appearance2.BackColor = System.Drawing.Color.Transparent
         Me.grdPayment.DisplayLayout.Override.CardAreaAppearance = Appearance2
@@ -1496,7 +1536,7 @@ Partial Class frmContractDetail
         Appearance3.TextHAlignAsString = "Left"
         Appearance3.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
         Me.grdPayment.DisplayLayout.Override.HeaderAppearance = Appearance3
-        Me.grdPayment.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.grdPayment.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.[Select]
         Appearance9.BackColor = System.Drawing.Color.AliceBlue
         Me.grdPayment.DisplayLayout.Override.RowAlternateAppearance = Appearance9
         Appearance5.BackColor = System.Drawing.Color.AliceBlue
@@ -1518,7 +1558,7 @@ Partial Class frmContractDetail
         Me.grdPayment.Dock = System.Windows.Forms.DockStyle.Fill
         Me.grdPayment.Location = New System.Drawing.Point(11, 44)
         Me.grdPayment.Name = "grdPayment"
-        Me.grdPayment.Size = New System.Drawing.Size(437, 392)
+        Me.grdPayment.Size = New System.Drawing.Size(437, 270)
         Me.grdPayment.TabIndex = 14
         '
         'lblTitle
@@ -1604,9 +1644,10 @@ Partial Class frmContractDetail
         Me.TabPage3.ResumeLayout(False)
         CType(Me.grpCompleted, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpCompleted.ResumeLayout(False)
-        CType(Me.grdCompletedItems, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdHistory, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpPayment, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpPayment.ResumeLayout(False)
+        Me.grpPayment.PerformLayout()
         CType(Me.grdPayment, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1652,7 +1693,7 @@ Partial Class frmContractDetail
     Friend WithEvents grdFiles As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents cboContractLevel As Infragistics.Win.UltraWinGrid.UltraCombo
     Friend WithEvents grdSubContracts As Infragistics.Win.UltraWinGrid.UltraGrid
-    Friend WithEvents grdCompletedItems As Infragistics.Win.UltraWinGrid.UltraGrid
+    Friend WithEvents grdHistory As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents cboProject As Infragistics.Win.UltraWinGrid.UltraCombo
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents lblConvertMoney As System.Windows.Forms.Label
@@ -1667,4 +1708,7 @@ Partial Class frmContractDetail
     Friend WithEvents txtTotalValue As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents dtDeadlineExt As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents lnkAddPayment As System.Windows.Forms.LinkLabel
 End Class

@@ -203,6 +203,16 @@
     End Property
 
 
+    Private m_Reason As String = ""
+    Public Property Reason() As String
+        Get
+            Return m_Reason
+        End Get
+        Set(ByVal value As String)
+            m_Reason = value
+        End Set
+    End Property
+
     Private m_arrContractDetail As IList(Of MContractDetail) = New List(Of MContractDetail)
     ''' <summary>
     ''' ds nội dung hợp đồng
@@ -280,6 +290,22 @@
         End Get
         Set(ByVal value As IList(Of MContract_SubContractor))
             m_arrSubContractor = value
+        End Set
+    End Property
+
+    Private m_arrPayment As IList(Of MContractPayment) = New List(Of MContractPayment)
+    ''' <summary>
+    ''' ds các đợt thanh toán
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrPayment() As IList(Of MContractPayment)
+        Get
+            Return m_arrPayment
+        End Get
+        Set(ByVal value As IList(Of MContractPayment))
+            m_arrPayment = value
         End Set
     End Property
 End Class

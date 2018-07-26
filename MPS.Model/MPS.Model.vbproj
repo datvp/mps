@@ -62,6 +62,7 @@
     <Compile Include="Contracts\MContract.vb" />
     <Compile Include="Contracts\MContractDetail.vb" />
     <Compile Include="Contracts\MContractHistory.vb" />
+    <Compile Include="Contracts\MContractPayment.vb" />
     <Compile Include="Contracts\MContract_SubContractor.vb" />
     <Compile Include="Contracts\MSubContract.vb" />
     <Compile Include="Lists\MConstructionLevel.vb" />

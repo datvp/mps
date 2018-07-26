@@ -26,18 +26,18 @@ Public Class DAL_Clients
 
         If isExist(m.ClientId) Then
             sql = "Update Clients set ClientName=@ClientName,ShortName=@ShortName,Address=@Address,Phone=@Phone,Email=@Email,Website=@Website,"
-            sql += "ContactName=@ContactName,ContactPhone=@ContactPhone,ContactEmail=@ContactEmail,UpdatedAt=getdate(),ClientGroupId=@ClientGroupId"
-            sql += " where ClientId=@ClientId"
+            sql += "ContactName=@ContactName,ContactPhone=@ContactPhone,ContactEmail=@ContactEmail,UpdatedAt=getdate(),ClientGroupId=@ClientGroupId,"
+            sql += "Status=@Status where ClientId=@ClientId"
         Else
-            sql = "Insert into Clients(ClientId,ClientName,ShortName,Address,Phone,Email,Website,ContactName,ContactPhone,ContactEmail,CreatedAt,ClientGroupId)"
-            sql += "values(@ClientId,@ClientName,@ShortName,@Address,@Phone,@Email,@Website,@ContactName,@ContactPhone,@ContactEmail,getdate(),@ClientGroupId)"
+            sql = "Insert into Clients(ClientId,ClientName,ShortName,Address,Phone,Email,Website,ContactName,ContactPhone,ContactEmail,CreatedAt,ClientGroupId,Status)"
+            sql += "values(@ClientId,@ClientName,@ShortName,@Address,@Phone,@Email,@Website,@ContactName,@ContactPhone,@ContactEmail,getdate(),@ClientGroupId,@Status)"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(10) As SqlParameter
+        Dim p(11) As SqlParameter
         p(0) = New SqlParameter("@ClientId", m.ClientId)
         p(1) = New SqlParameter("@ClientName", m.ClientName)
         p(2) = New SqlParameter("@ShortName", m.ShortName)
@@ -48,6 +48,7 @@ Public Class DAL_Clients
         p(7) = New SqlParameter("@ContactName", m.ContactName)
         p(8) = New SqlParameter("@ContactPhone", m.ContactPhone)        p(9) = New SqlParameter("@ContactEmail", m.ContactEmail)
         p(10) = New SqlParameter("@ClientGroupId", m.ClientGroupId)
+        p(11) = New SqlParameter("@Status", m.Status)
         Return execSQL(sql, p)
     End Function
 
@@ -69,12 +70,12 @@ Public Class DAL_Clients
         If Not isDelete(ClientId) Then
             Return False
         End If
-        Dim sql = "Delete from Clients where ClientId=@ClientId"
+        Dim sql = "Update Clients set Status='Deleted' where ClientId=@ClientId"
         Return Me.execSQL(sql, New SqlParameter("@ClientId", ClientId))
     End Function
 
     Public Function getListClients() As DataTable
-        Dim sql As String = "Select c.*, g.ClientGroupName from Clients c inner join ClientGroups g on c.ClientGroupId=g.ClientGroupId order by CreatedAt"
+        Dim sql As String = "Select c.*, g.ClientGroupName from Clients c inner join ClientGroups g on c.ClientGroupId=g.ClientGroupId where c.Status<>'Deleted' order by CreatedAt"
         Return Me.getTableSQL(sql)
     End Function
 
@@ -94,6 +95,7 @@ Public Class DAL_Clients
             m.ContactPhone = IsNull(tb.Rows(0)("ContactPhone"), "")
             m.ContactEmail = IsNull(tb.Rows(0)("ContactEmail"), "")
             m.ClientGroupId = IsNull(tb.Rows(0)("ClientGroupId"), "")
+            m.Status = IsNull(tb.Rows(0)("Status"), "")
         End If
         Return m
     End Function

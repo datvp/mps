@@ -141,4 +141,15 @@
         End Set
     End Property
 
+
+    Private m_Status As String = ""
+    Public Property Status() As String
+        Get
+            Return m_Status
+        End Get
+        Set(ByVal value As String)
+            m_Status = value
+        End Set
+    End Property
+
 End Class

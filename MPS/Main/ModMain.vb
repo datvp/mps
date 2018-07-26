@@ -6,7 +6,7 @@ Imports System.Management
 Imports Microsoft.Office.Interop
 
 Module ModMain
-    Public m_MsgCaption As String = "Thông báo"
+    Public m_MsgCaption As String = "MPS"
     Public m_PathDelFirst As String = "Xóa "
     Public m_MsgCloseApp As String = "Bạn chọn đóng chương trình?"
     Public m_PathDelLast As String = " dòng đang chọn?"
@@ -79,6 +79,7 @@ Module ModMain
     Public m_SaveIcon = Global.MPS.My.Resources.Resources.Luu
     Public m_SaveCloseIcon = Global.MPS.My.Resources.Resources.Luu_Thoat
     Public m_DeleteIcon = Global.MPS.My.Resources.Resources.del_32
+    Public m_AddIcon = Global.MPS.My.Resources.Resources.add
 
     Public clsu As New VsoftBMS.Ulti.ClsUti
     Public mbc As Model.MConfigProgram
@@ -674,7 +675,7 @@ Module ModMain
     Public Function ShowMsgYesNoCancel(ByVal sMsg As String, ByVal sCaption As String) As Windows.Forms.DialogResult
         Return MessageBox.Show(sMsg, sCaption, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
     End Function
-    Public Function ShowMsgYesNo(ByVal sMsg As String, ByVal sCaption As String) As Windows.Forms.DialogResult
+    Public Function ShowMsgYesNo(ByVal sMsg As String, Optional ByVal sCaption As String = "") As Windows.Forms.DialogResult
         Return MessageBox.Show(sMsg, sCaption, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1)
     End Function
     Public Function ShowMsgOKExclamation(ByVal sMsg As String, ByVal sCaption As String) As Windows.Forms.DialogResult

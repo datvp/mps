@@ -16,7 +16,7 @@
     End Property
 
 
-    Private m_OpenFile As String
+    Private m_OpenFile As String = "Open"
     Public Property OpenFile() As String
         Get
             Return m_OpenFile

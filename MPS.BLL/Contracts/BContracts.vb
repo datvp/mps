@@ -34,5 +34,7 @@
     Public Function getContractDetailById(ByVal ContractId As String) As Model.MContract
         Return cls.getContractDetailById(ContractId)
     End Function
-   
+    Public Function updateStatus(ByVal contractId As String, ByVal status As String, ByVal userId As String) As Boolean
+        Return cls.updateStatus(contractId, status, userId)
+    End Function
 End Class

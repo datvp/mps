@@ -153,6 +153,13 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.arrPayment">
+	<summary>
+ ds các đợt thanh toán
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.

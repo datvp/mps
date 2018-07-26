@@ -46,16 +46,6 @@
         End Set
     End Property
 
-    Private m_SubContractDate As Date = CDate("2000-1-1")
-    Public Property SubContractDate() As Date
-        Get
-            Return m_SubContractDate
-        End Get
-        Set(ByVal value As Date)
-            m_SubContractDate = value
-        End Set
-    End Property
-
     Private m_SubContractValue As Double = 0
     Public Property SubContractValue() As Double
         Get

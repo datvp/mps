@@ -87,6 +87,7 @@
         If cboClientGroup.Value IsNot Nothing Then
             m.ClientGroupId = cboClientGroup.Value
         End If
+        m.Status = "Active"
         Return m
     End Function
     Private Function CheckOK(ByVal m As Model.MClient) As Boolean

@@ -69,6 +69,9 @@ Partial Class frmContracts
         Me.T_Layout = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Export = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_Accept = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_Decline = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.Panel1.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toolbars, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -279,9 +282,9 @@ Partial Class frmContracts
         'ctMenu
         '
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export})
+        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export, Me.ToolStripSeparator1, Me.T_Accept, Me.T_Decline})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 198)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 248)
         '
         'T_Add
         '
@@ -361,6 +364,27 @@ Partial Class frmContracts
         Me.T_Export.Size = New System.Drawing.Size(200, 22)
         Me.T_Export.Text = "Xuất ra Excel"
         '
+        'T_Accept
+        '
+        Me.T_Accept.ForeColor = System.Drawing.Color.Navy
+        Me.T_Accept.Image = Global.MPS.My.Resources.Resources.check
+        Me.T_Accept.Name = "T_Accept"
+        Me.T_Accept.Size = New System.Drawing.Size(200, 22)
+        Me.T_Accept.Text = "Duyệt"
+        '
+        'T_Decline
+        '
+        Me.T_Decline.ForeColor = System.Drawing.Color.Navy
+        Me.T_Decline.Image = Global.MPS.My.Resources.Resources.cancl_32
+        Me.T_Decline.Name = "T_Decline"
+        Me.T_Decline.Size = New System.Drawing.Size(200, 22)
+        Me.T_Decline.Text = "Không duyệt"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(197, 6)
+        '
         'frmContracts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -402,4 +426,7 @@ Partial Class frmContracts
     Friend WithEvents T_Refresh As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents T_SelectAll As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents T_Accept As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents T_Decline As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -36,18 +36,16 @@ Partial Class frmSubContractDetail
         Me.btnExit = New Infragistics.Win.Misc.UltraButton
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.grpMain = New Infragistics.Win.Misc.UltraGroupBox
+        Me.lblConvertMoney = New System.Windows.Forms.Label
         Me.txtSubContractValue = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.lblUnit = New System.Windows.Forms.Label
         Me.dtSubContractDeadLine = New System.Windows.Forms.DateTimePicker
-        Me.dtSubContractDate = New System.Windows.Forms.DateTimePicker
         Me.txtSubContractorName = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.txtSubContractorId = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
-        Me.lblConvertMoney = New System.Windows.Forms.Label
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -158,12 +156,10 @@ Partial Class frmSubContractDetail
         Me.grpMain.Controls.Add(Me.txtSubContractValue)
         Me.grpMain.Controls.Add(Me.lblUnit)
         Me.grpMain.Controls.Add(Me.dtSubContractDeadLine)
-        Me.grpMain.Controls.Add(Me.dtSubContractDate)
         Me.grpMain.Controls.Add(Me.txtSubContractorName)
         Me.grpMain.Controls.Add(Me.txtSubContractorId)
         Me.grpMain.Controls.Add(Me.Label5)
         Me.grpMain.Controls.Add(Me.Label4)
-        Me.grpMain.Controls.Add(Me.Label1)
         Me.grpMain.Controls.Add(Me.Label3)
         Me.grpMain.Controls.Add(Me.Label2)
         Appearance16.BorderColor = System.Drawing.Color.Green
@@ -178,6 +174,17 @@ Partial Class frmSubContractDetail
         Me.grpMain.Text = "THÔNG TIN PHỤ LỤC"
         Me.grpMain.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
+        'lblConvertMoney
+        '
+        Me.lblConvertMoney.BackColor = System.Drawing.Color.Transparent
+        Me.lblConvertMoney.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.lblConvertMoney.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblConvertMoney.Location = New System.Drawing.Point(1, 147)
+        Me.lblConvertMoney.Name = "lblConvertMoney"
+        Me.lblConvertMoney.Size = New System.Drawing.Size(551, 38)
+        Me.lblConvertMoney.TabIndex = 16
+        Me.lblConvertMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'txtSubContractValue
         '
         Appearance69.FontData.BoldAsString = "True"
@@ -185,7 +192,7 @@ Partial Class frmSubContractDetail
         Me.txtSubContractValue.Appearance = Appearance69
         Me.txtSubContractValue.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtSubContractValue.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubContractValue.Location = New System.Drawing.Point(113, 108)
+        Me.txtSubContractValue.Location = New System.Drawing.Point(125, 108)
         Me.txtSubContractValue.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtSubContractValue.MaxLength = 20
         Me.txtSubContractValue.Name = "txtSubContractValue"
@@ -198,7 +205,7 @@ Partial Class frmSubContractDetail
         Me.lblUnit.AutoSize = True
         Me.lblUnit.BackColor = System.Drawing.Color.Transparent
         Me.lblUnit.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUnit.Location = New System.Drawing.Point(263, 110)
+        Me.lblUnit.Location = New System.Drawing.Point(275, 110)
         Me.lblUnit.Name = "lblUnit"
         Me.lblUnit.Size = New System.Drawing.Size(33, 16)
         Me.lblUnit.TabIndex = 15
@@ -206,34 +213,27 @@ Partial Class frmSubContractDetail
         '
         'dtSubContractDeadLine
         '
-        Me.dtSubContractDeadLine.Location = New System.Drawing.Point(410, 108)
+        Me.dtSubContractDeadLine.Location = New System.Drawing.Point(410, 75)
         Me.dtSubContractDeadLine.Name = "dtSubContractDeadLine"
         Me.dtSubContractDeadLine.Size = New System.Drawing.Size(125, 23)
         Me.dtSubContractDeadLine.TabIndex = 4
-        '
-        'dtSubContractDate
-        '
-        Me.dtSubContractDate.Location = New System.Drawing.Point(410, 75)
-        Me.dtSubContractDate.Name = "dtSubContractDate"
-        Me.dtSubContractDate.Size = New System.Drawing.Size(125, 23)
-        Me.dtSubContractDate.TabIndex = 3
         '
         'txtSubContractorName
         '
         Me.txtSubContractorName.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtSubContractorName.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubContractorName.Location = New System.Drawing.Point(113, 41)
+        Me.txtSubContractorName.Location = New System.Drawing.Point(125, 41)
         Me.txtSubContractorName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtSubContractorName.MaxLength = 255
         Me.txtSubContractorName.Name = "txtSubContractorName"
-        Me.txtSubContractorName.Size = New System.Drawing.Size(422, 25)
+        Me.txtSubContractorName.Size = New System.Drawing.Size(410, 25)
         Me.txtSubContractorName.TabIndex = 0
         '
         'txtSubContractorId
         '
         Me.txtSubContractorId.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtSubContractorId.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSubContractorId.Location = New System.Drawing.Point(113, 74)
+        Me.txtSubContractorId.Location = New System.Drawing.Point(125, 74)
         Me.txtSubContractorId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtSubContractorId.MaxLength = 50
         Me.txtSubContractorId.Name = "txtSubContractorId"
@@ -247,31 +247,20 @@ Partial Class frmSubContractDetail
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(10, 110)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(87, 16)
+        Me.Label5.Size = New System.Drawing.Size(106, 16)
         Me.Label5.TabIndex = 11
-        Me.Label5.Text = "Giá trị phụ lục"
+        Me.Label5.Text = "Giá trị cộng thêm"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(321, 110)
+        Me.Label4.Location = New System.Drawing.Point(285, 75)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(83, 16)
+        Me.Label4.Size = New System.Drawing.Size(115, 16)
         Me.Label4.TabIndex = 11
-        Me.Label4.Text = "Ngày hết hạn"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(321, 77)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 16)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Ngày ký"
+        Me.Label4.Text = "Ngày gia hạn thêm"
         '
         'Label3
         '
@@ -294,17 +283,6 @@ Partial Class frmSubContractDetail
         Me.Label2.Size = New System.Drawing.Size(70, 16)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Mã phụ lục"
-        '
-        'lblConvertMoney
-        '
-        Me.lblConvertMoney.BackColor = System.Drawing.Color.Transparent
-        Me.lblConvertMoney.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.lblConvertMoney.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblConvertMoney.Location = New System.Drawing.Point(1, 147)
-        Me.lblConvertMoney.Name = "lblConvertMoney"
-        Me.lblConvertMoney.Size = New System.Drawing.Size(551, 38)
-        Me.lblConvertMoney.TabIndex = 16
-        Me.lblConvertMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmSubContractDetail
         '
@@ -346,9 +324,7 @@ Partial Class frmSubContractDetail
     Friend WithEvents txtSubContractorId As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents dtSubContractDeadLine As System.Windows.Forms.DateTimePicker
-    Friend WithEvents dtSubContractDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents txtSubContractValue As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents lblUnit As System.Windows.Forms.Label
     Friend WithEvents lblConvertMoney As System.Windows.Forms.Label

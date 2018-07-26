@@ -18,7 +18,7 @@ Public Class frmContracts
     End Function
 
     Private Sub frmContracts_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
-        Loadlist()
+        Me.Loadlist()
     End Sub
 
 
@@ -331,7 +331,42 @@ Public Class frmContracts
     End Sub
 #End Region
 
+    Private Sub approve(ByVal isAccepted As Boolean)
+        Dim r As UltraGridRow = Grid.ActiveRow
+        If r IsNot Nothing AndAlso r.Index <> -1 Then
+            Dim contractId = r.Cells("ContractId").Value
+
+            Dim status = "Accepted"
+            If Not isAccepted Then
+                Dim reason = InputBox("Nhập lý do bạn KHÔNG duyệt hợp đồng:[" + contractId + "]")
+                If reason = "" Then
+                    Exit Sub
+                End If
+                status = "Rejected"
+            Else
+                If ShowMsgYesNo("Bạn muốn Duyệt hợp đồng số:[" + contractId + "] ?", m_MsgCaption) = Windows.Forms.DialogResult.No Then
+                    Exit Sub
+                End If
+            End If
+
+
+            Dim ok = cls.updateStatus(contractId, status, ModMain.m_UIDLogin)
+            If ok Then
+                ShowMsgInfo(m_MsgSaveSuccess)
+            Else
+                ShowMsg(m_SaveDataError)
+            End If
+        End If
+    End Sub
     Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
         ShowMsg(messege)
+    End Sub
+
+    Private Sub T_Accept_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Accept.Click
+        Me.approve(True)
+    End Sub
+
+    Private Sub T_Decline_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Decline.Click
+        Me.approve(False)
     End Sub
 End Class
