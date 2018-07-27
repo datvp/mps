@@ -36,12 +36,12 @@
         End Set
     End Property
 
-    Private m_FileId As String
-    Public Property FileId() As String
+    Private m_FileId As Integer = 0
+    Public Property FileId() As Integer
         Get
             Return m_FileId
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             m_FileId = value
         End Set
     End Property

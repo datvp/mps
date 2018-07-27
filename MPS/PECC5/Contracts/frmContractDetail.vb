@@ -89,16 +89,17 @@ Public Class frmContractDetail
         dtExpireDate.Value = mInfo.ContractDeadLine
         txtContractValue.Text = Format(mInfo.ContractValue, ModMain.m_strFormatCur)
         cboProject.Value = mInfo.ProjectId
-        grdItems.DataSource = mInfo.arrContractDetail
         cboMainContractor.Value = mInfo.MainContractorId
-        grdSubContractors.DataSource = mInfo.arrSubContractor
         cboContractLevel.Value = mInfo.ContractLevelId
         lblStatus.Text = mInfo.ContractState
+        txtNote.Text = mInfo.Note
+
+        grdItems.DataSource = mInfo.arrContractDetail
+        grdSubContractors.DataSource = mInfo.arrSubContractor
         grdSubContracts.DataSource = mInfo.arrSubContract
         grdFiles.DataSource = mInfo.arrFile
         grdPayment.DataSource = mInfo.arrPayment
         grdHistory.DataSource = mInfo.arrHistory
-        txtNote.Text = mInfo.Note
         Me.SumTotal()
     End Sub
     Private Function setInfo() As Model.MContract
@@ -182,9 +183,14 @@ Public Class frmContractDetail
             Return False
         End If
 
+
+
+        Return True
+    End Function
+    Private Function SetContractHistory(ByVal m As Model.MContract) As Boolean
         'compare before vs after to write log into history
         If mInfo IsNot Nothing Then ' edit
-            Dim desc As String = "Hiệu chỉnh: "
+            Dim desc As String = ""
             If m.ContractName <> mInfo.ContractName Then
                 desc += vbCrLf & "Tên hợp đồng: [" + mInfo.ContractName + "] -> [" + m.ContractName + "]"
             End If
@@ -209,22 +215,171 @@ Public Class frmContractDetail
             If m.Note <> mInfo.Note Then
                 desc += vbCrLf & "Ghi chú: [" + mInfo.Note + "] -> [" + m.Note + "]"
             End If
-            ' get more details -> update later
-            If m.arrContractDetail.Count <> mInfo.arrContractDetail.Count Then
-                desc += vbCrLf & "Hạng mục: [" + mInfo.arrContractDetail.Count.ToString + "] -> [" + m.arrContractDetail.Count.ToString + "]"
+
+            'hang muc
+            mInfo.arrContractDetail = b.getContractDetails(mInfo.ContractId)
+            If m.arrContractDetail.Count > mInfo.arrContractDetail.Count Then
+                For Each it In m.arrContractDetail
+                    Dim foundItem = Me.findItem(it.ItemId, mInfo.arrContractDetail)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thêm hạng mục: [" + it.ItemName + "]"
+                    End If
+                Next
+            ElseIf m.arrContractDetail.Count < mInfo.arrContractDetail.Count Then
+                For Each it In mInfo.arrContractDetail
+                    Dim foundItem = Me.findItem(it.ItemId, m.arrContractDetail)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Xóa hạng mục: [" + it.ItemName + "]"
+                    End If
+                Next
+            Else
+                For Each it In m.arrContractDetail
+                    Dim foundItem = Me.findItem(it.ItemId, mInfo.arrContractDetail)
+                    If foundItem Is Nothing Then
+                        desc += "Thay đổi hạng mục: -> [" + it.ItemName + "]"
+                    End If
+                Next
             End If
-            If m.arrSubContractor.Count <> mInfo.arrSubContractor.Count Then
-                desc += vbCrLf & "Nhà thầu phụ: [" + mInfo.arrSubContractor.Count.ToString + "] -> [" + m.arrSubContractor.Count.ToString + "]"
+
+            'nha thau phu
+            mInfo.arrSubContractor = b.getSubContractors(mInfo.ContractId)
+            If m.arrSubContractor.Count > mInfo.arrSubContractor.Count Then
+                For Each it In m.arrSubContractor
+                    Dim foundItem = Me.findSubContractor(it.SubContractorId, mInfo.arrSubContractor)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thêm nhà thầu phụ: [" + it.SubContractorName + "]"
+                    End If
+                Next
+            ElseIf m.arrSubContractor.Count < mInfo.arrSubContractor.Count Then
+                For Each it In mInfo.arrSubContractor
+                    Dim foundItem = Me.findSubContractor(it.SubContractorId, m.arrSubContractor)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Xóa nhà thầu phụ: [" + it.SubContractorName + "]"
+                    End If
+                Next
+            Else
+                For Each it In m.arrSubContractor
+                    Dim foundItem = Me.findSubContractor(it.SubContractorId, mInfo.arrSubContractor)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thay đổi nhà thầu phụ: -> [" + it.SubContractorName + "]"
+                    End If
+                Next
             End If
-            If m.arrSubContract.Count <> mInfo.arrSubContract.Count Then
-                desc += vbCrLf & "Phụ lục hợp đồng: [" + mInfo.arrSubContract.Count.ToString + "] -> [" + m.arrSubContract.Count.ToString + "]"
+
+            'phu luc hop dong
+            mInfo.arrSubContract = b.getSubContracts(mInfo.ContractId)
+            If m.arrSubContract.Count > mInfo.arrSubContract.Count Then
+                For Each it In m.arrSubContract
+                    Dim foundItem = Me.findSubContract(it, mInfo.arrSubContract, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thêm phụ lục hợp đồng: [" + it.SubContractName + "]"
+                    End If
+                Next
+            ElseIf m.arrSubContract.Count < mInfo.arrSubContract.Count Then
+                For Each it In mInfo.arrSubContract
+                    Dim foundItem = Me.findSubContract(it, m.arrSubContract, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Xóa phụ lục hợp đồng: [" + it.SubContractName + "]"
+                    End If
+                Next
+            Else
+                For Each it In m.arrSubContract
+                    Dim foundItem = Me.findSubContract(it, mInfo.arrSubContract, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thay đổi phụ lục hợp đồng: -> [" + it.SubContractName + "]"
+                    Else 'found
+                        If it.SubContractName <> foundItem.SubContractName _
+                            OrElse it.SubContractValue <> foundItem.SubContractValue _
+                            OrElse it.SubContractDeadLine <> foundItem.SubContractDeadLine _
+                        Then
+                            desc += vbCrLf & "Sửa phụ lục hợp đồng [" + it.SubContractName + "]: "
+                            If it.SubContractName <> foundItem.SubContractName Then
+                                desc += vbCrLf & " - Tên phụ lục: [" + foundItem.SubContractName + "] -> [" + it.SubContractName + "]"
+                            End If
+                            If it.SubContractValue <> foundItem.SubContractValue Then
+                                desc += vbCrLf & " - Giá trị phụ lục: [" + foundItem.SubContractValue + "] -> [" + it.SubContractValue + "]"
+                            End If
+                            If it.SubContractDeadLine <> foundItem.SubContractDeadLine Then
+                                desc += vbCrLf & " - Ngày gia hạn: [" + foundItem.SubContractDeadLine.ToString("dd/MM/yyyy") + "] -> [" + it.SubContractDeadLine.ToString("dd/MM/yyyy") + "]"
+                            End If
+                        End If
+                    End If
+                Next
             End If
-            If m.arrFile.Count <> mInfo.arrFile.Count Then
-                desc += vbCrLf & "Tập tin đính kèm: [" + mInfo.arrFile.Count.ToString + "] -> [" + m.arrFile.Count.ToString + "]"
+
+            'tập tin đính kèm
+            mInfo.arrFile = b.getAttachFiles(mInfo.ContractId)
+            If m.arrFile.Count > mInfo.arrFile.Count Then
+                For Each it In m.arrFile
+                    Dim foundItem = Me.findAttachFile(it.FilePath, mInfo.arrFile)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thêm file: [" + it.FileName + "]"
+                    End If
+                Next
+            ElseIf m.arrFile.Count < mInfo.arrFile.Count Then
+                For Each it In mInfo.arrFile
+                    Dim foundItem = Me.findAttachFile(it.FilePath, m.arrFile)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Xóa file: [" + it.FileName + "]"
+                    End If
+                Next
+            Else
+                For Each it In m.arrFile
+                    Dim foundItem = Me.findAttachFile(it.FilePath, mInfo.arrFile)
+                    If foundItem Is Nothing Then
+                        desc += "Thay đổi file: -> [" + it.FileName + "]"
+                    End If
+                Next
             End If
-            If m.arrPayment.Count <> mInfo.arrPayment.Count Then
-                desc += vbCrLf & "Các đợt thanh toán: [" + mInfo.arrPayment.Count.ToString + "] -> [" + m.arrPayment.Count.ToString + "]"
+
+            'các đợt thanh toán
+            mInfo.arrPayment = b.getContractPayments(mInfo.ContractId)
+            If m.arrPayment.Count > mInfo.arrPayment.Count Then
+                For Each it In m.arrPayment
+                    Dim foundItem = Me.findPayment(it, mInfo.arrPayment, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thêm đợt thanh toán: [" + it.PaymentName + "]"
+                    End If
+                Next
+            ElseIf m.arrPayment.Count < mInfo.arrPayment.Count Then
+                For Each it In mInfo.arrPayment
+                    Dim foundItem = Me.findPayment(it, m.arrPayment, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Xóa đợt thanh toán: [" + it.PaymentName + "]"
+                    End If
+                Next
+            Else
+                For Each it In m.arrPayment
+                    Dim foundItem = Me.findPayment(it, mInfo.arrPayment, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thay đổi đợt thanh toán: -> [" + it.PaymentName + "]"
+                    Else 'found
+                        If it.PaymentName <> foundItem.PaymentName _
+                            OrElse it.PaymentTotal <> foundItem.PaymentTotal _
+                            OrElse it.PaymentTotal <> foundItem.PaymentTotal _
+                            OrElse it.PaymentDate <> foundItem.PaymentDate _
+                        Then
+                            desc += vbCrLf & "Sửa đợt thanh toán [" + it.PaymentName + "]: "
+                            If it.PaymentName <> foundItem.PaymentName Then
+                                desc += vbCrLf & " - Tên đợt thanh toán: [" + foundItem.PaymentName + "] -> [" + it.PaymentName + "]"
+                            End If
+                            If it.PaymentTotal <> foundItem.PaymentTotal Then
+                                desc += vbCrLf & " - Giá trị thanh toán: [" + Format(foundItem.PaymentTotal, ModMain.m_strFormatCur) + "] -> [" + Format(it.PaymentTotal, ModMain.m_strFormatCur) + "]"
+                            End If
+                            If it.PaymentDate <> foundItem.PaymentDate Then
+                                desc += vbCrLf & " - Ngày thanh toán: [" + foundItem.PaymentDate.ToString("dd/MM/yyyy") + "] -> [" + it.PaymentDate.ToString("dd/MM/yyyy") + "]"
+                            End If
+                        End If
+                    End If
+                Next
             End If
+
+            'if no change everything -> Save ~ Close -> exit form
+            If desc = "" Then
+                Return False
+            End If
+
+            desc = "Hiệu chỉnh: " & desc
             Dim history As New Model.MContractHistory
             history.UserId = ModMain.m_UIDLogin
             history.Description = desc
@@ -255,7 +410,12 @@ Public Class frmContractDetail
     End Sub
     Private Sub Save()
         Dim m = Me.setInfo()
-        If Not CheckOK(m) Then Exit Sub
+        If Not Me.CheckOK(m) Then Exit Sub
+
+        If Not Me.SetContractHistory(m) Then
+            Me.Close()
+            Exit Sub
+        End If
 
         If b.updateDB(m) Then
             If Me.ContractId <> "" Then
@@ -277,7 +437,7 @@ Public Class frmContractDetail
             Dim arr As IList(Of Model.MSubContract) = grdSubContracts.DataSource
             If arr IsNot Nothing Then
                 Dim found = Me.findSubContract(item, arr)
-                If Not found Then
+                If found Is Nothing Then
                     Dim m As New Model.MSubContract
                     m.SubContractId = item.SubContractId
                     m.SubContractName = item.SubContractName
@@ -297,7 +457,7 @@ Public Class frmContractDetail
             Dim arr As IList(Of Model.MContractPayment) = grdPayment.DataSource
             If arr IsNot Nothing Then
                 Dim found = Me.findPayment(item, arr)
-                If Not found Then
+                If found Is Nothing Then
                     Dim m As New Model.MContractPayment
                     m.PaymentId = item.PaymentId
                     m.PaymentName = item.PaymentName
@@ -358,25 +518,25 @@ Public Class frmContractDetail
 #End Region
 
 #Region "Find item into array"
-    Private Function findItem(ByVal itemId As String, ByVal arr As IList(Of Model.MContractDetail)) As Boolean
-        Dim found As Boolean = False
+    Private Function findItem(ByVal itemId As String, ByVal arr As IList(Of Model.MContractDetail)) As Model.MContractDetail
+        Dim foundItem As Model.MContractDetail = Nothing
         Dim i = 0
-        While i < arr.Count And Not found
+        While i < arr.Count And foundItem Is Nothing
             If arr.Item(i).ItemId = itemId Then
-                found = True
+                foundItem = arr.Item(i)
             End If
             i = i + 1
         End While
 
-        Return found
+        Return foundItem
     End Function
 
-    Private Function findSubContractor(ByVal subContractorId As String, ByVal arr As IList(Of Model.MContract_SubContractor)) As Boolean
-        Dim found As Boolean = False
+    Private Function findSubContractor(ByVal subContractorId As String, ByVal arr As IList(Of Model.MContract_SubContractor)) As Model.MContract_SubContractor
+        Dim found As Model.MContract_SubContractor = Nothing
         Dim i = 0
-        While i < arr.Count And Not found
+        While i < arr.Count And found Is Nothing
             If arr.Item(i).SubContractorId = subContractorId Then
-                found = True
+                found = arr.Item(i)
             End If
             i = i + 1
         End While
@@ -384,15 +544,17 @@ Public Class frmContractDetail
         Return found
     End Function
 
-    Private Function findSubContract(ByVal item As Model.MSubContract, ByVal arr As IList(Of Model.MSubContract)) As Boolean
-        Dim found As Boolean = False
+    Private Function findSubContract(ByVal item As Model.MSubContract, ByVal arr As IList(Of Model.MSubContract), Optional ByVal isUpdate As Boolean = True) As Model.MSubContract
+        Dim found As Model.MSubContract = Nothing
         Dim i = 0
-        While i < arr.Count And Not found
+        While i < arr.Count And found Is Nothing
             If arr.Item(i).SubContractId = item.SubContractId Then
-                arr.Item(i).SubContractName = item.SubContractName
-                arr.Item(i).SubContractValue = item.SubContractValue
-                arr.Item(i).SubContractDeadLine = item.SubContractDeadLine
-                found = True
+                If isUpdate Then
+                    arr.Item(i).SubContractName = item.SubContractName
+                    arr.Item(i).SubContractValue = item.SubContractValue
+                    arr.Item(i).SubContractDeadLine = item.SubContractDeadLine
+                End If
+                found = arr.Item(i)
             End If
             i = i + 1
         End While
@@ -400,15 +562,30 @@ Public Class frmContractDetail
         Return found
     End Function
 
-    Private Function findPayment(ByVal item As Model.MContractPayment, ByVal arr As IList(Of Model.MContractPayment)) As Boolean
-        Dim found As Boolean = False
+    Private Function findAttachFile(ByVal filePath As String, ByVal arr As IList(Of Model.MAttachFileContract)) As Model.MAttachFileContract
+        Dim found As Model.MAttachFileContract = Nothing
         Dim i = 0
-        While i < arr.Count And Not found
+        While i < arr.Count And found Is Nothing
+            If arr.Item(i).FilePath = filePath Then
+                found = arr.Item(i)
+            End If
+            i = i + 1
+        End While
+
+        Return found
+    End Function
+
+    Private Function findPayment(ByVal item As Model.MContractPayment, ByVal arr As IList(Of Model.MContractPayment), Optional ByVal isUpdate As Boolean = True) As Model.MContractPayment
+        Dim found As Model.MContractPayment = Nothing
+        Dim i = 0
+        While i < arr.Count And found Is Nothing
             If arr.Item(i).PaymentId = item.PaymentId Then
-                arr.Item(i).PaymentName = item.PaymentName
-                arr.Item(i).PaymentTotal = item.PaymentTotal
-                arr.Item(i).PaymentDate = item.PaymentDate
-                found = True
+                If isUpdate Then
+                    arr.Item(i).PaymentName = item.PaymentName
+                    arr.Item(i).PaymentTotal = item.PaymentTotal
+                    arr.Item(i).PaymentDate = item.PaymentDate
+                End If
+                found = arr.Item(i)
             End If
             i = i + 1
         End While
@@ -424,13 +601,15 @@ Public Class frmContractDetail
         If selectedObj IsNot Nothing Then
             Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
             If arr IsNot Nothing Then
-                Dim found = Me.findItem(selectedObj.ItemId, arr)
-                If Not found Then
+                Dim foundItem = Me.findItem(selectedObj.ItemId, arr)
+                If foundItem Is Nothing Then
                     Dim item As New Model.MContractDetail
                     item.ItemId = selectedObj.ItemId
                     item.ItemName = selectedObj.ItemName
                     arr.Insert(arr.Count, item)
                     grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
+                Else
+                    ShowMsg("Hạng mục: [" + foundItem.ItemName + "] đã được thêm.")
                 End If
             End If
 
@@ -444,12 +623,14 @@ Public Class frmContractDetail
             Dim arr As IList(Of Model.MContract_SubContractor) = grdSubContractors.DataSource
             If arr IsNot Nothing Then
                 Dim found = Me.findSubContractor(selectedObj.SubContractorId, arr)
-                If Not found Then
+                If found Is Nothing Then
                     Dim item As New Model.MContract_SubContractor
                     item.SubContractorId = selectedObj.SubContractorId
                     item.SubContractorName = selectedObj.SubContractorName
                     arr.Insert(arr.Count, item)
                     grdSubContractors.Rows.Refresh(RefreshRow.RefreshDisplay)
+                Else
+                    ShowMsg("Nhà thầu phụ: [" + found.SubContractorName + "] đã được thêm.")
                 End If
             End If
 
@@ -474,16 +655,21 @@ Public Class frmContractDetail
             Dim s = fd.FileNames
             Dim arr As IList(Of Model.MAttachFileContract) = grdFiles.DataSource
             If arr IsNot Nothing Then
+
                 For i = 0 To s.Length - 1
                     Dim path = s(i).ToString
                     Dim fileName = System.IO.Path.GetFileName(path)
                     Dim ext = System.IO.Path.GetExtension(path)
-                    Dim item As New Model.MAttachFileContract
-                    item.FileId = fileName
-                    item.FileName = fileName
-                    item.FileType = ext
-                    item.FilePath = path
-                    arr.Insert(arr.Count, item)
+
+                    Dim found = Me.findAttachFile(path, arr)
+                    If found Is Nothing Then
+                        Dim item As New Model.MAttachFileContract
+                        item.FileId = arr.Count + 1
+                        item.FileName = fileName
+                        item.FileType = ext
+                        item.FilePath = path
+                        arr.Insert(arr.Count, item)
+                    End If
                 Next
                 grdFiles.Rows.Refresh(RefreshRow.RefreshDisplay)
             End If
@@ -504,7 +690,9 @@ Public Class frmContractDetail
         If r IsNot Nothing Then
             Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
             If arr IsNot Nothing Then
-                arr.RemoveAt(r.Index)
+                Dim item = arr.Item(r.Index)
+                If item Is Nothing Then Exit Sub
+                arr.Remove(item)
                 grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
             End If
         End If
@@ -544,7 +732,9 @@ Public Class frmContractDetail
         If r IsNot Nothing Then
             Dim arr As IList(Of Model.MContract_SubContractor) = grdSubContractors.DataSource
             If arr IsNot Nothing Then
-                arr.RemoveAt(r.Index)
+                Dim item = arr.Item(r.Index)
+                If item Is Nothing Then Exit Sub
+                arr.Remove(item)
                 grdSubContractors.Rows.Refresh(RefreshRow.RefreshDisplay)
             End If
         End If
@@ -585,7 +775,9 @@ Public Class frmContractDetail
         If r IsNot Nothing Then
             Dim arr As IList(Of Model.MSubContract) = grdSubContracts.DataSource
             If arr IsNot Nothing Then
-                arr.RemoveAt(r.Index)
+                Dim item = arr.Item(r.Index)
+                If item Is Nothing Then Exit Sub
+                arr.Remove(item)
                 grdSubContracts.Rows.Refresh(RefreshRow.RefreshDisplay)
                 Me.SumTotal()
             End If
@@ -706,6 +898,7 @@ Public Class frmContractDetail
             Dim arr As IList(Of Model.MContractPayment) = grdPayment.DataSource
             If arr IsNot Nothing Then
                 Dim item = arr.Item(r.Index)
+                If item Is Nothing Then Exit Sub
                 If item.PaymentStatus = "Paid" Then
                     ShowMsg("Đợt thanh toán:" & item.PaymentName & " không thể xóa.")
                     Exit Sub

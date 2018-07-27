@@ -52,7 +52,7 @@ Public Class DAL_Contracts
 
         Me.BeginTranstion()
 
-        If Not execSQL(sql, p) Then
+        If Not Me.execSQL(sql, p) Then
             Me.RollbackTransction()
             Return False
         End If
@@ -298,7 +298,7 @@ Public Class DAL_Contracts
         Return True
     End Function
 #Region "get details"
-    Private Function getContractDetails(ByVal contractId As String) As IList(Of Model.MContractDetail)
+    Public Function getContractDetails(ByVal contractId As String) As IList(Of Model.MContractDetail)
         Dim arr As IList(Of Model.MContractDetail) = New List(Of Model.MContractDetail)
         Dim sql = "select * from ContractDetails where ContractId=@ContractId order by CreatedAt"
         Dim tb = getTableSQL(sql, New SqlParameter("@ContractId", contractId))
@@ -314,7 +314,7 @@ Public Class DAL_Contracts
         Return arr
     End Function
 
-    Private Function getSubContractors(ByVal contractId As String) As IList(Of Model.MContract_SubContractor)
+    Public Function getSubContractors(ByVal contractId As String) As IList(Of Model.MContract_SubContractor)
         Dim arr As IList(Of Model.MContract_SubContractor) = New List(Of Model.MContract_SubContractor)
         Dim sql = "select * from Contract_SubContractor where ContractId=@ContractId order by CreatedAt"
         Dim tb = getTableSQL(sql, New SqlParameter("@ContractId", contractId))
@@ -330,7 +330,7 @@ Public Class DAL_Contracts
         Return arr
     End Function
 
-    Private Function getSubContracts(ByVal contractId As String) As IList(Of Model.MSubContract)
+    Public Function getSubContracts(ByVal contractId As String) As IList(Of Model.MSubContract)
         Dim arr As IList(Of Model.MSubContract) = New List(Of Model.MSubContract)
         Dim sql = "select * from SubContracts where ContractId=@ContractId order by CreatedAt"
         Dim tb = getTableSQL(sql, New SqlParameter("@ContractId", contractId))
@@ -348,7 +348,7 @@ Public Class DAL_Contracts
         Return arr
     End Function
 
-    Private Function getAttachFiles(ByVal contractId As String) As IList(Of Model.MAttachFileContract)
+    Public Function getAttachFiles(ByVal contractId As String) As IList(Of Model.MAttachFileContract)
         Dim arr As IList(Of Model.MAttachFileContract) = New List(Of Model.MAttachFileContract)
         Dim sql = "select * from AttachFileContracts where ContractId=@ContractId order by CreatedAt"
         Dim tb = getTableSQL(sql, New SqlParameter("@ContractId", contractId))
@@ -356,9 +356,9 @@ Public Class DAL_Contracts
             For Each r As DataRow In tb.Rows
                 Dim m As New Model.MAttachFileContract
                 m.ContractId = IsNull(r("ContractId"), "")
-                m.FileId = IsNull(r("FileId"), "")
+                m.FileId = IsNull(r("FileId"), arr.Count)
                 m.FileName = IsNull(r("FileName"), "")
-                m.FilePath = IsNull(r("FileName"), "")
+                m.FilePath = IsNull(r("FilePath"), "")
                 m.FileType = IsNull(r("FileType"), "")
                 arr.Add(m)
             Next
@@ -366,7 +366,7 @@ Public Class DAL_Contracts
         Return arr
     End Function
 
-    Private Function getContractPayments(ByVal contractId As String) As IList(Of Model.MContractPayment)
+    Public Function getContractPayments(ByVal contractId As String) As IList(Of Model.MContractPayment)
         Dim arr As IList(Of Model.MContractPayment) = New List(Of Model.MContractPayment)
         Dim sql = "select * from ContractPayments where ContractId=@ContractId order by PaymentDate"
         Dim tb = getTableSQL(sql, New SqlParameter("@ContractId", contractId))

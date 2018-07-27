@@ -37,4 +37,26 @@
     Public Function updateStatus(ByVal contractId As String, ByVal status As String, ByVal userId As String) As Boolean
         Return cls.updateStatus(contractId, status, userId)
     End Function
+
+#Region "get details"
+    Public Function getContractDetails(ByVal contractId As String) As IList(Of Model.MContractDetail)
+        Return cls.getContractDetails(contractId)
+    End Function
+
+    Public Function getSubContractors(ByVal contractId As String) As IList(Of Model.MContract_SubContractor)
+        Return cls.getSubContractors(contractId)
+    End Function
+
+    Public Function getSubContracts(ByVal contractId As String) As IList(Of Model.MSubContract)
+        Return cls.getSubContracts(contractId)
+    End Function
+
+    Public Function getAttachFiles(ByVal contractId As String) As IList(Of Model.MAttachFileContract)
+        Return cls.getAttachFiles(contractId)
+    End Function
+
+    Public Function getContractPayments(ByVal contractId As String) As IList(Of Model.MContractPayment)
+        Return cls.getContractPayments(contractId)
+    End Function
+#End Region
 End Class
