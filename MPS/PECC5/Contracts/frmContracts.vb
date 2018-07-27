@@ -94,16 +94,7 @@ Public Class frmContracts
 
     End Sub
 
-    Private Sub Loadlist()
-        Dim s_ID As String = ""
-        If Not Grid.DataSource Is Nothing Then
-            If Not Grid.ActiveRow Is Nothing Then
-                If Grid.ActiveRow.Index <> -1 And Not Grid.ActiveRow.Cells Is Nothing Then
-                    s_ID = Grid.ActiveRow.Cells("ContractId").Value
-                End If
-            End If
-        End If
-
+    Private Sub Loadlist(Optional ByVal s_ID As String = "")
         Grid.DataSource = cls.getListContracts()
 
         If s_ID <> "" Then
@@ -131,7 +122,7 @@ Public Class frmContracts
         Dim frm As New frmContractDetail
         Dim result = frm.ShowDialog("")
         If result <> "" Then
-            Me.Loadlist()
+            Me.Loadlist(result)
         End If
     End Sub
 
@@ -143,7 +134,7 @@ Public Class frmContracts
         Dim frm As New frmContractDetail
         Dim result = frm.ShowDialog(r.Cells("ContractId").Value)
         If result <> "" Then
-            Me.Loadlist()
+            Me.Loadlist(result)
             For i As Integer = 0 To Grid.Rows.Count - 1
                 If Grid.Rows(i).Cells("ContractId").Value.ToString = result Then
                     Grid.Rows(i).Selected = True
@@ -190,7 +181,7 @@ Public Class frmContracts
                 End If
 
                 If Not Me.DeleteDetail(id) Then
-                    Loadlist()
+                    Me.Loadlist(id)
                     Exit Sub
                 End If
             End If
@@ -256,13 +247,14 @@ Public Class frmContracts
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
         T_Export.Enabled = True
+        T_Accept.Enabled = True
+        T_Decline.Enabled = True
 
         Dim r As UltraGridRow = Grid.ActiveRow
 
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
         Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))
         If e.Button <> Windows.Forms.MouseButtons.Right Then
-
             If result Is Nothing Then
                 fExit = True
                 Exit Sub
@@ -270,11 +262,12 @@ Public Class frmContracts
             If result.Index = -1 Then fExit = True
             Exit Sub
         End If
-        '--------- 2/7
         If result Is Nothing OrElse result.Index = -1 Then
             fExit = True
             T_Edit.Enabled = False
             T_DEL.Enabled = False
+            T_Accept.Enabled = False
+            T_Decline.Enabled = False
             If Grid.Rows.Count < 1 Then
                 T_SelectAll.Enabled = False
                 T_Export.Enabled = False
@@ -283,12 +276,14 @@ Public Class frmContracts
             If Not result.IsDataRow Then
                 Exit Sub
             End If
-
             result.Activated = True
             r = result
-
+            Dim status = r.Cells("ContractState").Value
+            If status <> Statuses.Waiting Then
+                T_Accept.Enabled = False
+                T_Decline.Enabled = False
+            End If
         End If
-        '-------
 
         If e.Button = Windows.Forms.MouseButtons.Right Then
             ctMenu.Show(Grid, New Point(e.X, e.Y))
@@ -335,14 +330,13 @@ Public Class frmContracts
         Dim r As UltraGridRow = Grid.ActiveRow
         If r IsNot Nothing AndAlso r.Index <> -1 Then
             Dim contractId = r.Cells("ContractId").Value
-
-            Dim status = "Accepted"
+            Dim status = Statuses.Accepted
             If Not isAccepted Then
                 Dim reason = InputBox("Nhập lý do bạn KHÔNG duyệt hợp đồng:[" + contractId + "]")
                 If reason = "" Then
                     Exit Sub
                 End If
-                status = "Rejected"
+                status = Statuses.Rejected
             Else
                 If ShowMsgYesNo("Bạn muốn Duyệt hợp đồng số:[" + contractId + "] ?", m_MsgCaption) = Windows.Forms.DialogResult.No Then
                     Exit Sub
@@ -353,6 +347,7 @@ Public Class frmContracts
             Dim ok = cls.updateStatus(contractId, status, ModMain.m_UIDLogin)
             If ok Then
                 ShowMsgInfo(m_MsgSaveSuccess)
+                Me.Loadlist(contractId)
             Else
                 ShowMsg(m_SaveDataError)
             End If

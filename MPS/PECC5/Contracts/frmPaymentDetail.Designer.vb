@@ -31,11 +31,26 @@ Partial Class frmPaymentDetail
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance69 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance82 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance118 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
+        Dim Appearance119 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance120 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance121 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance122 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance123 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance124 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance125 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance126 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance127 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance128 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance129 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.grpBottom = New Infragistics.Win.Misc.UltraGroupBox
         Me.btnSave = New Infragistics.Win.Misc.UltraButton
         Me.btnExit = New Infragistics.Win.Misc.UltraButton
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.grpMain = New Infragistics.Win.Misc.UltraGroupBox
+        Me.Label1 = New System.Windows.Forms.Label
         Me.lblConvertMoney = New System.Windows.Forms.Label
         Me.txtPaymentTotal = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.lblUnit = New System.Windows.Forms.Label
@@ -46,8 +61,7 @@ Partial Class frmPaymentDetail
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.lblStatus = New System.Windows.Forms.Label
+        Me.cboStatus = New Infragistics.Win.UltraWinGrid.UltraCombo
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,6 +69,7 @@ Partial Class frmPaymentDetail
         CType(Me.txtPaymentTotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPaymentName, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPaymentId, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboStatus, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpBottom
@@ -154,10 +169,10 @@ Partial Class frmPaymentDetail
         'grpMain
         '
         Me.grpMain.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
-        Me.grpMain.Controls.Add(Me.Label1)
-        Me.grpMain.Controls.Add(Me.lblStatus)
-        Me.grpMain.Controls.Add(Me.lblConvertMoney)
         Me.grpMain.Controls.Add(Me.txtPaymentTotal)
+        Me.grpMain.Controls.Add(Me.cboStatus)
+        Me.grpMain.Controls.Add(Me.Label1)
+        Me.grpMain.Controls.Add(Me.lblConvertMoney)
         Me.grpMain.Controls.Add(Me.lblUnit)
         Me.grpMain.Controls.Add(Me.dtPaymentDate)
         Me.grpMain.Controls.Add(Me.txtPaymentName)
@@ -177,6 +192,17 @@ Partial Class frmPaymentDetail
         Me.grpMain.TabIndex = 0
         Me.grpMain.Text = "CHI TIẾT THANH TOÁN"
         Me.grpMain.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(315, 110)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(67, 16)
+        Me.Label1.TabIndex = 18
+        Me.Label1.Text = "Trạng thái"
         '
         'lblConvertMoney
         '
@@ -209,7 +235,7 @@ Partial Class frmPaymentDetail
         Me.lblUnit.AutoSize = True
         Me.lblUnit.BackColor = System.Drawing.Color.Transparent
         Me.lblUnit.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUnit.Location = New System.Drawing.Point(275, 110)
+        Me.lblUnit.Location = New System.Drawing.Point(273, 112)
         Me.lblUnit.Name = "lblUnit"
         Me.lblUnit.Size = New System.Drawing.Size(33, 16)
         Me.lblUnit.TabIndex = 15
@@ -217,9 +243,9 @@ Partial Class frmPaymentDetail
         '
         'dtPaymentDate
         '
-        Me.dtPaymentDate.Location = New System.Drawing.Point(430, 75)
+        Me.dtPaymentDate.Location = New System.Drawing.Point(388, 75)
         Me.dtPaymentDate.Name = "dtPaymentDate"
-        Me.dtPaymentDate.Size = New System.Drawing.Size(105, 23)
+        Me.dtPaymentDate.Size = New System.Drawing.Size(147, 23)
         Me.dtPaymentDate.TabIndex = 4
         '
         'txtPaymentName
@@ -260,7 +286,7 @@ Partial Class frmPaymentDetail
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(323, 75)
+        Me.Label4.Location = New System.Drawing.Point(281, 75)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(101, 16)
         Me.Label4.TabIndex = 11
@@ -288,28 +314,76 @@ Partial Class frmPaymentDetail
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Mã đợt TT"
         '
-        'Label1
+        'cboStatus
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(323, 108)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 16)
-        Me.Label1.TabIndex = 18
-        Me.Label1.Text = "Trạng thái:"
-        '
-        'lblStatus
-        '
-        Me.lblStatus.AutoSize = True
-        Me.lblStatus.BackColor = System.Drawing.Color.Transparent
-        Me.lblStatus.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStatus.ForeColor = System.Drawing.Color.Blue
-        Me.lblStatus.Location = New System.Drawing.Point(427, 108)
-        Me.lblStatus.Name = "lblStatus"
-        Me.lblStatus.Size = New System.Drawing.Size(51, 16)
-        Me.lblStatus.TabIndex = 17
-        Me.lblStatus.Text = "Chờ ký"
+        Appearance82.TextHAlignAsString = "Center"
+        Me.cboStatus.Appearance = Appearance82
+        Me.cboStatus.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Appearance118.BackColor = System.Drawing.SystemColors.Window
+        Appearance118.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        Me.cboStatus.DisplayLayout.Appearance = Appearance118
+        Me.cboStatus.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
+        UltraGridBand1.ColHeadersVisible = False
+        Me.cboStatus.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
+        Me.cboStatus.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboStatus.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Appearance119.BackColor = System.Drawing.SystemColors.ActiveBorder
+        Appearance119.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance119.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance119.BorderColor = System.Drawing.SystemColors.Window
+        Me.cboStatus.DisplayLayout.GroupByBox.Appearance = Appearance119
+        Appearance120.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.cboStatus.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance120
+        Me.cboStatus.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Appearance121.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Appearance121.BackColor2 = System.Drawing.SystemColors.Control
+        Appearance121.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance121.ForeColor = System.Drawing.SystemColors.GrayText
+        Me.cboStatus.DisplayLayout.GroupByBox.PromptAppearance = Appearance121
+        Me.cboStatus.DisplayLayout.MaxColScrollRegions = 1
+        Me.cboStatus.DisplayLayout.MaxRowScrollRegions = 1
+        Appearance122.BackColor = System.Drawing.SystemColors.Window
+        Appearance122.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.cboStatus.DisplayLayout.Override.ActiveCellAppearance = Appearance122
+        Appearance123.BackColor = System.Drawing.SystemColors.Highlight
+        Appearance123.ForeColor = System.Drawing.SystemColors.HighlightText
+        Me.cboStatus.DisplayLayout.Override.ActiveRowAppearance = Appearance123
+        Me.cboStatus.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboStatus.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Appearance124.BackColor = System.Drawing.SystemColors.Window
+        Me.cboStatus.DisplayLayout.Override.CardAreaAppearance = Appearance124
+        Appearance125.BorderColor = System.Drawing.Color.Silver
+        Appearance125.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
+        Me.cboStatus.DisplayLayout.Override.CellAppearance = Appearance125
+        Me.cboStatus.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.cboStatus.DisplayLayout.Override.CellPadding = 0
+        Appearance126.BackColor = System.Drawing.SystemColors.Control
+        Appearance126.BackColor2 = System.Drawing.SystemColors.ControlDark
+        Appearance126.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
+        Appearance126.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
+        Appearance126.BorderColor = System.Drawing.SystemColors.Window
+        Me.cboStatus.DisplayLayout.Override.GroupByRowAppearance = Appearance126
+        Appearance127.TextHAlignAsString = "Left"
+        Me.cboStatus.DisplayLayout.Override.HeaderAppearance = Appearance127
+        Me.cboStatus.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.cboStatus.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Appearance128.BackColor = System.Drawing.SystemColors.Window
+        Appearance128.BorderColor = System.Drawing.Color.Silver
+        Me.cboStatus.DisplayLayout.Override.RowAppearance = Appearance128
+        Me.cboStatus.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Appearance129.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.cboStatus.DisplayLayout.Override.TemplateAddRowAppearance = Appearance129
+        Me.cboStatus.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.cboStatus.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.cboStatus.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.cboStatus.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.cboStatus.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
+        Me.cboStatus.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboStatus.Location = New System.Drawing.Point(388, 108)
+        Me.cboStatus.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cboStatus.Name = "cboStatus"
+        Me.cboStatus.Size = New System.Drawing.Size(147, 26)
+        Me.cboStatus.TabIndex = 19
         '
         'frmPaymentDetail
         '
@@ -337,6 +411,7 @@ Partial Class frmPaymentDetail
         CType(Me.txtPaymentTotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPaymentName, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtPaymentId, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboStatus, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -356,5 +431,5 @@ Partial Class frmPaymentDetail
     Friend WithEvents lblUnit As System.Windows.Forms.Label
     Friend WithEvents lblConvertMoney As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents lblStatus As System.Windows.Forms.Label
+    Friend WithEvents cboStatus As Infragistics.Win.UltraWinGrid.UltraCombo
 End Class

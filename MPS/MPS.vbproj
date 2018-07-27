@@ -295,6 +295,7 @@
     <Compile Include="PECC5\ProjectTypes\frmProjectTypes.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PECC5\Statuses\Statuses.vb" />
     <Compile Include="PECC5\SubContractors\frmSubContractorDetail.Designer.vb">
       <DependentUpon>frmSubContractorDetail.vb</DependentUpon>
     </Compile>

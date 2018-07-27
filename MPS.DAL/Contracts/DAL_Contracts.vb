@@ -27,17 +27,17 @@ Public Class DAL_Contracts
         If isExist(m.ContractId) Then
             sql = "Update Contracts set ContractName=@ContractName,ProjectId=@ProjectId,ContractDate=@ContractDate,"
             sql += "ContractValue=@ContractValue,ContractDeadLine=@ContractDeadLine,MainContractorId=@MainContractorId,Note=@Note,"
-            sql += "ContractLevelId=@ContractLevelId,UpdatedAt=getdate(),ContractState=@ContractState,SubContracts=@SubContracts where ContractId=@ContractId"
+            sql += "ContractLevelId=@ContractLevelId,UpdatedAt=getdate(),ContractState=@ContractState,SubContracts=@SubContracts,DeadlineExt=@DeadlineExt where ContractId=@ContractId"
         Else
-            sql = "Insert into Contracts(ContractId,ContractName,ProjectId,ContractDate,ContractValue,ContractDeadLine,MainContractorId,ContractLevelId,ContractState,SubContracts,Note,CreatedAt)"
-            sql += "values(@ContractId,@ContractName,@ProjectId,@ContractDate,@ContractValue,@ContractDeadLine,@MainContractorId,@ContractLevelId,@ContractState,@SubContracts,@Note,getdate())"
+            sql = "Insert into Contracts(ContractId,ContractName,ProjectId,ContractDate,ContractValue,ContractDeadLine,MainContractorId,ContractLevelId,ContractState,SubContracts,Note,DeadlineExt,CreatedAt)"
+            sql += "values(@ContractId,@ContractName,@ProjectId,@ContractDate,@ContractValue,@ContractDeadLine,@MainContractorId,@ContractLevelId,@ContractState,@SubContracts,@Note,@DeadlineExt,getdate())"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(10) As SqlParameter
+        Dim p(11) As SqlParameter
         p(0) = New SqlParameter("@ContractId", m.ContractId)
         p(1) = New SqlParameter("@ContractName", m.ContractName)
         p(2) = New SqlParameter("@ProjectId", m.ProjectId)
@@ -49,6 +49,7 @@ Public Class DAL_Contracts
         p(8) = New SqlParameter("@Note", m.Note)
         p(9) = New SqlParameter("@ContractLevelId", m.ContractLevelId)
         p(10) = New SqlParameter("@SubContracts", m.SubContracts)
+        p(11) = New SqlParameter("@DeadlineExt", m.DeadlineExt)
 
         Me.BeginTranstion()
 

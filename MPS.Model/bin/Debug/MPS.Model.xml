@@ -41,6 +41,13 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractPayment.StatusDesc">
+	<summary>
+ description for Status: only view not save
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.MAttachFileContract.DelItem">
 	<summary>
  nút xóa item
@@ -114,6 +121,20 @@ MPS.Model
 </member><member name="P:MPS.Model.MContract.SubContracts">
 	<summary>
  danh sách phụ lục hợp đồng (nếu có)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.Reason">
+	<summary>
+ lý do từ chối ko duyệt
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.DeadlineExt">
+	<summary>
+ ngày gia hạn thêm ở phụ lục (nếu có)
  </summary>
 	<value></value>
 	<returns></returns>

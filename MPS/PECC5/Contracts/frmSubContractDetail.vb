@@ -13,10 +13,10 @@
         If Me.item IsNot Nothing Then
             Me.LoadInfo(Me.item)
             ModMain.BlueButton(btnSave, ModMain.m_SaveIcon)
-            btnSave.Text = "Cập nhật"
+            btnSave.Text = ModMain.m_Update
         Else
             ModMain.BlueButton(btnSave, ModMain.m_AddIcon)
-            btnSave.Text = "Thêm"
+            btnSave.Text = ModMain.m_Add
         End If
     End Sub
     Private Sub LoadInfo(ByVal m As Model.MSubContract)

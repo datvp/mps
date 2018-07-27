@@ -204,6 +204,12 @@
 
 
     Private m_Reason As String = ""
+    ''' <summary>
+    ''' lý do từ chối ko duyệt
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Property Reason() As String
         Get
             Return m_Reason
@@ -212,6 +218,25 @@
             m_Reason = value
         End Set
     End Property
+
+
+    Private m_DeadlineExt As Date = CDate("2000-1-1")
+    ''' <summary>
+    ''' ngày gia hạn thêm ở phụ lục (nếu có)
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property DeadlineExt() As Date
+        Get
+            Return m_DeadlineExt
+        End Get
+        Set(ByVal value As Date)
+            m_DeadlineExt = value
+        End Set
+    End Property
+
+
 
     Private m_arrContractDetail As IList(Of MContractDetail) = New List(Of MContractDetail)
     ''' <summary>

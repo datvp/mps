@@ -69,4 +69,20 @@
             m_PaymentStatus = value
         End Set
     End Property
+
+    Private m_StatusDesc As String = ""
+    ''' <summary>
+    ''' description for Status: only view not save
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property StatusDesc() As String
+        Get
+            Return m_StatusDesc
+        End Get
+        Set(ByVal value As String)
+            m_StatusDesc = value
+        End Set
+    End Property
 End Class

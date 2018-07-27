@@ -20,9 +20,10 @@ Module ModMain
     Public m_MsgNotPermitUseThisFun As String = "Người dùng không được cấp quyền chạy chức năng này !"
     Public m_DelErrorOneItems As String = "Quá trình xóa bị lỗi. Kiểm tra và thực hiện lại !"
     Public m_SaveDataError As String = "Quá trình lưu dữ liệu có lỗi. Kiểm tra và thực hiện lại !"
-    Public m_AddNew As String = "Thêm mới"
+    Public m_Add As String = "Thêm"
     Public m_SelectAll As String = "Tất cả"
     Public m_Choose As String = "Chọn"
+    Public m_Update As String = "Cập nhật"
     Public FormTitle As String = "CONTRACT MANAGER SOFTWARE FOR ENERGY PROJECT" '18.06.09 
     Public m_Version As String = ""
 
@@ -1324,5 +1325,26 @@ Module ModMain
     Public Function convertMoney(ByVal value As Double) As String
         Dim des = clsu.convertMoney(value, m_SysCurChar)
         Return des
+    End Function
+
+    Public Function StatusText(ByVal key As String) As String
+        Select Case key
+            Case Statuses.Waiting
+                Return "Chờ duyệt"
+            Case Statuses.Accepted
+                Return "Đã duyệt"
+            Case Statuses.Rejected
+                Return "Không duyệt"
+            Case Statuses.Completed
+                Return "Hoàn thành"
+            Case Statuses.WaitForPay
+                Return "Chờ thanh toán"
+            Case Statuses.Paid
+                Return "Đã thanh toán"
+            Case Else
+                Return ""
+        End Select
+
+        Return ""
     End Function
 End Module

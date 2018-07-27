@@ -61,21 +61,20 @@ Public Class frmContractDetail
         cboMainContractor.DataSource = tb
     End Sub
     Private Sub ClearInfo()
-        Dim m As New Model.MContract
-        txtContractId.Text = m.ContractId
+        txtContractId.Clear()
         txtContractId.Enabled = True
-        txtContractName.Text = m.ContractName
-        txtContractValue.Text = Format(0, ModMain.m_strFormatCur)
+        txtContractName.Clear()
+        txtContractValue.Text = "0"
         cboProject.Value = Nothing
         cboContractLevel.Value = Nothing
         cboMainContractor.Value = Nothing
-        grdItems.DataSource = m.arrContractDetail
-        grdSubContracts.DataSource = m.arrSubContract
-        grdSubContractors.DataSource = m.arrSubContractor
-        grdFiles.DataSource = m.arrFile
-        grdPayment.DataSource = m.arrPayment
-        grdHistory.DataSource = m.arrHistory
-        txtNote.Text = m.Note
+        grdItems.DataSource = New List(Of Model.MContractDetail)
+        grdSubContracts.DataSource = New List(Of Model.MSubContract)
+        grdSubContractors.DataSource = New List(Of Model.MContract_SubContractor)
+        grdFiles.DataSource = New List(Of Model.MAttachFileContract)
+        grdPayment.DataSource = New List(Of Model.MContractPayment)
+        grdHistory.DataSource = New List(Of Model.MContractHistory)
+        txtNote.Clear()
         Me.SumTotal()
     End Sub
     Private Sub LoadInfo(ByVal ContractId As String)
@@ -91,13 +90,16 @@ Public Class frmContractDetail
         cboProject.Value = mInfo.ProjectId
         cboMainContractor.Value = mInfo.MainContractorId
         cboContractLevel.Value = mInfo.ContractLevelId
-        lblStatus.Text = mInfo.ContractState
+        lblStatus.Text = ModMain.StatusText(mInfo.ContractState)
         txtNote.Text = mInfo.Note
 
         grdItems.DataSource = mInfo.arrContractDetail
         grdSubContractors.DataSource = mInfo.arrSubContractor
         grdSubContracts.DataSource = mInfo.arrSubContract
         grdFiles.DataSource = mInfo.arrFile
+        For Each it In mInfo.arrPayment
+            it.StatusDesc = StatusText(it.PaymentStatus)
+        Next
         grdPayment.DataSource = mInfo.arrPayment
         grdHistory.DataSource = mInfo.arrHistory
         Me.SumTotal()
@@ -108,6 +110,7 @@ Public Class frmContractDetail
         m.ContractName = txtContractName.Text
         m.ContractDate = dtCreateDate.Value
         m.ContractDeadLine = dtExpireDate.Value
+        m.DeadlineExt = dtDeadlineExt.Value
         m.ContractValue = CDbl(txtContractValue.Text)
         If cboProject.Value IsNot Nothing Then
             m.ProjectId = cboProject.Value
@@ -115,7 +118,7 @@ Public Class frmContractDetail
         If cboContractLevel.Value IsNot Nothing Then
             m.ContractLevelId = cboContractLevel.Value
         End If
-        m.ContractState = "Waiting" ' waiting -> accepted|rejected -> completed || deleted
+        m.ContractState = Statuses.Waiting
         If cboMainContractor.Value IsNot Nothing Then
             m.MainContractorId = cboMainContractor.Value
         End If
@@ -183,7 +186,12 @@ Public Class frmContractDetail
             Return False
         End If
 
-
+        If mInfo IsNot Nothing Then ' edit
+            If mInfo.ContractState <> Statuses.Waiting Then
+                ShowMsg("Hợp đồng đang ở tình trạng: [" + StatusText(mInfo.ContractState) + "], không thể chỉnh sửa.")
+                Return False
+            End If
+        End If
 
         Return True
     End Function
@@ -204,7 +212,7 @@ Public Class frmContractDetail
                 desc += vbCrLf & "Ngày hết hạn: [" + mInfo.ContractDeadLine + "] -> [" + m.ContractDeadLine + "]"
             End If
             If m.ContractValue <> mInfo.ContractValue Then
-                desc += vbCrLf & "Giá trị hợp đồng: [" + mInfo.ContractValue + "] -> [" + m.ContractValue + "]"
+                desc += vbCrLf & "Giá trị hợp đồng: [" + Format(mInfo.ContractValue, ModMain.m_strFormatCur) + "] -> [" + Format(m.ContractValue, ModMain.m_strFormatCur) + "]"
             End If
             If m.ContractLevelId <> mInfo.ContractLevelId Then
                 desc += vbCrLf & "Phân cấp hợp đồng: [" + mInfo.ContractLevelId + "] -> [" + m.ContractLevelId + "]"
@@ -358,6 +366,7 @@ Public Class frmContractDetail
                             OrElse it.PaymentTotal <> foundItem.PaymentTotal _
                             OrElse it.PaymentTotal <> foundItem.PaymentTotal _
                             OrElse it.PaymentDate <> foundItem.PaymentDate _
+                            OrElse it.PaymentStatus <> foundItem.PaymentStatus _
                         Then
                             desc += vbCrLf & "Sửa đợt thanh toán [" + it.PaymentName + "]: "
                             If it.PaymentName <> foundItem.PaymentName Then
@@ -368,6 +377,9 @@ Public Class frmContractDetail
                             End If
                             If it.PaymentDate <> foundItem.PaymentDate Then
                                 desc += vbCrLf & " - Ngày thanh toán: [" + foundItem.PaymentDate.ToString("dd/MM/yyyy") + "] -> [" + it.PaymentDate.ToString("dd/MM/yyyy") + "]"
+                            End If
+                            If it.PaymentStatus <> foundItem.PaymentStatus Then
+                                desc += vbCrLf & " - Trạng thái thanh toán: [" + StatusText(foundItem.PaymentStatus) + "] -> [" + StatusText(it.PaymentStatus) + "]"
                             End If
                         End If
                     End If
@@ -399,14 +411,20 @@ Public Class frmContractDetail
         Dim arr As IList(Of Model.MSubContract) = grdSubContracts.DataSource
         If arr IsNot Nothing Then
             Dim extentValue As Double = 0
+            Dim extentDate As Date = dtExpireDate.Value
             For Each it In arr
                 extentValue += it.SubContractValue
+                If DateDiffM("day", extentDate, it.SubContractDeadLine) > 0 Then
+                    extentDate = it.SubContractDeadLine
+                End If
             Next
             txtExtentValue.Text = Format(extentValue, ModMain.m_strFormatCur)
             total += extentValue
+            dtDeadlineExt.Value = extentDate
         End If
         txtTotalValue.Text = Format(total, ModMain.m_strFormatCur)
         lblConvertMoney.Text = ModMain.convertMoney(total)
+
     End Sub
     Private Sub Save()
         Dim m = Me.setInfo()
@@ -463,6 +481,8 @@ Public Class frmContractDetail
                     m.PaymentName = item.PaymentName
                     m.PaymentTotal = item.PaymentTotal
                     m.PaymentDate = item.PaymentDate
+                    m.PaymentStatus = item.PaymentStatus
+                    m.StatusDesc = StatusText(item.PaymentStatus)
                     arr.Insert(arr.Count, m)
                 End If
                 grdPayment.Rows.Refresh(RefreshRow.RefreshDisplay)
@@ -584,6 +604,8 @@ Public Class frmContractDetail
                     arr.Item(i).PaymentName = item.PaymentName
                     arr.Item(i).PaymentTotal = item.PaymentTotal
                     arr.Item(i).PaymentDate = item.PaymentDate
+                    arr.Item(i).PaymentStatus = item.PaymentStatus
+                    arr.Item(i).StatusDesc = StatusText(item.PaymentStatus)
                 End If
                 found = arr.Item(i)
             End If
