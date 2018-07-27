@@ -25,19 +25,19 @@ Public Class DAL_Projects
         Dim sql = ""
 
         If isExist(m.ProjectId) Then
-            sql = "Update Projects set ClientId=@ClientId,ProjectName=@ProjectName,ProjectTypeId=@ProjectTypeId,ProjectGroupId=@ProjectGroupId"
+            sql = "Update Projects set BranchId=@BranchId,Status=@Status,ClientId=@ClientId,ProjectName=@ProjectName,ProjectTypeId=@ProjectTypeId,ProjectGroupId=@ProjectGroupId"
             sql += ",ConstructionLevelId=@ConstructionLevelId,Performance=@Performance,Length=@Length,Note=@Note"
             sql += ",PerformanceUnit=@PerformanceUnit,LengthUnit=@LengthUnit,UpdatedAt=getdate() where ProjectId=@ProjectId"
         Else
-            sql = "Insert into Projects(ClientId,ProjectId,ProjectName,ProjectTypeId,ProjectGroupId,ConstructionLevelId,Performance,Length,Note,PerformanceUnit,LengthUnit,CreatedAt)"
-            sql += "values(@ClientId,@ProjectId,@ProjectName,@ProjectTypeId,@ProjectGroupId,@ConstructionLevelId,@Performance,@Length,@Note,@PerformanceUnit,@LengthUnit,getdate())"
+            sql = "Insert into Projects(BranchId,Status,ClientId,ProjectId,ProjectName,ProjectTypeId,ProjectGroupId,ConstructionLevelId,Performance,Length,Note,PerformanceUnit,LengthUnit,CreatedAt)"
+            sql += "values(@BranchId,@Status,@ClientId,@ProjectId,@ProjectName,@ProjectTypeId,@ProjectGroupId,@ConstructionLevelId,@Performance,@Length,@Note,@PerformanceUnit,@LengthUnit,getdate())"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(10) As SqlParameter
+        Dim p(12) As SqlParameter
         p(0) = New SqlParameter("@ProjectId", m.ProjectId)
         p(1) = New SqlParameter("@ProjectName", m.ProjectName)
         p(2) = New SqlParameter("@ProjectTypeId", m.ProjectTypeId)
@@ -48,6 +48,8 @@ Public Class DAL_Projects
         p(7) = New SqlParameter("@Note", m.Note)
         p(8) = New SqlParameter("@PerformanceUnit", m.PerformanceUnit)        p(9) = New SqlParameter("@LengthUnit", m.LengthUnit)
         p(10) = New SqlParameter("@ClientId", m.ClientId)
+        p(11) = New SqlParameter("@BranchId", m.BranchId)
+        p(12) = New SqlParameter("@Status", m.Status)
         Return execSQL(sql, p)
     End Function
 
@@ -72,19 +74,12 @@ Public Class DAL_Projects
         If Not isDelete(ProjectId) Then
             Return False
         End If
-        Dim sql = "Delete from Projects where ProjectId=@ProjectId"
+        Dim sql = "Update Projects set Status='Deleted' where ProjectId=@ProjectId"
         Return Me.execSQL(sql, New SqlParameter("@ProjectId", ProjectId))
     End Function
 
-    Public Function getListProjects() As DataTable
-        Dim sql As String = "Select p.*, t.ProjectTypeName, g.ProjectGroupName, cl.ConstructionLevelName, c.ClientName, cg.ClientGroupName from Projects p"
-        sql += " left join Clients c on p.ClientId=c.ClientId"
-        sql += " left join ClientGroups cg on c.ClientGroupId=cg.ClientGroupId"
-        sql += " left join ProjectTypes t on p.ProjectTypeId=t.ProjectTypeId"
-        sql += " left join ProjectGroups g on p.ProjectGroupId=g.ProjectGroupId"
-        sql += " left join ConstructionLevels cl on p.ConstructionLevelId=cl.ConstructionLevelId"
-        sql += " order by p.CreatedAt"
-        Return Me.getTableSQL(sql)
+    Public Function getListProjects(ByVal branchId As String) As DataTable
+        Return Me.getTableSQL("Exec sp_getListProjects @branchId", New SqlParameter("@branchId", branchId))
     End Function
 
     Public Function getProjectDetailById(ByVal ProjectId As String) As Model.MProject
@@ -102,6 +97,7 @@ Public Class DAL_Projects
             m.Length = IsNull(tb.Rows(0)("Length"), "")
             m.LengthUnit = IsNull(tb.Rows(0)("LengthUnit"), "")
             m.Note = IsNull(tb.Rows(0)("Note"), "")
+            m.Status = IsNull(tb.Rows(0)("Status"), "")
         End If
         Return m
     End Function

@@ -181,6 +181,13 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.BranchId">
+	<summary>
+ Mã chi nhánh
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
@@ -194,6 +201,13 @@ MPS.Model
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="P:MPS.Model.MProject.BranchId">
+	<summary>
+ Mã chi nhánh
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.MSecUser.isViewAllBranch">
 	<summary>
  true: chỉ xem báo cáo Chi nhánh là Tất cả (ko xem chi tiết từng kho)

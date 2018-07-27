@@ -6,31 +6,7 @@ MPS.Reports
 </name>
 </assembly>
 <members>
-<member name="M:MPS.Reports.DAL_ReportOfStore.rptNhapXuatTon_new(System.String,System.String,System.String,System.DateTime,System.DateTime,System.Int32,System.Boolean,System.Boolean)">
-	<summary>
- báo cáo customize thêm
- </summary>
-	<param name="CPUID"></param>
-	<param name="Store_ID"></param>
-	<param name="Group_ID"></param>
-	<param name="fromDate"></param>
-	<param name="toDate"></param>
-	<param name="Unit"></param>
-	<param name="isAll"></param>
-	<param name="isTotal"></param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:MPS.Reports.DAL_ReportOfStore.InstockAt_2(System.String,System.String,System.String,System.DateTime)">
-	<summary>
- tồn đầu kỳ(bỏ Nhập khác,xuất khác)
- </summary>
-	<param name="CPUID"></param>
-	<param name="Store_ID"></param>
-	<param name="Group_ID"></param>
-	<param name="dayMonth"></param>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Reports.My.Resources.Resources.ResourceManager">
+<member name="P:MPS.Reports.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>

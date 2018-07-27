@@ -19,13 +19,6 @@ MPS.BLL
 	<param name="deadline">số ngày hết hạn so với ngày hiện tại</param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:MPS.BLL.B_Report.getListStoreNameSelect(System.String)">
-	<summary>
- lấy ds tên kho đang chọn
- </summary>
-	<param name="CPUID"></param>
-	<returns></returns>
-	<remarks></remarks>
 </member><member name="P:MPS.BLL.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.

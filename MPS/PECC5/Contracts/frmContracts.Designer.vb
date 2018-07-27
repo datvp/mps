@@ -35,12 +35,19 @@ Partial Class frmContracts
         Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance130 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance131 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance63 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance64 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance65 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraToolbar1 As Infragistics.Win.UltraWinToolbars.UltraToolbar = New Infragistics.Win.UltraWinToolbars.UltraToolbar("Toolbar1")
         Dim ButtonTool1 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnAdd")
         Dim ButtonTool2 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnEdit")
         Dim ButtonTool3 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnDel")
         Dim ButtonTool7 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnRefresh")
+        Dim StateButtonTool1 As Infragistics.Win.UltraWinToolbars.StateButtonTool = New Infragistics.Win.UltraWinToolbars.StateButtonTool("btnFilter", "")
         Dim ButtonTool4 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnAdd")
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool5 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnEdit")
@@ -49,9 +56,18 @@ Partial Class frmContracts
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool8 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnRefresh")
         Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim StateButtonTool2 As Infragistics.Win.UltraWinToolbars.StateButtonTool = New Infragistics.Win.UltraWinToolbars.StateButtonTool("btnFilter", "")
+        Dim Appearance26 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.Grid = New Infragistics.Win.UltraWinGrid.UltraGrid
+        Me.csFilter = New NJFLib.Controls.CollapsibleSplitter
+        Me.pnlFilter = New System.Windows.Forms.Panel
+        Me.txtLength = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.txtPerformance = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.Label6 = New System.Windows.Forms.Label
+        Me.btnSearch = New Infragistics.Win.Misc.UltraButton
         Me.LabelBottom = New Infragistics.Win.Misc.UltraLabel
         Me._Panel1_Toolbars_Dock_Area_Left = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me.Toolbars = New Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(Me.components)
@@ -69,11 +85,14 @@ Partial Class frmContracts
         Me.T_Layout = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Export = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Accept = New System.Windows.Forms.ToolStripMenuItem
         Me.T_Decline = New System.Windows.Forms.ToolStripMenuItem
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.Panel1.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlFilter.SuspendLayout()
+        CType(Me.txtLength, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPerformance, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toolbars, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ctMenu.SuspendLayout()
         Me.SuspendLayout()
@@ -98,6 +117,8 @@ Partial Class frmContracts
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.Grid)
+        Me.Panel1.Controls.Add(Me.csFilter)
+        Me.Panel1.Controls.Add(Me.pnlFilter)
         Me.Panel1.Controls.Add(Me.LabelBottom)
         Me.Panel1.Controls.Add(Me._Panel1_Toolbars_Dock_Area_Left)
         Me.Panel1.Controls.Add(Me._Panel1_Toolbars_Dock_Area_Right)
@@ -171,10 +192,118 @@ Partial Class frmContracts
         Me.Grid.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.Grid.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.Grid.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Grid.Location = New System.Drawing.Point(0, 26)
+        Me.Grid.Location = New System.Drawing.Point(0, 76)
         Me.Grid.Name = "Grid"
-        Me.Grid.Size = New System.Drawing.Size(726, 429)
+        Me.Grid.Size = New System.Drawing.Size(726, 379)
         Me.Grid.TabIndex = 43
+        '
+        'csFilter
+        '
+        Me.csFilter.AnimationDelay = 20
+        Me.csFilter.AnimationStep = 20
+        Me.csFilter.BackColor = System.Drawing.SystemColors.Control
+        Me.csFilter.BorderStyle3D = System.Windows.Forms.Border3DStyle.Flat
+        Me.csFilter.ControlToHide = Me.pnlFilter
+        Me.csFilter.Dock = System.Windows.Forms.DockStyle.Top
+        Me.csFilter.ExpandParentForm = False
+        Me.csFilter.Location = New System.Drawing.Point(0, 68)
+        Me.csFilter.Name = "CollapsibleSplitter2"
+        Me.csFilter.TabIndex = 49
+        Me.csFilter.TabStop = False
+        Me.csFilter.UseAnimations = False
+        Me.csFilter.VisualStyle = NJFLib.Controls.VisualStyles.Mozilla
+        '
+        'pnlFilter
+        '
+        Me.pnlFilter.Controls.Add(Me.txtLength)
+        Me.pnlFilter.Controls.Add(Me.Label1)
+        Me.pnlFilter.Controls.Add(Me.txtPerformance)
+        Me.pnlFilter.Controls.Add(Me.Label6)
+        Me.pnlFilter.Controls.Add(Me.btnSearch)
+        Me.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top
+        Me.pnlFilter.Location = New System.Drawing.Point(0, 26)
+        Me.pnlFilter.Name = "pnlFilter"
+        Me.pnlFilter.Size = New System.Drawing.Size(726, 42)
+        Me.pnlFilter.TabIndex = 48
+        '
+        'txtLength
+        '
+        Appearance130.TextHAlignAsString = "Center"
+        Me.txtLength.Appearance = Appearance130
+        Me.txtLength.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtLength.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtLength.Location = New System.Drawing.Point(374, 9)
+        Me.txtLength.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtLength.MaxLength = 15
+        Me.txtLength.Name = "txtLength"
+        Me.txtLength.Size = New System.Drawing.Size(90, 25)
+        Me.txtLength.TabIndex = 15
+        Me.txtLength.Text = "0"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(260, 11)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(107, 16)
+        Me.Label1.TabIndex = 16
+        Me.Label1.Text = "Chiều dài đấu nối"
+        '
+        'txtPerformance
+        '
+        Appearance131.TextHAlignAsString = "Center"
+        Me.txtPerformance.Appearance = Appearance131
+        Me.txtPerformance.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtPerformance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPerformance.Location = New System.Drawing.Point(143, 9)
+        Me.txtPerformance.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtPerformance.MaxLength = 15
+        Me.txtPerformance.Name = "txtPerformance"
+        Me.txtPerformance.Size = New System.Drawing.Size(90, 25)
+        Me.txtPerformance.TabIndex = 13
+        Me.txtPerformance.Text = "0"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(29, 10)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(108, 16)
+        Me.Label6.TabIndex = 14
+        Me.Label6.Text = "Công suất lắp đặt"
+        '
+        'btnSearch
+        '
+        Appearance63.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance63.BackColor2 = System.Drawing.Color.White
+        Appearance63.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
+        Appearance63.BorderColor = System.Drawing.Color.LightSteelBlue
+        Appearance63.FontData.BoldAsString = "True"
+        Appearance63.ForeColor = System.Drawing.Color.Black
+        Appearance63.Image = Global.MPS.My.Resources.Resources.view
+        Me.btnSearch.Appearance = Appearance63
+        Me.btnSearch.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
+        Me.btnSearch.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Appearance64.BackColor = System.Drawing.Color.Yellow
+        Appearance64.BackColor2 = System.Drawing.Color.White
+        Appearance64.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
+        Me.btnSearch.HotTrackAppearance = Appearance64
+        Me.btnSearch.Location = New System.Drawing.Point(573, 8)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 6, 3, 6)
+        Me.btnSearch.Name = "btnSearch"
+        Appearance65.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Appearance65.BackColor2 = System.Drawing.Color.White
+        Appearance65.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
+        Me.btnSearch.PressedAppearance = Appearance65
+        Me.btnSearch.Size = New System.Drawing.Size(96, 25)
+        Me.btnSearch.TabIndex = 12
+        Me.btnSearch.Text = "Lọc"
+        Me.btnSearch.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
+        Me.btnSearch.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
         '
         'LabelBottom
         '
@@ -207,6 +336,8 @@ Partial Class frmContracts
         'Toolbars
         '
         Me.Toolbars.AlwaysShowMenusExpanded = Infragistics.Win.DefaultableBoolean.[False]
+        Appearance27.FontData.BoldAsString = "True"
+        Me.Toolbars.Appearance = Appearance27
         Me.Toolbars.DesignerFlags = 1
         Me.Toolbars.DockWithinContainer = Me.Panel1
         Me.Toolbars.LockToolbars = True
@@ -216,7 +347,8 @@ Partial Class frmContracts
         Me.Toolbars.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.Office2007
         UltraToolbar1.DockedColumn = 0
         UltraToolbar1.DockedRow = 0
-        UltraToolbar1.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool1, ButtonTool2, ButtonTool3, ButtonTool7})
+        StateButtonTool1.InstanceProps.IsFirstInGroup = True
+        UltraToolbar1.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool1, ButtonTool2, ButtonTool3, ButtonTool7, StateButtonTool1})
         UltraToolbar1.Text = "Toolbar1"
         Me.Toolbars.Toolbars.AddRange(New Infragistics.Win.UltraWinToolbars.UltraToolbar() {UltraToolbar1})
         Me.Toolbars.ToolbarSettings.FillEntireRow = Infragistics.Win.DefaultableBoolean.[True]
@@ -244,7 +376,10 @@ Partial Class frmContracts
         ButtonTool8.SharedProps.AppearancesSmall.Appearance = Appearance25
         ButtonTool8.SharedProps.Caption = "Refresh (F5)"
         ButtonTool8.SharedProps.DisplayStyle = Infragistics.Win.UltraWinToolbars.ToolDisplayStyle.ImageAndText
-        Me.Toolbars.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool4, ButtonTool5, ButtonTool6, ButtonTool8})
+        Appearance26.Image = Global.MPS.My.Resources.Resources.filter
+        StateButtonTool2.SharedProps.AppearancesSmall.Appearance = Appearance26
+        StateButtonTool2.SharedProps.Caption = "Tìm kiếm nâng cao"
+        Me.Toolbars.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool4, ButtonTool5, ButtonTool6, ButtonTool8, StateButtonTool2})
         '
         '_Panel1_Toolbars_Dock_Area_Right
         '
@@ -284,7 +419,7 @@ Partial Class frmContracts
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export, Me.ToolStripSeparator1, Me.T_Accept, Me.T_Decline})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 248)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 226)
         '
         'T_Add
         '
@@ -364,6 +499,11 @@ Partial Class frmContracts
         Me.T_Export.Size = New System.Drawing.Size(200, 22)
         Me.T_Export.Text = "Xuất ra Excel"
         '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(197, 6)
+        '
         'T_Accept
         '
         Me.T_Accept.ForeColor = System.Drawing.Color.Navy
@@ -379,11 +519,6 @@ Partial Class frmContracts
         Me.T_Decline.Name = "T_Decline"
         Me.T_Decline.Size = New System.Drawing.Size(200, 22)
         Me.T_Decline.Text = "Không duyệt"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(197, 6)
         '
         'frmContracts
         '
@@ -401,6 +536,10 @@ Partial Class frmContracts
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlFilter.ResumeLayout(False)
+        Me.pnlFilter.PerformLayout()
+        CType(Me.txtLength, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPerformance, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Toolbars, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ctMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -429,4 +568,11 @@ Partial Class frmContracts
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents T_Accept As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents T_Decline As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents pnlFilter As System.Windows.Forms.Panel
+    Friend WithEvents csFilter As NJFLib.Controls.CollapsibleSplitter
+    Friend WithEvents btnSearch As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents txtPerformance As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents txtLength As Infragistics.Win.UltraWinEditors.UltraTextEditor
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

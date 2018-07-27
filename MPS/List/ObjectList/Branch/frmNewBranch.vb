@@ -1,6 +1,6 @@
 ﻿Public Class frmNewBranch
 
-    Dim clsu As New VsoftBMS.Ulti.clsUti
+    Dim clsu As New VsoftBMS.Ulti.ClsUti
     Private WithEvents b As BLL.B_Branchs = BLL.B_Branchs.Instance
 
     Private Sub b__errorRaise(ByVal messege As String) Handles b._errorRaise
@@ -219,7 +219,7 @@
             ModMain.UpdateEvent(ModMain.m_UIDLogin, strEvent, TypeEvents.List)
             keySelect = m.s_ID
             ' set quyen mac dinh chi nhánh cac chi nhánh hang
-            Dim cf As New BLL.BFuncRight
+            Dim cf As BLL.BFuncRight = BLL.BFuncRight.Instance
             cf.SetFuncBranch("")
             Return True
         End If
@@ -266,7 +266,7 @@
             txtAddress.Focus()
         End If
     End Sub
-   
+
     Private Sub txtPhone_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtPhone.KeyDown
         If e.KeyCode = Keys.Enter Then
             txtNote.Focus()

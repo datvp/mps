@@ -15,9 +15,7 @@
     Private Sub cls__error(ByVal message As String) Handles cls._error
         RaiseEvent _errorRaise(message)
     End Sub
-    Public Function UPDATEDB_HQ(ByVal m As Model.MLS_Employees, ByVal isUpdateCodeSystem As Boolean) As Boolean
-        Return cls.UPDATEDB_HQ(m, isUpdateCodeSystem)
-    End Function
+   
     Public Function UPDATEDB(ByVal m As Model.MLS_Employees) As Boolean
         Return cls.UPDATEDB(m)
     End Function
@@ -35,9 +33,6 @@
 
     Public Function getList() As DataTable
         Return cls.getList
-    End Function
-    Public Function getItemUpload(ByVal ID As String) As DataTable
-        Return cls.getItemUpload(ID)
     End Function
 
     Public Function getList(ByVal dayMonth As Date) As DataTable

@@ -730,7 +730,7 @@ Module ModMain
 
     Public Function getPermitStore(ByVal UID As String, ByVal store_ID As String) As Model.MFuncRight
         Dim m As New Model.MFuncRight
-        Dim cls As New BLL.BFuncRight
+        Dim cls As BLL.BFuncRight = BLL.BFuncRight.Instance
 
         If UID.ToLower <> "admin" Then
             Dim tb As DataTable = cls.getFuncRightStore(UID, store_ID)
@@ -760,7 +760,7 @@ Module ModMain
     Public Function getPermitFunc(ByVal UID As String, ByVal FuncID As Integer) As Model.MFuncRight
         Dim m As New Model.MFuncRight
         If UID.ToLower <> "admin" Then
-            Dim cls As New BLL.BFuncRight
+            Dim cls As BLL.BFuncRight = BLL.BFuncRight.Instance
             Dim tb As DataTable = cls.getFuncRight(UID, FuncID)
             m.A = tb.Rows(0)("A")
             m.U = tb.Rows(0)("U")

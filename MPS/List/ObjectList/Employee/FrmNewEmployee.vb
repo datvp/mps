@@ -104,23 +104,7 @@ Public Class FrmNewEmployee
             Me.cboCur2.ReadOnly = True
             If cboPosition.Rows.Count >= 2 Then cboPosition.Rows(1).Selected = True
         End If
-        GetEmployeeCode()
         Security()
-    End Sub
-
-    Private Sub GetEmployeeCode()
-        Dim clsP As BLL.BPublic = BLL.BPublic.Instance
-        Dim s As String = ""
-        s = clsP.getEmployeeCode("")
-        If txtSID.Text = "" Then
-            Me.txtEmployeeID.Text = s
-        End If
-
-        If s <> "" Then
-            txtEmployeeID.Enabled = False
-        Else
-            txtEmployeeID.Enabled = True
-        End If
     End Sub
 
 #End Region
@@ -141,13 +125,10 @@ Public Class FrmNewEmployee
     End Sub
 
     Private Sub ClearInfo()
-
-
         Me.txtOrdinal.Text = "0"
         Me.txtSID.Text = ""
         Me.txtEmployeeID.Text = ""
         Me.txtEmployeeName.Text = ""
-        GetEmployeeCode()
         Me.chActive.Checked = True
         Me.cboPosition.Value = Nothing
         Me.pic1.Image = Nothing

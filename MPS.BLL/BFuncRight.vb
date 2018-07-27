@@ -1,7 +1,18 @@
 ﻿Public Class BFuncRight
-
-    Private WithEvents cls As New DAL.DALFuncRight
+    Private WithEvents cls As DAL.DALFuncRight = DAL.DALFuncRight.Instance
     Event _errorRaise(ByVal messege As String)
+
+    Private Sub New()
+    End Sub
+    Private Shared obj As BFuncRight
+    Public Shared ReadOnly Property Instance() As BFuncRight
+        Get
+            If obj Is Nothing Then
+                obj = New BFuncRight
+            End If
+            Return obj
+        End Get
+    End Property
 
     Private Sub cls__error(ByVal message As String) Handles cls._error
         RaiseEvent _errorRaise(message)

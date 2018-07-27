@@ -97,7 +97,6 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.FrmNewEmployee.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmDashboard.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmDashboardDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmFlash.resources
-E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.MasterForm.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmProjectDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.FrmReport.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.ResBMS.resources

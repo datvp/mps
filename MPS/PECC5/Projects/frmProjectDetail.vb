@@ -109,6 +109,7 @@
     End Sub
     Private Function setInfo() As Model.MProject
         Dim m As New Model.MProject
+        m.BranchId = ModMain.m_BranchId
         m.ProjectId = txtProjectId.Text
         m.ProjectName = txtProjectName.Text
         If cboProjectType.Value IsNot Nothing Then
@@ -132,6 +133,7 @@
             m.LengthUnit = cboLengthUnit.Value
         End If
         m.Note = txtNote.Text
+        m.Status = Statuses.Active
         Return m
     End Function
     Private Function CheckOK(ByVal m As Model.MProject) As Boolean

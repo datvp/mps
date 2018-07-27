@@ -18,7 +18,7 @@ Public Class frmProjects
     End Function
 
     Private Sub frmProjects_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
-        Loadlist()
+        Me.Loadlist()
     End Sub
 
 
@@ -95,17 +95,8 @@ Public Class frmProjects
 
     End Sub
 
-    Private Sub Loadlist()
-        Dim s_ID As String = ""
-        If Not Grid.DataSource Is Nothing Then
-            If Not Grid.ActiveRow Is Nothing Then
-                If Grid.ActiveRow.Index <> -1 And Not Grid.ActiveRow.Cells Is Nothing Then
-                    s_ID = Grid.ActiveRow.Cells("ProjectId").Value
-                End If
-            End If
-        End If
-
-        Grid.DataSource = cls.getListProjects()
+    Private Sub Loadlist(Optional ByVal s_ID As String = "")
+        Grid.DataSource = cls.getListProjects(ModMain.m_BranchId)
 
         If s_ID <> "" Then
             If Grid.Rows.Count > 0 Then
@@ -134,7 +125,7 @@ Public Class frmProjects
         Dim frm As New frmProjectDetail
         Dim result = frm.ShowDialog("")
         If result <> "" Then
-            Me.Loadlist()
+            Me.Loadlist(result)
         End If
     End Sub
 
@@ -146,14 +137,7 @@ Public Class frmProjects
         Dim frm As New frmProjectDetail
         Dim result = frm.ShowDialog(r.Cells("ProjectId").Value)
         If result <> "" Then
-            Me.Loadlist()
-            For i As Integer = 0 To Grid.Rows.Count - 1
-                If Grid.Rows(i).Cells("ProjectId").Value.ToString = result Then
-                    Grid.Rows(i).Selected = True
-                    Grid.Rows(i).Activated = True
-                    Exit For
-                End If
-            Next
+            Me.Loadlist(result)
         End If
     End Sub
 
@@ -194,7 +178,7 @@ Public Class frmProjects
                 End If
 
                 If Not Me.DeleteDetail(id) Then
-                    Loadlist()
+                    Me.Loadlist(id)
                     Exit Sub
                 End If
             End If

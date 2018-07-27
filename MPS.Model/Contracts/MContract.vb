@@ -333,4 +333,22 @@
             m_arrPayment = value
         End Set
     End Property
+
+
+    Private m_BranchId As String = ""
+    ''' <summary>
+    ''' Mã chi nhánh
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property BranchId() As String
+        Get
+            Return m_BranchId
+        End Get
+        Set(ByVal value As String)
+            m_BranchId = value
+        End Set
+    End Property
+
 End Class

@@ -1,5 +1,6 @@
 ﻿Imports CrystalDecisions.CrystalReports.Engine
 Imports Infragistics.Win.UltraWinToolbars
+'Imports Infragistics.Win.UltraWinToolbars.StateButtonTool
 Imports Infragistics.Win.UltraWinGrid
 Public Class frmContracts
     Private WithEvents cls As BLL.BContracts = BLL.BContracts.Instance
@@ -7,7 +8,10 @@ Public Class frmContracts
     Dim fselect As Boolean = False
     Dim Sselect As String = ""
     Private fFinish As Boolean = False
-
+    Private isClickedOnCollaps As Boolean = False
+    Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
+        ShowMsg(messege)
+    End Sub
 
 #Region "Form "
 
@@ -53,6 +57,7 @@ Public Class frmContracts
     Private Sub frmContracts_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ModMain.SetTitle(Me, lblTitle.Text)
         LabelBottom.Text = ModMain.m_strLableList
+        csFilter.ToggleState()
         Me.Loadlist()
         Me.Security()
     End Sub
@@ -95,7 +100,13 @@ Public Class frmContracts
     End Sub
 
     Private Sub Loadlist(Optional ByVal s_ID As String = "")
-        Grid.DataSource = cls.getListContracts()
+        If csFilter.IsCollapsed Then
+            Grid.DataSource = cls.getListContracts(ModMain.m_BranchId)
+        Else
+            If txtPerformance.Text = "" Then txtPerformance.Text = "0"
+            If txtLength.Text = "" Then txtLength.Text = "0"
+            Grid.DataSource = cls.getListContractsByFilter(ModMain.m_BranchId, CInt(txtPerformance.Text), CInt(txtLength.Text))
+        End If
 
         If s_ID <> "" Then
             If Grid.Rows.Count > 0 Then
@@ -118,6 +129,7 @@ Public Class frmContracts
         End If
 
     End Sub
+    
     Private Sub ADDNew()
         Dim frm As New frmContractDetail
         Dim result = frm.ShowDialog("")
@@ -191,6 +203,34 @@ Public Class frmContracts
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub approve(ByVal isAccepted As Boolean)
+        Dim r As UltraGridRow = Grid.ActiveRow
+        If r IsNot Nothing AndAlso r.Index <> -1 Then
+            Dim contractId = r.Cells("ContractId").Value
+            Dim status = Statuses.Accepted
+            If Not isAccepted Then
+                Dim reason = InputBox("Nhập lý do bạn KHÔNG duyệt hợp đồng:[" + contractId + "]")
+                If reason = "" Then
+                    Exit Sub
+                End If
+                status = Statuses.Rejected
+            Else
+                If ShowMsgYesNo("Bạn muốn Duyệt hợp đồng số:[" + contractId + "] ?", m_MsgCaption) = Windows.Forms.DialogResult.No Then
+                    Exit Sub
+                End If
+            End If
+
+
+            Dim ok = cls.updateStatus(contractId, status, ModMain.m_UIDLogin)
+            If ok Then
+                ShowMsgInfo(m_MsgSaveSuccess)
+                Me.Loadlist(contractId)
+            Else
+                ShowMsg(m_SaveDataError)
+            End If
+        End If
+    End Sub
 #End Region
 
 #Region "Toolbar "
@@ -204,6 +244,10 @@ Public Class frmContracts
                 Me.DEL()
             Case "btnRefresh"
                 Me.Loadlist()
+            Case "btnFilter"
+                If isClickedOnCollaps Then Exit Select
+                Dim btn As StateButtonTool = DirectCast(e.Tool, StateButtonTool)
+                csFilter.ToggleState()
         End Select
     End Sub
 #End Region
@@ -324,38 +368,6 @@ Public Class frmContracts
     Private Sub T_SelectAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_SelectAll.Click
         SelectAll(Grid)
     End Sub
-#End Region
-
-    Private Sub approve(ByVal isAccepted As Boolean)
-        Dim r As UltraGridRow = Grid.ActiveRow
-        If r IsNot Nothing AndAlso r.Index <> -1 Then
-            Dim contractId = r.Cells("ContractId").Value
-            Dim status = Statuses.Accepted
-            If Not isAccepted Then
-                Dim reason = InputBox("Nhập lý do bạn KHÔNG duyệt hợp đồng:[" + contractId + "]")
-                If reason = "" Then
-                    Exit Sub
-                End If
-                status = Statuses.Rejected
-            Else
-                If ShowMsgYesNo("Bạn muốn Duyệt hợp đồng số:[" + contractId + "] ?", m_MsgCaption) = Windows.Forms.DialogResult.No Then
-                    Exit Sub
-                End If
-            End If
-
-
-            Dim ok = cls.updateStatus(contractId, status, ModMain.m_UIDLogin)
-            If ok Then
-                ShowMsgInfo(m_MsgSaveSuccess)
-                Me.Loadlist(contractId)
-            Else
-                ShowMsg(m_SaveDataError)
-            End If
-        End If
-    End Sub
-    Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
-        ShowMsg(messege)
-    End Sub
 
     Private Sub T_Accept_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Accept.Click
         Me.approve(True)
@@ -363,5 +375,43 @@ Public Class frmContracts
 
     Private Sub T_Decline_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Decline.Click
         Me.approve(False)
+    End Sub
+#End Region
+
+#Region "Textbox"
+    Private Sub txtPerformance_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtPerformance.KeyPress
+        ModMain.UltraTextBox_KeyPress(sender, e)
+    End Sub
+
+    Private Sub txtPerformance_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPerformance.Leave
+        ModMain.UltraTextBox_LostFocus(sender)
+    End Sub
+
+    Private Sub txtPerformance_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPerformance.ValueChanged
+        ModMain.UltraTextBox_ValueChanged(sender)
+    End Sub
+
+    Private Sub txtLength_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtLength.KeyPress
+        ModMain.UltraTextBox_KeyPress(sender, e)
+    End Sub
+
+    Private Sub txtLength_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtLength.Leave
+        ModMain.UltraTextBox_LostFocus(sender)
+    End Sub
+
+    Private Sub txtLength_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtLength.ValueChanged
+        ModMain.UltraTextBox_ValueChanged(sender)
+    End Sub
+#End Region
+
+    Private Sub btnSearch_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSearch.Click
+        Me.Loadlist()
+    End Sub
+
+    Private Sub csFilter_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles csFilter.Click
+        isClickedOnCollaps = True
+        Dim btn As StateButtonTool = DirectCast(Toolbars.Tools("btnFilter"), StateButtonTool)
+        btn.Checked = Not csFilter.IsCollapsed
+        isClickedOnCollaps = False
     End Sub
 End Class

@@ -2,6 +2,18 @@
 Public Class DALFuncRight
     Inherits DALSQL
 
+    Private Sub New()
+    End Sub
+    Private Shared obj As DALFuncRight
+    Public Shared ReadOnly Property Instance() As DALFuncRight
+        Get
+            If obj Is Nothing Then
+                obj = New DALFuncRight
+            End If
+            Return obj
+        End Get
+    End Property
+
     'THÊM MỚI-HIỆU CHỈNH CẤP QUYỀN THEO CHỨC NĂNG NGHIỆP VỤ***********
     Public Function DeleteDB(ByVal UID As String) As Boolean
         Dim sql As String = ""

@@ -193,12 +193,6 @@
     <Compile Include="Main\frmFlash.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterForm\MasterForm.Designer.vb">
-      <DependentUpon>MasterForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MasterForm\MasterForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="PECC5\ClientGroups\frmClientGroupDetail.Designer.vb">
       <DependentUpon>frmClientGroupDetail.vb</DependentUpon>
     </Compile>
@@ -515,10 +509,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Main\frmFlash.resx">
       <DependentUpon>frmFlash.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MasterForm\MasterForm.resx">
-      <DependentUpon>MasterForm.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
@@ -1028,6 +1018,9 @@
       <Project>{E6E87EF1-21F4-4A44-9121-421220D91371}</Project>
       <Name>MPS.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filter.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

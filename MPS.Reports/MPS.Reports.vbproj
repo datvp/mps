@@ -59,8 +59,7 @@
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL_PrintNew.vb" />
-    <Compile Include="DAL_ReportOfStore.vb">
+    <Compile Include="DAL_Report.vb">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />

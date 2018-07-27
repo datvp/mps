@@ -16,120 +16,6 @@ Public Class DALLS_Employees
         End If
         Return True
     End Function
-    Public Function UPDATEDB_HQ(ByVal m As Model.MLS_Employees, ByVal isCheckCode As Boolean) As Boolean
-        Dim sql As String = ""
-        Dim sVal As String = ""
-
-        Dim p(27) As SqlParameter
-        Dim fExist As Boolean
-        If isCheckCode Then
-            fExist = CheckExist(m.s_Employee_ID, isCheckCode)
-        Else
-            fExist = CheckExist(m.s_ID, isCheckCode)
-        End If
-
-        If Not fExist Then
-            If m.s_ID = "" Then m.s_ID = Me.getNewID
-            sql = "Insert into [LS_Employees]([s_ID], [s_Employee_ID], [s_Name], [s_Address], [s_Phone1], "
-            sql += " [s_Phone2], [s_Note], [s_Email], [b_Sex],[s_Reason], [m_BasicSalary],  "
-            sql += " [i_NofDay], [m_SalaryOf],[s_Currency1],[s_Currency2],[b_IsActive],[b_IsSales],"
-            sql += "  [s_UserCreate], [dt_Create], [s_UserEdit], [dt_LastUpdate] "
-            sVal = " VALUES(@s_ID, @s_Employee_ID, @s_Name, @s_Address, @s_Phone1,@s_Phone2, @s_Note,"
-            sVal += " @s_Email, @b_Sex,@s_Reason, @m_BasicSalary, @i_NofDay, @m_SalaryOf, "
-            sVal += " @s_Currency1,@s_Currency2, @b_IsActive,@b_IsSales,"
-            sVal += " @s_UserCreate, @dt_Create, @s_UserEdit, @dt_LastUpdate"
-
-            If Not m.im_Photo Is Nothing Then
-                sql += ", [im_Photo]"
-                sVal += ", @im_Photo"
-                p(11) = New SqlParameter("@im_Photo", m.im_Photo)
-            End If
-
-            If m.dt_DOB.Year <> 1900 Then
-                sql += ", [dt_DOB]"
-                sVal += ", @dt_DOB"
-            End If
-
-            If m.i_Position <> 0 Then
-                sql += ", [i_Position]"
-                sVal += ", @i_Position"
-            End If
-
-            If m.dt_DaysToWork.Year <> 1900 Then
-                sql += ", [dt_DaysToWork]"
-                sVal += ", @dt_DaysToWork"
-            End If
-
-            If m.dt_Holidays.Year <> 1900 Then
-                sql += ", [dt_Holidays]"
-                sVal += ", @dt_Holidays"
-            End If
-
-            sql = sql & ")" & sVal & ")"
-        Else
-            Dim s As String = ""
-            If Not m.im_Photo Is Nothing Then
-                s += ",[im_Photo]=@im_Photo"
-                p(11) = New SqlParameter("@im_Photo", m.im_Photo)
-            Else
-                s += ",[im_Photo]=null"
-            End If
-
-            If m.i_Position <> 0 Then
-                s += ", [i_Position]=@i_Position"
-            End If
-
-            If m.dt_DOB.Year <> 1900 Then
-                s += ",[dt_DOB]=@dt_DOB"
-            Else
-                s += ",[dt_DOB]=null"
-            End If
-
-            If m.dt_DaysToWork.Year <> 1900 Then
-                s += ",[dt_DaysToWork]=@dt_DaysToWork"
-            Else
-                s += ",[dt_DaysToWork]=null"
-            End If
-
-            If m.dt_Holidays.Year <> 1900 Then
-                s += ",[dt_Holidays]=@dt_Holidays"
-            Else
-                s += ",[dt_Holidays]=null"
-            End If
-
-            sql = "Update [LS_Employees] set [s_Employee_ID]=@s_Employee_ID, [s_Name]=@s_Name,"
-            sql += " [s_Address]=@s_Address, [s_Phone1]=@s_Phone1, [s_Phone2]=@s_Phone2, [s_Note]=@s_Note,"
-            sql += " [s_Email]=@s_Email, [b_Sex]=@b_Sex,[b_IsSales]=@b_IsSales" & s & ","
-            sql += " [s_Reason]=@s_Reason, [m_BasicSalary]=@m_BasicSalary, [i_NofDay]=@i_NofDay,"
-            sql += " [m_SalaryOf]=@m_SalaryOf,[s_Currency1]=@s_Currency1,[s_Currency2]=@s_Currency2,[b_IsActive]=@b_IsActive, "
-            sql += " [s_UserCreate]=@s_UserCreate,[s_UserEdit]=@s_UserEdit, [dt_LastUpdate]=getdate()"
-
-            If isCheckCode Then
-                sql += ",s_ID=@s_ID"
-                sql += " where [s_Employee_ID]=@s_Employee_ID "
-            Else
-                sql += "  where s_ID=@s_ID "
-            End If
-        End If
-
-
-        p(0) = New SqlParameter("@s_ID", m.s_ID)
-        p(1) = New SqlParameter("@s_Employee_ID", m.s_Employee_ID)
-        p(2) = New SqlParameter("@s_Name", m.s_Name)
-        p(3) = New SqlParameter("@s_Address", m.s_Address)
-        p(4) = New SqlParameter("@s_Phone1", m.s_Phone1)
-        p(5) = New SqlParameter("@s_Phone2", m.s_Phone2)
-        p(6) = New SqlParameter("@s_Note", m.s_Note)
-        p(7) = New SqlParameter("@i_Ordinal", m.i_Ordinal)
-        p(8) = New SqlParameter("@s_Email", m.s_Email) '26.05.09        p(9) = New SqlParameter("@i_Position", m.i_Position)        p(10) = New SqlParameter("@b_Sex", m.b_Sex)        If Not m.im_Photo Is Nothing Then
-            p(11) = New SqlParameter("@im_Photo", m.im_Photo)
-        End If        p(12) = New SqlParameter("@dt_DOB", m.dt_DOB)
-        p(13) = New SqlParameter("@dt_DaysToWork", m.dt_DaysToWork)
-        p(14) = New SqlParameter("@dt_Holidays", m.dt_Holidays)        p(15) = New SqlParameter("@s_Reason", m.s_Reason)        p(16) = New SqlParameter("@m_BasicSalary", m.m_BasicSalary)        p(17) = New SqlParameter("@i_NofDay", m.i_NofDay)        p(18) = New SqlParameter("@m_SalaryOf", m.m_SalaryOf)        p(19) = New SqlParameter("@s_Currency1", m.s_Currency1)        p(20) = New SqlParameter("@s_Currency2", m.s_Currency2)        p(21) = New SqlParameter("@b_IsActive", m.b_IsActive)        p(22) = New SqlParameter("@s_UserCreate", m.s_UserCreate)        p(23) = New SqlParameter("@dt_Create", m.dt_Create)        p(24) = New SqlParameter("@s_UserEdit", m.s_UserEdit)        p(25) = New SqlParameter("@dt_LastUpdate", m.dt_LastUpdate)
-        p(26) = New SqlParameter("@b_IsSales", m.b_IsSales)
-
-        Return Me.execSQL(sql, p)
-    End Function
     Public Function UPDATEDB(ByVal m As Model.MLS_Employees) As Boolean
         Dim sql As String = ""
         Dim sVal As String = ""
@@ -320,12 +206,7 @@ Public Class DALLS_Employees
         End If
         Return tb
     End Function
-    Public Function getItemUpload(ByVal ID As String) As DataTable
-        Dim sql As String = "Select e.*,p.s_Name as Position from LS_Employees e left join  Ls_Position p on e.i_Position=p.i_ID where e.s_ID=@ID Order by e.s_Employee_ID asc"
-        Dim p(0) As SqlParameter
-        p(0) = New SqlParameter("@ID", ID)
-        Return Me.getTableSQL(sql, p)
-    End Function
+   
     Public Function getList(ByVal dayMonth As Date) As DataTable
         Dim p(0) As SqlParameter
         p(0) = New SqlParameter("@dayMonth", dayMonth)

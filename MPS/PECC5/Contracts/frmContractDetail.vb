@@ -45,7 +45,7 @@ Public Class frmContractDetail
 
 #Region "Subs"
     Private Sub LoadComboBox()
-        Dim tbProject = bProject.getListProjects()
+        Dim tbProject = bProject.getListProjects(ModMain.m_BranchId)
         cboProject.ValueMember = "ProjectId"
         cboProject.DisplayMember = "ProjectName"
         cboProject.DataSource = tbProject
@@ -106,6 +106,7 @@ Public Class frmContractDetail
     End Sub
     Private Function setInfo() As Model.MContract
         Dim m As New Model.MContract
+        m.BranchId = ModMain.m_BranchId
         m.ContractId = txtContractId.Text
         m.ContractName = txtContractName.Text
         m.ContractDate = dtCreateDate.Value
@@ -922,7 +923,7 @@ Public Class frmContractDetail
                 Dim item = arr.Item(r.Index)
                 If item Is Nothing Then Exit Sub
                 If item.PaymentStatus = "Paid" Then
-                    ShowMsg("Đợt thanh toán:" & item.PaymentName & " không thể xóa.")
+                    ShowMsg("Đợt thanh toán: [" & item.PaymentName & "] đã thanh toán, không thể xóa.")
                     Exit Sub
                 End If
                 arr.Remove(item)

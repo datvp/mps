@@ -25,19 +25,19 @@ Public Class DAL_Contracts
         Dim sql = ""
 
         If isExist(m.ContractId) Then
-            sql = "Update Contracts set ContractName=@ContractName,ProjectId=@ProjectId,ContractDate=@ContractDate,"
+            sql = "Update Contracts set BranchId=@BranchId,ContractName=@ContractName,ProjectId=@ProjectId,ContractDate=@ContractDate,"
             sql += "ContractValue=@ContractValue,ContractDeadLine=@ContractDeadLine,MainContractorId=@MainContractorId,Note=@Note,"
             sql += "ContractLevelId=@ContractLevelId,UpdatedAt=getdate(),ContractState=@ContractState,SubContracts=@SubContracts,DeadlineExt=@DeadlineExt where ContractId=@ContractId"
         Else
-            sql = "Insert into Contracts(ContractId,ContractName,ProjectId,ContractDate,ContractValue,ContractDeadLine,MainContractorId,ContractLevelId,ContractState,SubContracts,Note,DeadlineExt,CreatedAt)"
-            sql += "values(@ContractId,@ContractName,@ProjectId,@ContractDate,@ContractValue,@ContractDeadLine,@MainContractorId,@ContractLevelId,@ContractState,@SubContracts,@Note,@DeadlineExt,getdate())"
+            sql = "Insert into Contracts(BranchId,ContractId,ContractName,ProjectId,ContractDate,ContractValue,ContractDeadLine,MainContractorId,ContractLevelId,ContractState,SubContracts,Note,DeadlineExt,CreatedAt)"
+            sql += "values(@BranchId,@ContractId,@ContractName,@ProjectId,@ContractDate,@ContractValue,@ContractDeadLine,@MainContractorId,@ContractLevelId,@ContractState,@SubContracts,@Note,@DeadlineExt,getdate())"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(11) As SqlParameter
+        Dim p(12) As SqlParameter
         p(0) = New SqlParameter("@ContractId", m.ContractId)
         p(1) = New SqlParameter("@ContractName", m.ContractName)
         p(2) = New SqlParameter("@ProjectId", m.ProjectId)
@@ -50,6 +50,7 @@ Public Class DAL_Contracts
         p(9) = New SqlParameter("@ContractLevelId", m.ContractLevelId)
         p(10) = New SqlParameter("@SubContracts", m.SubContracts)
         p(11) = New SqlParameter("@DeadlineExt", m.DeadlineExt)
+        p(12) = New SqlParameter("@BranchId", m.BranchId)
 
         Me.BeginTranstion()
 
@@ -242,9 +243,11 @@ Public Class DAL_Contracts
         Return Me.execSQL(sql, New SqlParameter("@ContractId", ContractId))
     End Function
 
-    Public Function getListContracts() As DataTable
-        Dim sql As String = "Select * from Contracts where ContractState<>'Deleted' order by CreatedAt"
-        Return Me.getTableSQL(sql)
+    Public Function getListContracts(ByVal branchId As String) As DataTable
+        Return Me.getTableSQL("Exec sp_getListContracts @branchId", New SqlParameter("@branchId", branchId))
+    End Function
+    Public Function getListContractsByFilter(ByVal branchId As String, ByVal perform As Integer, ByVal length As Integer) As DataTable
+        Return Me.getTableSQL("Exec getListContractsByFilter @branchId,@perform,@length", New SqlParameter("@branchId", branchId), New SqlParameter("@perform", perform), New SqlParameter("@length", length))
     End Function
 
     Public Function getContractDetailById(ByVal ContractId As String, Optional ByVal isGetDetail As Boolean = True) As Model.MContract

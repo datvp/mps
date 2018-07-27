@@ -28,8 +28,8 @@
     Public Function deleteDB(ByVal ProjectId As String) As Boolean
         Return cls.deleteDB(ProjectId)
     End Function
-    Public Function getListProjects() As DataTable
-        Return cls.getListProjects()
+    Public Function getListProjects(ByVal branchId As String) As DataTable
+        Return cls.getListProjects(branchId)
     End Function
     Public Function getProjectDetailById(ByVal ProjectId As String) As Model.MProject
         Return cls.getProjectDetailById(ProjectId)

@@ -67,14 +67,10 @@ Public Class DAL_BK_Restore_DB
             Return False
         End If
 
-        'VsBMS
-        'MOVE N'VsBMS' TO N'D:\datasql2005\VsWHM.mdf',  MOVE N'VsBMS_log' TO N'D:\datasql2005\VsWHM_LOG.ldf',  
-
         Dim sql As String = ""
         sql = "RESTORE DATABASE [" & dbName.Replace("'", "''") & "] FROM  DISK = '" & fromFile.Replace("'", "''") & "' WITH  FILE = 1, "
         sql += " MOVE N'" & FileOrigin & "' TO '" & toFileData.Replace("'", "''") & "',  MOVE N'" & FileOrigin & "_log' TO '" & toFileLog.Replace("'", "''") & "', "
         sql += " NOUNLOAD, REPLACE, STATS = 10"
-       
 
         Dim fOK As Boolean = Me.execSQL(sql)
         Me.Database = sDB

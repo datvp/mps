@@ -2,6 +2,7 @@
 Imports Infragistics.Win.UltraWinGrid
 Imports System.IO
 Public Class frmTotalReports
+    Private WithEvents cls As BLL.B_Report = BLL.B_Report.Instance
     Dim b As BLL.BPublic = BLL.BPublic.Instance
 
     Private Sub GetListReports()
@@ -39,7 +40,7 @@ Public Class frmTotalReports
                 'clsrpt.SetParameter(rp, Format(dtFrom.Value, "yyyy-MM-dd"), Format(dtTo.Value, "yyyy-MM-dd"), _
                 '                    proName, proID, m_CPUID, mbc.i_FormatNum, mbc.i_FormatCur, branchName)
 
-            End Select
+        End Select
 
         Try
             Dim frm As New FrmReport
@@ -58,5 +59,9 @@ Public Class frmTotalReports
 
     Private Sub Grid_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles Grid.InitializeLayout
 
+    End Sub
+
+    Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
+        ShowMsg(messege)
     End Sub
 End Class
