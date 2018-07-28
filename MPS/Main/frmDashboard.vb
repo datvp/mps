@@ -4,24 +4,6 @@ Public Class frmDashboard
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
     Dim b As BLL.BPublic = BLL.BPublic.Instance
 
-    '#Region "SUB NEW"
-    '    Sub New()
-    '        ' This call is required by the Windows Form Designer.
-    '        InitializeComponent()
-
-    '        ' Add any initialization after the InitializeComponent() call.
-    '    End Sub
-
-    '    Private Shared obj As frmDashboard
-    '    Public Shared ReadOnly Property Instance() As frmDashboard
-    '        Get
-    '            If obj Is Nothing Then
-    '                obj = New frmDashboard
-    '            End If
-    '            Return obj
-    '        End Get
-    '    End Property
-    '#End Region
     Private Sub frmDashboard_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
         If e.KeyCode = Keys.F5 Then
             LoadChart()
@@ -30,29 +12,34 @@ Public Class frmDashboard
 
     Private Sub frmDashboard_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ModMain.SetTitle(Me, "Dashboard")
-        grpTotalSaleChart.Text += " trong năm " & Now.Year.ToString
         LoadChart()
     End Sub
     Public Sub LoadChart()
         Me.Cursor = Cursors.WaitCursor
 
         'Tổng doanh thu theo mốc thời gian
-        Dim tb = b.getChart_TotalSale(Now)
-        TotalSaleChart.Data.DataSource = tb
-        TotalSaleChart.Data.DataBind()
-        'doanh thu theo trạng thái: đã ký/chờ ký
-        HourSaleChart.Data.DataSource = b.getChart_StateSale()
-        HourSaleChart.Data.DataBind()
+        Dim tb = b.getChartByItem()
+        ChartByItem.Data.DataSource = tb
+        ChartByItem.Data.DataBind()
+
+        ChartBySubContractor.Data.DataSource = tb
+        ChartBySubContractor.Data.DataBind()
+
+        'doanh thu theo nhóm kh
+        ChartByClientGroup.Data.DataSource = b.getChartByClientGroup()
+        ChartByClientGroup.Data.DataBind()
+
         'doanh thu theo dự án
-        GroupItemSaleChart.Data.DataSource = b.getChartByProject()
-        GroupItemSaleChart.Data.DataBind()
+        ChartByProject.Data.DataSource = b.getChartByProject()
+        ChartByProject.Data.DataBind()
+
         'Tổng hợp các Hợp đồng sắp hết hạn
         GridProduct.DataSource = b.getListDeadlineContracts(90) ' trong 90 ngày
 
         Me.Cursor = Cursors.Default
     End Sub
 
-    Private Sub TotalSaleChart_ChartDataClicked(ByVal sender As System.Object, ByVal e As Infragistics.UltraChart.Shared.Events.ChartDataEventArgs) Handles TotalSaleChart.ChartDataClicked
+    Private Sub TotalSaleChart_ChartDataClicked(ByVal sender As System.Object, ByVal e As Infragistics.UltraChart.Shared.Events.ChartDataEventArgs) Handles ChartByItem.ChartDataClicked
         'Dim val = e.DataValue
         'Dim ngay = e.RowLabel
         'Dim dtDate = CDate(Now.Year.ToString & "-" & Now.Month.ToString & "-" & ngay)

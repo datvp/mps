@@ -811,6 +811,31 @@ Public Class DALSQL
 
         Return str
     End Function
+
+    Public Function StatusText(ByVal key As String) As String
+        Select Case key
+            Case "Waiting"
+                Return "Đang chờ"
+            Case "WaitingForApprove"
+                Return "Chờ duyệt"
+            Case "Accepted"
+                Return "Đã duyệt"
+            Case "Rejected"
+                Return "Không duyệt"
+            Case "Pending"
+                Return "Tạm ngưng"
+            Case "Completed"
+                Return "Hoàn thành"
+            Case "WaitForPay"
+                Return "Chờ thanh toán"
+            Case "Paid"
+                Return "Đã thanh toán"
+            Case Else
+                Return ""
+        End Select
+
+        Return ""
+    End Function
 End Class
 
 

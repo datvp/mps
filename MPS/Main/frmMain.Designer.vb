@@ -326,10 +326,10 @@ Partial Class frmMain
         ButtonTool122.SharedProps.Caption = "Phục hồi dữ liệu"
         Appearance38.Image = Global.MPS.My.Resources.Resources.UserGroup
         ButtonTool210.SharedProps.AppearancesSmall.Appearance = Appearance38
-        ButtonTool210.SharedProps.Caption = "Nhóm người dùng"
+        ButtonTool210.SharedProps.Caption = "Nhóm tài khoản"
         Appearance39.Image = Global.MPS.My.Resources.Resources.user2
         ButtonTool211.SharedProps.AppearancesSmall.Appearance = Appearance39
-        ButtonTool211.SharedProps.Caption = "Người sử dụng"
+        ButtonTool211.SharedProps.Caption = "Tài khoản sử dụng"
         Appearance37.Image = Global.MPS.My.Resources.Resources.check
         ButtonTool212.SharedProps.AppearancesSmall.Appearance = Appearance37
         ButtonTool212.SharedProps.Caption = "Cấp quyền"

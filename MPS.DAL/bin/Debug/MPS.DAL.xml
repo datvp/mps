@@ -41,14 +41,13 @@ MPS.DAL
 	<param name="inMax">Inclusive Maximum value. Highest possible return value.</param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:MPS.DAL.DAL_Public.getChart_TotalSale(System.DateTime)">
+</member><member name="M:MPS.DAL.DAL_Public.getChartByItem">
 	<summary>
- doanh số theo quý trong năm
+ doanh thu theo hạng mục
  </summary>
-	<param name="thang"></param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:MPS.DAL.DAL_Public.getChart_StateSale">
+</member><member name="M:MPS.DAL.DAL_Public.getChartByClientGroup">
 	<summary>
  doanh số theo trạng thái hợp đồng
  </summary>

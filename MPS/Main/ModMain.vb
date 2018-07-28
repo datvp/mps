@@ -535,7 +535,6 @@ Module ModMain
     Public Const strLicense As String = "@v0$pH@t!D@T%iYcenxE@"
     Public Function IsRegistration() As Boolean
         If ModMain.m_SerialKey <> "" Then
-            Dim clsu As New VsoftBMS.Ulti.ClsUti
             Dim str As String = clsu.Encrypt(ModMain.m_HDDSerial + strLicense)
             If str.Equals(ModMain.m_SerialKey) Then
                 Return True
@@ -1330,11 +1329,15 @@ Module ModMain
     Public Function StatusText(ByVal key As String) As String
         Select Case key
             Case Statuses.Waiting
+                Return "Đang chờ"
+            Case Statuses.WaitingForApprove
                 Return "Chờ duyệt"
             Case Statuses.Accepted
                 Return "Đã duyệt"
             Case Statuses.Rejected
                 Return "Không duyệt"
+            Case Statuses.Pending
+                Return "Tạm ngưng"
             Case Statuses.Completed
                 Return "Hoàn thành"
             Case Statuses.WaitForPay

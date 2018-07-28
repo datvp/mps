@@ -96,14 +96,6 @@ Public Class FrmNewEmployee
 
     Private Sub FrmNewEmployee_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ModMain.SetTitle(Me, lblTitle.Text)
-        If txtSID.Text = "" Then '26.05.09
-            Me.LoadCombo()
-            Me.cboCur1.Text = ModMain.m_SysCur
-            Me.cboCur2.Text = ModMain.m_SysCur
-            Me.cboCur1.ReadOnly = True
-            Me.cboCur2.ReadOnly = True
-            If cboPosition.Rows.Count >= 2 Then cboPosition.Rows(1).Selected = True
-        End If
         Security()
     End Sub
 
@@ -130,7 +122,6 @@ Public Class FrmNewEmployee
         Me.txtEmployeeID.Text = ""
         Me.txtEmployeeName.Text = ""
         Me.chActive.Checked = True
-        Me.cboPosition.Value = Nothing
         Me.pic1.Image = Nothing
         Me.dtDOB.Value = Nothing
         Me.dtDaysToWork.Value = Nothing
@@ -141,15 +132,7 @@ Public Class FrmNewEmployee
         Me.chHoliday.Checked = False
         Me.dtHolidays.Value = Nothing
         Me.txtReason.Text = ""
-        Me.txtBasicSalary.Text = 0
-        Me.txtNofDay.Text = 0
-        Me.txtSalaryOf.Text = 0
         Me.txtNote.Text = ""
-        txtAccountID.Text = ""
-        Me.chDS.Checked = False
-        chkCTV.Checked = False
-        cboReferrer.Value = Nothing
-
         If txtEmployeeID.Enabled = False Then
             txtEmployeeName.Focus()
         Else
@@ -157,15 +140,7 @@ Public Class FrmNewEmployee
         End If
     End Sub
 
-    Private Sub LoadCombo()
-        Dim tb As DataTable = b.getListReferrer(txtSID.Text)
-        cboReferrer.ValueMember = "s_ID"
-        cboReferrer.DisplayMember = "s_Name"
-        cboReferrer.DataSource = tb
-    End Sub
-
     Public Sub LoadInfo(ByVal SID As String)
-        Me.LoadCombo() '26.05.09
         Dim obj As Model.MLS_Employees = b.getInfo(SID)
         If obj Is Nothing Then Exit Sub
         If obj.s_ID = "" Then
@@ -183,11 +158,7 @@ Public Class FrmNewEmployee
         Me.txtPhone2.Text = obj.s_Phone2
         Me.txtOrdinal.Text = obj.i_Ordinal
         Me.txtNote.Text = obj.s_Note
-        '26.05.09
         Me.txtEmail.Text = obj.s_Email
-        If obj.i_Position <> 0 Then
-            Me.cboPosition.Value = obj.i_Position
-        End If
 
         If obj.b_Sex = True Then
             Me.radMale.Checked = obj.b_Sex
@@ -217,41 +188,16 @@ Public Class FrmNewEmployee
 
         Me.txtReason.Text = obj.s_Reason
 
-        Me.txtNofDay.Text = Format(obj.i_NofDay, ModMain.m_strFormatCur)
-        If obj.m_BasicSalary > 0 Then
-            Me.txtBasicSalary.Text = Format(CDbl(obj.m_BasicSalary), ModMain.m_strFormatCur)
-            radBasicSalary.Checked = True
-            Me.txtSalaryOf.Text = 0
-        Else
-            Me.txtBasicSalary.Text = 0
-            radSalaryOf.Checked = True
-            Me.txtSalaryOf.Text = Format(CDbl(obj.m_SalaryOf), ModMain.m_strFormatCur)
-        End If
-
-        Me.cboCur1.Text = ModMain.m_SysCur '05.06.09
-        Me.cboCur2.Text = ModMain.m_SysCur
-        Me.cboCur1.ReadOnly = True
-        Me.cboCur2.ReadOnly = True
-
         Me.chActive.Checked = obj.b_IsActive
         Me.txtCreator.Text = obj.s_UserCreate
         Me.txtEditor.Text = obj.s_UserEdit
         Me.txtDateCreate.Text = obj.dt_Create.ToString
         Me.txtDateEdit.Text = obj.dt_LastUpdate.ToString
-        Me.chDS.Checked = obj.b_IsSales
         If obj.dt_Holidays.Year <> 1900 Then
             dtHolidays.Value = obj.dt_Holidays
             chHoliday.Checked = True
         End If
-        cboBank.Value = obj.s_Bank_ID
-        txtAccountID.Text = obj.s_AccountID
-
-        chkCTV.Checked = obj.IsCTV
-        cboReferrer.Value = obj.ReferrerId
-
-
         Me.tbManager.Tools("btnSaveClose").SharedProps.Visible = False
-
     End Sub
 
     Private Function toImage(ByVal ArrByte() As Byte) As Image
@@ -337,13 +283,6 @@ Public Class FrmNewEmployee
         m.s_Address = txtAddress.Text
         m.s_Note = Me.txtNote.Text
         m.s_Email = Me.txtEmail.Text  '26.05.09->tu day xuong duoi
-        If Not Me.cboPosition.Value Is Nothing Then
-            m.i_Position = Me.cboPosition.Value
-        End If
-        If Not Me.cboBank.Value Is Nothing Then
-            m.s_Bank_ID = Me.cboBank.Value
-        End If
-        m.s_AccountID = txtAccountID.Text
         m.b_Sex = Me.radMale.Checked
 
         If Not Me.pic1.Image Is Nothing Then
@@ -372,38 +311,10 @@ Public Class FrmNewEmployee
         Else
             m.dt_Holidays = CDate("1900-1-1")
         End If
-
-
         m.s_Reason = Me.txtReason.Text
-        If txtBasicSalary.Text = "" Then txtBasicSalary.Text = 0
-        If txtSalaryOf.Text = "" Then txtSalaryOf.Text = 0
-        If txtNofDay.Text = "" Then txtNofDay.Text = 0
-
-        If Me.radBasicSalary.Checked = True Then
-            m.m_BasicSalary = CDbl(Me.txtBasicSalary.Text)
-        End If
-
-        If Me.radSalaryOf.Checked = True Then
-            m.m_SalaryOf = CDbl(Me.txtSalaryOf.Text)
-        End If
-        m.i_NofDay = CInt(Me.txtNofDay.Text)
-
-        If Not Me.cboCur1.Value Is Nothing Then
-            m.s_Currency1 = Me.cboCur1.Value
-        End If
-
-        If Not Me.cboCur2.Value Is Nothing Then
-            m.s_Currency2 = Me.cboCur2.Value
-        End If
-        m.b_IsSales = Me.chDS.Checked
-
         m.b_IsActive = True
         m.s_UserCreate = ModMain.m_UIDLogin
         m.s_UserEdit = ModMain.m_UIDLogin
-        m.IsCTV = chkCTV.Checked
-        If m.IsCTV Then
-            m.ReferrerId = cboReferrer.Value
-        End If
         Return m
     End Function
 
@@ -425,39 +336,12 @@ Public Class FrmNewEmployee
             Return False
         End If
 
-        If Me.cboPosition.SelectedRow Is Nothing AndAlso cboPosition.Text.Trim <> "" Then
-            ShowMsg("Dữ liệu không hợp lệ.", 167)
-            Me.cboPosition.Select()
-            Return False
-        End If
-        If Me.cboPosition.SelectedRow Is Nothing Then
-            ShowMsg("Chưa chọn chức vụ", 168)
-            cboPosition.Focus()
-            Return False
-        End If
-
         If Not CompareValidDate(dtDOB, dtDaysToWork) Then
             ShowMsg("Ngày vào làm không hợp lệ !", 170)
             dtDaysToWork.Focus()
             dtDaysToWork.SelectAll()
             Return False
         End If
-
-        If Not Me.cboBank.SelectedRow Is Nothing AndAlso cboBank.Text.Trim <> "" AndAlso cboBank.Text.Trim <> "0" Then
-            If txtAccountID.Text.Trim = "" Then
-                ShowMsg("Chưa nhập số tài khoản ngân hàng !", 894)
-                txtAccountID.Focus()
-                Return False
-            End If
-        End If
-
-        '05/09/09n --van cho nghi du cophat sinh nghiep vu
-        'If chHoliday.Checked Then
-        '    If b.CheckHoliday(txtSID.Text) Then
-        '        ShowMsg("Nhân viên này còn phụ trách khách hàng hoặc nhà cung cấp! Không thể Check nghỉ việc.")
-        '        Return False
-        '    End If
-        'End If
 
         If chHoliday.Checked Then
             If dtHolidays.Value Is Nothing Then
@@ -467,35 +351,11 @@ Public Class FrmNewEmployee
             End If
         End If
 
-
-        'If Me.radBasicSalary.Checked Then
-        '    If CDbl(Me.txtBasicSalary.Text) <= 0 Then
-        '        ShowMsg("Lương căn bản phải có giá trị lớn hơn 0")
-        '        txtBasicSalary.Focus()
-        '        Return False
-        '    End If
-        'Else
-        '    If CDbl(Me.txtSalaryOf.Text) <= 0 Then
-        '        ShowMsg("Lương ca phải có giá trị lớn hơn 0")
-        '        txtSalaryOf.Focus()
-        '        Return False
-        '    End If
-        'End If
-
         If txtOrdinal.Text = "" Or Not IsNumeric(txtOrdinal.Text) Then txtOrdinal.Text = "0"
-
-        If chkCTV.Checked Then
-            If cboReferrer.Value Is Nothing Then
-                ShowMsg("Chưa chọn nhân viên liên kết.")
-                cboReferrer.Focus()
-                Return False
-            End If
-        End If
 
         Return True
     End Function
 
-    'Thao180809
     Public Function CompareValidDate(ByVal fromDate As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor, ByVal toDate As Infragistics.Win.UltraWinEditors.UltraDateTimeEditor) As Boolean
         If DateDiff(DateInterval.Year, toDate.Value, fromDate.Value, FirstDayOfWeek.System, FirstWeekOfYear.System) >= 0 Then
             Return False
@@ -549,9 +409,6 @@ Public Class FrmNewEmployee
                 Return True
             End If
             If m1.s_Note <> m2.s_Note Then
-                Return True
-            End If
-            If m1.i_Position <> m2.i_Position Then
                 Return True
             End If
             If m1.b_Sex <> m2.b_Sex Then
@@ -698,7 +555,7 @@ Public Class FrmNewEmployee
         End If
     End Sub
 
-    Private Sub chHoliday_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chHoliday.CheckedChanged, chDS.CheckedChanged
+    Private Sub chHoliday_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chHoliday.CheckedChanged
         If Me.chHoliday.Checked = True Then
             Me.lblDateHoliday.Enabled = True
             Me.lblReason.Enabled = True
@@ -731,14 +588,7 @@ Public Class FrmNewEmployee
         End If
     End Sub
     Private Sub txtEmployeeName_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtEmployeeName.KeyPress
-        If e.KeyChar = Chr(13) Then
-            Me.cboPosition.Focus()
-        End If
-    End Sub
-    Private Sub cboPosition_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboPosition.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Me.radMale.Select()
-        End If
+       
     End Sub
     Private Sub radMale_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles radMale.KeyDown
         If e.KeyCode = Keys.Enter Then
@@ -757,21 +607,6 @@ Public Class FrmNewEmployee
     End Sub
 
     Private Sub dtDaysToWork_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles dtDaysToWork.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            cboBank.Focus()
-        End If
-    End Sub
-
-    Private Sub cboBank_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboBank.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Me.txtAccountID.Focus()
-        End If
-    End Sub
-
-    Private Sub txtAccountID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtAccountID.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Me.txtAddress.Focus()
-        End If
     End Sub
 
     Private Sub txtAddress_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtAddress.KeyPress
@@ -817,7 +652,7 @@ Public Class FrmNewEmployee
             Me.chHoliday.Select()
         End If
     End Sub
-    Private Sub chHoliday_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles chHoliday.KeyDown, chDS.KeyDown
+    Private Sub chHoliday_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles chHoliday.KeyDown
         If e.KeyCode = Keys.Space Then
             If Me.chHoliday.Checked = False Then
                 Me.chHoliday.Checked = True
@@ -828,15 +663,7 @@ Public Class FrmNewEmployee
         If e.KeyCode = Keys.Enter Then
             If chHoliday.Checked = True Then
                 Me.dtHolidays.Focus()
-            Else
-                Me.radBasicSalary.Select()
             End If
-        End If
-    End Sub
-
-    Private Sub radBasicSalary_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles radBasicSalary.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            txtBasicSalary.Focus()
         End If
     End Sub
 
@@ -846,46 +673,6 @@ Public Class FrmNewEmployee
         End If
     End Sub
     Private Sub txtReason_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtReason.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Me.txtBasicSalary.Focus()
-        End If
-    End Sub
-    Private Sub txtBasicSalary_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtBasicSalary.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Me.cboCur1.Focus()
-        End If
-    End Sub
-    Private Sub cboCur1_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboCur1.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            If CDbl(txtBasicSalary.Text) = 0 Then
-                'Me.txtNofDay.Focus()
-                radSalaryOf.Select()
-            End If
-
-        End If
-    End Sub
-
-    Private Sub radSalaryOf_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles radSalaryOf.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            txtSalaryOf.Focus()
-        End If
-    End Sub
-    'Private Sub txtNofDay_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNofDay.KeyDown
-    'If e.KeyCode = Keys.Enter Then
-    '    'Me.txtSalaryOf.Focus()
-    '        Me.UltraTabControl1.SelectedTab.Key = "001"
-    'End If
-    ' End Sub
-    Private Sub txtSalaryOf_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSalaryOf.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Me.cboCur2.Focus()
-        End If
-    End Sub
-    Private Sub cboCur2_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboCur2.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            'Me.UltraTabControl1.SelectedTab.Key = "001"
-            txtNofDay.Focus()
-        End If
     End Sub
 #End Region
 
@@ -972,127 +759,6 @@ Public Class FrmNewEmployee
     End Sub
 #End Region
 
-#Region "tbTool"
-    Private Sub tbTool_ToolClick(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) Handles tbTool.ToolClick
-        Select Case e.Tool.Key
-            Case "Bold"
-                Me.txtNote.EditInfo.PerformAction(FormattedLinkEditorAction.ToggleBold)
-
-            Case "Italic"
-                Me.txtNote.EditInfo.PerformAction(FormattedLinkEditorAction.ToggleItalics)
-
-            Case "Underline"
-                Me.txtNote.EditInfo.PerformAction(FormattedLinkEditorAction.ToggleUnderline)
-
-            Case "Left", "Center", "Right", "Justify"
-                Me.txtNote.EditInfo.ApplyStyle("Text-align: " + e.Tool.Key, True)
-        End Select
-
-    End Sub
-
-    Private Sub tbTool_ToolValueChanged(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinToolbars.ToolEventArgs) Handles tbTool.ToolValueChanged
-        Select Case e.Tool.Key
-            Case "FontName"
-                Dim fontName As String = CType(e.Tool, FontListTool).Text
-                Me.txtNote.EditInfo.ApplyStyle("Font-family: " + fontName, False)
-
-            Case "FontColor"
-                Me.ApplyFontForeColor()
-
-            Case "FontSize"
-                Dim selectedSize As String = CType(e.Tool, ComboBoxTool).Value.ToString()
-                Me.txtNote.EditInfo.ApplyStyle("Font-size: " + selectedSize, False)
-        End Select
-        Me.txtNote.Focus()
-    End Sub
-
-    Private Sub ApplyFontForeColor() '
-        Dim fontColor As Color = CType(Me.tbTool.Tools("FontColor"), PopupColorPickerTool).SelectedColor
-        Dim hexColor As String = System.Drawing.ColorTranslator.ToHtml(fontColor)
-        Me.txtNote.EditInfo.ApplyStyle("Color: " + hexColor, False)
-        Me.txtNote.EditInfo.ApplyStyle("Border-color: " + hexColor, False)
-    End Sub
-#End Region
-
-#Region "Combo"
-    Private Sub cboPosition_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboPosition.AfterCloseUp
-     
-    End Sub
-
-    Private Sub cboPosition_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboPosition.InitializeLayout
-        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
-            e.Layout.Bands(0).Columns(i).Hidden = True
-        Next
-        e.Layout.Bands(0).Columns("s_Name").Hidden = False
-        If cboPosition.Rows.Count > 0 Then
-            cboPosition.Rows(0).Appearance.BackColor = Color.LightCyan
-        End If
-        cboPosition.DisplayLayout.Bands(0).Columns("s_Name").PerformAutoResize(ColumnAutoSizeMode.AllRowsInBand)
-
-    End Sub
-
-    Private Sub cboCur1_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboCur1.InitializeLayout
-        If Me.cboCur1.DataSource Is Nothing Then Exit Sub
-        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
-            e.Layout.Bands(0).Columns(i).Hidden = True
-        Next
-        e.Layout.Bands(0).Columns("IDKH_s").Hidden = False
-        e.Layout.Bands(0).Columns("s_Name").Width = 100
-        e.Layout.Bands(0).Columns("s_Name").Hidden = False
-        If cboCur1.Rows.Count > 0 Then
-            cboCur1.Rows(0).Appearance.BackColor = Color.LightCyan
-        End If
-        cboCur1.DisplayLayout.Bands(0).Columns("IDKH_s").PerformAutoResize(ColumnAutoSizeMode.AllRowsInBand)
-        cboCur1.DisplayLayout.Bands(0).Columns("s_Name").PerformAutoResize(ColumnAutoSizeMode.AllRowsInBand)
-
-    End Sub
-    Private Sub cboCur1_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboCur1.AfterCloseUp
-    End Sub
-
-    Private Sub cboCur2_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboCur2.InitializeLayout
-        If Me.cboCur2.DataSource Is Nothing Then Exit Sub
-        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
-            e.Layout.Bands(0).Columns(i).Hidden = True
-        Next
-        e.Layout.Bands(0).Columns("IDKH_s").Hidden = False
-        e.Layout.Bands(0).Columns("s_Name").Width = 100
-        e.Layout.Bands(0).Columns("s_Name").Hidden = False
-        If cboCur2.Rows.Count > 0 Then
-            cboCur2.Rows(0).Appearance.BackColor = Color.LightCyan
-        End If
-        cboCur2.DisplayLayout.Bands(0).Columns("IDKH_s").PerformAutoResize(ColumnAutoSizeMode.AllRowsInBand)
-        cboCur2.DisplayLayout.Bands(0).Columns("s_Name").PerformAutoResize(ColumnAutoSizeMode.AllRowsInBand)
-
-
-    End Sub
-
-    Private Sub cboCur2_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboCur2.AfterCloseUp
-    End Sub
-    Private Sub cboBank_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboBank.InitializeLayout
-        If Me.cboBank.DataSource Is Nothing Then Exit Sub
-        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
-            e.Layout.Bands(0).Columns(i).Hidden = True
-        Next
-
-        Dim k As Integer = 0
-        e.Layout.Bands(0).Columns("s_Bank_ID").Header.VisiblePosition = k
-        e.Layout.Bands(0).Columns("s_Bank_ID").Hidden = False
-        k += 1
-        e.Layout.Bands(0).Columns("s_Name").Header.VisiblePosition = k
-        e.Layout.Bands(0).Columns("s_Name").Hidden = False
-
-        e.Layout.Bands(0).Columns("s_Bank_ID").PerformAutoResize(ColumnAutoSizeMode.AllRowsInBand)
-        e.Layout.Bands(0).Columns("s_Name").PerformAutoResize(ColumnAutoSizeMode.AllRowsInBand)
-    End Sub
-
-    Private Sub cboBank_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboBank.Validated
-        If Me.cboBank.SelectedRow Is Nothing AndAlso Me.cboBank.Text.Trim <> "" Then
-            cboBank.Focus()
-        End If
-    End Sub
-
-#End Region
-
 #Region "PictureBox"
     Private Sub pic1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles pic1.DoubleClick
         OpenImage(pic1)
@@ -1100,59 +766,6 @@ Public Class FrmNewEmployee
 #End Region
 
 #Region "Format Textbox"
-
-    Private Sub txtBasicSalary_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtBasicSalary.KeyPress
-        Dim k As Short = Asc(e.KeyChar)
-        clsu.UltraTextBox_KeyPress(k, Me.txtBasicSalary)
-        If k = 0 Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub txtBasicSalary_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtBasicSalary.Leave
-        clsu.UltraTextBox_LostFocus(ModMain.m_strFormatCur, txtBasicSalary)
-    End Sub
-
-    Private Sub txtBasicSalary_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtBasicSalary.ValueChanged
-        clsu.UltraTextBox_Change(ModMain.m_strFormatCur, Me.txtBasicSalary)
-
-    End Sub
-
-    Private Sub txtSalaryOf_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtSalaryOf.KeyPress
-        Dim k As Short = Asc(e.KeyChar)
-        clsu.UltraTextBox_KeyPress(k, Me.txtSalaryOf)
-        If k = 0 Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub txtSalaryOf_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtSalaryOf.Leave
-        clsu.UltraTextBox_LostFocus(ModMain.m_strFormatCur, txtSalaryOf)
-    End Sub
-
-    Private Sub txtSalaryOf_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtSalaryOf.ValueChanged
-        clsu.UltraTextBox_Change(ModMain.m_strFormatCur, Me.txtSalaryOf)
-
-    End Sub
-
-    Private Sub txtNofDay_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNofDay.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            chDS.Focus()
-        End If
-    End Sub
-
-    Private Sub txtNofDay_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtNofDay.KeyPress
-        Dim k As Short = Asc(e.KeyChar)
-        clsu.UltraTextBox_KeyPress(k, Me.txtNofDay)
-        If k = 0 Then
-            e.Handled = True
-        End If
-    End Sub
-
-    Private Sub txtNofDay_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtNofDay.ValueChanged
-        clsu.UltraTextBox_Change(ModMain.m_strFormatCur, Me.txtNofDay)
-    End Sub
-
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         OpenImage2(pic1)
     End Sub
@@ -1171,41 +784,4 @@ Public Class FrmNewEmployee
         pic1.Image = Nothing
     End Sub
 #End Region
-
-#Region "RadionButton"
-    Private Sub cboPosition_Validated(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboPosition.Validated
-        If Me.cboPosition.SelectedRow Is Nothing AndAlso Me.cboPosition.Text.Trim <> "" Then
-            cboPosition.Focus()
-            Exit Sub
-        End If
-    End Sub
-
-    Private Sub radBasicSalary_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles radBasicSalary.CheckedChanged
-        If radBasicSalary.Checked = True Then
-            Me.txtBasicSalary.ReadOnly = False
-            Me.txtBasicSalary.Appearance.BackColor = Nothing
-            Me.txtSalaryOf.ReadOnly = True
-            Me.txtSalaryOf.Text = 0
-            Me.txtSalaryOf.Appearance.BackColor = Color.Transparent
-        Else
-            Me.txtBasicSalary.ReadOnly = True
-            Me.txtBasicSalary.Text = 0
-            Me.txtBasicSalary.Appearance.BackColor = Color.Transparent
-            Me.txtSalaryOf.ReadOnly = False
-            Me.txtSalaryOf.Appearance.BackColor = Nothing
-        End If
-    End Sub
-#End Region
-
-    Private Sub cboReferrer_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboReferrer.InitializeLayout
-        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
-            e.Layout.Bands(0).Columns(i).Hidden = True
-        Next
-        e.Layout.Bands(0).Columns("s_Name").Hidden = False
-        cboReferrer.DisplayLayout.Bands(0).Columns("s_Name").PerformAutoResize(ColumnAutoSizeMode.AllRowsInBand)
-    End Sub
-
-    Private Sub chkCTV_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chkCTV.CheckedChanged
-        cboReferrer.Enabled = chkCTV.Checked
-    End Sub
 End Class

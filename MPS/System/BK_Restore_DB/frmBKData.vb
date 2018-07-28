@@ -53,19 +53,19 @@
     Private f_SecE As Boolean = False
     Private f_secD As Boolean = False
     Private Sub Security()
-        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 45)
+        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 13)
         If Not m.R Then
-            ShowMsgInfo("Người dùng không được cấp quyền chạy chức năng này !", 43)
+            ShowMsgInfo("Người dùng không được cấp quyền chạy chức năng này !")
             Me.Close()
             Exit Sub
         End If
 
-        'f_SecA = m.A
-        'f_SecE = m.U
-        'f_secD = m.D
-        'If Not f_SecA And Not f_SecE And Not f_secD Then
-        '    Me.btnApply.Enabled = False
-        'End If
+        f_SecA = m.A
+        f_SecE = m.U
+        f_secD = m.D
+        If Not f_SecA And Not f_SecE And Not f_secD Then
+            Me.btnApply.Enabled = False
+        End If
     End Sub
 #End Region
 #Region "Button "

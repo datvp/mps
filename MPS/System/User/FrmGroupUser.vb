@@ -66,7 +66,7 @@ Public Class FrmGroupUser
     Private f_SecD As Boolean = False
 
     Private Sub Security()
-        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 44)
+        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 12)
         'If Not m.R Then
         '     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
         '    Me.Close()

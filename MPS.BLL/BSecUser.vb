@@ -35,10 +35,6 @@
     End Function
     'Lấy thông tin nhân viên
     Public Function getListEmployees() As DataTable
-        Return cls.getListEmployees
-    End Function
-    'reset lai mat khau admin
-    Public Function ResetPassAdmin() As Boolean
-        Return cls.ResetPassAdmin()
+        Return cls.getListEmployees()
     End Function
 End Class

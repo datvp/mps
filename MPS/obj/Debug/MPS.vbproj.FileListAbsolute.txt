@@ -147,3 +147,4 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmMainContractorDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmMainContractors.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmSubContractDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmPaymentDetail.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmContractItemDetail.resources

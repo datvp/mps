@@ -29,7 +29,7 @@
     Private f_SecE As Boolean = False
     Private f_secD As Boolean = False
     Private Sub Security()
-        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 46)
+        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 14)
         If Not m.R Then
             ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
             Me.Close()

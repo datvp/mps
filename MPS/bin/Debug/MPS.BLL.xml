@@ -6,13 +6,7 @@ MPS.BLL
 </name>
 </assembly>
 <members>
-<member name="M:MPS.BLL.BPublic.getChart_StateSale">
-	<summary>
- doanh số theo trạng thái hợp đồng
- </summary>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:MPS.BLL.BPublic.getListDeadlineContracts(System.Int32)">
+<member name="M:MPS.BLL.BPublic.getListDeadlineContracts(System.Int32)">
 	<summary>
  tổng hợp các hợp đồng sắp hết hạn
  </summary>
@@ -32,12 +26,6 @@ MPS.BLL
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
-</member><member name="M:MPS.BLL.BLogin.ResetPassAdmin">
-	<summary>
- reset lai mat khau admin
- </summary>
-	<returns></returns>
-	<remarks></remarks>
 </member><member name="M:MPS.BLL.B_Branchs.getListByRightToExecute(System.String)">
 	<summary>
  lấy ds chi nhánh để thực hiện nghiệp vụ (load tại mh login)

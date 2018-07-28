@@ -66,4 +66,55 @@
             m_UpdatedAt = value
         End Set
     End Property
+
+    Private m_Status As String = ""
+    ''' <summary>
+    ''' trạng thái của hạng mục: Pending/Completed
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Status() As String
+        Get
+            Return m_Status
+        End Get
+        Set(ByVal value As String)
+            m_Status = value
+        End Set
+    End Property
+
+    Private m_StatusDesc As String = ""
+    ''' <summary>
+    ''' description for Status: only view not save
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property StatusDesc() As String
+        Get
+            Return m_StatusDesc
+        End Get
+        Set(ByVal value As String)
+            m_StatusDesc = value
+        End Set
+    End Property
+
+
+    Private m_ItemValue As Double = 0
+    ''' <summary>
+    ''' chi phí cho hạng mục
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property ItemValue() As Double
+        Get
+            Return m_ItemValue
+        End Get
+        Set(ByVal value As Double)
+            m_ItemValue = value
+        End Set
+    End Property
+
+
 End Class

@@ -141,9 +141,4 @@
 
         Return tb
     End Function
-    'reset lai mat khau admin
-    Public Function ResetPassAdmin() As Boolean
-        Dim sql As String = "update ls_User set s_PWD='06-D4-96-32-C9-DC-9B-CB-62-AE-AE-F9-96-12-BA-6B' where s_UID=N'admin'"
-        Return execSQL(sql)
-    End Function
 End Class

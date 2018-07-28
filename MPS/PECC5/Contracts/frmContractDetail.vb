@@ -97,9 +97,6 @@ Public Class frmContractDetail
         grdSubContractors.DataSource = mInfo.arrSubContractor
         grdSubContracts.DataSource = mInfo.arrSubContract
         grdFiles.DataSource = mInfo.arrFile
-        For Each it In mInfo.arrPayment
-            it.StatusDesc = StatusText(it.PaymentStatus)
-        Next
         grdPayment.DataSource = mInfo.arrPayment
         grdHistory.DataSource = mInfo.arrHistory
         Me.SumTotal()
@@ -119,7 +116,7 @@ Public Class frmContractDetail
         If cboContractLevel.Value IsNot Nothing Then
             m.ContractLevelId = cboContractLevel.Value
         End If
-        m.ContractState = Statuses.Waiting
+        m.ContractState = Statuses.WaitingForApprove
         If cboMainContractor.Value IsNot Nothing Then
             m.MainContractorId = cboMainContractor.Value
         End If
@@ -134,6 +131,11 @@ Public Class frmContractDetail
                 m.SubContracts = it.SubContractName
             Else
                 m.SubContracts += " | " + it.SubContractName
+            End If
+        Next
+        For Each it In m.arrPayment
+            If it.PaymentStatus = Statuses.Paid Then
+                m.Paid += it.PaymentTotal
             End If
         Next
         Return m
@@ -187,8 +189,13 @@ Public Class frmContractDetail
             Return False
         End If
 
+        If Not checkInvalidFeeByItem() Then
+            ShowMsg("Tổng chi phí cho các hạng mục vượt quá Giá trị hợp đồng.")
+            Return False
+        End If
+
         If mInfo IsNot Nothing Then ' edit
-            If mInfo.ContractState <> Statuses.Waiting Then
+            If mInfo.ContractState <> Statuses.WaitingForApprove Then
                 ShowMsg("Hợp đồng đang ở tình trạng: [" + StatusText(mInfo.ContractState) + "], không thể chỉnh sửa.")
                 Return False
             End If
@@ -229,23 +236,40 @@ Public Class frmContractDetail
             mInfo.arrContractDetail = b.getContractDetails(mInfo.ContractId)
             If m.arrContractDetail.Count > mInfo.arrContractDetail.Count Then
                 For Each it In m.arrContractDetail
-                    Dim foundItem = Me.findItem(it.ItemId, mInfo.arrContractDetail)
+                    Dim foundItem = Me.findItem(it, mInfo.arrContractDetail, False)
                     If foundItem Is Nothing Then
                         desc += vbCrLf & "Thêm hạng mục: [" + it.ItemName + "]"
                     End If
                 Next
             ElseIf m.arrContractDetail.Count < mInfo.arrContractDetail.Count Then
                 For Each it In mInfo.arrContractDetail
-                    Dim foundItem = Me.findItem(it.ItemId, m.arrContractDetail)
+                    Dim foundItem = Me.findItem(it, m.arrContractDetail, False)
                     If foundItem Is Nothing Then
                         desc += vbCrLf & "Xóa hạng mục: [" + it.ItemName + "]"
                     End If
                 Next
             Else
                 For Each it In m.arrContractDetail
-                    Dim foundItem = Me.findItem(it.ItemId, mInfo.arrContractDetail)
+                    Dim foundItem = Me.findItem(it, mInfo.arrContractDetail, False)
+
                     If foundItem Is Nothing Then
-                        desc += "Thay đổi hạng mục: -> [" + it.ItemName + "]"
+                        desc += vbCrLf & "Thay đổi hạng mục: -> [" + it.ItemName + "]"
+                    Else 'found
+                        If it.ItemName <> foundItem.ItemName _
+                            OrElse it.Status <> foundItem.Status _
+                            OrElse it.ItemValue <> foundItem.ItemValue _
+                        Then
+                            desc += vbCrLf & "Sửa hạng mục [" + it.ItemName + "]: "
+                            If it.ItemName <> foundItem.ItemName Then
+                                desc += vbCrLf & " - Tên: [" + foundItem.ItemName + "] -> [" + it.ItemName + "]"
+                            End If
+                            If it.Status <> foundItem.Status Then
+                                desc += vbCrLf & " - Trạng thái: [" + StatusText(foundItem.Status) + "] -> [" + StatusText(it.Status) + "]"
+                            End If
+                            If it.ItemValue <> foundItem.ItemValue Then
+                                desc += vbCrLf & " - Chi phí: [" + Format(foundItem.ItemValue, ModMain.m_strFormatCur) + "] -> [" + Format(it.ItemValue, ModMain.m_strFormatCur) + "]"
+                            End If
+                        End If
                     End If
                 Next
             End If
@@ -303,10 +327,10 @@ Public Class frmContractDetail
                         Then
                             desc += vbCrLf & "Sửa phụ lục hợp đồng [" + it.SubContractName + "]: "
                             If it.SubContractName <> foundItem.SubContractName Then
-                                desc += vbCrLf & " - Tên phụ lục: [" + foundItem.SubContractName + "] -> [" + it.SubContractName + "]"
+                                desc += vbCrLf & " - Tên: [" + foundItem.SubContractName + "] -> [" + it.SubContractName + "]"
                             End If
                             If it.SubContractValue <> foundItem.SubContractValue Then
-                                desc += vbCrLf & " - Giá trị phụ lục: [" + foundItem.SubContractValue + "] -> [" + it.SubContractValue + "]"
+                                desc += vbCrLf & " - Giá trị: [" + foundItem.SubContractValue + "] -> [" + it.SubContractValue + "]"
                             End If
                             If it.SubContractDeadLine <> foundItem.SubContractDeadLine Then
                                 desc += vbCrLf & " - Ngày gia hạn: [" + foundItem.SubContractDeadLine.ToString("dd/MM/yyyy") + "] -> [" + it.SubContractDeadLine.ToString("dd/MM/yyyy") + "]"
@@ -371,16 +395,16 @@ Public Class frmContractDetail
                         Then
                             desc += vbCrLf & "Sửa đợt thanh toán [" + it.PaymentName + "]: "
                             If it.PaymentName <> foundItem.PaymentName Then
-                                desc += vbCrLf & " - Tên đợt thanh toán: [" + foundItem.PaymentName + "] -> [" + it.PaymentName + "]"
+                                desc += vbCrLf & " - Tên đợt TT: [" + foundItem.PaymentName + "] -> [" + it.PaymentName + "]"
                             End If
                             If it.PaymentTotal <> foundItem.PaymentTotal Then
-                                desc += vbCrLf & " - Giá trị thanh toán: [" + Format(foundItem.PaymentTotal, ModMain.m_strFormatCur) + "] -> [" + Format(it.PaymentTotal, ModMain.m_strFormatCur) + "]"
+                                desc += vbCrLf & " - Giá trị TT: [" + Format(foundItem.PaymentTotal, ModMain.m_strFormatCur) + "] -> [" + Format(it.PaymentTotal, ModMain.m_strFormatCur) + "]"
                             End If
                             If it.PaymentDate <> foundItem.PaymentDate Then
-                                desc += vbCrLf & " - Ngày thanh toán: [" + foundItem.PaymentDate.ToString("dd/MM/yyyy") + "] -> [" + it.PaymentDate.ToString("dd/MM/yyyy") + "]"
+                                desc += vbCrLf & " - Ngày TT: [" + foundItem.PaymentDate.ToString("dd/MM/yyyy") + "] -> [" + it.PaymentDate.ToString("dd/MM/yyyy") + "]"
                             End If
                             If it.PaymentStatus <> foundItem.PaymentStatus Then
-                                desc += vbCrLf & " - Trạng thái thanh toán: [" + StatusText(foundItem.PaymentStatus) + "] -> [" + StatusText(it.PaymentStatus) + "]"
+                                desc += vbCrLf & " - Trạng thái TT: [" + StatusText(foundItem.PaymentStatus) + "] -> [" + StatusText(it.PaymentStatus) + "]"
                             End If
                         End If
                     End If
@@ -427,6 +451,17 @@ Public Class frmContractDetail
         lblConvertMoney.Text = ModMain.convertMoney(total)
 
     End Sub
+    Private Function checkInvalidFeeByItem() As Boolean
+        Dim total = CDbl(txtTotalValue.Text)
+        Dim sumFee As Double = 0
+        Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
+        If arr IsNot Nothing Then
+            For Each it In arr
+                sumFee += it.ItemValue
+            Next
+        End If
+        Return sumFee <= total
+    End Function
     Private Sub Save()
         Dim m = Me.setInfo()
         If Not Me.CheckOK(m) Then Exit Sub
@@ -449,6 +484,19 @@ Public Class frmContractDetail
         End If
     End Sub
 
+    Private Sub showItemDetail(ByVal item As Model.MContractDetail)
+        Dim frm As New frmContractItemDetail
+        item = frm.ShowDialog(item)
+        If item IsNot Nothing Then
+            Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
+            If arr IsNot Nothing Then
+                Dim found = Me.findItem(item, arr)
+                If found IsNot Nothing Then
+                    grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
+                End If
+            End If
+        End If
+    End Sub
     Private Sub showSubContractDetail(ByVal item As Model.MSubContract)
         Dim frm As New frmSubContractDetail
         item = frm.ShowDialog(item, dtExpireDate.Value)
@@ -539,11 +587,16 @@ Public Class frmContractDetail
 #End Region
 
 #Region "Find item into array"
-    Private Function findItem(ByVal itemId As String, ByVal arr As IList(Of Model.MContractDetail)) As Model.MContractDetail
+    Private Function findItem(ByVal item As Model.MContractDetail, ByVal arr As IList(Of Model.MContractDetail), Optional ByVal isUpdate As Boolean = True) As Model.MContractDetail
         Dim foundItem As Model.MContractDetail = Nothing
         Dim i = 0
         While i < arr.Count And foundItem Is Nothing
-            If arr.Item(i).ItemId = itemId Then
+            If arr.Item(i).ItemId = item.ItemId Then
+                If isUpdate Then
+                    arr.Item(i).ItemValue = item.ItemValue
+                    arr.Item(i).Status = item.Status
+                    arr.Item(i).StatusDesc = StatusText(item.Status)
+                End If
                 foundItem = arr.Item(i)
             End If
             i = i + 1
@@ -624,11 +677,15 @@ Public Class frmContractDetail
         If selectedObj IsNot Nothing Then
             Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
             If arr IsNot Nothing Then
-                Dim foundItem = Me.findItem(selectedObj.ItemId, arr)
+                Dim item As New Model.MContractDetail
+                item.ItemId = selectedObj.ItemId
+                item.ItemName = selectedObj.ItemName
+                item.ItemValue = 0
+                item.Status = Statuses.Waiting
+                item.StatusDesc = StatusText(item.Status)
+
+                Dim foundItem = Me.findItem(item, arr)
                 If foundItem Is Nothing Then
-                    Dim item As New Model.MContractDetail
-                    item.ItemId = selectedObj.ItemId
-                    item.ItemName = selectedObj.ItemName
                     arr.Insert(arr.Count, item)
                     grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
                 Else
@@ -720,6 +777,18 @@ Public Class frmContractDetail
             End If
         End If
     End Sub
+
+    Private Sub grdItems_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles grdItems.DoubleClick
+        Dim r As UltraGridRow = grdItems.ActiveRow
+        If r IsNot Nothing Then
+            Dim m As New Model.MContractDetail
+            m.ItemId = r.Cells("ItemId").Value
+            m.ItemName = r.Cells("ItemName").Value
+            m.ItemValue = CDbl(r.Cells("ItemValue").Value)
+            m.Status = r.Cells("Status").Value
+            Me.showItemDetail(m)
+        End If
+    End Sub
     Private Sub grdItems_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdItems.InitializeLayout
         If fGridIem Then Exit Sub
         fGridIem = True
@@ -749,6 +818,43 @@ Public Class frmContractDetail
         End If
     End Sub
 
+    Private Sub grdItems_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles grdItems.MouseDown
+        T_Item_Waiting.Enabled = True
+        T_Item_Completed.Enabled = True
+        T_Item_Pending.Enabled = True
+
+        Dim r As UltraGridRow = grdItems.ActiveRow
+
+        Dim element As Infragistics.Win.UIElement = grdItems.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
+        Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))
+        If e.Button <> Windows.Forms.MouseButtons.Right Then
+            If result Is Nothing Then
+                Exit Sub
+            End If
+            Exit Sub
+        End If
+        If result Is Nothing OrElse result.Index = -1 Then
+            T_Item_Waiting.Enabled = False
+            T_Item_Completed.Enabled = False
+            T_Item_Pending.Enabled = False
+        Else
+            If Not result.IsDataRow Then
+                Exit Sub
+            End If
+            result.Activated = True
+            r = result
+            'Dim status = r.Cells("Status").Value
+            'If status <> Statuses.Waiting Then
+            '    T_Item_Waiting.Enabled = False
+            '    T_Item_Completed.Enabled = False
+            '    T_Item_Pending.Enabled = False
+            'End If
+        End If
+
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            ctMenu.Show(grdItems, New Point(e.X, e.Y))
+        End If
+    End Sub
 
     Private Sub grdSubContractors_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdSubContractors.ClickCellButton
         Dim r As UltraGridRow = grdSubContractors.ActiveRow
@@ -995,5 +1101,28 @@ Public Class frmContractDetail
     End Sub
 #End Region
 
+    Private Sub updateItemStatus(ByVal status As String)
+        Dim r As UltraGridRow = grdItems.ActiveRow
+        If r IsNot Nothing Then
+            Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
+            If arr IsNot Nothing Then
+                Dim item = arr.Item(r.Index)
+                If item Is Nothing Then Exit Sub
+                item.Status = status
+                item.StatusDesc = StatusText(status)
+                grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
+            End If
+        End If
+    End Sub
+    Private Sub T_Item_Waiting_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Item_Waiting.Click
+        Me.updateItemStatus(Statuses.Waiting)
+    End Sub
 
+    Private Sub T_Item_Completed_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Item_Completed.Click
+        Me.updateItemStatus(Statuses.Completed)
+    End Sub
+
+    Private Sub T_Item_Pending_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Item_Pending.Click
+        Me.updateItemStatus(Statuses.Pending)
+    End Sub
 End Class

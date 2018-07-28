@@ -22,6 +22,7 @@ Partial Class frmContractDetail
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Dim Appearance63 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance64 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance65 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -207,6 +208,10 @@ Partial Class frmContractDetail
         Me.lnkAddPayment = New System.Windows.Forms.LinkLabel
         Me.grdPayment = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
+        Me.ctMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.T_Item_Waiting = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_Item_Completed = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_Item_Pending = New System.Windows.Forms.ToolStripMenuItem
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMainInfo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -246,6 +251,7 @@ Partial Class frmContractDetail
         CType(Me.grpPayment, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpPayment.SuspendLayout()
         CType(Me.grdPayment, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ctMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'grpBottom
@@ -859,7 +865,7 @@ Partial Class frmContractDetail
         Appearance101.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption
         Appearance101.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Me.grdSubContracts.DisplayLayout.Override.RowSelectorAppearance = Appearance101
-        Me.grdSubContracts.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdSubContracts.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.VisibleIndex
         Me.grdSubContracts.DisplayLayout.Override.RowSelectorWidth = 12
         Me.grdSubContracts.DisplayLayout.Override.RowSpacingBefore = 0
         Appearance102.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -959,7 +965,7 @@ Partial Class frmContractDetail
         Appearance40.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption
         Appearance40.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Me.grdSubContractors.DisplayLayout.Override.RowSelectorAppearance = Appearance40
-        Me.grdSubContractors.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdSubContractors.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.VisibleIndex
         Me.grdSubContractors.DisplayLayout.Override.RowSelectorWidth = 12
         Me.grdSubContractors.DisplayLayout.Override.RowSpacingBefore = 0
         Appearance41.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -1080,7 +1086,7 @@ Partial Class frmContractDetail
         Appearance57.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption
         Appearance57.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Me.grdItems.DisplayLayout.Override.RowSelectorAppearance = Appearance57
-        Me.grdItems.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdItems.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.VisibleIndex
         Me.grdItems.DisplayLayout.Override.RowSelectorWidth = 12
         Me.grdItems.DisplayLayout.Override.RowSpacingBefore = 0
         Appearance58.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -1287,7 +1293,7 @@ Partial Class frmContractDetail
         '
         Me.lnkAddFile.AutoSize = True
         Me.lnkAddFile.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.lnkAddFile.Location = New System.Drawing.Point(851, 1)
+        Me.lnkAddFile.Location = New System.Drawing.Point(851, 9)
         Me.lnkAddFile.Name = "lnkAddFile"
         Me.lnkAddFile.Size = New System.Drawing.Size(41, 16)
         Me.lnkAddFile.TabIndex = 15
@@ -1343,7 +1349,7 @@ Partial Class frmContractDetail
         Appearance91.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption
         Appearance91.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Me.grdFiles.DisplayLayout.Override.RowSelectorAppearance = Appearance91
-        Me.grdFiles.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdFiles.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.VisibleIndex
         Me.grdFiles.DisplayLayout.Override.RowSelectorWidth = 12
         Me.grdFiles.DisplayLayout.Override.RowSpacingBefore = 0
         Appearance92.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -1443,8 +1449,8 @@ Partial Class frmContractDetail
         Appearance70.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption
         Appearance70.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Me.grdHistory.DisplayLayout.Override.RowSelectorAppearance = Appearance70
-        Me.grdHistory.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
-        Me.grdHistory.DisplayLayout.Override.RowSelectorWidth = 12
+        Me.grdHistory.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.VisibleIndex
+        Me.grdHistory.DisplayLayout.Override.RowSelectorWidth = 20
         Me.grdHistory.DisplayLayout.Override.RowSpacingBefore = 0
         Appearance71.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Appearance71.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -1543,7 +1549,7 @@ Partial Class frmContractDetail
         Appearance5.BackColor2 = System.Drawing.SystemColors.GradientInactiveCaption
         Appearance5.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Me.grdPayment.DisplayLayout.Override.RowSelectorAppearance = Appearance5
-        Me.grdPayment.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdPayment.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.VisibleIndex
         Me.grdPayment.DisplayLayout.Override.RowSelectorWidth = 12
         Me.grdPayment.DisplayLayout.Override.RowSpacingBefore = 0
         Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -1582,6 +1588,33 @@ Partial Class frmContractDetail
         Me.lblTitle.Size = New System.Drawing.Size(988, 47)
         Me.lblTitle.TabIndex = 12
         Me.lblTitle.Text = "HỢP ĐỒNG"
+        '
+        'ctMenu
+        '
+        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Item_Waiting, Me.T_Item_Completed, Me.T_Item_Pending})
+        Me.ctMenu.Name = "ctMenu"
+        Me.ctMenu.Size = New System.Drawing.Size(138, 70)
+        '
+        'T_Item_Waiting
+        '
+        Me.T_Item_Waiting.Image = Global.MPS.My.Resources.Resources.ChamCong_t
+        Me.T_Item_Waiting.Name = "T_Item_Waiting"
+        Me.T_Item_Waiting.Size = New System.Drawing.Size(137, 22)
+        Me.T_Item_Waiting.Text = "Đang chờ"
+        '
+        'T_Item_Completed
+        '
+        Me.T_Item_Completed.Image = Global.MPS.My.Resources.Resources.check
+        Me.T_Item_Completed.Name = "T_Item_Completed"
+        Me.T_Item_Completed.Size = New System.Drawing.Size(137, 22)
+        Me.T_Item_Completed.Text = "Hoàn thành"
+        '
+        'T_Item_Pending
+        '
+        Me.T_Item_Pending.Image = Global.MPS.My.Resources.Resources.cancl_32
+        Me.T_Item_Pending.Name = "T_Item_Pending"
+        Me.T_Item_Pending.Size = New System.Drawing.Size(137, 22)
+        Me.T_Item_Pending.Text = "Tạm ngưng"
         '
         'frmContractDetail
         '
@@ -1649,6 +1682,7 @@ Partial Class frmContractDetail
         Me.grpPayment.ResumeLayout(False)
         Me.grpPayment.PerformLayout()
         CType(Me.grdPayment, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ctMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1711,4 +1745,8 @@ Partial Class frmContractDetail
     Friend WithEvents dtDeadlineExt As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents lnkAddPayment As System.Windows.Forms.LinkLabel
+    Friend WithEvents ctMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents T_Item_Waiting As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents T_Item_Completed As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents T_Item_Pending As System.Windows.Forms.ToolStripMenuItem
 End Class

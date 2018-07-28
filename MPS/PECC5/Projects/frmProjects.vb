@@ -66,11 +66,11 @@ Public Class frmProjects
     Private f_SecD As Boolean = False
 
     Private Sub Security()
-        ''Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 44)
+        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 24)
 
-        f_SecE = True ' m.U
-        f_SecA = True 'm.A
-        f_SecD = True 'm.D
+        f_SecE = m.U
+        f_SecA = m.A
+        f_SecD = m.D
         Me.Toolbars.Tools("btnAdd").SharedProps.Enabled = f_SecA
         Me.Toolbars.Tools("btnEdit").SharedProps.Enabled = f_SecE
         Me.Toolbars.Tools("btnDel").SharedProps.Enabled = f_SecD

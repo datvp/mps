@@ -13,6 +13,27 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractDetail.Status">
+	<summary>
+ trạng thái của hạng mục: Pending/Completed
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractDetail.StatusDesc">
+	<summary>
+ description for Status: only view not save
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractDetail.ItemValue">
+	<summary>
+ chi phí cho hạng mục
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.MSubContract.DelItem">
 	<summary>
  nút xóa item
@@ -184,6 +205,13 @@ MPS.Model
 </member><member name="P:MPS.Model.MContract.BranchId">
 	<summary>
  Mã chi nhánh
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.Paid">
+	<summary>
+ tổng tiền đã thanh toán
  </summary>
 	<value></value>
 	<returns></returns>

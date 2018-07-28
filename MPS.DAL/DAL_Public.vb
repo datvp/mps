@@ -42,34 +42,24 @@ Public Class DAL_Public
         Return BitConverter.ToInt32(bytes, 0) ' return bytes converted to a random Int32
     End Function
     ''' <summary>
-    ''' doanh số theo quý trong năm
+    ''' doanh thu theo hạng mục
     ''' </summary>
-    ''' <param name="thang"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function getChart_TotalSale(ByVal thang As Date) As DataTable
+    Public Function getChartByItem() As DataTable
         Dim tb As New DataTable
         tb.Columns.Clear()
-        tb.Columns.Add("Day", GetType(String))
+        tb.Columns.Add("Item", GetType(String))
         tb.Columns.Add("-", GetType(Double))
-        'Dim first_day As Integer = 1
-        'Dim end_day As Integer = thang.AddMonths(1).AddDays(-thang.Day).Day
-        'For i = first_day To end_day
-        '    Dim r = tb.NewRow
-        '    r("Day") = IIf(i < 10, "0" & i.ToString, i.ToString)
-        '    r("-") = GenRandomInt(500000000, 950000000)
-        '    tb.Rows.Add(r)
-        'Next
-        'Dim year = Now.Year
-        Dim quy As Integer = 3
-        Dim end_day As Integer = thang.AddMonths(1).AddDays(-thang.Day).Day
-        For i = 1 To 4
-            Dim r = tb.NewRow
-            r("Day") = quy * i & " tháng"
-            r("-") = GenRandomInt(500000, 950000000)
-            tb.Rows.Add(r)
-        Next
-
+        Dim tbItems = Me.getTableSQL("select * from V_ChartByItem Order by ItemId")
+        If tbItems IsNot Nothing AndAlso tbItems.Rows.Count > 0 Then
+            For Each item In tbItems.Rows
+                Dim r = tb.NewRow
+                r("Item") = item("ItemId").ToString
+                r("-") = CDbl(IsNull(item("Total"), 0))
+                tb.Rows.Add(r)
+            Next
+        End If
         Return tb
     End Function
     ''' <summary>
@@ -77,21 +67,22 @@ Public Class DAL_Public
     ''' </summary>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function getChart_StateSale() As DataTable
+    Public Function getChartByClientGroup() As DataTable
         Dim tb As New DataTable
         tb.Columns.Clear()
-        tb.Columns.Add("State", GetType(String))
+        tb.Columns.Add("Client", GetType(String))
         tb.Columns.Add("Value", GetType(Double))
 
-        Dim dr = tb.NewRow
-        dr("State") = "Đã ký"
-        dr("Value") = 20560940000
-        tb.Rows.Add(dr)
+        Dim tbItems = Me.getTableSQL("select * from V_ChartByClientGroup Order by ClientGroupName")
+        If tbItems IsNot Nothing AndAlso tbItems.Rows.Count > 0 Then
+            For Each item In tbItems.Rows
+                Dim r = tb.NewRow
+                r("Client") = item("ClientGroupName").ToString
+                r("Value") = CDbl(IsNull(item("Total"), 0))
+                tb.Rows.Add(r)
+            Next
+        End If
 
-        dr = tb.NewRow
-        dr("State") = "Chờ ký"
-        dr("Value") = 10798686818
-        tb.Rows.Add(dr)
         Return tb
     End Function
 
@@ -139,28 +130,19 @@ Public Class DAL_Public
     Public Function getChartByProject() As DataTable
         Dim tb As New DataTable
         tb.Columns.Clear()
-        tb.Columns.Add("Project", GetType(String))
+        tb.Columns.Add("ProjectName", GetType(String))
         tb.Columns.Add("Value", GetType(Double))
 
-        Dim dr = tb.NewRow
-        dr("Project") = "DA-001"
-        dr("Value") = 20560940000
-        tb.Rows.Add(dr)
+        Dim tbItems = Me.getTableSQL("select * from V_ChartByProject Order by ProjectId")
+        If tbItems IsNot Nothing AndAlso tbItems.Rows.Count > 0 Then
+            For Each item In tbItems.Rows
+                Dim r = tb.NewRow
+                r("ProjectName") = item("ProjectId").ToString
+                r("Value") = CDbl(IsNull(item("Total"), 0))
+                tb.Rows.Add(r)
+            Next
+        End If
 
-        dr = tb.NewRow
-        dr("Project") = "DA-002"
-        dr("Value") = 20000000000
-        tb.Rows.Add(dr)
-
-        dr = tb.NewRow
-        dr("Project") = "DA-003"
-        dr("Value") = 5000000000
-        tb.Rows.Add(dr)
-
-        dr = tb.NewRow
-        dr("Project") = "DA-004"
-        dr("Value") = 13000000000
-        tb.Rows.Add(dr)
         Return tb
     End Function
 

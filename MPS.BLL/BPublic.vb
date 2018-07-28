@@ -19,16 +19,12 @@
         Return cls.getServerDate
     End Function
 
-    Public Function getChart_TotalSale(ByVal thang As Date) As DataTable
-        Return cls.getChart_TotalSale(thang)
+    Public Function getChartByItem() As DataTable
+        Return cls.getChartByItem()
     End Function
-    ''' <summary>
-    ''' doanh số theo trạng thái hợp đồng
-    ''' </summary>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Public Function getChart_StateSale() As DataTable
-        Return cls.getChart_StateSale()
+  
+    Public Function getChartByClientGroup() As DataTable
+        Return cls.getChartByClientGroup()
     End Function
 
     ''' <summary>

@@ -131,36 +131,76 @@
     Private Sub tbManager_ToolClick(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) Handles tbManager.ToolClick
         Select Case e.Tool.Key
             Case "Reports"
+                If Not CheckSecurity(20, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmTotalReports
                 ShowForm(frm)
             Case "Dashboard"
                 Dim frm As New frmDashboard
                 ShowForm(frm)
             Case "Uniteds"
+                If Not CheckSecurity(9, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmMainContractors
                 ShowForm(frm)
             Case "SubContractors"
+                If Not CheckSecurity(8, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmSubContractors
                 ShowForm(frm)
             Case "Items"
+                If Not CheckSecurity(7, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmItems
                 ShowForm(frm)
             Case "ConstructionLevels"
+                If Not CheckSecurity(27, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmConstructionLevels
                 ShowForm(frm)
             Case "ProjectTypes"
+                If Not CheckSecurity(10, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmProjectTypes
                 ShowForm(frm)
             Case "Clients"
+                If Not CheckSecurity(6, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmClients
                 ShowForm(frm)
             Case "ClientGroups"
+                If Not CheckSecurity(5, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmClientGroups
                 ShowForm(frm)
             Case "Projects"
+                If Not CheckSecurity(24, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmProjects
                 ShowForm(frm)
             Case "Contracts"
+                If Not CheckSecurity(25, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
                 Dim frm As New frmContracts
                 ShowForm(frm)
             Case "Branchs"
@@ -171,21 +211,21 @@
                 Dim frm As New frmBranch
                 ShowForm(frm)
             Case "SetPermission"
-                If Not CheckSecurity(83, Add) Then
+                If Not CheckSecurity(17, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
                     Exit Sub
                 End If
                 Dim frm As New FrmFuncRight
                 ShowForm(frm)
             Case "Users"
-                If Not CheckSecurity(47, Add) Then
+                If Not CheckSecurity(15, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
                     Exit Sub
                 End If
                 Dim frm As New frmUsers
                 ShowForm(frm)
             Case "UserGroups"
-                If Not CheckSecurity(44, Add) Then
+                If Not CheckSecurity(12, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
                     Exit Sub
                 End If
@@ -213,14 +253,14 @@
                 Dim frm As New FrmEvent
                 ShowForm(frm)
             Case "btnSLDP"
-                If Not CheckSecurity(45, Add) Then
+                If Not CheckSecurity(13, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
                     Exit Sub
                 End If
                 Dim frm As New frmBKData
                 frm.ShowDialog()
             Case "btnPHDL"
-                If Not CheckSecurity(46, Add) Then
+                If Not CheckSecurity(14, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
                     Exit Sub
                 End If

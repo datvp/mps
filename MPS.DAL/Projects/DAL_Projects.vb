@@ -98,6 +98,7 @@ Public Class DAL_Projects
             m.LengthUnit = IsNull(tb.Rows(0)("LengthUnit"), "")
             m.Note = IsNull(tb.Rows(0)("Note"), "")
             m.Status = IsNull(tb.Rows(0)("Status"), "")
+            m.ClientId = IsNull(tb.Rows(0)("ClientId"), "")
         End If
         Return m
     End Function

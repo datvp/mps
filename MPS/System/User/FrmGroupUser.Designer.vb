@@ -90,7 +90,7 @@ Partial Class FrmGroupUser
         Me.UltraLabel1.Name = "UltraLabel1"
         Me.UltraLabel1.Size = New System.Drawing.Size(726, 23)
         Me.UltraLabel1.TabIndex = 36
-        Me.UltraLabel1.Text = "Danh mục Nhóm tài khoản sử dụng"
+        Me.UltraLabel1.Text = "Nhóm tài khoản"
         '
         'Panel1
         '
@@ -281,7 +281,7 @@ Partial Class FrmGroupUser
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 198)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 176)
         '
         'T_Add
         '

@@ -351,4 +351,19 @@
         End Set
     End Property
 
+    Private m_Paid As Double = 0
+    ''' <summary>
+    ''' tổng tiền đã thanh toán
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Paid() As Double
+        Get
+            Return m_Paid
+        End Get
+        Set(ByVal value As Double)
+            m_Paid = value
+        End Set
+    End Property
 End Class

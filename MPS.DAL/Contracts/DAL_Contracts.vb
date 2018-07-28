@@ -23,21 +23,22 @@ Public Class DAL_Contracts
     End Function
     Public Function updateDB(ByVal m As Model.MContract) As Boolean
         Dim sql = ""
+        Dim isEdit = Me.isExist(m.ContractId)
 
-        If isExist(m.ContractId) Then
-            sql = "Update Contracts set BranchId=@BranchId,ContractName=@ContractName,ProjectId=@ProjectId,ContractDate=@ContractDate,"
+        If isEdit Then
+            sql = "Update Contracts set Paid=@Paid,BranchId=@BranchId,ContractName=@ContractName,ProjectId=@ProjectId,ContractDate=@ContractDate,"
             sql += "ContractValue=@ContractValue,ContractDeadLine=@ContractDeadLine,MainContractorId=@MainContractorId,Note=@Note,"
             sql += "ContractLevelId=@ContractLevelId,UpdatedAt=getdate(),ContractState=@ContractState,SubContracts=@SubContracts,DeadlineExt=@DeadlineExt where ContractId=@ContractId"
         Else
-            sql = "Insert into Contracts(BranchId,ContractId,ContractName,ProjectId,ContractDate,ContractValue,ContractDeadLine,MainContractorId,ContractLevelId,ContractState,SubContracts,Note,DeadlineExt,CreatedAt)"
-            sql += "values(@BranchId,@ContractId,@ContractName,@ProjectId,@ContractDate,@ContractValue,@ContractDeadLine,@MainContractorId,@ContractLevelId,@ContractState,@SubContracts,@Note,@DeadlineExt,getdate())"
+            sql = "Insert into Contracts(Paid,BranchId,ContractId,ContractName,ProjectId,ContractDate,ContractValue,ContractDeadLine,MainContractorId,ContractLevelId,ContractState,SubContracts,Note,DeadlineExt,CreatedAt)"
+            sql += "values(@Paid,@BranchId,@ContractId,@ContractName,@ProjectId,@ContractDate,@ContractValue,@ContractDeadLine,@MainContractorId,@ContractLevelId,@ContractState,@SubContracts,@Note,@DeadlineExt,getdate())"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(12) As SqlParameter
+        Dim p(13) As SqlParameter
         p(0) = New SqlParameter("@ContractId", m.ContractId)
         p(1) = New SqlParameter("@ContractName", m.ContractName)
         p(2) = New SqlParameter("@ProjectId", m.ProjectId)
@@ -51,6 +52,7 @@ Public Class DAL_Contracts
         p(10) = New SqlParameter("@SubContracts", m.SubContracts)
         p(11) = New SqlParameter("@DeadlineExt", m.DeadlineExt)
         p(12) = New SqlParameter("@BranchId", m.BranchId)
+        p(13) = New SqlParameter("@Paid", m.Paid)
 
         Me.BeginTranstion()
 
@@ -65,35 +67,36 @@ Public Class DAL_Contracts
             Return False
         End If
 
-        sql = "Delete from ContractDetails where ContractId=@ContractId"
-        If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
-            Me.RollbackTransction()
-            Return False
+        If isEdit Then
+            sql = "Delete from ContractDetails where ContractId=@ContractId"
+            If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
+                Me.RollbackTransction()
+                Return False
+            End If
         End If
 
-        sql = "Insert into ContractDetails(ContractId,ItemId,ItemName,CreatedAt)"
-        sql += " values(@ContractId,@ItemId,@ItemName,getdate())"
+        sql = "Insert into ContractDetails(ContractId,ItemId,ItemName,Status,ItemValue,CreatedAt)"
+        sql += " values(@ContractId,@ItemId,@ItemName,@Status,@ItemValue,getdate())"
         For Each it In m.arrContractDetail
-            Dim pm(2) As SqlParameter
+            Dim pm(4) As SqlParameter
             pm(0) = New SqlParameter("@ContractId", m.ContractId)
             pm(1) = New SqlParameter("@ItemId", it.ItemId)
             pm(2) = New SqlParameter("@ItemName", it.ItemName)
+            pm(3) = New SqlParameter("@Status", it.Status)
+            pm(4) = New SqlParameter("@ItemValue", it.ItemValue)
             If Not Me.execSQL(sql, pm) Then
                 Me.RollbackTransction()
                 Return False
             End If
         Next
 
-        'nhà thầu phụ
-        If m.arrSubContractor Is Nothing OrElse m.arrSubContractor.Count = 0 Then
-            Me.RollbackTransction()
-            Return False
-        End If
-
-        sql = "Delete from Contract_SubContractor where ContractId=@ContractId"
-        If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
-            Me.RollbackTransction()
-            Return False
+        'nhà thầu phụ (optional)
+        If isEdit Then
+            sql = "Delete from Contract_SubContractor where ContractId=@ContractId"
+            If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
+                Me.RollbackTransction()
+                Return False
+            End If
         End If
 
         sql = "Insert into Contract_SubContractor(ContractId,SubContractorId,SubContractorName,CreatedAt)"
@@ -109,16 +112,13 @@ Public Class DAL_Contracts
             End If
         Next
 
-        'phụ lục hợp đồng
-        If m.arrSubContract Is Nothing OrElse m.arrSubContract.Count = 0 Then
-            Me.RollbackTransction()
-            Return False
-        End If
-
-        sql = "Delete from SubContracts where ContractId=@ContractId"
-        If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
-            Me.RollbackTransction()
-            Return False
+        'phụ lục hợp đồng (optional)
+        If isEdit Then
+            sql = "Delete from SubContracts where ContractId=@ContractId"
+            If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
+                Me.RollbackTransction()
+                Return False
+            End If
         End If
 
         sql = "Insert into SubContracts(ContractId,SubContractId,SubContractName,SubContractDeadLine,SubContractValue,CreatedAt)"
@@ -137,16 +137,13 @@ Public Class DAL_Contracts
         Next
 
 
-        'tập tin đính kèm
-        If m.arrFile Is Nothing OrElse m.arrFile.Count = 0 Then
-            Me.RollbackTransction()
-            Return False
-        End If
-
-        sql = "Delete from AttachFileContracts where ContractId=@ContractId"
-        If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
-            Me.RollbackTransction()
-            Return False
+        'tập tin đính kèm (optional)
+        If isEdit Then
+            sql = "Delete from AttachFileContracts where ContractId=@ContractId"
+            If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
+                Me.RollbackTransction()
+                Return False
+            End If
         End If
 
         sql = "Insert into AttachFileContracts(ContractId,FileId,FileName,FilePath,FileType,CreatedAt)"
@@ -166,16 +163,13 @@ Public Class DAL_Contracts
             count += 1
         Next
 
-        'các đợt thanh toán
-        If m.arrPayment Is Nothing OrElse m.arrPayment.Count = 0 Then
-            Me.RollbackTransction()
-            Return False
-        End If
-
-        sql = "Delete from ContractPayments where ContractId=@ContractId"
-        If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
-            Me.RollbackTransction()
-            Return False
+        'các đợt thanh toán (optional)
+        If isEdit Then
+            sql = "Delete from ContractPayments where ContractId=@ContractId"
+            If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
+                Me.RollbackTransction()
+                Return False
+            End If
         End If
 
         sql = "Insert into ContractPayments(ContractId,PaymentId,PaymentName,PaymentTotal,PaymentDate,PaymentStatus)"
@@ -194,13 +188,7 @@ Public Class DAL_Contracts
             End If
         Next
 
-
-        'Lich su hoat dong
-        If m.arrHistory Is Nothing OrElse m.arrHistory.Count = 0 Then
-            Me.RollbackTransction()
-            Return False
-        End If
-
+        'Lich su hoat dong (optional)
         sql = "Insert into ContractHistory(ContractId,UserId,Description,CreatedAt)"
         sql += " values(@ContractId,@UserId,@Description,getdate())"
         For Each it In m.arrHistory
@@ -286,7 +274,7 @@ Public Class DAL_Contracts
         End If
 
         'write log
-        Dim desc = "Hiệu chỉnh: " + vbCrLf + "Trạng thái hợp đồng: [" + m.ContractState + "] -> [" + status + "]"
+        Dim desc = "Hiệu chỉnh: Trạng thái hợp đồng: [" + Me.StatusText(m.ContractState) + "] -> [" + Me.StatusText(status) + "]"
         sql = "Insert into ContractHistory(ContractId,UserId,Description,CreatedAt)"
         sql += " values(@ContractId,@UserId,@Description,getdate())"
         Dim pm(2) As SqlParameter
@@ -312,6 +300,9 @@ Public Class DAL_Contracts
                 m.ContractId = IsNull(r("ContractId"), "")
                 m.ItemId = IsNull(r("ItemId"), "")
                 m.ItemName = IsNull(r("ItemName"), "")
+                m.ItemValue = IsNull(r("ItemValue"), 0)
+                m.Status = IsNull(r("Status"), "")
+                m.StatusDesc = Me.StatusText(m.Status)
                 arr.Add(m)
             Next
         End If
@@ -381,6 +372,7 @@ Public Class DAL_Contracts
                 m.PaymentId = IsNull(r("PaymentId"), "")
                 m.PaymentName = IsNull(r("PaymentName"), "")
                 m.PaymentStatus = IsNull(r("PaymentStatus"), "")
+                m.StatusDesc = Me.StatusText(m.PaymentStatus)
                 m.PaymentDate = IsNull(r("PaymentDate"), "")
                 m.PaymentTotal = IsNull(r("PaymentTotal"), 0)
                 arr.Add(m)
