@@ -6,7 +6,21 @@ MPS.Model
 </name>
 </assembly>
 <members>
-<member name="P:MPS.Model.MContractDetail.DelItem">
+<member name="P:MPS.Model.MContractRefund.SubContractorName">
+	<summary>
+ Tên nhà thầu phụ
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractRefund.StatusDesc">
+	<summary>
+ description for Status: only view not save
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractDetail.DelItem">
 	<summary>
  nút xóa item
  </summary>
@@ -30,6 +44,20 @@ MPS.Model
 </member><member name="P:MPS.Model.MContractDetail.ItemValue">
 	<summary>
  chi phí cho hạng mục
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractDetail.SubContractorId">
+	<summary>
+ Mã nhà thầu phụ
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractDetail.SubContractorName">
+	<summary>
+ Tên nhà thầu phụ
  </summary>
 	<value></value>
 	<returns></returns>
@@ -197,7 +225,14 @@ MPS.Model
 	<remarks></remarks>
 </member><member name="P:MPS.Model.MContract.arrPayment">
 	<summary>
- ds các đợt thanh toán
+ ds các đợt thu
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.arrRefund">
+	<summary>
+ ds các đợt chi
  </summary>
 	<value></value>
 	<returns></returns>

@@ -1,5 +1,6 @@
 ﻿Public Class frmContractItemDetail
     Private item As Model.MContractDetail
+    Private bSub As BLL.BSubContractors = BLL.BSubContractors.Instance
     Public Overloads Function ShowDialog(ByVal item As Model.MContractDetail) As Model.MContractDetail
         Me.item = item
         Me.ShowDialog()
@@ -45,23 +46,54 @@
         cboStatus.ValueMember = "Id"
         cboStatus.DisplayMember = "Name"
         cboStatus.DataSource = tb
+
+        Dim tbSub = bSub.getListSubContractors()
+        cboSubContractor.ValueMember = "SubContractorId"
+        cboSubContractor.DisplayMember = "SubContractorName"
+        cboSubContractor.DataSource = tbSub
     End Sub
     Private Sub LoadInfo(ByVal m As Model.MContractDetail)
         txtItemId.Text = m.ItemId
         txtItemName.Text = m.ItemName
-        txtPaymentTotal.Text = Format(m.ItemValue, ModMain.m_strFormatCur)
+        txtItemValue.Text = Format(m.ItemValue, ModMain.m_strFormatCur)
         cboStatus.Value = m.Status
     End Sub
+    Private Function CheckOK(ByVal m As Model.MContractDetail) As Boolean
+        If m.SubContractorId = "" Then
+            ShowMsg("Chưa chọn nhà thầu phụ")
+            cboSubContractor.Focus()
+            Return False
+        End If
+        If m.Status = "" Then
+            ShowMsg("Chưa chọn trạng thái")
+            cboStatus.Focus()
+            Return False
+        End If
+        If m.ItemValue = 0 Then
+            ShowMsg("Chưa nhập tổng chi phí")
+            txtItemValue.Focus()
+            Return False
+        End If
+        Return True
+    End Function
     Private Function setInfo() As Model.MContractDetail
         Dim m As New Model.MContractDetail
         m.ItemId = txtItemId.Text
         m.ItemName = txtItemName.Text
-        m.ItemValue = CDbl(txtPaymentTotal.Text)
-        m.Status = cboStatus.Value
+        m.ItemValue = CDbl(txtItemValue.Text)
+        If cboStatus.Value IsNot Nothing Then
+            m.Status = cboStatus.Value
+        End If
+        If cboSubContractor.Value IsNot Nothing Then
+            m.SubContractorId = cboSubContractor.Value
+            m.SubContractorName = cboSubContractor.Text
+        End If
         Return m
     End Function
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-        Me.item = Me.setInfo()
+        Dim m = Me.setInfo()
+        If Not Me.CheckOK(m) Then Exit Sub
+        Me.item = m
         Me.Close()
     End Sub
 
@@ -70,18 +102,18 @@
         Me.Close()
     End Sub
 
-    Private Sub txtSubContractValue_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtPaymentTotal.KeyPress
+    Private Sub txtSubContractValue_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtItemValue.KeyPress
         ModMain.UltraTextBox_KeyPress(sender, e)
     End Sub
 
-    Private Sub txtSubContractValue_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPaymentTotal.Leave
+    Private Sub txtSubContractValue_Leave(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtItemValue.Leave
         ModMain.UltraTextBox_LostFocus(sender)
     End Sub
 
-    Private Sub txtSubContractValue_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPaymentTotal.ValueChanged
+    Private Sub txtSubContractValue_ValueChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtItemValue.ValueChanged
         ModMain.UltraTextBox_ValueChanged(sender)
-        If txtPaymentTotal.Text = "" Then Exit Sub
-        lblConvertMoney.Text = ModMain.convertMoney(CDbl(txtPaymentTotal.Text))
+        If txtItemValue.Text = "" Then Exit Sub
+        lblConvertMoney.Text = ModMain.convertMoney(CDbl(txtItemValue.Text))
     End Sub
 
     Private Sub cboStatus_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboStatus.InitializeLayout
@@ -89,5 +121,11 @@
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("Name").Hidden = False
+    End Sub
+    Private Sub cboSubContractor_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboSubContractor.InitializeLayout
+        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
+            e.Layout.Bands(0).Columns(i).Hidden = True
+        Next
+        e.Layout.Bands(0).Columns("SubContractorName").Hidden = False
     End Sub
 End Class

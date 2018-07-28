@@ -117,4 +117,35 @@
     End Property
 
 
+    Private m_SubContractorId As String = ""
+    ''' <summary>
+    ''' Mã nhà thầu phụ
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property SubContractorId() As String
+        Get
+            Return m_SubContractorId
+        End Get
+        Set(ByVal value As String)
+            m_SubContractorId = value
+        End Set
+    End Property
+
+    Private m_SubContractorName As String = ""
+    ''' <summary>
+    ''' Tên nhà thầu phụ
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property SubContractorName() As String
+        Get
+            Return m_SubContractorName
+        End Get
+        Set(ByVal value As String)
+            m_SubContractorName = value
+        End Set
+    End Property
 End Class

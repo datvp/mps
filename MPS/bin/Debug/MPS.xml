@@ -6,7 +6,57 @@ MPS
 </name>
 </assembly>
 <members>
-<member name="P:MPS.My.Resources.Resources.ResourceManager">
+<member name="F:MPS.Statuses.Signed">
+	<summary>
+ Đã ký
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.Waiting">
+	<summary>
+ Đang chờ
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.WaitingForApprove">
+	<summary>
+ Chờ duyệt
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.Accepted">
+	<summary>
+ Đã duyệt
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.Rejected">
+	<summary>
+ Từ chối duyệt
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.Pending">
+	<summary>
+ Tạm ngưng
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.Paid">
+	<summary>
+ Đã thanh toán
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.Active">
+	<summary>
+ Active
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.InActive">
+	<summary>
+ In active
+ </summary>
+	<remarks></remarks>
+</member><member name="F:MPS.Statuses.Deleted">
+	<summary>
+ Hủy
+ </summary>
+	<remarks></remarks>
+</member><member name="P:MPS.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>

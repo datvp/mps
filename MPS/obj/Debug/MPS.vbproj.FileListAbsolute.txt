@@ -68,7 +68,6 @@ E:\ME\huy_pecc5\src\MPS\bin\Debug\MPS.exe
 E:\ME\huy_pecc5\src\MPS\bin\Debug\MPS.pdb
 E:\ME\huy_pecc5\src\MPS\bin\Debug\MPS.xml
 E:\ME\huy_pecc5\src\MPS\bin\Debug\CollapsibleSplitter.DLL
-E:\ME\huy_pecc5\src\MPS\bin\Debug\getDataSocket.dll
 E:\ME\huy_pecc5\src\MPS\bin\Debug\Interop.NetFwTypeLib.dll
 E:\ME\huy_pecc5\src\MPS\bin\Debug\Microsoft.Office.Interop.Excel.dll
 E:\ME\huy_pecc5\src\MPS\bin\Debug\MPS.BLL.dll
@@ -148,3 +147,4 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmMainContractors.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmSubContractDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmPaymentDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmContractItemDetail.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmRefundDetail.resources

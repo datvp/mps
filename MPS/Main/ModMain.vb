@@ -1328,6 +1328,8 @@ Module ModMain
 
     Public Function StatusText(ByVal key As String) As String
         Select Case key
+            Case Statuses.Signed
+                Return "Đã ký"
             Case Statuses.Waiting
                 Return "Đang chờ"
             Case Statuses.WaitingForApprove

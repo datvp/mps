@@ -814,6 +814,8 @@ Public Class DALSQL
 
     Public Function StatusText(ByVal key As String) As String
         Select Case key
+            Case "Signed"
+                Return "Đã ký"
             Case "Waiting"
                 Return "Đang chờ"
             Case "WaitingForApprove"

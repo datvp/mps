@@ -75,37 +75,16 @@ Public Class DAL_Contracts
             End If
         End If
 
-        sql = "Insert into ContractDetails(ContractId,ItemId,ItemName,Status,ItemValue,CreatedAt)"
-        sql += " values(@ContractId,@ItemId,@ItemName,@Status,@ItemValue,getdate())"
+        sql = "Insert into ContractDetails(ContractId,ItemId,ItemName,Status,ItemValue,SubContractorId,CreatedAt)"
+        sql += " values(@ContractId,@ItemId,@ItemName,@Status,@ItemValue,@SubContractorId,getdate())"
         For Each it In m.arrContractDetail
-            Dim pm(4) As SqlParameter
+            Dim pm(5) As SqlParameter
             pm(0) = New SqlParameter("@ContractId", m.ContractId)
             pm(1) = New SqlParameter("@ItemId", it.ItemId)
             pm(2) = New SqlParameter("@ItemName", it.ItemName)
             pm(3) = New SqlParameter("@Status", it.Status)
             pm(4) = New SqlParameter("@ItemValue", it.ItemValue)
-            If Not Me.execSQL(sql, pm) Then
-                Me.RollbackTransction()
-                Return False
-            End If
-        Next
-
-        'nhà thầu phụ (optional)
-        If isEdit Then
-            sql = "Delete from Contract_SubContractor where ContractId=@ContractId"
-            If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
-                Me.RollbackTransction()
-                Return False
-            End If
-        End If
-
-        sql = "Insert into Contract_SubContractor(ContractId,SubContractorId,SubContractorName,CreatedAt)"
-        sql += " values(@ContractId,@SubContractorId,@SubContractorName,getdate())"
-        For Each it In m.arrSubContractor
-            Dim pm(2) As SqlParameter
-            pm(0) = New SqlParameter("@ContractId", m.ContractId)
-            pm(1) = New SqlParameter("@SubContractorId", it.SubContractorId)
-            pm(2) = New SqlParameter("@SubContractorName", it.SubContractorName)
+            pm(5) = New SqlParameter("@SubContractorId", it.SubContractorId)
             If Not Me.execSQL(sql, pm) Then
                 Me.RollbackTransction()
                 Return False
@@ -136,7 +115,6 @@ Public Class DAL_Contracts
             End If
         Next
 
-
         'tập tin đính kèm (optional)
         If isEdit Then
             sql = "Delete from AttachFileContracts where ContractId=@ContractId"
@@ -163,7 +141,7 @@ Public Class DAL_Contracts
             count += 1
         Next
 
-        'các đợt thanh toán (optional)
+        'các đợt thanh toán thu (optional)
         If isEdit Then
             sql = "Delete from ContractPayments where ContractId=@ContractId"
             If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
@@ -182,6 +160,32 @@ Public Class DAL_Contracts
             pm(3) = New SqlParameter("@PaymentTotal", it.PaymentTotal)
             pm(4) = New SqlParameter("@PaymentDate", it.PaymentDate)
             pm(5) = New SqlParameter("@PaymentStatus", it.PaymentStatus)
+            If Not Me.execSQL(sql, pm) Then
+                Me.RollbackTransction()
+                Return False
+            End If
+        Next
+
+        'các đợt hach toan chi (optional)
+        If isEdit Then
+            sql = "Delete from ContractRefunds where ContractId=@ContractId"
+            If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
+                Me.RollbackTransction()
+                Return False
+            End If
+        End If
+
+        sql = "Insert into ContractRefunds(ContractId,RefundId,RefundName,RefundTotal,RefundDate,RefundStatus,SubContractorId)"
+        sql += " values(@ContractId,@RefundId,@RefundName,@RefundTotal,@RefundDate,@RefundStatus,@SubContractorId)"
+        For Each it In m.arrRefund
+            Dim pm(6) As SqlParameter
+            pm(0) = New SqlParameter("@ContractId", m.ContractId)
+            pm(1) = New SqlParameter("@RefundId", it.RefundId)
+            pm(2) = New SqlParameter("@RefundName", it.RefundName)
+            pm(3) = New SqlParameter("@RefundTotal", it.RefundTotal)
+            pm(4) = New SqlParameter("@RefundDate", it.RefundDate)
+            pm(5) = New SqlParameter("@RefundStatus", it.RefundStatus)
+            pm(6) = New SqlParameter("@SubContractorId", it.SubContractorId)
             If Not Me.execSQL(sql, pm) Then
                 Me.RollbackTransction()
                 Return False
@@ -258,6 +262,7 @@ Public Class DAL_Contracts
                 m.arrSubContract = Me.getSubContracts(m.ContractId)
                 m.arrFile = Me.getAttachFiles(m.ContractId)
                 m.arrPayment = Me.getContractPayments(m.ContractId)
+                m.arrRefund = Me.getContractRefunds(m.ContractId)
                 m.arrHistory = Me.getContractHistory(m.ContractId)
             End If
         End If
@@ -292,7 +297,9 @@ Public Class DAL_Contracts
 #Region "get details"
     Public Function getContractDetails(ByVal contractId As String) As IList(Of Model.MContractDetail)
         Dim arr As IList(Of Model.MContractDetail) = New List(Of Model.MContractDetail)
-        Dim sql = "select * from ContractDetails where ContractId=@ContractId order by CreatedAt"
+        Dim sql = "select dt.*, s.SubContractorName from ContractDetails dt"
+        sql += " left join SubContractors s on dt.SubContractorId=s.SubContractorId"
+        sql += " where dt.ContractId=@ContractId order by dt.CreatedAt"
         Dim tb = getTableSQL(sql, New SqlParameter("@ContractId", contractId))
         If tb IsNot Nothing AndAlso tb.Rows.Count > 0 Then
             For Each r As DataRow In tb.Rows
@@ -301,6 +308,8 @@ Public Class DAL_Contracts
                 m.ItemId = IsNull(r("ItemId"), "")
                 m.ItemName = IsNull(r("ItemName"), "")
                 m.ItemValue = IsNull(r("ItemValue"), 0)
+                m.SubContractorId = IsNull(r("SubContractorId"), "")
+                m.SubContractorName = IsNull(r("SubContractorName"), "")
                 m.Status = IsNull(r("Status"), "")
                 m.StatusDesc = Me.StatusText(m.Status)
                 arr.Add(m)
@@ -373,14 +382,36 @@ Public Class DAL_Contracts
                 m.PaymentName = IsNull(r("PaymentName"), "")
                 m.PaymentStatus = IsNull(r("PaymentStatus"), "")
                 m.StatusDesc = Me.StatusText(m.PaymentStatus)
-                m.PaymentDate = IsNull(r("PaymentDate"), "")
+                m.PaymentDate = IsNull(r("PaymentDate"), CDate("2000-1-1"))
                 m.PaymentTotal = IsNull(r("PaymentTotal"), 0)
                 arr.Add(m)
             Next
         End If
         Return arr
     End Function
-
+    Public Function getContractRefunds(ByVal contractId As String) As IList(Of Model.MContractRefund)
+        Dim arr As IList(Of Model.MContractRefund) = New List(Of Model.MContractRefund)
+        Dim sql = "select dt.*, s.SubContractorName from ContractRefunds dt"
+        sql += " left join SubContractors s on dt.SubContractorId=s.SubContractorId"
+        sql += " where dt.ContractId=@ContractId order by dt.RefundDate"
+        Dim tb = getTableSQL(sql, New SqlParameter("@ContractId", contractId))
+        If tb IsNot Nothing AndAlso tb.Rows.Count > 0 Then
+            For Each r As DataRow In tb.Rows
+                Dim m As New Model.MContractRefund
+                m.ContractId = IsNull(r("ContractId"), "")
+                m.RefundId = IsNull(r("RefundId"), "")
+                m.RefundName = IsNull(r("RefundName"), "")
+                m.RefundStatus = IsNull(r("RefundStatus"), "")
+                m.StatusDesc = Me.StatusText(m.RefundStatus)
+                m.RefundDate = IsNull(r("RefundDate"), CDate("2000-1-1"))
+                m.RefundTotal = IsNull(r("RefundTotal"), 0)
+                m.SubContractorId = IsNull(r("SubContractorId"), "")
+                m.SubContractorName = IsNull(r("SubContractorName"), "")
+                arr.Add(m)
+            Next
+        End If
+        Return arr
+    End Function
     Private Function getContractHistory(ByVal contractId As String) As IList(Of Model.MContractHistory)
         Dim arr As IList(Of Model.MContractHistory) = New List(Of Model.MContractHistory)
         Dim sql = "select * from ContractHistory where ContractId=@ContractId order by CreatedAt desc"

@@ -61,5 +61,9 @@
     Public Function getContractPayments(ByVal contractId As String) As IList(Of Model.MContractPayment)
         Return cls.getContractPayments(contractId)
     End Function
+
+    Public Function getContractRefunds(ByVal contractId As String) As IList(Of Model.MContractRefund)
+        Return cls.getContractRefunds(contractId)
+    End Function
 #End Region
 End Class

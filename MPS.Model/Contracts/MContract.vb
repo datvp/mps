@@ -320,7 +320,7 @@
 
     Private m_arrPayment As IList(Of MContractPayment) = New List(Of MContractPayment)
     ''' <summary>
-    ''' ds các đợt thanh toán
+    ''' ds các đợt thu
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -334,6 +334,22 @@
         End Set
     End Property
 
+
+    Private m_arrRefund As IList(Of MContractRefund) = New List(Of MContractRefund)
+    ''' <summary>
+    ''' ds các đợt chi
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrRefund() As IList(Of MContractRefund)
+        Get
+            Return m_arrRefund
+        End Get
+        Set(ByVal value As IList(Of MContractRefund))
+            m_arrRefund = value
+        End Set
+    End Property
 
     Private m_BranchId As String = ""
     ''' <summary>

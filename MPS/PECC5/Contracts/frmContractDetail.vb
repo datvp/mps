@@ -5,7 +5,6 @@ Public Class frmContractDetail
     Private clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
     Private bItem As BLL.BItems = BLL.BItems.Instance
     Private bProject As BLL.BProjects = BLL.BProjects.Instance
-    Private bLevel As BLL.BConstructionLevels = BLL.BConstructionLevels.Instance
     Private bMainContractor As BLL.BMainContractors = BLL.BMainContractors.Instance
     Private bSubContractor As BLL.BSubContractors = BLL.BSubContractors.Instance
     Private mInfo As Model.MContract
@@ -50,11 +49,6 @@ Public Class frmContractDetail
         cboProject.DisplayMember = "ProjectName"
         cboProject.DataSource = tbProject
 
-        Dim tbLevel = bLevel.getListConstructionLevels()
-        cboContractLevel.ValueMember = "ConstructionLevelId"
-        cboContractLevel.DisplayMember = "ConstructionLevelName"
-        cboContractLevel.DataSource = tbLevel
-
         Dim tb = bMainContractor.getListMainContractors()
         cboMainContractor.ValueMember = "Id"
         cboMainContractor.DisplayMember = "Company"
@@ -66,13 +60,12 @@ Public Class frmContractDetail
         txtContractName.Clear()
         txtContractValue.Text = "0"
         cboProject.Value = Nothing
-        cboContractLevel.Value = Nothing
         cboMainContractor.Value = Nothing
         grdItems.DataSource = New List(Of Model.MContractDetail)
         grdSubContracts.DataSource = New List(Of Model.MSubContract)
-        grdSubContractors.DataSource = New List(Of Model.MContract_SubContractor)
         grdFiles.DataSource = New List(Of Model.MAttachFileContract)
         grdPayment.DataSource = New List(Of Model.MContractPayment)
+        grdRefund.DataSource = New List(Of Model.MContractRefund)
         grdHistory.DataSource = New List(Of Model.MContractHistory)
         txtNote.Clear()
         Me.SumTotal()
@@ -89,15 +82,14 @@ Public Class frmContractDetail
         txtContractValue.Text = Format(mInfo.ContractValue, ModMain.m_strFormatCur)
         cboProject.Value = mInfo.ProjectId
         cboMainContractor.Value = mInfo.MainContractorId
-        cboContractLevel.Value = mInfo.ContractLevelId
         lblStatus.Text = ModMain.StatusText(mInfo.ContractState)
         txtNote.Text = mInfo.Note
 
         grdItems.DataSource = mInfo.arrContractDetail
-        grdSubContractors.DataSource = mInfo.arrSubContractor
         grdSubContracts.DataSource = mInfo.arrSubContract
         grdFiles.DataSource = mInfo.arrFile
         grdPayment.DataSource = mInfo.arrPayment
+        grdRefund.DataSource = mInfo.arrRefund
         grdHistory.DataSource = mInfo.arrHistory
         Me.SumTotal()
     End Sub
@@ -113,18 +105,15 @@ Public Class frmContractDetail
         If cboProject.Value IsNot Nothing Then
             m.ProjectId = cboProject.Value
         End If
-        If cboContractLevel.Value IsNot Nothing Then
-            m.ContractLevelId = cboContractLevel.Value
-        End If
-        m.ContractState = Statuses.WaitingForApprove
+        m.ContractState = Statuses.Signed
         If cboMainContractor.Value IsNot Nothing Then
             m.MainContractorId = cboMainContractor.Value
         End If
         m.arrContractDetail = grdItems.DataSource
         m.arrSubContract = grdSubContracts.DataSource
-        m.arrSubContractor = grdSubContractors.DataSource
         m.arrFile = grdFiles.DataSource
         m.arrPayment = grdPayment.DataSource
+        m.arrRefund = grdRefund.DataSource
         m.Note = txtNote.Text
         For Each it In m.arrSubContract
             If m.SubContracts = "" Then
@@ -165,6 +154,12 @@ Public Class frmContractDetail
             Return False
         End If
 
+        If m.MainContractorId = "" Then
+            ShowMsg("Chọn nhà thầu chính")
+            cboMainContractor.Focus()
+            Return False
+        End If
+
         If txtContractValue.Text.Trim = "" OrElse CDbl(txtContractValue.Text) = 0 Then
             ShowMsg("Nhập giá trị hợp đồng")
             txtContractValue.Focus()
@@ -177,29 +172,17 @@ Public Class frmContractDetail
             Return False
         End If
 
-        If m.MainContractorId = "" Then
-            ShowMsg("Chọn nhà thầu chính")
-            cboMainContractor.Focus()
-            Return False
-        End If
-
-        If m.ContractLevelId = "" Then
-            ShowMsg("Chọn phân cấp hợp đồng")
-            cboContractLevel.Focus()
-            Return False
-        End If
-
         If Not checkInvalidFeeByItem() Then
             ShowMsg("Tổng chi phí cho các hạng mục vượt quá Giá trị hợp đồng.")
             Return False
         End If
 
-        If mInfo IsNot Nothing Then ' edit
-            If mInfo.ContractState <> Statuses.WaitingForApprove Then
-                ShowMsg("Hợp đồng đang ở tình trạng: [" + StatusText(mInfo.ContractState) + "], không thể chỉnh sửa.")
-                Return False
-            End If
-        End If
+        'If mInfo IsNot Nothing Then ' edit
+        '    If mInfo.ContractState <> Statuses.WaitingForApprove Then
+        '        ShowMsg("Hợp đồng đang ở tình trạng: [" + StatusText(mInfo.ContractState) + "], không thể chỉnh sửa.")
+        '        Return False
+        '    End If
+        'End If
 
         Return True
     End Function
@@ -258,6 +241,7 @@ Public Class frmContractDetail
                         If it.ItemName <> foundItem.ItemName _
                             OrElse it.Status <> foundItem.Status _
                             OrElse it.ItemValue <> foundItem.ItemValue _
+                            OrElse it.SubContractorId <> foundItem.SubContractorId _
                         Then
                             desc += vbCrLf & "Sửa hạng mục [" + it.ItemName + "]: "
                             If it.ItemName <> foundItem.ItemName Then
@@ -269,32 +253,10 @@ Public Class frmContractDetail
                             If it.ItemValue <> foundItem.ItemValue Then
                                 desc += vbCrLf & " - Chi phí: [" + Format(foundItem.ItemValue, ModMain.m_strFormatCur) + "] -> [" + Format(it.ItemValue, ModMain.m_strFormatCur) + "]"
                             End If
+                            If it.SubContractorId <> foundItem.SubContractorId Then
+                                desc += vbCrLf & " - Nhà thầu phụ: [" + foundItem.SubContractorName + "] -> [" + it.SubContractorName + "]"
+                            End If
                         End If
-                    End If
-                Next
-            End If
-
-            'nha thau phu
-            mInfo.arrSubContractor = b.getSubContractors(mInfo.ContractId)
-            If m.arrSubContractor.Count > mInfo.arrSubContractor.Count Then
-                For Each it In m.arrSubContractor
-                    Dim foundItem = Me.findSubContractor(it.SubContractorId, mInfo.arrSubContractor)
-                    If foundItem Is Nothing Then
-                        desc += vbCrLf & "Thêm nhà thầu phụ: [" + it.SubContractorName + "]"
-                    End If
-                Next
-            ElseIf m.arrSubContractor.Count < mInfo.arrSubContractor.Count Then
-                For Each it In mInfo.arrSubContractor
-                    Dim foundItem = Me.findSubContractor(it.SubContractorId, m.arrSubContractor)
-                    If foundItem Is Nothing Then
-                        desc += vbCrLf & "Xóa nhà thầu phụ: [" + it.SubContractorName + "]"
-                    End If
-                Next
-            Else
-                For Each it In m.arrSubContractor
-                    Dim foundItem = Me.findSubContractor(it.SubContractorId, mInfo.arrSubContractor)
-                    If foundItem Is Nothing Then
-                        desc += vbCrLf & "Thay đổi nhà thầu phụ: -> [" + it.SubContractorName + "]"
                     End If
                 Next
             End If
@@ -365,35 +327,34 @@ Public Class frmContractDetail
                 Next
             End If
 
-            'các đợt thanh toán
+            'các đợt thanh toán thu
             mInfo.arrPayment = b.getContractPayments(mInfo.ContractId)
             If m.arrPayment.Count > mInfo.arrPayment.Count Then
                 For Each it In m.arrPayment
                     Dim foundItem = Me.findPayment(it, mInfo.arrPayment, False)
                     If foundItem Is Nothing Then
-                        desc += vbCrLf & "Thêm đợt thanh toán: [" + it.PaymentName + "]"
+                        desc += vbCrLf & "Thêm đợt thanh toán thu: [" + it.PaymentName + "]"
                     End If
                 Next
             ElseIf m.arrPayment.Count < mInfo.arrPayment.Count Then
                 For Each it In mInfo.arrPayment
                     Dim foundItem = Me.findPayment(it, m.arrPayment, False)
                     If foundItem Is Nothing Then
-                        desc += vbCrLf & "Xóa đợt thanh toán: [" + it.PaymentName + "]"
+                        desc += vbCrLf & "Xóa đợt thanh toán thu: [" + it.PaymentName + "]"
                     End If
                 Next
             Else
                 For Each it In m.arrPayment
                     Dim foundItem = Me.findPayment(it, mInfo.arrPayment, False)
                     If foundItem Is Nothing Then
-                        desc += vbCrLf & "Thay đổi đợt thanh toán: -> [" + it.PaymentName + "]"
+                        desc += vbCrLf & "Thay đổi đợt thanh toán thu: -> [" + it.PaymentName + "]"
                     Else 'found
                         If it.PaymentName <> foundItem.PaymentName _
-                            OrElse it.PaymentTotal <> foundItem.PaymentTotal _
                             OrElse it.PaymentTotal <> foundItem.PaymentTotal _
                             OrElse it.PaymentDate <> foundItem.PaymentDate _
                             OrElse it.PaymentStatus <> foundItem.PaymentStatus _
                         Then
-                            desc += vbCrLf & "Sửa đợt thanh toán [" + it.PaymentName + "]: "
+                            desc += vbCrLf & "Sửa đợt thanh toán thu [" + it.PaymentName + "]: "
                             If it.PaymentName <> foundItem.PaymentName Then
                                 desc += vbCrLf & " - Tên đợt TT: [" + foundItem.PaymentName + "] -> [" + it.PaymentName + "]"
                             End If
@@ -411,6 +372,54 @@ Public Class frmContractDetail
                 Next
             End If
 
+            'các đợt hạch toán chi
+            mInfo.arrRefund = b.getContractRefunds(mInfo.ContractId)
+            If m.arrRefund.Count > mInfo.arrRefund.Count Then
+                For Each it In m.arrRefund
+                    Dim foundItem = Me.findRefund(it, mInfo.arrRefund, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thêm đợt hạch toán chi: [" + it.RefundName + "]"
+                    End If
+                Next
+            ElseIf m.arrRefund.Count < mInfo.arrRefund.Count Then
+                For Each it In mInfo.arrRefund
+                    Dim foundItem = Me.findRefund(it, m.arrRefund, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Xóa đợt hạch toán chi: [" + it.RefundName + "]"
+                    End If
+                Next
+            Else
+                For Each it In m.arrRefund
+                    Dim foundItem = Me.findRefund(it, mInfo.arrRefund, False)
+                    If foundItem Is Nothing Then
+                        desc += vbCrLf & "Thay đổi đợt hạch toán chi: -> [" + it.RefundName + "]"
+                    Else 'found
+                        If it.RefundName <> foundItem.RefundName _
+                            OrElse it.RefundTotal <> foundItem.RefundTotal _
+                            OrElse it.SubContractorId <> foundItem.SubContractorId _
+                            OrElse it.RefundDate <> foundItem.RefundDate _
+                            OrElse it.RefundStatus <> foundItem.RefundStatus _
+                        Then
+                            desc += vbCrLf & "Sửa đợt hạch toán chi [" + it.RefundName + "]: "
+                            If it.RefundName <> foundItem.RefundName Then
+                                desc += vbCrLf & " - Tên đợt chi: [" + foundItem.RefundName + "] -> [" + it.RefundName + "]"
+                            End If
+                            If it.RefundTotal <> foundItem.RefundTotal Then
+                                desc += vbCrLf & " - Số tiền phải chi: [" + Format(foundItem.RefundTotal, ModMain.m_strFormatCur) + "] -> [" + Format(it.RefundTotal, ModMain.m_strFormatCur) + "]"
+                            End If
+                            If it.RefundDate <> foundItem.RefundDate Then
+                                desc += vbCrLf & " - Ngày chi dự kiến: [" + foundItem.RefundDate.ToString("dd/MM/yyyy") + "] -> [" + it.RefundDate.ToString("dd/MM/yyyy") + "]"
+                            End If
+                            If it.RefundStatus <> foundItem.RefundStatus Then
+                                desc += vbCrLf & " - Trạng thái: [" + StatusText(foundItem.RefundStatus) + "] -> [" + StatusText(it.RefundStatus) + "]"
+                            End If
+                            If it.SubContractorId <> foundItem.SubContractorId Then
+                                desc += vbCrLf & " - Nhà thầu phụ: [" + foundItem.SubContractorName + "] -> [" + it.SubContractorName + "]"
+                            End If
+                        End If
+                    End If
+                Next
+            End If
             'if no change everything -> Save ~ Close -> exit form
             If desc = "" Then
                 Return False
@@ -538,6 +547,29 @@ Public Class frmContractDetail
             End If
         End If
     End Sub
+    Private Sub showRefundDetail(ByVal item As Model.MContractRefund)
+        Dim frm As New frmRefundDetail
+        item = frm.ShowDialog(item, dtCreateDate.Value)
+        If item IsNot Nothing Then
+            Dim arr As IList(Of Model.MContractRefund) = grdRefund.DataSource
+            If arr IsNot Nothing Then
+                Dim found = Me.findRefund(item, arr)
+                If found Is Nothing Then
+                    Dim m As New Model.MContractRefund
+                    m.RefundId = item.RefundId
+                    m.RefundName = item.RefundName
+                    m.RefundTotal = item.RefundTotal
+                    m.RefundDate = item.RefundDate
+                    m.RefundStatus = item.RefundStatus
+                    m.StatusDesc = StatusText(item.RefundStatus)
+                    m.SubContractorId = item.SubContractorId
+                    m.SubContractorName = item.SubContractorName
+                    arr.Insert(arr.Count, m)
+                End If
+                grdRefund.Rows.Refresh(RefreshRow.RefreshDisplay)
+            End If
+        End If
+    End Sub
 #End Region
 
 #Region "Combobox InitializeLayout"
@@ -553,7 +585,7 @@ Public Class frmContractDetail
         Next
         e.Layout.Bands(0).Columns("Company").Hidden = False
     End Sub
-    Private Sub cboContractLevel_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboContractLevel.InitializeLayout
+    Private Sub cboContractLevel_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs)
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
@@ -594,6 +626,8 @@ Public Class frmContractDetail
             If arr.Item(i).ItemId = item.ItemId Then
                 If isUpdate Then
                     arr.Item(i).ItemValue = item.ItemValue
+                    arr.Item(i).SubContractorId = item.SubContractorId
+                    arr.Item(i).SubContractorName = item.SubContractorName
                     arr.Item(i).Status = item.Status
                     arr.Item(i).StatusDesc = StatusText(item.Status)
                 End If
@@ -668,6 +702,28 @@ Public Class frmContractDetail
 
         Return found
     End Function
+
+    Private Function findRefund(ByVal item As Model.MContractRefund, ByVal arr As IList(Of Model.MContractRefund), Optional ByVal isUpdate As Boolean = True) As Model.MContractRefund
+        Dim found As Model.MContractRefund = Nothing
+        Dim i = 0
+        While i < arr.Count And found Is Nothing
+            If arr.Item(i).RefundId = item.RefundId Then
+                If isUpdate Then
+                    arr.Item(i).RefundName = item.RefundName
+                    arr.Item(i).RefundTotal = item.RefundTotal
+                    arr.Item(i).RefundDate = item.RefundDate
+                    arr.Item(i).RefundStatus = item.RefundStatus
+                    arr.Item(i).StatusDesc = StatusText(item.RefundStatus)
+                    arr.Item(i).SubContractorId = item.SubContractorId
+                    arr.Item(i).SubContractorName = item.SubContractorName
+                End If
+                found = arr.Item(i)
+            End If
+            i = i + 1
+        End While
+
+        Return found
+    End Function
 #End Region
 
 #Region "Links"
@@ -680,7 +736,6 @@ Public Class frmContractDetail
                 Dim item As New Model.MContractDetail
                 item.ItemId = selectedObj.ItemId
                 item.ItemName = selectedObj.ItemName
-                item.ItemValue = 0
                 item.Status = Statuses.Waiting
                 item.StatusDesc = StatusText(item.Status)
 
@@ -690,27 +745,6 @@ Public Class frmContractDetail
                     grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
                 Else
                     ShowMsg("Hạng mục: [" + foundItem.ItemName + "] đã được thêm.")
-                End If
-            End If
-
-        End If
-    End Sub
-
-    Private Sub lnkAddSubContractor_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkAddSubContractor.Click
-        Dim frm As New frmSubContractors
-        Dim selectedObj = frm.ShowDialog(True)
-        If selectedObj IsNot Nothing Then
-            Dim arr As IList(Of Model.MContract_SubContractor) = grdSubContractors.DataSource
-            If arr IsNot Nothing Then
-                Dim found = Me.findSubContractor(selectedObj.SubContractorId, arr)
-                If found Is Nothing Then
-                    Dim item As New Model.MContract_SubContractor
-                    item.SubContractorId = selectedObj.SubContractorId
-                    item.SubContractorName = selectedObj.SubContractorName
-                    arr.Insert(arr.Count, item)
-                    grdSubContractors.Rows.Refresh(RefreshRow.RefreshDisplay)
-                Else
-                    ShowMsg("Nhà thầu phụ: [" + found.SubContractorName + "] đã được thêm.")
                 End If
             End If
 
@@ -760,6 +794,10 @@ Public Class frmContractDetail
     Private Sub lnkAddPayment_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkAddPayment.LinkClicked
         Me.showPaymentDetail(Nothing)
     End Sub
+
+    Private Sub lnkAddRefund_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkAddRefund.LinkClicked
+        Me.showRefundDetail(Nothing)
+    End Sub
 #End Region
 
 #Region "Grids"
@@ -795,7 +833,7 @@ Public Class frmContractDetail
         grdItems.DisplayLayout.Override.RowAlternateAppearance.BackColor = ModMain.m_sysColor
         clsuf.FormatGridFromDB(Me.Name, grdItems, m_Lang)
         With e.Layout.Bands(0).Columns("DelItem")
-            .Header.VisiblePosition = 100
+            .Header.VisiblePosition = 0
             .Hidden = False
             .Header.Caption = ""
             .Style = ColumnStyle.Button
@@ -855,49 +893,6 @@ Public Class frmContractDetail
             ctMenu.Show(grdItems, New Point(e.X, e.Y))
         End If
     End Sub
-
-    Private Sub grdSubContractors_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdSubContractors.ClickCellButton
-        Dim r As UltraGridRow = grdSubContractors.ActiveRow
-        If r IsNot Nothing Then
-            Dim arr As IList(Of Model.MContract_SubContractor) = grdSubContractors.DataSource
-            If arr IsNot Nothing Then
-                Dim item = arr.Item(r.Index)
-                If item Is Nothing Then Exit Sub
-                arr.Remove(item)
-                grdSubContractors.Rows.Refresh(RefreshRow.RefreshDisplay)
-            End If
-        End If
-    End Sub
-
-    Dim fgrdSubContractors As Boolean = False
-    Private Sub grdSubContractors_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdSubContractors.InitializeLayout
-        If fgrdSubContractors Then Exit Sub
-        fgrdSubContractors = True
-        grdSubContractors.DisplayLayout.Override.RowAlternateAppearance.BackColor = ModMain.m_sysColor
-        clsuf.FormatGridFromDB(Me.Name, grdSubContractors, m_Lang)
-        With e.Layout.Bands(0).Columns("DelItem")
-            .Header.VisiblePosition = 100
-            .Hidden = False
-            .Header.Caption = ""
-            .Style = ColumnStyle.Button
-            .ButtonDisplayStyle = ButtonDisplayStyle.Always
-            .CellButtonAppearance.Cursor = Cursors.Hand
-            .CellButtonAppearance.ImageHAlign = Infragistics.Win.HAlign.Center
-            .CellButtonAppearance.Image = ModMain.m_DeleteIcon
-            .CellClickAction = CellClickAction.CellSelect
-            .Width = 50
-        End With
-    End Sub
-
-    Private Sub grdSubContractors_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdSubContractors.KeyUp
-        If e.Control Then
-            If e.KeyCode = Keys.Z Then
-                Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, grdSubContractors, m_Lang)
-                frm.ShowDialog()
-            End If
-        End If
-    End Sub
-
 
     Private Sub grdSubContracts_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdSubContracts.ClickCellButton
         Dim r As UltraGridRow = grdSubContracts.ActiveRow
@@ -1028,10 +1023,6 @@ Public Class frmContractDetail
             If arr IsNot Nothing Then
                 Dim item = arr.Item(r.Index)
                 If item Is Nothing Then Exit Sub
-                If item.PaymentStatus = "Paid" Then
-                    ShowMsg("Đợt thanh toán: [" & item.PaymentName & "] đã thanh toán, không thể xóa.")
-                    Exit Sub
-                End If
                 arr.Remove(item)
                 grdPayment.Rows.Refresh(RefreshRow.RefreshDisplay)
             End If
@@ -1047,10 +1038,6 @@ Public Class frmContractDetail
             m.PaymentTotal = CDbl(r.Cells("PaymentTotal").Value)
             m.PaymentDate = CDate(r.Cells("PaymentDate").Value)
             m.PaymentStatus = r.Cells("PaymentStatus").Value
-            If m.PaymentStatus = "Paid" Then
-                ShowMsg("Đợt thanh toán:" & m.PaymentName & " không thể hiệu chỉnh.")
-                Exit Sub
-            End If
             Me.showPaymentDetail(m)
         End If
     End Sub
@@ -1078,6 +1065,61 @@ Public Class frmContractDetail
         If e.Control Then
             If e.KeyCode = Keys.Z Then
                 Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, grdPayment, m_Lang)
+                frm.ShowDialog()
+            End If
+        End If
+    End Sub
+
+    Private Sub grdRefund_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdRefund.ClickCellButton
+        Dim r As UltraGridRow = grdRefund.ActiveRow
+        If r IsNot Nothing Then
+            Dim arr As IList(Of Model.MContractRefund) = grdRefund.DataSource
+            If arr IsNot Nothing Then
+                Dim item = arr.Item(r.Index)
+                If item Is Nothing Then Exit Sub
+                arr.Remove(item)
+                grdRefund.Rows.Refresh(RefreshRow.RefreshDisplay)
+            End If
+        End If
+    End Sub
+
+    Private Sub grdRefund_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles grdRefund.DoubleClick
+        Dim r As UltraGridRow = grdRefund.ActiveRow
+        If r IsNot Nothing Then
+            Dim m As New Model.MContractRefund
+            m.RefundId = r.Cells("RefundId").Value
+            m.RefundName = r.Cells("RefundName").Value
+            m.RefundTotal = CDbl(r.Cells("RefundTotal").Value)
+            m.RefundDate = CDate(r.Cells("RefundDate").Value)
+            m.RefundStatus = r.Cells("RefundStatus").Value
+            m.SubContractorId = r.Cells("SubContractorId").Value
+            Me.showRefundDetail(m)
+        End If
+    End Sub
+    Dim fgrdRefund As Boolean = False
+    Private Sub grdRefund_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdRefund.InitializeLayout
+        If fgrdRefund Then Exit Sub
+        fgrdRefund = True
+        grdRefund.DisplayLayout.Override.RowAlternateAppearance.BackColor = ModMain.m_sysColor
+        clsuf.FormatGridFromDB(Me.Name, grdRefund, m_Lang)
+        With e.Layout.Bands(0).Columns("DelItem")
+            .Header.VisiblePosition = 100
+            .Hidden = False
+            .Header.Caption = ""
+            .Style = ColumnStyle.Button
+            .ButtonDisplayStyle = ButtonDisplayStyle.Always
+            .CellButtonAppearance.Cursor = Cursors.Hand
+            .CellButtonAppearance.ImageHAlign = Infragistics.Win.HAlign.Center
+            .CellButtonAppearance.Image = ModMain.m_DeleteIcon
+            .CellClickAction = CellClickAction.CellSelect
+            .Width = 50
+        End With
+    End Sub
+
+    Private Sub grdRefund_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdRefund.KeyUp
+        If e.Control Then
+            If e.KeyCode = Keys.Z Then
+                Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, grdRefund, m_Lang)
                 frm.ShowDialog()
             End If
         End If
@@ -1125,4 +1167,6 @@ Public Class frmContractDetail
     Private Sub T_Item_Pending_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Item_Pending.Click
         Me.updateItemStatus(Statuses.Pending)
     End Sub
+
+    
 End Class
