@@ -1,5 +1,18 @@
 ﻿Public Class B_BK_Restore_DB
-    Private WithEvents cls As New DAL.DAL_BK_Restore_DB
+    Private WithEvents cls As DAL.DAL_BK_Restore_DB = DAL.DAL_BK_Restore_DB.Instance
+
+    Private Sub New()
+    End Sub
+    Private Shared obj As B_BK_Restore_DB
+    Public Shared ReadOnly Property Instance() As B_BK_Restore_DB
+        Get
+            If obj Is Nothing Then
+                obj = New B_BK_Restore_DB
+            End If
+            Return obj
+        End Get
+    End Property
+
     Event _errorRaise(ByVal messege As String)
 
     Private Sub cls__error(ByVal message As String) Handles cls._error

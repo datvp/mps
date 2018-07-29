@@ -28,11 +28,11 @@
     Public Function deleteDB(ByVal ContractId As String) As Boolean
         Return cls.deleteDB(ContractId)
     End Function
-    Public Function getListContracts(ByVal branchId As String) As DataTable
-        Return cls.getListContracts(branchId)
+    Public Function getListContracts(ByVal branchId As String, ByVal dateFilter As Integer) As DataTable
+        Return cls.getListContracts(branchId, dateFilter)
     End Function
-    Public Function getListContractsByFilter(ByVal branchId As String, ByVal perform As Integer, ByVal length As Integer) As DataTable
-        Return cls.getListContractsByFilter(branchId, perform, length)
+    Public Function getListContractsByFilter(ByVal branchId As String, ByVal perform As Integer, ByVal operatorPerform As String, ByVal length As Integer, ByVal operatorLength As String) As DataTable
+        Return cls.getListContractsByFilter(branchId, perform, operatorPerform, length, operatorLength)
     End Function
     Public Function getContractDetailById(ByVal ContractId As String) As Model.MContract
         Return cls.getContractDetailById(ContractId)

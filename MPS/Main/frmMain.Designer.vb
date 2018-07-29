@@ -43,6 +43,7 @@ Partial Class frmMain
         Dim ButtonTool208 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Users")
         Dim ButtonTool209 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("SetPermission")
         Dim ButtonTool183 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnSLDP")
+        Dim ButtonTool1 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Configuations")
         Dim ButtonTool191 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnExit")
         Dim RibbonTab1 As Infragistics.Win.UltraWinToolbars.RibbonTab = New Infragistics.Win.UltraWinToolbars.RibbonTab("ribbon1")
         Dim RibbonGroup1 As Infragistics.Win.UltraWinToolbars.RibbonGroup = New Infragistics.Win.UltraWinToolbars.RibbonGroup("Items")
@@ -263,7 +264,7 @@ Partial Class frmMain
         Me.tbManager.LockToolbars = True
         ButtonTool207.InstanceProps.IsFirstInGroup = True
         ButtonTool191.InstanceProps.IsFirstInGroup = True
-        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaLeft.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool187, ButtonTool207, ButtonTool208, ButtonTool209, ButtonTool183, ButtonTool191})
+        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaLeft.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool187, ButtonTool207, ButtonTool208, ButtonTool209, ButtonTool183, ButtonTool1, ButtonTool191})
         Me.tbManager.Ribbon.ApplicationMenu.ToolAreaRight.MaxWidth = 1
         Me.tbManager.Ribbon.ApplicationMenu.ToolAreaRight.MinWidth = 1
         Me.tbManager.Ribbon.ApplicationMenuButtonImage = Global.MPS.My.Resources.Resources.globe
@@ -312,9 +313,9 @@ Partial Class frmMain
         Appearance204.Image = "Task New.png"
         ButtonTool10.SharedProps.AppearancesSmall.Appearance = Appearance204
         ButtonTool10.SharedProps.Caption = "Lược sử giao tác"
-        Appearance213.Image = Global.MPS.My.Resources.Resources.connect
+        Appearance213.Image = Global.MPS.My.Resources.Resources.tools
         ButtonTool26.SharedProps.AppearancesSmall.Appearance = Appearance213
-        ButtonTool26.SharedProps.Caption = "Thiết lập thông tin hệ thống"
+        ButtonTool26.SharedProps.Caption = "Thiết lập cấu hình"
         Appearance253.Image = Global.MPS.My.Resources.Resources.user_headset
         ButtonTool92.SharedProps.AppearancesSmall.Appearance = Appearance253
         ButtonTool92.SharedProps.Caption = "Nhân viên"

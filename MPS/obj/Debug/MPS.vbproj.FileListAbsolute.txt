@@ -148,3 +148,4 @@ E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmSubContractDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmPaymentDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmContractItemDetail.resources
 E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmRefundDetail.resources
+E:\ME\huy_pecc5\src\MPS\obj\Debug\MPS.frmConfig.resources

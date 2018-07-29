@@ -235,11 +235,17 @@ Public Class DAL_Contracts
         Return Me.execSQL(sql, New SqlParameter("@ContractId", ContractId))
     End Function
 
-    Public Function getListContracts(ByVal branchId As String) As DataTable
-        Return Me.getTableSQL("Exec sp_getListContracts @branchId", New SqlParameter("@branchId", branchId))
+    Public Function getListContracts(ByVal branchId As String, ByVal dateFilter As Integer) As DataTable
+        Return Me.getTableSQL("Exec sp_getListContracts @branchId,@dateFilter", New SqlParameter("@branchId", branchId), New SqlParameter("@dateFilter", dateFilter))
     End Function
-    Public Function getListContractsByFilter(ByVal branchId As String, ByVal perform As Integer, ByVal length As Integer) As DataTable
-        Return Me.getTableSQL("Exec getListContractsByFilter @branchId,@perform,@length", New SqlParameter("@branchId", branchId), New SqlParameter("@perform", perform), New SqlParameter("@length", length))
+    Public Function getListContractsByFilter(ByVal branchId As String, ByVal perform As Integer, ByVal operatorPerform As String, ByVal length As Integer, ByVal operatorLength As String) As DataTable
+        Dim pm(4) As SqlParameter
+        pm(0) = New SqlParameter("@branchId", branchId)
+        pm(1) = New SqlParameter("@perform", perform)
+        pm(2) = New SqlParameter("@operatorPerform", operatorPerform)
+        pm(3) = New SqlParameter("@length", length)
+        pm(4) = New SqlParameter("@operatorLength", operatorLength)
+        Return Me.getTableSQL("Exec getListContractsByFilter @branchId,@perform,@operatorPerform,@length,@operatorLength", pm)
     End Function
 
     Public Function getContractDetailById(ByVal ContractId As String, Optional ByVal isGetDetail As Boolean = True) As Model.MContract

@@ -1,5 +1,5 @@
 ﻿Public Class frmDirDevice
-    Private WithEvents cls As New BLL.B_BK_Restore_DB
+    Private WithEvents cls As BLL.B_BK_Restore_DB = BLL.B_BK_Restore_DB.Instance
     Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
         MsgBox(messege, MsgBoxStyle.Critical)
     End Sub
@@ -130,22 +130,24 @@
     End Sub
 
     Private Sub btnChoose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnChoose.Click
-        Choose()
+        Me.Choose()
     End Sub
-    Public Sub Choose()
+    Private Sub Choose()
         If iCase = 0 Then
             If txtFile.Text = "" Then
-                ShowMsg("Nhập tên file!", 1430)
+                ShowMsg("Bạn chưa nhập tên file.")
+                txtFile.Focus()
                 Exit Sub
             End If
         End If
         If Lb.Text = "" Then
-            ShowMsg("Chọn thư mục chứa dữ liệu!", 58)
+            ShowMsg("Chọn thư mục chứa dữ liệu!")
+            TV.Focus()
             Exit Sub
         End If
 
         sSelect = Lb.Text
-        Close()
+        Me.Close()
     End Sub
 
     Private Sub frmDirDevice_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
@@ -155,13 +157,15 @@
     End Sub
     Private Sub frmDirDevice_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ModMain.SetTitle(Me)
-        ModMain.BlueButton(btnChoose)
-        ModMain.GreenButton(btnCancel)
+        ModMain.BlueButton(btnChoose, ModMain.m_OkIcon)
+        ModMain.GreenButton(btnCancel, ModMain.m_CancelIcon)
         cls.EnableCMDShell()
         Lb.Text = ""
         lbTemp.Text = ""
         If iCase <> 0 Then
             Me.txtFile.ReadOnly = True
+            lblName.Visible = False
+            txtFile.Visible = False
         End If
         Me.InitTreeView()
     End Sub

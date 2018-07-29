@@ -96,18 +96,6 @@ v.f_VAT, v.m_VAT, v.f_Discount, v.m_OrderTotalDiscount, v.f_Per, v.m_Per, v.i_ [
 	<param name="UID"></param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:MPS.ModMain.PrintOrder(System.String)">
-	<summary>
- In bill phieu xuat hang
- </summary>
-	<param name="orderId">ma phieu XBH</param>
-	<remarks></remarks>
-</member><member name="M:MPS.ModMain.PrintOrderTemp(System.String)">
-	<summary>
- In bill phieu xuat hang
- </summary>
-	<param name="orderId">ma phieu XBH</param>
-	<remarks></remarks>
 </member><member name="P:MPS.My.Resources.ResBMS.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.

@@ -6,21 +6,7 @@ MPS.Model
 </name>
 </assembly>
 <members>
-<member name="P:MPS.Model.MContractRefund.SubContractorName">
-	<summary>
- Tên nhà thầu phụ
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MContractRefund.StatusDesc">
-	<summary>
- description for Status: only view not save
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MContractDetail.DelItem">
+<member name="P:MPS.Model.MContractDetail.DelItem">
 	<summary>
  nút xóa item
  </summary>
@@ -69,23 +55,9 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="P:MPS.Model.MConfigProgram.i_ConfigID">
+</member><member name="P:MPS.Model.MConfigProgram.PathToSave">
 	<summary>
- Lưu giữ 1:dùng màn hình POS cho bán hàng, 0 là mặc định màn hình thường
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MConfigProgram.b_PriceObject">
-	<summary>
- True: áp dụng mức giá theo khách hàng
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:MPS.Model.MConfigProgram.SmsContent">
-	<summary>
- soạn nội dung tin nhắn gửi
+ Path tai server de luu file
  </summary>
 	<value></value>
 	<returns></returns>
@@ -281,6 +253,20 @@ MPS.Model
 </member><member name="P:MPS.Model.MSecUser.isViewAllStore">
 	<summary>
  true: chỉ xem báo cáo Kho là Tất cả (ko xem chi tiết từng kho)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractRefund.SubContractorName">
+	<summary>
+ Tên nhà thầu phụ
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContractRefund.StatusDesc">
+	<summary>
+ description for Status: only view not save
  </summary>
 	<value></value>
 	<returns></returns>

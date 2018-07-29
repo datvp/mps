@@ -39,16 +39,11 @@ Module ModMain
     Public m_LoginSystem As Boolean = False
 
     Public m_CPUID As String = ""
-    Public m_CompanyName As String = ""
-    Public m_CompanyAddress As String = ""
-    Public m_Companyphone As String = ""
-    Public m_TaxNo As String = "" 'ma so thue cong ty 
     Private m_FormatCurTemp As String = "#,##0"
     Private m_FormatCurNumber As String = "#,##0"
     Public m_strFormatCur As String = m_FormatCurTemp '& m_strDecCur 'định dạng tiền tệ
     Public m_strFormatNum As String = m_FormatCurNumber '& m_strDecNum 'định dạng số
     Public m_SysCur As String = "VND" 'định dạng đơn vị tiền tệ
-    Public m_KeySysCur As String = "" ' ma don vi tien te
     Public m_SysCurChar As String = "đồng" '26.11.09-doc tien bang chu
     Public m_strMyIPAddress As String = ""
     Public m_strLableStatus As String = "Click phải trên danh sách phiếu chọn menu chức năng ..."
@@ -256,13 +251,11 @@ Module ModMain
 
     Public Sub LoadVariablesGlobally()
         Dim bCfg As BLL.B_ConfigProgram = BLL.B_ConfigProgram.Instance
-        Dim m As Model.MConfigProgram = bCfg.getInfo()
-        Dim tbConfigReport = bCfg.GetConfigReport
-        mbc = m
+        mbc = bCfg.getInfo()
         Dim s1 As String = ""
 
-        If IsNumeric(m.i_FormatCur) Then
-            For i As Integer = 1 To CInt(m.i_FormatCur)
+        If IsNumeric(mbc.i_FormatCur) Then
+            For i As Integer = 1 To CInt(mbc.i_FormatCur)
                 s1 += "#"
             Next
         End If
@@ -271,50 +264,17 @@ Module ModMain
         End If
 
         Dim s2 As String = ""
-        If IsNumeric(m.i_FormatNum) Then
-            For i As Integer = 1 To CInt(m.i_FormatNum)
+        If IsNumeric(mbc.i_FormatNum) Then
+            For i As Integer = 1 To CInt(mbc.i_FormatNum)
                 s2 += "#"
             Next
         End If
         If s2 <> "" Then
             m_strFormatNum = m_FormatCurNumber & "." & s2
         End If
-        m_SysCur = m.s_SysCur
-        m_KeySysCur = m.s_KeySysCur
-        If m.s_SysCurChar = "" Then '26.11.09
-            Select Case m_SysCur
-                Case "VND"
-                    m_SysCurChar = "đồng chẵn"
-                Case "USD"
-                    m_SysCurChar = "đô la"
-            End Select
-        Else
-            m_SysCurChar = m.s_SysCurChar
-        End If
-        m_CompanyName = m.s_CompanyName
-        m_CompanyAddress = m.s_Address
-        m_TaxNo = m.s_TaxNo.Trim
-
-        If m.s_Phone2 <> "" Then
-            m_Companyphone = m.s_Phone1 & " - " & m.s_Phone2
-        Else
-            m_Companyphone = m.s_Phone1
-        End If
         m_EmpTitle = FormTitle
     End Sub
 
-    Public Structure InfoDebtObject
-        Public TotalIncome As Double
-        Public TotalOutcome As Double
-        Public Over_1_30 As Double
-        Public Over_31_60 As Double
-        Public Over_61_90 As Double
-        Public Over_90 As Double
-        Public Trade_Month As Double
-        Public Trade_Year As Double
-        Public Trade_Last_Year As Double
-        Public Trade_All As Double
-    End Structure
     Public Enum TypeEvents
         Syntax = 1
         List = 2
@@ -419,13 +379,7 @@ Module ModMain
 
     End Sub
 
-    Public Sub UPdateColorSystem()
-        Dim cls As New VsoftBMS.Ulti.ClsUti
-        cls.CreateKeyInRegister("COLORSYS.A", m_sysColor.A.ToString)
-        cls.CreateKeyInRegister("COLORSYS.R", m_sysColor.R.ToString)
-        cls.CreateKeyInRegister("COLORSYS.G", m_sysColor.G.ToString)
-        cls.CreateKeyInRegister("COLORSYS.B", m_sysColor.B.ToString)
-    End Sub
+    
 #Region "Kiem tra va udpate DB"
     Private fr As New FrmProcess
     Private thread As Threading.Thread
@@ -450,6 +404,8 @@ Module ModMain
         End Try
     End Sub
 #End Region
+
+
     Private Function getSerialNumber() As String
         Dim managementObjectSearcher = New Management.ManagementObjectSearcher("Select SerialNumber From Win32_BaseBoard")
         For Each managementObject In managementObjectSearcher.Get()
@@ -727,35 +683,6 @@ Module ModMain
         cls.UPDATEDB(m_UIDLogin, s_Desc, i_TypeID)
     End Sub
 
-    Public Function getPermitStore(ByVal UID As String, ByVal store_ID As String) As Model.MFuncRight
-        Dim m As New Model.MFuncRight
-        Dim cls As BLL.BFuncRight = BLL.BFuncRight.Instance
-
-        If UID.ToLower <> "admin" Then
-            Dim tb As DataTable = cls.getFuncRightStore(UID, store_ID)
-            If tb Is Nothing Then Return m
-            m.A = tb.Rows(0)("A")
-            m.U = tb.Rows(0)("U")
-            m.D = tb.Rows(0)("D")
-            m.R = tb.Rows(0)("R")
-            m.FuncID = 0
-            m.sFuncID = tb.Rows(0)("FuncID")
-            m.UID = tb.Rows(0)("UID")
-            m.IDSort = tb.Rows(0)("IDSort")
-        Else
-            m.A = True
-            m.U = True
-            m.D = True
-            m.R = True
-            m.FuncID = 0
-            m.sFuncID = 0
-            m.UID = UID
-            m.IDSort = 0
-        End If
-
-        Return m
-    End Function
-
     Public Function getPermitFunc(ByVal UID As String, ByVal FuncID As Integer) As Model.MFuncRight
         Dim m As New Model.MFuncRight
         If UID.ToLower <> "admin" Then
@@ -786,8 +713,6 @@ Module ModMain
         Dim clsL As BLL.BLogin = BLL.BLogin.Instance
         Return clsL.DateDiff(Part, d1, d2)
     End Function
-
-#Region "Ultility"
     Public Sub SelectAll(ByVal gridName As Infragistics.Win.UltraWinGrid.UltraGrid)
         If gridName.DataSource Is Nothing Then Exit Sub
         Dim r As Infragistics.Win.UltraWinGrid.UltraGridRow = gridName.ActiveRow
@@ -812,22 +737,6 @@ Module ModMain
         End If
 
     End Sub
-
-#End Region
-    Public Enum FilterObject
-        ALL = 0
-        Customer = 1
-        Supplier = 2
-    End Enum
-    Public Enum AddNewRowObject
-        None = 0
-        AddNew_ALL = 1
-        AddNew_New = 2
-    End Enum
-    Public Function ExecuteDelete(ByVal iType As Integer, ByVal id As String) As Boolean
-        Dim cls As BLL.BPublic = BLL.BPublic.Instance
-
-    End Function
 
     Public Sub GridKeyDown(ByVal Grid As UltraGrid, ByVal e As System.Windows.Forms.KeyEventArgs)
         If e.KeyCode = 37 Then 'Left
@@ -1000,11 +909,6 @@ Module ModMain
         End Try
     End Sub
 
-    Public Enum OptionAddOrNew
-        None = 0
-        AddNew = 1
-        SelectAll = 2
-    End Enum
     Public Sub SetTime(ByVal index As Integer, ByRef dtFrom As DateTimePicker, ByRef dtTo As DateTimePicker)
         If index = 8 Then
             dtFrom.Enabled = True
@@ -1070,17 +974,7 @@ Module ModMain
             End Select
         End If
     End Sub
-    Public Function LoadBranchWithAll() As DataTable
-        Dim db As BLL.B_Branchs = BLL.B_Branchs.Instance
-        Dim tb As DataTable = db.getList()
-        If Not IsNothing(tb) Then
-            Dim r = tb.NewRow
-            r("s_ID") = ""
-            r("s_Name") = m_SelectAll
-            tb.Rows.InsertAt(r, 0)
-        End If
-        Return tb
-    End Function
+    
     Public Function LoadBranch() As DataTable
         Dim db As BLL.B_Branchs = BLL.B_Branchs.Instance
         Dim tb As DataTable = db.getList()
@@ -1089,18 +983,6 @@ Module ModMain
     Public Function LoadBranchByRight() As DataTable
         Dim db As BLL.B_Branchs = BLL.B_Branchs.Instance
         Dim tb As DataTable = db.getListByRight(m_UIDLogin)
-        Return tb
-    End Function
-    Public Function LoadBranchByRightWithAll() As DataTable
-        Dim uid = m_UIDLogin
-        Dim db As BLL.B_Branchs = BLL.B_Branchs.Instance
-        Dim tb As DataTable = db.getListByRight(uid)
-        If Not IsNothing(tb) Then
-            Dim r = tb.NewRow
-            r("s_ID") = "-1"
-            r("s_Name") = m_SelectAll
-            tb.Rows.InsertAt(r, 0)
-        End If
         Return tb
     End Function
 
@@ -1190,56 +1072,7 @@ Module ModMain
         bt.PressedAppearance = Appearance36
         bt.Cursor = Cursors.Hand
     End Sub
-    ''' <summary>
-    ''' In bill phieu xuat hang
-    ''' </summary>
-    ''' <param name="orderId">ma phieu XBH</param>
-    ''' <remarks></remarks>
-    Public Sub PrintOrder(ByVal orderId As String)
-        Try
-            Dim path = Application.StartupPath & "\Reports\rptBill.rpt"
-            If Not System.IO.File.Exists(path) Then
-                ShowMsg("Không tìm thấy mẫu in." & vbCrLf & path)
-                Exit Sub
-            End If
-            Dim clsrpt As New ClsReport
-            Dim rp As New CrystalDecisions.CrystalReports.Engine.ReportDocument
-            rp = clsrpt.InitReport(path)
-            If rp IsNot Nothing Then
-                clsrpt.SetParameter(rp, ModMain.m_SysCur, orderId, mbc.i_FormatCur, mbc.i_FormatNum)
-                For i As Integer = 1 To mbc.i_Countprint
-                    rp.PrintToPrinter(1, False, 0, 0)
-                Next
-            End If
-        Catch ex As Exception
-            ModMain.WriteLog(ex.Message, TypeEvents.Order)
-        End Try
-    End Sub
-    ''' <summary>
-    ''' In bill phieu xuat hang
-    ''' </summary>
-    ''' <param name="orderId">ma phieu XBH</param>
-    ''' <remarks></remarks>
-    Public Sub PrintOrderTemp(ByVal orderId As String)
-        Try
-            Dim path = Application.StartupPath & "\Reports\rptBillTemp.rpt"
-            If Not System.IO.File.Exists(path) Then
-                ShowMsg("Không tìm thấy mẫu in." & vbCrLf & path)
-                Exit Sub
-            End If
-            Dim clsrpt As New ClsReport
-            Dim rp As New CrystalDecisions.CrystalReports.Engine.ReportDocument
-            rp = clsrpt.InitReport(path)
-            If rp IsNot Nothing Then
-                clsrpt.SetParameter(rp, ModMain.m_SysCur, orderId, mbc.i_FormatCur, mbc.i_FormatNum)
-                rp.PrintToPrinter(1, False, 0, 0)
-                'Sound.PlayWaveFile(Sound.TypeSound.transaction_complete)
-            End If
-        Catch ex As Exception
-            ModMain.WriteLog(ex.Message, TypeEvents.Order)
-        End Try
-    End Sub
-
+   
     Public Function GenerateReportFilePath(ByVal filePath As String) As String
         Dim fileName = System.IO.Path.GetFileName(System.IO.Path.Combine(Application.StartupPath, filePath))
         Dim resultPath = System.IO.Path.Combine("\Reports", fileName)
@@ -1322,8 +1155,7 @@ Module ModMain
     End Sub
 
     Public Function convertMoney(ByVal value As Double) As String
-        Dim des = clsu.convertMoney(value, m_SysCurChar)
-        Return des
+        Return clsu.convertMoney(value, m_SysCurChar)
     End Function
 
     Public Function StatusText(ByVal key As String) As String
@@ -1352,4 +1184,46 @@ Module ModMain
 
         Return ""
     End Function
+
+    Public Sub OpenImage(ByVal PIM As Infragistics.Win.UltraWinEditors.UltraPictureBox)
+        Dim OpenFileDialog1 As New OpenFileDialog
+        OpenFileDialog1.Title = "Chọn file nội dung"
+        OpenFileDialog1.Filter = "Image Files(*.JPG;*.JPEG;*.JPE;*.JFIF)|*.JPG;*.JPEG;*.JPE;*.JFIF"
+        OpenFileDialog1.FilterIndex = 1
+        OpenFileDialog1.FileName = ""
+        Dim dlg As DialogResult = OpenFileDialog1.ShowDialog()
+
+        If dlg = Windows.Forms.DialogResult.Cancel Then
+            Exit Sub
+        End If
+        Dim sFilePath As String
+
+        sFilePath = OpenFileDialog1.FileName
+        If sFilePath = "" Then Exit Sub
+        If System.IO.File.Exists(sFilePath) = False Then
+            Exit Sub
+        End If
+        Dim fs As IO.FileStream = New IO.FileStream(sFilePath, IO.FileMode.Open)
+        Dim ArrByte As Byte() = New Byte(fs.Length) {}
+        fs.Read(ArrByte, 0, fs.Length)
+        fs.Close()
+        Dim sm As New IO.MemoryStream(ArrByte)
+        PIM.Image = Image.FromStream(sm)
+        sm = Nothing
+    End Sub
+
+    Public Function ConvertByteArrayToImage(ByVal arrByte() As Byte) As Image
+        If ArrByte Is Nothing Then Return Nothing
+        Dim sm As New IO.MemoryStream(ArrByte)
+        Return Image.FromStream(sm)
+    End Function
+
+    Public Function ConvertImageToByteArray(ByVal IM As Image) As Byte()
+        Dim ms As New IO.MemoryStream
+        IM.Save(ms, IM.RawFormat)
+        Dim arrImage() As Byte = ms.GetBuffer
+        ms.Close()
+        Return arrImage
+    End Function
+
 End Module

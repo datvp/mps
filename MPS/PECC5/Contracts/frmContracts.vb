@@ -1,14 +1,16 @@
 ﻿Imports CrystalDecisions.CrystalReports.Engine
 Imports Infragistics.Win.UltraWinToolbars
-'Imports Infragistics.Win.UltraWinToolbars.StateButtonTool
 Imports Infragistics.Win.UltraWinGrid
 Public Class frmContracts
     Private WithEvents cls As BLL.BContracts = BLL.BContracts.Instance
-    Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
-    Dim fselect As Boolean = False
-    Dim Sselect As String = ""
+    Private clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
+    Private fselect As Boolean = False
+    Private Sselect As String = ""
     Private fFinish As Boolean = False
     Private isClickedOnCollaps As Boolean = False
+    Private fPageLoad As Boolean = False
+    Private WithEvents cboDateFilter As ComboBoxTool
+
     Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
         ShowMsg(messege)
     End Sub
@@ -23,6 +25,11 @@ Public Class frmContracts
 
     Private Sub frmContracts_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
         Me.Loadlist()
+    End Sub
+
+    Private Sub frmContracts_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        My.Settings.DateFilter = cboDateFilter.SelectedIndex
+        My.Settings.Save()
     End Sub
 
 
@@ -57,9 +64,15 @@ Public Class frmContracts
     Private Sub frmContracts_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ModMain.SetTitle(Me, lblTitle.Text)
         LabelBottom.Text = ModMain.m_strLableList
+        cboOperatorPer.SelectedIndex = 0
+        cboOperatorLength.SelectedIndex = 0
         csFilter.ToggleState()
+        cboDateFilter = CType(Toolbars.Tools("cboDateFilter"), ComboBoxTool)
+        cboDateFilter.SelectedIndex = My.Settings.DateFilter
+
         Me.Loadlist()
         Me.Security()
+        fPageLoad = True
     End Sub
 
 #End Region
@@ -101,11 +114,11 @@ Public Class frmContracts
 
     Private Sub Loadlist(Optional ByVal s_ID As String = "")
         If csFilter.IsCollapsed Then
-            Grid.DataSource = cls.getListContracts(ModMain.m_BranchId)
+            Grid.DataSource = cls.getListContracts(ModMain.m_BranchId, cboDateFilter.SelectedIndex)
         Else
             If txtPerformance.Text = "" Then txtPerformance.Text = "0"
             If txtLength.Text = "" Then txtLength.Text = "0"
-            Grid.DataSource = cls.getListContractsByFilter(ModMain.m_BranchId, CInt(txtPerformance.Text), CInt(txtLength.Text))
+            Grid.DataSource = cls.getListContractsByFilter(ModMain.m_BranchId, CInt(txtPerformance.Text), cboOperatorPer.Text, CInt(txtLength.Text), cboOperatorLength.Text)
         End If
 
         If s_ID <> "" Then
@@ -412,5 +425,11 @@ Public Class frmContracts
         Dim btn As StateButtonTool = DirectCast(Toolbars.Tools("btnFilter"), StateButtonTool)
         btn.Checked = Not csFilter.IsCollapsed
         isClickedOnCollaps = False
+    End Sub
+
+    Private Sub cboDateFilter_AfterToolCloseup(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinToolbars.ToolDropdownEventArgs) Handles cboDateFilter.AfterToolCloseup
+        If fPageLoad Then
+            Me.Loadlist()
+        End If
     End Sub
 End Class

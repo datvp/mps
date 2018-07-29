@@ -239,12 +239,12 @@
                 frm.ShowDialog(True)
 
             Case "Configuations"
-                'If Not CheckSecurity(87, Add) Then
-                '    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
-                '    Exit Sub
-                'End If
-                'Dim frm As New frmConfigProgram
-                'frm.ShowDialog()
+                If Not CheckSecurity(18, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
+                Dim frm As New frmConfig
+                frm.ShowDialog()
             Case "EventHistory"
                 If Not CheckSecurity(53, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)

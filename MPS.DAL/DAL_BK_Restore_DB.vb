@@ -2,7 +2,18 @@
 
 Public Class DAL_BK_Restore_DB
     Inherits DALSQL
-    'Dim sql As String = "Exec sp_GetIndexOrder @dayMonth"
+    Private Sub New()
+    End Sub
+    Private Shared obj As DAL_BK_Restore_DB
+    Public Shared ReadOnly Property Instance() As DAL_BK_Restore_DB
+        Get
+            If obj Is Nothing Then
+                obj = New DAL_BK_Restore_DB
+            End If
+            Return obj
+        End Get
+    End Property
+
     Public Function EnableCMDShell() As Boolean
         Dim sql As String = ""
         sql = "EXEC master.dbo.sp_configure 'show advanced options', 1"

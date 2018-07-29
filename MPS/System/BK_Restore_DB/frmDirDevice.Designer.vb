@@ -33,18 +33,18 @@ Partial Class frmDirDevice
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.TV = New System.Windows.Forms.TreeView
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
-        Me.Panel2 = New System.Windows.Forms.Panel
         Me.btnCancel = New Infragistics.Win.Misc.UltraButton
         Me.btnChoose = New Infragistics.Win.Misc.UltraButton
         Me.lbTemp = New System.Windows.Forms.Label
         Me.Panel3 = New System.Windows.Forms.Panel
-        Me.Lb = New System.Windows.Forms.Label
         Me.txtFile = New System.Windows.Forms.TextBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
+        Me.lblName = New System.Windows.Forms.Label
+        Me.Lb = New System.Windows.Forms.Label
+        Me.grpBottom = New Infragistics.Win.Misc.UltraGroupBox
         Me.Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpBottom.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -52,9 +52,10 @@ Partial Class frmDirDevice
         Me.Panel1.Controls.Add(Me.TV)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(659, 392)
+        Me.Panel1.Padding = New System.Windows.Forms.Padding(10)
+        Me.Panel1.Size = New System.Drawing.Size(358, 305)
         Me.Panel1.TabIndex = 0
         '
         'TV
@@ -62,11 +63,11 @@ Partial Class frmDirDevice
         Me.TV.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TV.ImageIndex = 0
         Me.TV.ImageList = Me.ImageList1
-        Me.TV.Location = New System.Drawing.Point(0, 0)
-        Me.TV.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TV.Location = New System.Drawing.Point(10, 10)
+        Me.TV.Margin = New System.Windows.Forms.Padding(4)
         Me.TV.Name = "TV"
         Me.TV.SelectedImageIndex = 0
-        Me.TV.Size = New System.Drawing.Size(659, 392)
+        Me.TV.Size = New System.Drawing.Size(338, 285)
         Me.TV.TabIndex = 1
         '
         'ImageList1
@@ -77,19 +78,6 @@ Partial Class frmDirDevice
         Me.ImageList1.Images.SetKeyName(1, "ico82.ico")
         Me.ImageList1.Images.SetKeyName(2, "ico41.ico")
         Me.ImageList1.Images.SetKeyName(3, "ico58.ico")
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.btnCancel)
-        Me.Panel2.Controls.Add(Me.btnChoose)
-        Me.Panel2.Controls.Add(Me.lbTemp)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel2.Location = New System.Drawing.Point(0, 470)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(659, 57)
-        Me.Panel2.TabIndex = 1
         '
         'btnCancel
         '
@@ -108,14 +96,14 @@ Partial Class frmDirDevice
         Appearance14.BackColor2 = System.Drawing.Color.White
         Appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnCancel.HotTrackAppearance = Appearance14
-        Me.btnCancel.Location = New System.Drawing.Point(512, 10)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCancel.Location = New System.Drawing.Point(228, 14)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
         Appearance15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance15.BackColor2 = System.Drawing.Color.White
         Appearance15.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnCancel.PressedAppearance = Appearance15
-        Me.btnCancel.Size = New System.Drawing.Size(132, 34)
+        Me.btnCancel.Size = New System.Drawing.Size(117, 34)
         Me.btnCancel.TabIndex = 4
         Me.btnCancel.Text = "Thoát (Esc)"
         Me.btnCancel.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
@@ -137,14 +125,14 @@ Partial Class frmDirDevice
         Appearance5.BackColor2 = System.Drawing.Color.White
         Appearance5.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnChoose.HotTrackAppearance = Appearance5
-        Me.btnChoose.Location = New System.Drawing.Point(392, 10)
-        Me.btnChoose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnChoose.Location = New System.Drawing.Point(123, 14)
+        Me.btnChoose.Margin = New System.Windows.Forms.Padding(4)
         Me.btnChoose.Name = "btnChoose"
         Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance6.BackColor2 = System.Drawing.Color.White
         Appearance6.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnChoose.PressedAppearance = Appearance6
-        Me.btnChoose.Size = New System.Drawing.Size(112, 34)
+        Me.btnChoose.Size = New System.Drawing.Size(98, 34)
         Me.btnChoose.TabIndex = 3
         Me.btnChoose.Text = "Chọn"
         Me.btnChoose.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
@@ -153,7 +141,7 @@ Partial Class frmDirDevice
         'lbTemp
         '
         Me.lbTemp.AutoSize = True
-        Me.lbTemp.Location = New System.Drawing.Point(89, 20)
+        Me.lbTemp.Location = New System.Drawing.Point(14, 22)
         Me.lbTemp.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbTemp.Name = "lbTemp"
         Me.lbTemp.Size = New System.Drawing.Size(90, 16)
@@ -165,90 +153,94 @@ Partial Class frmDirDevice
         '
         Me.Panel3.Controls.Add(Me.Lb)
         Me.Panel3.Controls.Add(Me.txtFile)
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Controls.Add(Me.Label1)
+        Me.Panel3.Controls.Add(Me.lblName)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel3.Location = New System.Drawing.Point(0, 392)
-        Me.Panel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Panel3.Location = New System.Drawing.Point(0, 305)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(659, 78)
+        Me.Panel3.Size = New System.Drawing.Size(358, 78)
         Me.Panel3.TabIndex = 2
-        '
-        'Lb
-        '
-        Me.Lb.AutoSize = True
-        Me.Lb.Location = New System.Drawing.Point(88, 46)
-        Me.Lb.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Lb.Name = "Lb"
-        Me.Lb.Size = New System.Drawing.Size(91, 16)
-        Me.Lb.TabIndex = 3
-        Me.Lb.Text = "File dang chon"
         '
         'txtFile
         '
-        Me.txtFile.Location = New System.Drawing.Point(92, 17)
-        Me.txtFile.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFile.Location = New System.Drawing.Point(73, 6)
+        Me.txtFile.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFile.Name = "txtFile"
-        Me.txtFile.Size = New System.Drawing.Size(551, 23)
+        Me.txtFile.Size = New System.Drawing.Size(272, 23)
         Me.txtFile.TabIndex = 2
         '
-        'Label2
+        'lblName
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 47)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(28, 16)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "File"
+        Me.lblName.AutoSize = True
+        Me.lblName.Location = New System.Drawing.Point(14, 7)
+        Me.lblName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Size = New System.Drawing.Size(51, 16)
+        Me.lblName.TabIndex = 0
+        Me.lblName.Text = "Tên file"
         '
-        'Label1
+        'Lb
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(16, 18)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 16)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Tên file"
+        Me.Lb.BackColor = System.Drawing.Color.Transparent
+        Me.Lb.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lb.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Lb.Location = New System.Drawing.Point(10, 33)
+        Me.Lb.Name = "Lb"
+        Me.Lb.Size = New System.Drawing.Size(335, 38)
+        Me.Lb.TabIndex = 12
+        Me.Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'grpBottom
+        '
+        Me.grpBottom.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
+        Me.grpBottom.Controls.Add(Me.btnCancel)
+        Me.grpBottom.Controls.Add(Me.lbTemp)
+        Me.grpBottom.Controls.Add(Me.btnChoose)
+        Me.grpBottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.grpBottom.Location = New System.Drawing.Point(0, 383)
+        Me.grpBottom.Margin = New System.Windows.Forms.Padding(0)
+        Me.grpBottom.Name = "grpBottom"
+        Me.grpBottom.Size = New System.Drawing.Size(358, 61)
+        Me.grpBottom.TabIndex = 20
+        Me.grpBottom.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'frmDirDevice
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.AliceBlue
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(659, 527)
+        Me.ClientSize = New System.Drawing.Size(358, 444)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.Panel2)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Controls.Add(Me.grpBottom)
+        Me.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmDirDevice"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Panel1.ResumeLayout(False)
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpBottom.ResumeLayout(False)
+        Me.grpBottom.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Panel3 As System.Windows.Forms.Panel
     Friend WithEvents lbTemp As System.Windows.Forms.Label
-    Friend WithEvents Lb As System.Windows.Forms.Label
     Friend WithEvents txtFile As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lblName As System.Windows.Forms.Label
     Friend WithEvents TV As System.Windows.Forms.TreeView
     Friend WithEvents ImageList1 As System.Windows.Forms.ImageList
     Friend WithEvents btnChoose As Infragistics.Win.Misc.UltraButton
     Friend WithEvents btnCancel As Infragistics.Win.Misc.UltraButton
+    Friend WithEvents Lb As System.Windows.Forms.Label
+    Friend WithEvents grpBottom As Infragistics.Win.Misc.UltraGroupBox
 End Class

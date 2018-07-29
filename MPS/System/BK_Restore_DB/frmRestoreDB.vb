@@ -1,5 +1,5 @@
 ﻿Public Class frmRestoreDB
-    Private WithEvents cls As New BLL.B_BK_Restore_DB
+    Private WithEvents cls As BLL.B_BK_Restore_DB = BLL.B_BK_Restore_DB.Instance
     Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
         MsgBox(messege, MsgBoxStyle.Critical)
     End Sub

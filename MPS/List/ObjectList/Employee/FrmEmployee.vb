@@ -314,7 +314,7 @@ Public Class FrmEmployee
         Dim rp As New ReportDocument
         Dim cls As New ClsReport
         rp = cls.InitReport(Application.StartupPath & "\Reports\rptNhanVien.rpt")
-        cls.SetParameter(rp, ModMain.m_CompanyName, ModMain.m_CompanyAddress)
+        cls.SetParameter(rp, mbc.s_CompanyName, mbc.s_Address)
 
         Dim frm As New FrmReport
         frm.rpt.ReportSource = rp

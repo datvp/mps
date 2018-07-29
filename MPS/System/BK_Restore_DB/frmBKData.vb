@@ -1,5 +1,5 @@
 ﻿Public Class frmBKData
-    Private WithEvents cls As New BLL.B_BK_Restore_DB
+    Private WithEvents cls As BLL.B_BK_Restore_DB = BLL.B_BK_Restore_DB.Instance
     Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
         MsgBox(messege, MsgBoxStyle.Critical)
     End Sub
@@ -38,7 +38,7 @@
     End Sub
 
     Private Sub frmBKData_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ModMain.SetTitle(Me, UltraLabel1.Text)
+        ModMain.SetTitle(Me, lblTitle.Text)
         ModMain.BlueButton(btnApply)
         ModMain.GreenButton(btnCancel)
         Me.Security()
@@ -70,32 +70,28 @@
 #End Region
 #Region "Button "
 
-    Private Sub btnBrown_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBrown.Click
-        Dim frm As New frmDirDevice
-        Dim s As String = frm.ShowDialog(0)
-        If s <> "" Then
-            Me.txtFileBK.Text = s
-        End If
-    End Sub
-
     Private Sub btnApply_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnApply.Click
-        If txtFileBK.Text = "" Then
-            ShowMsg("Chọn file dữ liệu backup", 49)
+        If txtFileBK.Text.Trim = "" Then
+            ShowMsg("Bạn chưa nhập tên file.")
+            txtFileBK.Focus()
             Exit Sub
         End If
-        Commit()
+        Me.Commit()
     End Sub
 
     Private Sub Commit()
         ShowProgress("Đang thực hiện ...")
+
         thread = New Threading.Thread(AddressOf ProgressRefresh)
         thread.Start()
+
         If cls.BackupDB(ModMain.m_DB, txtFileBK.Text) Then
             ModMain.UpdateEvent(ModMain.m_UIDLogin, "Thực hiện dự phòng dữ liệu.", TypeEvents.System)
-            ShowMsgInfo("Đã thực hiện dự phòng dữ liệu!", 52)
+            ShowMsgInfo("Đã thực hiện dự phòng dữ liệu!")
         Else
-            ShowMsg("Thao tác thực hiện bị lỗi, xin vui lòng gọi tới số :08-38623060 để chúng tôi hổ trợ bạn !", 53)
+            ShowMsg("Thao tác thực hiện bị lỗi.")
         End If
+
         If Not frmPro Is Nothing Then frmPro.Close()
         frmPro = Nothing
         If Not thread Is Nothing Then
@@ -110,4 +106,11 @@
 
 #End Region
 
+    Private Sub txtFileBK_EditorButtonClick(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinEditors.EditorButtonEventArgs) Handles txtFileBK.EditorButtonClick
+        Dim frm As New frmDirDevice
+        Dim s As String = frm.ShowDialog(0)
+        If s <> "" Then
+            Me.txtFileBK.Text = s
+        End If
+    End Sub
 End Class

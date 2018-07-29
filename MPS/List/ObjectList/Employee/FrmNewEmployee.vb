@@ -165,7 +165,7 @@ Public Class FrmNewEmployee
         Else
             Me.radFemale.Checked = Not obj.b_Sex
         End If
-        Me.pic1.Image = Me.toImage(obj.im_Photo)
+        Me.pic1.Image = ModMain.ConvertByteArrayToImage(obj.im_Photo)
 
         If CStr(Format(obj.dt_DOB, "ddMMyyyy")) = "01011900" Then
             Me.dtDOB.Text = ""
@@ -200,74 +200,6 @@ Public Class FrmNewEmployee
         Me.tbManager.Tools("btnSaveClose").SharedProps.Visible = False
     End Sub
 
-    Private Function toImage(ByVal ArrByte() As Byte) As Image
-        If ArrByte Is Nothing Then Return Nothing
-        Dim sm As New MemoryStream(ArrByte)
-        Return Image.FromStream(sm)
-    End Function
-
-    Private Sub OpenImage(ByVal PIM As Infragistics.Win.UltraWinEditors.UltraPictureBox)
-        Dim OpenFileDialog1 As New OpenFileDialog
-        OpenFileDialog1.Title = "Chọn file nội dung"
-        OpenFileDialog1.Filter = "Image Files(*.JPG;*.JPEG;*.JPE;*.JFIF)|*.JPG;*.JPEG;*.JPE;*.JFIF"
-        OpenFileDialog1.FilterIndex = 1
-        OpenFileDialog1.FileName = ""
-        Dim dlg As DialogResult = OpenFileDialog1.ShowDialog()
-
-        If dlg = Windows.Forms.DialogResult.Cancel Then
-            Exit Sub
-        End If
-        Dim sFilePath As String
-
-        sFilePath = OpenFileDialog1.FileName
-        If sFilePath = "" Then Exit Sub
-        If System.IO.File.Exists(sFilePath) = False Then
-            Exit Sub
-        End If
-        Dim fs As FileStream = New FileStream(sFilePath, FileMode.Open)
-        Dim ArrByte As Byte() = New Byte(fs.Length) {}
-        fs.Read(ArrByte, 0, fs.Length)
-        fs.Close()
-        Dim sm As New MemoryStream(ArrByte)
-        PIM.Image = Image.FromStream(sm)
-        sm = Nothing
-
-    End Sub
-
-    Private Function getArrByte(ByVal IM As Image) As Byte()
-        Dim ms As New MemoryStream
-        IM.Save(ms, IM.RawFormat)
-        Dim arrImage() As Byte = ms.GetBuffer
-        ms.Close()
-        Return arrImage
-    End Function
-
-    Private Sub OpenImage2(ByVal PIM As Infragistics.Win.UltraWinEditors.UltraPictureBox)
-        Dim OpenFileDialog1 As New OpenFileDialog
-        OpenFileDialog1.Title = "Chọn file nội dung"
-        OpenFileDialog1.Filter = "Image Files(*.JPG;*.JPEG;*.JPE;*.JFIF)|*.JPG;*.JPEG;*.JPE;*.JFIF"
-        OpenFileDialog1.FilterIndex = 1
-        OpenFileDialog1.FileName = ""
-        Dim dlg As DialogResult = OpenFileDialog1.ShowDialog()
-
-        If dlg = Windows.Forms.DialogResult.Cancel Then
-            Exit Sub
-        End If
-        Dim sFilePath As String
-
-        sFilePath = OpenFileDialog1.FileName
-        If sFilePath = "" Then Exit Sub
-        If System.IO.File.Exists(sFilePath) = False Then
-            Exit Sub
-        End If
-        Dim fs As FileStream = New FileStream(sFilePath, FileMode.Open)
-        Dim ArrByte As Byte() = New Byte(fs.Length) {}
-        fs.Read(ArrByte, 0, fs.Length)
-        fs.Close()
-        Dim sm As New MemoryStream(ArrByte)
-        PIM.Image = Image.FromStream(sm)
-        sm = Nothing
-    End Sub
 #End Region
 
 #Region "FUNCTION"
@@ -286,7 +218,7 @@ Public Class FrmNewEmployee
         m.b_Sex = Me.radMale.Checked
 
         If Not Me.pic1.Image Is Nothing Then
-            m.im_Photo = getArrByte(pic1.Image)
+            m.im_Photo = ModMain.ConvertImageToByteArray(pic1.Image)
         Else
             m.im_Photo = Nothing
         End If
@@ -761,13 +693,13 @@ Public Class FrmNewEmployee
 
 #Region "PictureBox"
     Private Sub pic1_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles pic1.DoubleClick
-        OpenImage(pic1)
+        ModMain.OpenImage(pic1)
     End Sub
 #End Region
 
 #Region "Format Textbox"
     Private Sub LinkLabel1_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        OpenImage2(pic1)
+        ModMain.OpenImage(pic1)
     End Sub
 
     Private Sub LinkLabel2_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked

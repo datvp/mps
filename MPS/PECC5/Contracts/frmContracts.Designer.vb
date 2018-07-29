@@ -47,6 +47,8 @@ Partial Class frmContracts
         Dim ButtonTool2 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnEdit")
         Dim ButtonTool3 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnDel")
         Dim ButtonTool7 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnRefresh")
+        Dim LabelTool1 As Infragistics.Win.UltraWinToolbars.LabelTool = New Infragistics.Win.UltraWinToolbars.LabelTool("lblTime")
+        Dim ComboBoxTool1 As Infragistics.Win.UltraWinToolbars.ComboBoxTool = New Infragistics.Win.UltraWinToolbars.ComboBoxTool("cboDateFilter")
         Dim StateButtonTool1 As Infragistics.Win.UltraWinToolbars.StateButtonTool = New Infragistics.Win.UltraWinToolbars.StateButtonTool("btnFilter", "")
         Dim ButtonTool4 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnAdd")
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -58,11 +60,24 @@ Partial Class frmContracts
         Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim StateButtonTool2 As Infragistics.Win.UltraWinToolbars.StateButtonTool = New Infragistics.Win.UltraWinToolbars.StateButtonTool("btnFilter", "")
         Dim Appearance26 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ComboBoxTool2 As Infragistics.Win.UltraWinToolbars.ComboBoxTool = New Infragistics.Win.UltraWinToolbars.ComboBoxTool("cboDateFilter")
+        Dim ValueList1 As Infragistics.Win.ValueList = New Infragistics.Win.ValueList(0)
+        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim LabelTool2 As Infragistics.Win.UltraWinToolbars.LabelTool = New Infragistics.Win.UltraWinToolbars.LabelTool("lblTime")
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.Grid = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.csFilter = New NJFLib.Controls.CollapsibleSplitter
         Me.pnlFilter = New System.Windows.Forms.Panel
+        Me.cboOperatorPer = New System.Windows.Forms.ComboBox
         Me.txtLength = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label1 = New System.Windows.Forms.Label
         Me.txtPerformance = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -88,6 +103,7 @@ Partial Class frmContracts
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Accept = New System.Windows.Forms.ToolStripMenuItem
         Me.T_Decline = New System.Windows.Forms.ToolStripMenuItem
+        Me.cboOperatorLength = New System.Windows.Forms.ComboBox
         Me.Panel1.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFilter.SuspendLayout()
@@ -110,7 +126,7 @@ Partial Class frmContracts
         Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Top
         Me.lblTitle.Location = New System.Drawing.Point(0, 0)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(726, 23)
+        Me.lblTitle.Size = New System.Drawing.Size(926, 23)
         Me.lblTitle.TabIndex = 36
         Me.lblTitle.Text = "Danh Sách Hợp Đồng"
         '
@@ -127,7 +143,7 @@ Partial Class frmContracts
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 23)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(726, 485)
+        Me.Panel1.Size = New System.Drawing.Size(926, 485)
         Me.Panel1.TabIndex = 37
         '
         'Grid
@@ -192,9 +208,9 @@ Partial Class frmContracts
         Me.Grid.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.Grid.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.Grid.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Grid.Location = New System.Drawing.Point(0, 76)
+        Me.Grid.Location = New System.Drawing.Point(0, 78)
         Me.Grid.Name = "Grid"
-        Me.Grid.Size = New System.Drawing.Size(726, 379)
+        Me.Grid.Size = New System.Drawing.Size(926, 377)
         Me.Grid.TabIndex = 43
         '
         'csFilter
@@ -206,7 +222,7 @@ Partial Class frmContracts
         Me.csFilter.ControlToHide = Me.pnlFilter
         Me.csFilter.Dock = System.Windows.Forms.DockStyle.Top
         Me.csFilter.ExpandParentForm = False
-        Me.csFilter.Location = New System.Drawing.Point(0, 68)
+        Me.csFilter.Location = New System.Drawing.Point(0, 70)
         Me.csFilter.Name = "CollapsibleSplitter2"
         Me.csFilter.TabIndex = 49
         Me.csFilter.TabStop = False
@@ -215,28 +231,43 @@ Partial Class frmContracts
         '
         'pnlFilter
         '
+        Me.pnlFilter.Controls.Add(Me.cboOperatorLength)
+        Me.pnlFilter.Controls.Add(Me.cboOperatorPer)
         Me.pnlFilter.Controls.Add(Me.txtLength)
         Me.pnlFilter.Controls.Add(Me.Label1)
         Me.pnlFilter.Controls.Add(Me.txtPerformance)
         Me.pnlFilter.Controls.Add(Me.Label6)
         Me.pnlFilter.Controls.Add(Me.btnSearch)
         Me.pnlFilter.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlFilter.Location = New System.Drawing.Point(0, 26)
+        Me.pnlFilter.Location = New System.Drawing.Point(0, 28)
         Me.pnlFilter.Name = "pnlFilter"
-        Me.pnlFilter.Size = New System.Drawing.Size(726, 42)
+        Me.pnlFilter.Size = New System.Drawing.Size(926, 42)
         Me.pnlFilter.TabIndex = 48
+        '
+        'cboOperatorPer
+        '
+        Me.cboOperatorPer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboOperatorPer.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cboOperatorPer.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboOperatorPer.FormattingEnabled = True
+        Me.cboOperatorPer.Items.AddRange(New Object() {">", "<"})
+        Me.cboOperatorPer.Location = New System.Drawing.Point(147, 8)
+        Me.cboOperatorPer.Name = "cboOperatorPer"
+        Me.cboOperatorPer.Size = New System.Drawing.Size(50, 26)
+        Me.cboOperatorPer.TabIndex = 17
         '
         'txtLength
         '
         Appearance130.TextHAlignAsString = "Center"
         Me.txtLength.Appearance = Appearance130
+        Me.txtLength.AutoSize = False
         Me.txtLength.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtLength.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtLength.Location = New System.Drawing.Point(374, 9)
+        Me.txtLength.Location = New System.Drawing.Point(493, 8)
         Me.txtLength.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtLength.MaxLength = 15
         Me.txtLength.Name = "txtLength"
-        Me.txtLength.Size = New System.Drawing.Size(90, 25)
+        Me.txtLength.Size = New System.Drawing.Size(70, 26)
         Me.txtLength.TabIndex = 15
         Me.txtLength.Text = "0"
         '
@@ -245,7 +276,7 @@ Partial Class frmContracts
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(260, 11)
+        Me.Label1.Location = New System.Drawing.Point(317, 11)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(107, 16)
         Me.Label1.TabIndex = 16
@@ -255,13 +286,14 @@ Partial Class frmContracts
         '
         Appearance131.TextHAlignAsString = "Center"
         Me.txtPerformance.Appearance = Appearance131
+        Me.txtPerformance.AutoSize = False
         Me.txtPerformance.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtPerformance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPerformance.Location = New System.Drawing.Point(143, 9)
+        Me.txtPerformance.Location = New System.Drawing.Point(202, 8)
         Me.txtPerformance.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtPerformance.MaxLength = 15
         Me.txtPerformance.Name = "txtPerformance"
-        Me.txtPerformance.Size = New System.Drawing.Size(90, 25)
+        Me.txtPerformance.Size = New System.Drawing.Size(70, 26)
         Me.txtPerformance.TabIndex = 13
         Me.txtPerformance.Text = "0"
         '
@@ -292,14 +324,14 @@ Partial Class frmContracts
         Appearance64.BackColor2 = System.Drawing.Color.White
         Appearance64.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnSearch.HotTrackAppearance = Appearance64
-        Me.btnSearch.Location = New System.Drawing.Point(573, 8)
+        Me.btnSearch.Location = New System.Drawing.Point(596, 8)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 6, 3, 6)
         Me.btnSearch.Name = "btnSearch"
         Appearance65.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance65.BackColor2 = System.Drawing.Color.White
         Appearance65.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnSearch.PressedAppearance = Appearance65
-        Me.btnSearch.Size = New System.Drawing.Size(96, 25)
+        Me.btnSearch.Size = New System.Drawing.Size(96, 26)
         Me.btnSearch.TabIndex = 12
         Me.btnSearch.Text = "Lọc"
         Me.btnSearch.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
@@ -319,7 +351,7 @@ Partial Class frmContracts
         Me.LabelBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.LabelBottom.Location = New System.Drawing.Point(0, 455)
         Me.LabelBottom.Name = "LabelBottom"
-        Me.LabelBottom.Size = New System.Drawing.Size(726, 30)
+        Me.LabelBottom.Size = New System.Drawing.Size(926, 30)
         Me.LabelBottom.TabIndex = 42
         '
         '_Panel1_Toolbars_Dock_Area_Left
@@ -328,9 +360,9 @@ Partial Class frmContracts
         Me._Panel1_Toolbars_Dock_Area_Left.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me._Panel1_Toolbars_Dock_Area_Left.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Left
         Me._Panel1_Toolbars_Dock_Area_Left.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._Panel1_Toolbars_Dock_Area_Left.Location = New System.Drawing.Point(0, 26)
+        Me._Panel1_Toolbars_Dock_Area_Left.Location = New System.Drawing.Point(0, 28)
         Me._Panel1_Toolbars_Dock_Area_Left.Name = "_Panel1_Toolbars_Dock_Area_Left"
-        Me._Panel1_Toolbars_Dock_Area_Left.Size = New System.Drawing.Size(0, 459)
+        Me._Panel1_Toolbars_Dock_Area_Left.Size = New System.Drawing.Size(0, 457)
         Me._Panel1_Toolbars_Dock_Area_Left.ToolbarsManager = Me.Toolbars
         '
         'Toolbars
@@ -347,8 +379,8 @@ Partial Class frmContracts
         Me.Toolbars.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.Office2007
         UltraToolbar1.DockedColumn = 0
         UltraToolbar1.DockedRow = 0
-        StateButtonTool1.InstanceProps.IsFirstInGroup = True
-        UltraToolbar1.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool1, ButtonTool2, ButtonTool3, ButtonTool7, StateButtonTool1})
+        LabelTool1.InstanceProps.IsFirstInGroup = True
+        UltraToolbar1.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool1, ButtonTool2, ButtonTool3, ButtonTool7, LabelTool1, ComboBoxTool1, StateButtonTool1})
         UltraToolbar1.Text = "Toolbar1"
         Me.Toolbars.Toolbars.AddRange(New Infragistics.Win.UltraWinToolbars.UltraToolbar() {UltraToolbar1})
         Me.Toolbars.ToolbarSettings.FillEntireRow = Infragistics.Win.DefaultableBoolean.[True]
@@ -379,7 +411,29 @@ Partial Class frmContracts
         Appearance26.Image = Global.MPS.My.Resources.Resources.filter
         StateButtonTool2.SharedProps.AppearancesSmall.Appearance = Appearance26
         StateButtonTool2.SharedProps.Caption = "Tìm kiếm nâng cao"
-        Me.Toolbars.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool4, ButtonTool5, ButtonTool6, ButtonTool8, StateButtonTool2})
+        ComboBoxTool2.SharedProps.Caption = "cboDateFilter"
+        ValueListItem1.DataValue = "ValueListItem0"
+        ValueListItem1.DisplayText = "Hôm nay"
+        ValueListItem2.DataValue = "ValueListItem1"
+        ValueListItem2.DisplayText = "Hôm qua"
+        ValueListItem3.DataValue = "ValueListItem2"
+        ValueListItem3.DisplayText = "Tuần này"
+        ValueListItem4.DataValue = "ValueListItem3"
+        ValueListItem4.DisplayText = "Tuần trước"
+        ValueListItem5.DataValue = "ValueListItem4"
+        ValueListItem5.DisplayText = "Tháng này"
+        ValueListItem6.DataValue = "ValueListItem5"
+        ValueListItem6.DisplayText = "Tháng trước"
+        ValueListItem7.DataValue = "ValueListItem6"
+        ValueListItem7.DisplayText = "Năm này"
+        ValueListItem8.DataValue = "ValueListItem7"
+        ValueListItem8.DisplayText = "Năm trước"
+        ValueListItem9.DataValue = "ValueListItem8"
+        ValueListItem9.DisplayText = "Tất cả"
+        ValueList1.ValueListItems.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem1, ValueListItem2, ValueListItem3, ValueListItem4, ValueListItem5, ValueListItem6, ValueListItem7, ValueListItem8, ValueListItem9})
+        ComboBoxTool2.ValueList = ValueList1
+        LabelTool2.SharedProps.Caption = "Thời gian"
+        Me.Toolbars.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool4, ButtonTool5, ButtonTool6, ButtonTool8, StateButtonTool2, ComboBoxTool2, LabelTool2})
         '
         '_Panel1_Toolbars_Dock_Area_Right
         '
@@ -387,9 +441,9 @@ Partial Class frmContracts
         Me._Panel1_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me._Panel1_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right
         Me._Panel1_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._Panel1_Toolbars_Dock_Area_Right.Location = New System.Drawing.Point(726, 26)
+        Me._Panel1_Toolbars_Dock_Area_Right.Location = New System.Drawing.Point(926, 28)
         Me._Panel1_Toolbars_Dock_Area_Right.Name = "_Panel1_Toolbars_Dock_Area_Right"
-        Me._Panel1_Toolbars_Dock_Area_Right.Size = New System.Drawing.Size(0, 459)
+        Me._Panel1_Toolbars_Dock_Area_Right.Size = New System.Drawing.Size(0, 457)
         Me._Panel1_Toolbars_Dock_Area_Right.ToolbarsManager = Me.Toolbars
         '
         '_Panel1_Toolbars_Dock_Area_Top
@@ -400,7 +454,7 @@ Partial Class frmContracts
         Me._Panel1_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText
         Me._Panel1_Toolbars_Dock_Area_Top.Location = New System.Drawing.Point(0, 0)
         Me._Panel1_Toolbars_Dock_Area_Top.Name = "_Panel1_Toolbars_Dock_Area_Top"
-        Me._Panel1_Toolbars_Dock_Area_Top.Size = New System.Drawing.Size(726, 26)
+        Me._Panel1_Toolbars_Dock_Area_Top.Size = New System.Drawing.Size(926, 28)
         Me._Panel1_Toolbars_Dock_Area_Top.ToolbarsManager = Me.Toolbars
         '
         '_Panel1_Toolbars_Dock_Area_Bottom
@@ -411,7 +465,7 @@ Partial Class frmContracts
         Me._Panel1_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText
         Me._Panel1_Toolbars_Dock_Area_Bottom.Location = New System.Drawing.Point(0, 485)
         Me._Panel1_Toolbars_Dock_Area_Bottom.Name = "_Panel1_Toolbars_Dock_Area_Bottom"
-        Me._Panel1_Toolbars_Dock_Area_Bottom.Size = New System.Drawing.Size(726, 0)
+        Me._Panel1_Toolbars_Dock_Area_Bottom.Size = New System.Drawing.Size(926, 0)
         Me._Panel1_Toolbars_Dock_Area_Bottom.ToolbarsManager = Me.Toolbars
         '
         'ctMenu
@@ -520,12 +574,24 @@ Partial Class frmContracts
         Me.T_Decline.Size = New System.Drawing.Size(200, 22)
         Me.T_Decline.Text = "Không duyệt"
         '
+        'cboOperatorLength
+        '
+        Me.cboOperatorLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboOperatorLength.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cboOperatorLength.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboOperatorLength.FormattingEnabled = True
+        Me.cboOperatorLength.Items.AddRange(New Object() {">", "<"})
+        Me.cboOperatorLength.Location = New System.Drawing.Point(438, 8)
+        Me.cboOperatorLength.Name = "cboOperatorLength"
+        Me.cboOperatorLength.Size = New System.Drawing.Size(50, 26)
+        Me.cboOperatorLength.TabIndex = 18
+        '
         'frmContracts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.AliceBlue
-        Me.ClientSize = New System.Drawing.Size(726, 508)
+        Me.ClientSize = New System.Drawing.Size(926, 508)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.lblTitle)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -575,4 +641,6 @@ Partial Class frmContracts
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents txtLength As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents cboOperatorPer As System.Windows.Forms.ComboBox
+    Friend WithEvents cboOperatorLength As System.Windows.Forms.ComboBox
 End Class
