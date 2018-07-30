@@ -263,6 +263,7 @@ Public Class frmClientGroups
         Dim r As UltraGridRow = Grid.ActiveRow
 
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
+        If element Is Nothing Then Exit Sub
         Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))
         If e.Button <> Windows.Forms.MouseButtons.Right Then
 

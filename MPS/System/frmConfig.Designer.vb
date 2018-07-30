@@ -30,15 +30,18 @@ Partial Class frmConfig
         Dim Appearance68 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim EditorButton1 As Infragistics.Win.UltraWinEditors.EditorButton = New Infragistics.Win.UltraWinEditors.EditorButton
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.grpBottom = New Infragistics.Win.Misc.UltraGroupBox
         Me.btnSave = New Infragistics.Win.Misc.UltraButton
         Me.btnExit = New Infragistics.Win.Misc.UltraButton
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.grpMain = New Infragistics.Win.Misc.UltraGroupBox
+        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel
+        Me.pic1 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
         Me.txtWebsite = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.txtEmail = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.txtPhone = New Infragistics.Win.UltraWinEditors.UltraTextEditor
@@ -58,9 +61,8 @@ Partial Class frmConfig
         Me.grpContact = New Infragistics.Win.Misc.UltraGroupBox
         Me.Label10 = New System.Windows.Forms.Label
         Me.txtPathToSave = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.pic1 = New Infragistics.Win.UltraWinEditors.UltraPictureBox
-        Me.LinkLabel2 = New System.Windows.Forms.LinkLabel
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.nudDeadLineAlert = New System.Windows.Forms.NumericUpDown
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,6 +78,7 @@ Partial Class frmConfig
         CType(Me.grpContact, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpContact.SuspendLayout()
         CType(Me.txtPathToSave, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudDeadLineAlert, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpBottom
@@ -88,7 +91,7 @@ Partial Class frmConfig
         Me.grpBottom.Margin = New System.Windows.Forms.Padding(0)
         Me.grpBottom.Name = "grpBottom"
         Me.grpBottom.Size = New System.Drawing.Size(583, 58)
-        Me.grpBottom.TabIndex = 11
+        Me.grpBottom.TabIndex = 12
         Me.grpBottom.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'btnSave
@@ -115,7 +118,7 @@ Partial Class frmConfig
         Appearance19.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnSave.PressedAppearance = Appearance19
         Me.btnSave.Size = New System.Drawing.Size(117, 38)
-        Me.btnSave.TabIndex = 11
+        Me.btnSave.TabIndex = 12
         Me.btnSave.Text = "Cập nhật"
         Me.btnSave.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
         Me.btnSave.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
@@ -145,7 +148,7 @@ Partial Class frmConfig
         Appearance68.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnExit.PressedAppearance = Appearance68
         Me.btnExit.Size = New System.Drawing.Size(125, 38)
-        Me.btnExit.TabIndex = 12
+        Me.btnExit.TabIndex = 13
         Me.btnExit.Text = "Thoát (Esc)"
         Me.btnExit.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
         Me.btnExit.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
@@ -198,13 +201,48 @@ Partial Class frmConfig
         Appearance16.FontData.BoldAsString = "True"
         Me.grpMain.HeaderAppearance = Appearance16
         Me.grpMain.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.grpMain.Location = New System.Drawing.Point(12, 65)
+        Me.grpMain.Location = New System.Drawing.Point(12, 50)
         Me.grpMain.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpMain.Name = "grpMain"
-        Me.grpMain.Size = New System.Drawing.Size(553, 311)
+        Me.grpMain.Size = New System.Drawing.Size(553, 301)
         Me.grpMain.TabIndex = 0
         Me.grpMain.Text = "THÔNG TIN CHÍNH"
         Me.grpMain.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        '
+        'LinkLabel2
+        '
+        Me.LinkLabel2.AutoSize = True
+        Me.LinkLabel2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel2.Location = New System.Drawing.Point(496, 211)
+        Me.LinkLabel2.Name = "LinkLabel2"
+        Me.LinkLabel2.Size = New System.Drawing.Size(25, 13)
+        Me.LinkLabel2.TabIndex = 9
+        Me.LinkLabel2.TabStop = True
+        Me.LinkLabel2.Text = "Xóa"
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel1.Location = New System.Drawing.Point(417, 211)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(55, 13)
+        Me.LinkLabel1.TabIndex = 8
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "Chọn hình"
+        '
+        'pic1
+        '
+        Appearance2.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        Appearance2.ImageBackgroundStyle = Infragistics.Win.ImageBackgroundStyle.Stretched
+        Me.pic1.Appearance = Appearance2
+        Me.pic1.BorderShadowColor = System.Drawing.Color.Empty
+        Me.pic1.BorderStyle = Infragistics.Win.UIElementBorderStyle.Rounded4
+        Me.pic1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pic1.Location = New System.Drawing.Point(407, 74)
+        Me.pic1.Name = "pic1"
+        Me.pic1.Size = New System.Drawing.Size(128, 125)
+        Me.pic1.TabIndex = 8
         '
         'txtWebsite
         '
@@ -385,16 +423,18 @@ Partial Class frmConfig
         'grpContact
         '
         Me.grpContact.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
-        Me.grpContact.Controls.Add(Me.Label10)
         Me.grpContact.Controls.Add(Me.txtPathToSave)
+        Me.grpContact.Controls.Add(Me.nudDeadLineAlert)
+        Me.grpContact.Controls.Add(Me.Label9)
+        Me.grpContact.Controls.Add(Me.Label10)
         Appearance4.BorderColor = System.Drawing.Color.Green
         Appearance4.FontData.BoldAsString = "True"
         Me.grpContact.HeaderAppearance = Appearance4
         Me.grpContact.HeaderPosition = Infragistics.Win.Misc.GroupBoxHeaderPosition.TopOutsideBorder
-        Me.grpContact.Location = New System.Drawing.Point(12, 384)
+        Me.grpContact.Location = New System.Drawing.Point(12, 359)
         Me.grpContact.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.grpContact.Name = "grpContact"
-        Me.grpContact.Size = New System.Drawing.Size(553, 73)
+        Me.grpContact.Size = New System.Drawing.Size(553, 98)
         Me.grpContact.TabIndex = 10
         Me.grpContact.Text = "Nơi lưu File đính kèm"
         Me.grpContact.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
@@ -404,7 +444,7 @@ Partial Class frmConfig
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(10, 43)
+        Me.Label10.Location = New System.Drawing.Point(10, 36)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(76, 16)
         Me.Label10.TabIndex = 11
@@ -420,47 +460,33 @@ Partial Class frmConfig
         Me.txtPathToSave.ButtonsRight.Add(EditorButton1)
         Me.txtPathToSave.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtPathToSave.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPathToSave.Location = New System.Drawing.Point(113, 39)
+        Me.txtPathToSave.Location = New System.Drawing.Point(113, 32)
         Me.txtPathToSave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtPathToSave.MaxLength = 255
         Me.txtPathToSave.Name = "txtPathToSave"
         Me.txtPathToSave.Size = New System.Drawing.Size(422, 25)
         Me.txtPathToSave.TabIndex = 10
         '
-        'pic1
+        'Label9
         '
-        Appearance2.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Appearance2.ImageBackgroundStyle = Infragistics.Win.ImageBackgroundStyle.Stretched
-        Me.pic1.Appearance = Appearance2
-        Me.pic1.BorderShadowColor = System.Drawing.Color.Empty
-        Me.pic1.BorderStyle = Infragistics.Win.UIElementBorderStyle.Rounded4
-        Me.pic1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pic1.Location = New System.Drawing.Point(407, 74)
-        Me.pic1.Name = "pic1"
-        Me.pic1.Size = New System.Drawing.Size(128, 125)
-        Me.pic1.TabIndex = 8
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(280, 66)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(155, 16)
+        Me.Label9.TabIndex = 11
+        Me.Label9.Text = "Cảnh báo deadline (ngày)"
         '
-        'LinkLabel2
+        'nudDeadLineAlert
         '
-        Me.LinkLabel2.AutoSize = True
-        Me.LinkLabel2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel2.Location = New System.Drawing.Point(496, 211)
-        Me.LinkLabel2.Name = "LinkLabel2"
-        Me.LinkLabel2.Size = New System.Drawing.Size(25, 13)
-        Me.LinkLabel2.TabIndex = 9
-        Me.LinkLabel2.TabStop = True
-        Me.LinkLabel2.Text = "Xóa"
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(417, 211)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(55, 13)
-        Me.LinkLabel1.TabIndex = 8
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "Chọn hình"
+        Me.nudDeadLineAlert.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudDeadLineAlert.Location = New System.Drawing.Point(453, 64)
+        Me.nudDeadLineAlert.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.nudDeadLineAlert.Name = "nudDeadLineAlert"
+        Me.nudDeadLineAlert.Size = New System.Drawing.Size(82, 26)
+        Me.nudDeadLineAlert.TabIndex = 11
+        Me.nudDeadLineAlert.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'frmConfig
         '
@@ -498,6 +524,7 @@ Partial Class frmConfig
         Me.grpContact.ResumeLayout(False)
         Me.grpContact.PerformLayout()
         CType(Me.txtPathToSave, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudDeadLineAlert, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -528,4 +555,6 @@ Partial Class frmConfig
     Friend WithEvents pic1 As Infragistics.Win.UltraWinEditors.UltraPictureBox
     Friend WithEvents LinkLabel2 As System.Windows.Forms.LinkLabel
     Friend WithEvents LinkLabel1 As System.Windows.Forms.LinkLabel
+    Friend WithEvents nudDeadLineAlert As System.Windows.Forms.NumericUpDown
+    Friend WithEvents Label9 As System.Windows.Forms.Label
 End Class

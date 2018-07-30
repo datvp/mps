@@ -440,7 +440,7 @@ Partial Class frmDashboard
         Me.ChartBySubContractor.Axis.Y2.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartBySubContractor.Axis.Y2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartBySubContractor.Axis.Y2.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.Y2.TickmarkInterval = 50
+        Me.ChartBySubContractor.Axis.Y2.TickmarkInterval = 40
         Me.ChartBySubContractor.Axis.Y2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartBySubContractor.Axis.Y2.Visible = False
         Me.ChartBySubContractor.Axis.Z.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -622,7 +622,7 @@ Partial Class frmDashboard
         Me.ChartByItem.Axis.Y.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartByItem.Axis.Y.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartByItem.Axis.Y.MinorGridLines.Visible = False
-        Me.ChartByItem.Axis.Y.TickmarkInterval = 100
+        Me.ChartByItem.Axis.Y.TickmarkInterval = 40
         Me.ChartByItem.Axis.Y.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartByItem.Axis.Y.Visible = True
         Me.ChartByItem.Axis.Y2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -648,7 +648,7 @@ Partial Class frmDashboard
         Me.ChartByItem.Axis.Y2.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartByItem.Axis.Y2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartByItem.Axis.Y2.MinorGridLines.Visible = False
-        Me.ChartByItem.Axis.Y2.TickmarkInterval = 100
+        Me.ChartByItem.Axis.Y2.TickmarkInterval = 40
         Me.ChartByItem.Axis.Y2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartByItem.Axis.Y2.Visible = False
         Me.ChartByItem.Axis.Z.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -745,7 +745,7 @@ Partial Class frmDashboard
         Me.GridBagLayout.SetPreferredSize(Me.grpItemSaleToday, New System.Drawing.Size(249, 107))
         Me.grpItemSaleToday.Size = New System.Drawing.Size(286, 226)
         Me.grpItemSaleToday.TabIndex = 4
-        Me.grpItemSaleToday.Text = "Hợp đồng sắp hết hạn (coming soon...)"
+        Me.grpItemSaleToday.Text = "Danh sách Hợp đồng sắp hết hạn"
         Me.grpItemSaleToday.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
         'GridProduct

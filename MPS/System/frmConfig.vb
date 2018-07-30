@@ -29,6 +29,7 @@
         txtEmail.Text = m.s_Email
         txtWebsite.Text = m.s_Website
         txtPathToSave.Text = m.PathToSave
+        nudDeadLineAlert.Value = m.DeadLineAlert
         pic1.Image = ModMain.ConvertByteArrayToImage(m.im_Logo)
     End Sub
     Private Function setInfo() As Model.MConfigProgram
@@ -42,7 +43,7 @@
         m.s_Email = txtEmail.Text
         m.s_Website = txtWebsite.Text
         m.PathToSave = txtPathToSave.Text
-
+        m.DeadLineAlert = CInt(nudDeadLineAlert.Value)
         If Not Me.pic1.Image Is Nothing Then
             m.im_Logo = ModMain.ConvertImageToByteArray(pic1.Image)
         Else

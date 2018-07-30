@@ -295,7 +295,6 @@ Public Class frmContracts
     End Sub
 
     Private Sub Grid_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs, Optional ByRef fExit As Boolean = False) Handles Grid.MouseDown
-
         T_Add.Enabled = f_SecA
         T_Edit.Enabled = f_SecE
         T_DEL.Enabled = f_SecD
@@ -303,12 +302,11 @@ Public Class frmContracts
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
         T_Export.Enabled = True
-        T_Accept.Enabled = True
-        T_Decline.Enabled = True
-
+     
         Dim r As UltraGridRow = Grid.ActiveRow
 
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
+        If element Is Nothing Then Exit Sub
         Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))
         If e.Button <> Windows.Forms.MouseButtons.Right Then
             If result Is Nothing Then
@@ -322,8 +320,6 @@ Public Class frmContracts
             fExit = True
             T_Edit.Enabled = False
             T_DEL.Enabled = False
-            T_Accept.Enabled = False
-            T_Decline.Enabled = False
             If Grid.Rows.Count < 1 Then
                 T_SelectAll.Enabled = False
                 T_Export.Enabled = False
@@ -334,11 +330,6 @@ Public Class frmContracts
             End If
             result.Activated = True
             r = result
-            Dim status = r.Cells("ContractState").Value
-            If status <> Statuses.Waiting Then
-                T_Accept.Enabled = False
-                T_Decline.Enabled = False
-            End If
         End If
 
         If e.Button = Windows.Forms.MouseButtons.Right Then
@@ -381,11 +372,11 @@ Public Class frmContracts
         SelectAll(Grid)
     End Sub
 
-    Private Sub T_Accept_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Accept.Click
+    Private Sub T_Accept_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.approve(True)
     End Sub
 
-    Private Sub T_Decline_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Decline.Click
+    Private Sub T_Decline_Click(ByVal sender As Object, ByVal e As System.EventArgs)
         Me.approve(False)
     End Sub
 #End Region

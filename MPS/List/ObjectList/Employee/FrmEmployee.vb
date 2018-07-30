@@ -375,6 +375,7 @@ Public Class FrmEmployee
         T_Layout.Enabled = True
         T_Export.Enabled = True
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(e.Location)
+        If element Is Nothing Then Exit Sub
         Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))
 
         If result Is Nothing OrElse Not result.IsDataRow OrElse result.Index = -1 Then

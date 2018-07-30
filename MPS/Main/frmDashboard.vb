@@ -1,4 +1,5 @@
 ﻿Imports Infragistics.Win.UltraWinGrid.ExcelExport
+Imports Infragistics.Win.UltraWinGrid
 
 Public Class frmDashboard
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
@@ -34,7 +35,7 @@ Public Class frmDashboard
         ChartByProject.Data.DataBind()
 
         'Tổng hợp các Hợp đồng sắp hết hạn
-        GridProduct.DataSource = b.getListDeadlineContracts(90) ' trong 90 ngày
+        GridProduct.DataSource = b.getListDeadlineContracts(mbc.DeadLineAlert)
 
         Me.Cursor = Cursors.Default
     End Sub
@@ -49,6 +50,25 @@ Public Class frmDashboard
         'ModMain.ChartToExcel(TotalSaleChart)
     End Sub
     Dim fGrid As Boolean = False
+
+    Private Sub GridProduct_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles GridProduct.DoubleClick
+        Dim r As UltraGridRow = GridProduct.ActiveRow
+        If r Is Nothing Then Exit Sub
+        If r.Index = -1 Then Exit Sub
+        If Not r.ChildBands Is Nothing Then Exit Sub
+        Dim frm As New frmContractDetail
+        Dim result = frm.ShowDialog(r.Cells("ContractId").Value)
+        If result <> "" Then
+            GridProduct.DataSource = b.getListDeadlineContracts(mbc.DeadLineAlert)
+            For i As Integer = 0 To GridProduct.Rows.Count - 1
+                If GridProduct.Rows(i).Cells("ContractId").Value.ToString = result Then
+                    GridProduct.Rows(i).Selected = True
+                    GridProduct.Rows(i).Activated = True
+                    Exit For
+                End If
+            Next
+        End If
+    End Sub
     Private Sub GridProduct_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles GridProduct.InitializeLayout
         If fGrid Then Exit Sub
         fGrid = True

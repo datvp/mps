@@ -17,4 +17,14 @@
             Return obj
         End Get
     End Property
+
+    Public Function RevenueByClientGroup(ByVal dtFrom As Date, ByVal dtTo As Date) As DataTable
+        Return cls.RevenueByClientGroup(dtFrom, dtTo)
+    End Function
+    Public Function RevenueByProject(ByVal dtFrom As Date, ByVal dtTo As Date) As DataTable
+        Return cls.RevenueByProject(dtFrom, dtTo)
+    End Function
+    Public Function RevenueByItem(ByVal dtFrom As Date, ByVal dtTo As Date) As DataTable
+        Return cls.RevenueByItem(dtFrom, dtTo)
+    End Function
 End Class

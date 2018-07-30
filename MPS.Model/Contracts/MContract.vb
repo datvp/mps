@@ -369,7 +369,7 @@
 
     Private m_Paid As Double = 0
     ''' <summary>
-    ''' tổng tiền đã thanh toán
+    ''' tổng tiền đã thanh toán (lấy từ ds các khoản thu đã hoàn thành)
     ''' </summary>
     ''' <value></value>
     ''' <returns></returns>
@@ -380,6 +380,38 @@
         End Get
         Set(ByVal value As Double)
             m_Paid = value
+        End Set
+    End Property
+
+    Private m_Refund As Double = 0
+    ''' <summary>
+    ''' tổng chi (lấy từ ds các khoản chi đã hoàn thành)
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Refund() As Double
+        Get
+            Return m_Refund
+        End Get
+        Set(ByVal value As Double)
+            m_Refund = value
+        End Set
+    End Property
+
+    Private m_ValueExt As Double = 0
+    ''' <summary>
+    ''' giá trị cộng thêm(lấy từ phụ lục HĐ)
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property ValueExt() As Double
+        Get
+            Return m_ValueExt
+        End Get
+        Set(ByVal value As Double)
+            m_ValueExt = value
         End Set
     End Property
 End Class

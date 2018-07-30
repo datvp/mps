@@ -22,6 +22,7 @@ Partial Class frmTotalReports
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container
         Dim Appearance95 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance49 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
@@ -36,9 +37,6 @@ Partial Class frmTotalReports
         Dim Appearance58 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance75 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance76 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance84 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance85 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance86 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -59,22 +57,25 @@ Partial Class frmTotalReports
         Me.pnlCondition = New System.Windows.Forms.Panel
         Me.grpLineBorder = New Infragistics.Win.Misc.UltraGroupBox
         Me.cboBranch = New Infragistics.Win.UltraWinGrid.UltraCombo
-        Me.Label4 = New System.Windows.Forms.Label
+        Me.lblBranch = New System.Windows.Forms.Label
         Me.cboTime = New System.Windows.Forms.ComboBox
-        Me.btnExportExcel = New Infragistics.Win.Misc.UltraButton
         Me.btnView = New Infragistics.Win.Misc.UltraButton
         Me.dtTo = New System.Windows.Forms.DateTimePicker
-        Me.Label2 = New System.Windows.Forms.Label
+        Me.lblTime = New System.Windows.Forms.Label
         Me.lstFunc = New System.Windows.Forms.ListBox
         Me.pnlListReportName = New System.Windows.Forms.Panel
         Me.CollapsibleSplitter2 = New NJFLib.Controls.CollapsibleSplitter
         Me.Grid = New Infragistics.Win.UltraWinGrid.UltraGrid
+        Me.ctMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.T_ExportExcel = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_Print = New System.Windows.Forms.ToolStripMenuItem
         Me.Panel2.SuspendLayout()
         Me.pnlCondition.SuspendLayout()
         CType(Me.grpLineBorder, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboBranch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlListReportName.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ctMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'dtFrom
@@ -122,13 +123,12 @@ Partial Class frmTotalReports
         Me.pnlCondition.BackColor = System.Drawing.Color.Transparent
         Me.pnlCondition.Controls.Add(Me.grpLineBorder)
         Me.pnlCondition.Controls.Add(Me.cboBranch)
-        Me.pnlCondition.Controls.Add(Me.Label4)
+        Me.pnlCondition.Controls.Add(Me.lblBranch)
         Me.pnlCondition.Controls.Add(Me.cboTime)
-        Me.pnlCondition.Controls.Add(Me.btnExportExcel)
         Me.pnlCondition.Controls.Add(Me.btnView)
         Me.pnlCondition.Controls.Add(Me.dtFrom)
         Me.pnlCondition.Controls.Add(Me.dtTo)
-        Me.pnlCondition.Controls.Add(Me.Label2)
+        Me.pnlCondition.Controls.Add(Me.lblTime)
         Me.pnlCondition.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.pnlCondition.Location = New System.Drawing.Point(20, 300)
         Me.pnlCondition.Name = "pnlCondition"
@@ -213,15 +213,17 @@ Partial Class frmTotalReports
         Me.cboBranch.Name = "cboBranch"
         Me.cboBranch.Size = New System.Drawing.Size(252, 23)
         Me.cboBranch.TabIndex = 69
+        Me.cboBranch.Visible = False
         '
-        'Label4
+        'lblBranch
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(11, 75)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(55, 13)
-        Me.Label4.TabIndex = 68
-        Me.Label4.Text = "Chi nhánh"
+        Me.lblBranch.AutoSize = True
+        Me.lblBranch.Location = New System.Drawing.Point(11, 75)
+        Me.lblBranch.Name = "lblBranch"
+        Me.lblBranch.Size = New System.Drawing.Size(51, 13)
+        Me.lblBranch.TabIndex = 68
+        Me.lblBranch.Text = "Nhà thầu"
+        Me.lblBranch.Visible = False
         '
         'cboTime
         '
@@ -232,34 +234,6 @@ Partial Class frmTotalReports
         Me.cboTime.Name = "cboTime"
         Me.cboTime.Size = New System.Drawing.Size(100, 21)
         Me.cboTime.TabIndex = 65
-        '
-        'btnExportExcel
-        '
-        Appearance84.BackColor = System.Drawing.Color.LightSteelBlue
-        Appearance84.BackColor2 = System.Drawing.Color.White
-        Appearance84.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
-        Appearance84.BorderColor = System.Drawing.Color.LightSteelBlue
-        Appearance84.FontData.BoldAsString = "True"
-        Appearance84.ForeColor = System.Drawing.Color.Black
-        Me.btnExportExcel.Appearance = Appearance84
-        Me.btnExportExcel.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
-        Me.btnExportExcel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnExportExcel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance85.BackColor = System.Drawing.Color.Yellow
-        Appearance85.BackColor2 = System.Drawing.Color.White
-        Appearance85.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
-        Me.btnExportExcel.HotTrackAppearance = Appearance85
-        Me.btnExportExcel.Location = New System.Drawing.Point(153, 104)
-        Me.btnExportExcel.Name = "btnExportExcel"
-        Appearance86.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Appearance86.BackColor2 = System.Drawing.Color.White
-        Appearance86.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
-        Me.btnExportExcel.PressedAppearance = Appearance86
-        Me.btnExportExcel.Size = New System.Drawing.Size(99, 25)
-        Me.btnExportExcel.TabIndex = 21
-        Me.btnExportExcel.Text = "Xuất Excel"
-        Me.btnExportExcel.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
-        Me.btnExportExcel.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
         '
         'btnView
         '
@@ -299,14 +273,14 @@ Partial Class frmTotalReports
         Me.dtTo.Size = New System.Drawing.Size(79, 21)
         Me.dtTo.TabIndex = 3
         '
-        'Label2
+        'lblTime
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(11, 19)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(50, 13)
-        Me.Label2.TabIndex = 64
-        Me.Label2.Text = "Thời gian"
+        Me.lblTime.AutoSize = True
+        Me.lblTime.Location = New System.Drawing.Point(11, 19)
+        Me.lblTime.Name = "lblTime"
+        Me.lblTime.Size = New System.Drawing.Size(50, 13)
+        Me.lblTime.TabIndex = 64
+        Me.lblTime.Text = "Thời gian"
         '
         'lstFunc
         '
@@ -420,6 +394,26 @@ Partial Class frmTotalReports
         Me.Grid.Size = New System.Drawing.Size(395, 461)
         Me.Grid.TabIndex = 44
         '
+        'ctMenu
+        '
+        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_ExportExcel, Me.T_Print})
+        Me.ctMenu.Name = "ctMenu"
+        Me.ctMenu.Size = New System.Drawing.Size(141, 48)
+        '
+        'T_ExportExcel
+        '
+        Me.T_ExportExcel.Image = Global.MPS.My.Resources.Resources.Excel2002
+        Me.T_ExportExcel.Name = "T_ExportExcel"
+        Me.T_ExportExcel.Size = New System.Drawing.Size(140, 22)
+        Me.T_ExportExcel.Text = "Xuất ra Excel"
+        '
+        'T_Print
+        '
+        Me.T_Print.Image = Global.MPS.My.Resources.Resources.printer
+        Me.T_Print.Name = "T_Print"
+        Me.T_Print.Size = New System.Drawing.Size(140, 22)
+        Me.T_Print.Text = "In trực tiếp"
+        '
         'frmTotalReports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -442,6 +436,7 @@ Partial Class frmTotalReports
         CType(Me.cboBranch, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlListReportName.ResumeLayout(False)
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ctMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -454,11 +449,13 @@ Partial Class frmTotalReports
     Friend WithEvents dtTo As System.Windows.Forms.DateTimePicker
     Friend WithEvents btnView As Infragistics.Win.Misc.UltraButton
     Friend WithEvents cboTime As System.Windows.Forms.ComboBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lblTime As System.Windows.Forms.Label
     Friend WithEvents cboBranch As Infragistics.Win.UltraWinGrid.UltraCombo
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents lblBranch As System.Windows.Forms.Label
     Friend WithEvents CollapsibleSplitter2 As NJFLib.Controls.CollapsibleSplitter
     Friend WithEvents Grid As Infragistics.Win.UltraWinGrid.UltraGrid
-    Friend WithEvents btnExportExcel As Infragistics.Win.Misc.UltraButton
     Friend WithEvents grpLineBorder As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents ctMenu As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents T_ExportExcel As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents T_Print As System.Windows.Forms.ToolStripMenuItem
 End Class

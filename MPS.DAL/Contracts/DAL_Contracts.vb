@@ -26,19 +26,20 @@ Public Class DAL_Contracts
         Dim isEdit = Me.isExist(m.ContractId)
 
         If isEdit Then
-            sql = "Update Contracts set Paid=@Paid,BranchId=@BranchId,ContractName=@ContractName,ProjectId=@ProjectId,ContractDate=@ContractDate,"
+            sql = "Update Contracts set ContractName=@ContractName,ProjectId=@ProjectId,ContractDate=@ContractDate,"
             sql += "ContractValue=@ContractValue,ContractDeadLine=@ContractDeadLine,MainContractorId=@MainContractorId,Note=@Note,"
-            sql += "ContractLevelId=@ContractLevelId,UpdatedAt=getdate(),ContractState=@ContractState,SubContracts=@SubContracts,DeadlineExt=@DeadlineExt where ContractId=@ContractId"
+            sql += "ContractLevelId=@ContractLevelId,UpdatedAt=getdate(),ContractState=@ContractState,SubContracts=@SubContracts,DeadlineExt=@DeadlineExt,"
+            sql += "ValueExt=@ValueExt,Refund=@Refund,Paid=@Paid,BranchId=@BranchId where ContractId=@ContractId"
         Else
-            sql = "Insert into Contracts(Paid,BranchId,ContractId,ContractName,ProjectId,ContractDate,ContractValue,ContractDeadLine,MainContractorId,ContractLevelId,ContractState,SubContracts,Note,DeadlineExt,CreatedAt)"
-            sql += "values(@Paid,@BranchId,@ContractId,@ContractName,@ProjectId,@ContractDate,@ContractValue,@ContractDeadLine,@MainContractorId,@ContractLevelId,@ContractState,@SubContracts,@Note,@DeadlineExt,getdate())"
+            sql = "Insert into Contracts(ContractId,ContractName,ProjectId,ContractDate,ContractValue,ContractDeadLine,MainContractorId,ContractLevelId,ContractState,SubContracts,Note,DeadlineExt,CreatedAt,ValueExt,Refund,Paid,BranchId)"
+            sql += "values(@ContractId,@ContractName,@ProjectId,@ContractDate,@ContractValue,@ContractDeadLine,@MainContractorId,@ContractLevelId,@ContractState,@SubContracts,@Note,@DeadlineExt,getdate(),@ValueExt,@Refund,@Paid,@BranchId)"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(13) As SqlParameter
+        Dim p(15) As SqlParameter
         p(0) = New SqlParameter("@ContractId", m.ContractId)
         p(1) = New SqlParameter("@ContractName", m.ContractName)
         p(2) = New SqlParameter("@ProjectId", m.ProjectId)
@@ -53,6 +54,8 @@ Public Class DAL_Contracts
         p(11) = New SqlParameter("@DeadlineExt", m.DeadlineExt)
         p(12) = New SqlParameter("@BranchId", m.BranchId)
         p(13) = New SqlParameter("@Paid", m.Paid)
+        p(14) = New SqlParameter("@Refund", m.Refund)
+        p(15) = New SqlParameter("@ValueExt", m.ValueExt)
 
         Me.BeginTranstion()
 

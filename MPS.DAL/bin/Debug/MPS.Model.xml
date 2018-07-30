@@ -62,6 +62,13 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:MPS.Model.MConfigProgram.DeadLineAlert">
+	<summary>
+ deadline hợp đồng cảnh báo trước bn ngày
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.MContractPayment.StatusDesc">
 	<summary>
  description for Status: only view not save
@@ -218,7 +225,21 @@ MPS.Model
 	<remarks></remarks>
 </member><member name="P:MPS.Model.MContract.Paid">
 	<summary>
- tổng tiền đã thanh toán
+ tổng tiền đã thanh toán (lấy từ ds các khoản thu đã hoàn thành)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.Refund">
+	<summary>
+ tổng chi (lấy từ ds các khoản chi đã hoàn thành)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.ValueExt">
+	<summary>
+ giá trị cộng thêm(lấy từ phụ lục HĐ)
  </summary>
 	<value></value>
 	<returns></returns>

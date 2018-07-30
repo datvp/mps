@@ -13,10 +13,10 @@ Public Class DAL_ConfigProgram
         Dim sVal As String = ""
 
         sql = "Insert into [tblConfig]([s_CompanyName], [s_Alias], [s_TaxNo], [s_Account], [s_Address], [s_Phone1],"
-        sql += " [s_Phone2], [s_Fax],[s_Email], [s_Website], [i_FormatCur], [i_FormatNum], [PathToSave]"
+        sql += " [s_Phone2], [s_Fax],[s_Email], [s_Website], [i_FormatCur], [i_FormatNum], [PathToSave], [DeadLineAlert]"
 
         sVal = " values(@s_CompanyName, @s_Alias, @s_TaxNo, @s_Account, @s_Address, @s_Phone1, "
-        sVal += " @s_Phone2, @s_Fax, @s_Email, @s_Website, @i_FormatCur, @i_FormatNum, @PathToSave"
+        sVal += " @s_Phone2, @s_Fax, @s_Email, @s_Website, @i_FormatCur, @i_FormatNum, @PathToSave, @DeadLineAlert"
 
         If Not m.im_Logo Is Nothing Then
             sql += ", [im_Logo]"
@@ -25,7 +25,7 @@ Public Class DAL_ConfigProgram
 
         sql = sql & ")" & sVal & ")"
 
-        Dim p(14) As SqlParameter
+        Dim p(15) As SqlParameter
         p(0) = New SqlParameter("@s_CompanyName", m.s_CompanyName)
         p(1) = New SqlParameter("@i_FormatNum", m.i_FormatNum)
         p(3) = New SqlParameter("@s_TaxNo", m.s_TaxNo)
@@ -40,6 +40,7 @@ Public Class DAL_ConfigProgram
         p(12) = New SqlParameter("@im_Logo", m.im_Logo)
         p(13) = New SqlParameter("@PathToSave", m.PathToSave)
         p(14) = New SqlParameter("@s_Alias", m.s_Alias)
+        p(15) = New SqlParameter("@DeadLineAlert", m.DeadLineAlert)
 
         If Not Me.execSQL(sql, p) Then
             Return False
@@ -95,6 +96,7 @@ Public Class DAL_ConfigProgram
             m.i_FormatCur = IsNull(tb.Rows(0)("i_FormatCur"), 0)
             m.i_FormatNum = IsNull(tb.Rows(0)("i_FormatNum"), 0)
             m.PathToSave = IsNull(tb.Rows(0)("PathToSave"), "")
+            m.DeadLineAlert = IsNull(tb.Rows(0)("DeadLineAlert"), 0)
         End If
         Return m
     End Function

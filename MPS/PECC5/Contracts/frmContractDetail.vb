@@ -101,6 +101,9 @@ Public Class frmContractDetail
         m.ContractDate = dtCreateDate.Value
         m.ContractDeadLine = dtExpireDate.Value
         m.DeadlineExt = dtDeadlineExt.Value
+        If DateDiffM("day", m.ContractDeadLine, m.DeadlineExt) < 0 Then
+            m.DeadlineExt = m.ContractDeadLine
+        End If
         m.ContractValue = CDbl(txtContractValue.Text)
         If cboProject.Value IsNot Nothing Then
             m.ProjectId = cboProject.Value
@@ -121,10 +124,16 @@ Public Class frmContractDetail
             Else
                 m.SubContracts += " | " + it.SubContractName
             End If
+            m.ValueExt += it.SubContractValue
         Next
         For Each it In m.arrPayment
             If it.PaymentStatus = Statuses.Paid Then
                 m.Paid += it.PaymentTotal
+            End If
+        Next
+        For Each it In m.arrRefund
+            If it.RefundStatus = Statuses.Paid Then
+                m.Refund += it.RefundTotal
             End If
         Next
         Return m

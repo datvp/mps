@@ -146,4 +146,20 @@
             m_s_Alias = value
         End Set
     End Property
+
+    Private m_DeadLineAlert As Integer = 0
+    ''' <summary>
+    ''' deadline hợp đồng cảnh báo trước bn ngày
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property DeadLineAlert() As Integer
+        Get
+            Return m_DeadLineAlert
+        End Get
+        Set(ByVal value As Integer)
+            m_DeadLineAlert = value
+        End Set
+    End Property
 End Class

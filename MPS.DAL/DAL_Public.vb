@@ -93,37 +93,8 @@ Public Class DAL_Public
     ''' <returns></returns>
     ''' <remarks></remarks>
     Public Function getListDeadlineContracts(ByVal deadline As Integer) As DataTable
-        Dim tb As New DataTable
-        tb.Columns.Clear()
-        tb.Columns.Add("ContractId", GetType(String))
-        tb.Columns.Add("CreateDate", GetType(Date))
-        tb.Columns.Add("ContractDeadLine", GetType(Date))
-        tb.Columns.Add("DeadLine", GetType(Integer))
-        tb.Columns.Add("ContractValue", GetType(Double))
-
-        Dim dr = tb.NewRow
-        dr("ContractId") = "HD-001"
-        dr("CreateDate") = Now.Date.AddDays(-360)
-        dr("ContractDeadLine") = Now.Date.AddDays(90)
-        dr("DeadLine") = 90
-        dr("ContractValue") = 1000000000
-        tb.Rows.Add(dr)
-
-        dr = tb.NewRow
-        dr("ContractId") = "HD-002"
-        dr("CreateDate") = Now.Date.AddDays(-720)
-        dr("ContractDeadLine") = Now.Date.AddDays(60)
-        dr("DeadLine") = 60
-        dr("ContractValue") = 2500000000
-        tb.Rows.Add(dr)
-
-        dr = tb.NewRow
-        dr("ContractId") = "HD-003"
-        dr("CreateDate") = Now.Date.AddDays(-800)
-        dr("ContractDeadLine") = Now.Date.AddDays(50)
-        dr("DeadLine") = 50
-        dr("ContractValue") = 3500000000
-        tb.Rows.Add(dr)
+        Dim sql = "Exec sp_getListContractByDeadLine @deadline"
+        Dim tb = getTableSQL(sql, New SqlParameter("@deadline", deadline))
         Return tb
     End Function
 

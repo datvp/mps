@@ -77,6 +77,7 @@ Partial Class frmContracts
         Me.Grid = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.csFilter = New NJFLib.Controls.CollapsibleSplitter
         Me.pnlFilter = New System.Windows.Forms.Panel
+        Me.cboOperatorLength = New System.Windows.Forms.ComboBox
         Me.cboOperatorPer = New System.Windows.Forms.ComboBox
         Me.txtLength = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label1 = New System.Windows.Forms.Label
@@ -100,10 +101,6 @@ Partial Class frmContracts
         Me.T_Layout = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Export = New System.Windows.Forms.ToolStripMenuItem
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.T_Accept = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_Decline = New System.Windows.Forms.ToolStripMenuItem
-        Me.cboOperatorLength = New System.Windows.Forms.ComboBox
         Me.Panel1.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFilter.SuspendLayout()
@@ -243,6 +240,18 @@ Partial Class frmContracts
         Me.pnlFilter.Name = "pnlFilter"
         Me.pnlFilter.Size = New System.Drawing.Size(926, 42)
         Me.pnlFilter.TabIndex = 48
+        '
+        'cboOperatorLength
+        '
+        Me.cboOperatorLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboOperatorLength.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.cboOperatorLength.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboOperatorLength.FormattingEnabled = True
+        Me.cboOperatorLength.Items.AddRange(New Object() {">", "<"})
+        Me.cboOperatorLength.Location = New System.Drawing.Point(438, 8)
+        Me.cboOperatorLength.Name = "cboOperatorLength"
+        Me.cboOperatorLength.Size = New System.Drawing.Size(50, 26)
+        Me.cboOperatorLength.TabIndex = 18
         '
         'cboOperatorPer
         '
@@ -471,9 +480,9 @@ Partial Class frmContracts
         'ctMenu
         '
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export, Me.ToolStripSeparator1, Me.T_Accept, Me.T_Decline})
+        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 226)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 176)
         '
         'T_Add
         '
@@ -553,39 +562,6 @@ Partial Class frmContracts
         Me.T_Export.Size = New System.Drawing.Size(200, 22)
         Me.T_Export.Text = "Xuất ra Excel"
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(197, 6)
-        '
-        'T_Accept
-        '
-        Me.T_Accept.ForeColor = System.Drawing.Color.Navy
-        Me.T_Accept.Image = Global.MPS.My.Resources.Resources.check
-        Me.T_Accept.Name = "T_Accept"
-        Me.T_Accept.Size = New System.Drawing.Size(200, 22)
-        Me.T_Accept.Text = "Duyệt"
-        '
-        'T_Decline
-        '
-        Me.T_Decline.ForeColor = System.Drawing.Color.Navy
-        Me.T_Decline.Image = Global.MPS.My.Resources.Resources.cancl_32
-        Me.T_Decline.Name = "T_Decline"
-        Me.T_Decline.Size = New System.Drawing.Size(200, 22)
-        Me.T_Decline.Text = "Không duyệt"
-        '
-        'cboOperatorLength
-        '
-        Me.cboOperatorLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboOperatorLength.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.cboOperatorLength.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboOperatorLength.FormattingEnabled = True
-        Me.cboOperatorLength.Items.AddRange(New Object() {">", "<"})
-        Me.cboOperatorLength.Location = New System.Drawing.Point(438, 8)
-        Me.cboOperatorLength.Name = "cboOperatorLength"
-        Me.cboOperatorLength.Size = New System.Drawing.Size(50, 26)
-        Me.cboOperatorLength.TabIndex = 18
-        '
         'frmContracts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -631,9 +607,6 @@ Partial Class frmContracts
     Friend WithEvents T_Refresh As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents T_SelectAll As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents T_Accept As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents T_Decline As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents pnlFilter As System.Windows.Forms.Panel
     Friend WithEvents csFilter As NJFLib.Controls.CollapsibleSplitter
     Friend WithEvents btnSearch As Infragistics.Win.Misc.UltraButton
