@@ -144,14 +144,17 @@ Public Class frmContracts
     End Sub
     
     Private Sub ADDNew()
+        ModMain.ShowProcess()
         Dim frm As New frmContractDetail
         Dim result = frm.ShowDialog("")
         If result <> "" Then
             Me.Loadlist(result)
         End If
     End Sub
+   
 
     Private Sub Edit()
+        ModMain.ShowProcess()
         Dim r As UltraGridRow = Grid.ActiveRow
         If r Is Nothing Then Exit Sub
         If r.Index = -1 Then Exit Sub
@@ -302,7 +305,7 @@ Public Class frmContracts
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
         T_Export.Enabled = True
-     
+
         Dim r As UltraGridRow = Grid.ActiveRow
 
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))

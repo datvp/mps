@@ -3,28 +3,6 @@
     Private Sub cls__errorRaise(ByVal messege As String) Handles cls._errorRaise
         MsgBox(messege, MsgBoxStyle.Critical)
     End Sub
-    Private frmPro As New FrmProcess
-    Private thread As Threading.Thread
-    Private Sub ShowProgress(ByVal strTitle As String)
-        If frmPro Is Nothing Then frmPro = New FrmProcess
-        frmPro.Owner = Me
-        frmPro.StartPosition = FormStartPosition.CenterScreen
-        frmPro.Title = strTitle
-        frmPro.Show()
-        frmPro.Refresh()
-    End Sub
-    Private Sub ProgressRefresh()
-        Try
-            While Not thread Is Nothing AndAlso thread.ThreadState = Threading.ThreadState.Running
-                If Not frmPro Is Nothing Then
-                    frmPro.Refresh()
-                    Threading.Thread.Sleep(200)
-                End If
-            End While
-        Catch ex As Exception
-
-        End Try
-    End Sub
 #Region "From"
 
     Private Sub frmBKData_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
@@ -80,10 +58,7 @@
     End Sub
 
     Private Sub Commit()
-        ShowProgress("Đang thực hiện ...")
-
-        thread = New Threading.Thread(AddressOf ProgressRefresh)
-        thread.Start()
+        ModMain.ShowProcess()
 
         If cls.BackupDB(ModMain.m_DB, txtFileBK.Text) Then
             ModMain.UpdateEvent(ModMain.m_UIDLogin, "Thực hiện dự phòng dữ liệu.", TypeEvents.System)
@@ -92,15 +67,10 @@
             ShowMsg("Thao tác thực hiện bị lỗi.")
         End If
 
-        If Not frmPro Is Nothing Then frmPro.Close()
-        frmPro = Nothing
-        If Not thread Is Nothing Then
-            thread.Abort()
-            thread = Nothing
-        End If
+        ModMain.HiddenProcess()
 
     End Sub
-    Private Sub UltraButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
 

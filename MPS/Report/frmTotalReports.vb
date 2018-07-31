@@ -18,15 +18,22 @@ Public Class frmTotalReports
         End If
     End Sub
     Private Sub ViewData()
-        If lstFunc.SelectedValue Is Nothing Then Exit Sub
-        Select Case lstFunc.SelectedValue
-            Case 4 'theo nhóm KH
-                Grid.DataSource = cls.RevenueByClientGroup(dtFrom.Value, dtTo.Value)
-            Case 6 'theo project
-                Grid.DataSource = cls.RevenueByProject(dtFrom.Value, dtTo.Value)
-            Case 9 'theo hạng mục
-                Grid.DataSource = cls.RevenueByItem(dtFrom.Value, dtTo.Value)
-        End Select
+        Try
+            If lstFunc.SelectedValue Is Nothing Then Exit Sub
+            ModMain.ShowProcess()
+            Select Case lstFunc.SelectedValue
+                Case 4 'theo nhóm KH
+                    Grid.DataSource = cls.RevenueByClientGroup(dtFrom.Value, dtTo.Value)
+                Case 6 'theo project
+                    Grid.DataSource = cls.RevenueByProject(dtFrom.Value, dtTo.Value)
+                Case 9 'theo hạng mục
+                    Grid.DataSource = cls.RevenueByItem(dtFrom.Value, dtTo.Value)
+            End Select
+            ModMain.HiddenProcess()
+        Catch ex As Exception
+            ShowMsg(ex.Message)
+            'ModMain.HiddenProcess()
+        End Try
     End Sub
 
     Private Sub frmTotalReports_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load

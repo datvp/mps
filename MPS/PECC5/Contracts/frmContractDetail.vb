@@ -39,6 +39,7 @@ Public Class frmContractDetail
         Else
             Me.LoadInfo(ContractId)
         End If
+        ModMain.HiddenProcess()
     End Sub
 #End Region
 

@@ -4,9 +4,6 @@
         MsgBox(messege, MsgBoxStyle.Critical)
     End Sub
 
-    Private frmPro As New FrmProcess
-    Private thread As Threading.Thread
-
 #Region "From "
 
     Private Sub frmRestoreDB_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
@@ -105,43 +102,15 @@
 
 #End Region
     Private Sub CommitRestore(ByVal sData As String, ByVal sLog As String)
-        ShowProgress("Đang thực hiện ...")
-        thread = New Threading.Thread(AddressOf ProgressRefresh)
-        thread.Start()
-
-        If cls.RestoreDB("VsBMS", ModMain.m_DB, txtFileBK.Text, sData, sLog) Then
+        ModMain.ShowProcess()
+        If cls.RestoreDB("MPS", ModMain.m_DB, txtFileBK.Text, sData, sLog) Then
             ModMain.UpdateEvent(ModMain.m_UIDLogin, "Thực hiện phục hồi dữ liệu ngày " & Format(Now, "dd/MM/yyyy"), TypeEvents.System)
-            ShowMsgInfo("Dữ liệu đã được phục hồi !", 56)
+            ShowMsgInfo("Dữ liệu đã được phục hồi !")
         Else
-            ShowMsg("Không thực hiện phục hồi được, xin vui lòng gọi tới số :0903.721.721 để chúng tôi hỗ trợ bạn !", 57)
+            ShowMsg("Không thực hiện phục hồi được.")
         End If
 
-        If Not frmPro Is Nothing Then frmPro.Close()
-        frmPro = Nothing
-        If Not thread Is Nothing Then
-            thread.Abort()
-            thread = Nothing
-        End If
-    End Sub
-    Private Sub ShowProgress(ByVal strTitle As String)
-        If frmPro Is Nothing Then frmPro = New FrmProcess
-        frmPro.Owner = Me
-        frmPro.StartPosition = FormStartPosition.CenterScreen
-        frmPro.Title = strTitle
-        frmPro.Show()
-        frmPro.Refresh()
-    End Sub
-    Private Sub ProgressRefresh()
-        Try
-            While Not thread Is Nothing AndAlso thread.ThreadState = Threading.ThreadState.Running
-                If Not frmPro Is Nothing Then
-                    frmPro.Refresh()
-                    Threading.Thread.Sleep(200)
-                End If
-            End While
-        Catch ex As Exception
-
-        End Try
+        ModMain.HiddenProcess()
     End Sub
 
     Private Sub RBK_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RBK.CheckedChanged
