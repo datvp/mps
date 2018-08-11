@@ -1,4 +1,6 @@
 ﻿Imports Infragistics.Win.UltraWinGrid
+Imports System.IO
+
 Public Class frmContractDetail
 #Region "Declares"
     Private WithEvents b As BLL.BContracts = BLL.BContracts.Instance
@@ -39,7 +41,7 @@ Public Class frmContractDetail
         Else
             Me.LoadInfo(ContractId)
         End If
-        ModMain.HiddenProcess()
+        ModMain.HideProcess()
     End Sub
 #End Region
 
@@ -137,6 +139,8 @@ Public Class frmContractDetail
                 m.Refund += it.RefundTotal
             End If
         Next
+        m.PathToSave = Path.Combine(mbc.PathToSave, m.ContractId)
+        m.arrFileDeleted = Me.arrFileDeleted
         Return m
     End Function
     Private Function CheckOK(ByVal m As Model.MContract) As Boolean
@@ -768,8 +772,8 @@ Public Class frmContractDetail
     Private Sub lnkAddFile_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkAddFile.Click
         Dim fd As New OpenFileDialog()
 
-        fd.Title = "Open File Dialog"
-        fd.InitialDirectory = "C:\"
+        fd.Title = "Select Any Files Dialog"
+        'fd.InitialDirectory = "C:\"
         fd.Filter = "All files (*.*)|*.*|All files (*.*)|*.*"
         fd.FilterIndex = 2
         fd.Multiselect = True
@@ -960,6 +964,7 @@ Public Class frmContractDetail
     End Sub
 
     Dim fgrdFiles As Boolean = False
+    Dim arrFileDeleted As IList(Of Model.MAttachFileContract) = New List(Of Model.MAttachFileContract)
 
     Private Sub grdFiles_ClickCellButton(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles grdFiles.ClickCellButton
         Dim r As UltraGridRow = grdFiles.ActiveRow
@@ -979,6 +984,19 @@ Public Class frmContractDetail
                     End Try
                 Else
                     Dim item = arr.Item(r.Index)
+
+                    ' hiệu chỉnh hợp đồng
+                    ' giữ lại những path file xóa này để Xóa nó trên server
+                    If Me.ContractId <> "" Then
+                        Dim deletedItem As New Model.MAttachFileContract
+                        deletedItem.ContractId = item.ContractId
+                        deletedItem.FileId = item.FileId
+                        deletedItem.FileName = item.FileName
+                        deletedItem.FilePath = item.FilePath
+                        deletedItem.FileType = item.FileType
+                        arrFileDeleted.Add(deletedItem)
+                    End If
+
                     arr.Remove(item)
                     grdFiles.Rows.Refresh(RefreshRow.RefreshDisplay)
                 End If
@@ -1178,5 +1196,5 @@ Public Class frmContractDetail
         Me.updateItemStatus(Statuses.Pending)
     End Sub
 
-    
+
 End Class

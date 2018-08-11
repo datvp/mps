@@ -67,7 +67,7 @@
             ShowMsg("Thao tác thực hiện bị lỗi.")
         End If
 
-        ModMain.HiddenProcess()
+        ModMain.HideProcess()
 
     End Sub
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click

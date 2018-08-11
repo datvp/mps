@@ -31,6 +31,9 @@
     Public Function getListContracts(ByVal branchId As String, ByVal dateFilter As Integer) As DataTable
         Return cls.getListContracts(branchId, dateFilter)
     End Function
+    Public Function getListAllContractId(ByVal branchId As String) As DataTable
+        Return cls.getListAllContractId(branchId)
+    End Function
     Public Function getListContractsByFilter(ByVal branchId As String, ByVal perform As Integer, ByVal operatorPerform As String, ByVal length As Integer, ByVal operatorLength As String) As DataTable
         Return cls.getListContractsByFilter(branchId, perform, operatorPerform, length, operatorLength)
     End Function

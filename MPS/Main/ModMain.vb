@@ -381,10 +381,13 @@ Module ModMain
 
     
 #Region "Show process"
+    Private lockObject As New Object
     Private Sub InitProcess()
         Try
-            Dim frm As FrmProcess = FrmProcess.Instance
-            frm.ShowDialog()
+            SyncLock lockObject
+                Dim frm As FrmProcess = FrmProcess.Instance
+                frm.ShowDialog()
+            End SyncLock
         Catch
         End Try
     End Sub
@@ -393,32 +396,9 @@ Module ModMain
         thProcess = New System.Threading.Thread(AddressOf InitProcess)
         thProcess.Start()
     End Sub
-    Public Sub HiddenProcess()
+    Public Sub HideProcess()
         thProcess.Abort()
     End Sub
-
-    'Private fr As New FrmProcess
-    'Private thread As Threading.Thread
-    'Private Sub ShowProgress(ByVal strTitle As String)
-    '    If fr Is Nothing Then fr = New FrmProcess
-    '    'frm.Owner = Me
-    '    fr.StartPosition = FormStartPosition.CenterScreen
-    '    fr.Title = strTitle
-    '    fr.Show()
-    '    fr.Refresh()
-    'End Sub
-    'Private Sub ProgressRefresh()
-    '    Try
-    '        While Not thread Is Nothing AndAlso thread.ThreadState = Threading.ThreadState.Running
-    '            If Not fr Is Nothing Then
-    '                fr.Refresh()
-    '                Threading.Thread.Sleep(200)
-    '            End If
-    '        End While
-    '    Catch ex As Exception
-
-    '    End Try
-    'End Sub
 #End Region
 
 

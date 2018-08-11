@@ -286,6 +286,22 @@
         End Set
     End Property
 
+    Private m_arrFileDeleted As IList(Of MAttachFileContract) = New List(Of MAttachFileContract)
+    ''' <summary>
+    ''' ds tập tin đính kèm đã xóa (sau khi lưu trên server rồi, hiệu chỉnh hợp đồng -> xóa bớt file -> xóa trên server)
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrFileDeleted() As IList(Of MAttachFileContract)
+        Get
+            Return m_arrFileDeleted
+        End Get
+        Set(ByVal value As IList(Of MAttachFileContract))
+            m_arrFileDeleted = value
+        End Set
+    End Property
+
     Private m_arrHistory As IList(Of MContractHistory) = New List(Of MContractHistory)
     ''' <summary>
     ''' ds lịch sử hợp đồng
@@ -414,4 +430,22 @@
             m_ValueExt = value
         End Set
     End Property
+
+
+    Private m_PathToSave As String = ""
+    ''' <summary>
+    ''' Path tai server de luu file
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property PathToSave() As String
+        Get
+            Return m_PathToSave
+        End Get
+        Set(ByVal value As String)
+            m_PathToSave = value
+        End Set
+    End Property
+
 End Class

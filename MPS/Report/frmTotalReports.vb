@@ -7,15 +7,27 @@ Public Class frmTotalReports
     Private WithEvents cls As BLL.B_Report = BLL.B_Report.Instance
     Private b As BLL.BPublic = BLL.BPublic.Instance
     Private clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
+    Private bc As BLL.BContracts = BLL.BContracts.Instance
+    Private bs As BLL.BSubContractors = BLL.BSubContractors.Instance
+    Private tbContractId As DataTable = Nothing
+    Private tbSubContractors As DataTable = Nothing
 
+    Private Sub LoadSubContractors()
+        If tbSubContractors Is Nothing Then tbSubContractors = bs.getListSubContractors()
+        cboBranch.DisplayMember = "SubContractorName"
+        cboBranch.ValueMember = "SubContractorId"
+        cboBranch.DataSource = tbSubContractors
+    End Sub
+    Private Sub LoadContracts()
+        If tbContractId Is Nothing Then tbContractId = bc.getListAllContractId(ModMain.m_BranchId)
+        cboBranch.DisplayMember = "ContractId"
+        cboBranch.ValueMember = "ContractId"
+        cboBranch.DataSource = tbContractId
+    End Sub
     Private Sub GetListReports()
         lstFunc.DisplayMember = "Name"
         lstFunc.ValueMember = "ID"
-
-        Dim tb As DataTable = b.getListReports()
-        If Not IsNothing(tb) Then
-            lstFunc.DataSource = tb
-        End If
+        lstFunc.DataSource = b.getListReports()
     End Sub
     Private Sub ViewData()
         Try
@@ -23,16 +35,33 @@ Public Class frmTotalReports
             ModMain.ShowProcess()
             Select Case lstFunc.SelectedValue
                 Case 4 'theo nhóm KH
+                    fByClientGroup = False
                     Grid.DataSource = cls.RevenueByClientGroup(dtFrom.Value, dtTo.Value)
                 Case 6 'theo project
+                    fByProject = False
                     Grid.DataSource = cls.RevenueByProject(dtFrom.Value, dtTo.Value)
                 Case 9 'theo hạng mục
+                    fByItem = False
                     Grid.DataSource = cls.RevenueByItem(dtFrom.Value, dtTo.Value)
+                Case 12 ' Tổng số Nhà thầu phụ đang được thuê
+                    fByAssigned = False
+                    Grid.DataSource = cls.ReportSubContractorsByAssigned(dtFrom.Value, dtTo.Value)
+                Case 13 ' Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
+                    If cboBranch.Value Is Nothing Then
+                        ShowMsg("Bạn chưa chọn nhà thầu.")
+                        cboBranch.Focus()
+                        Exit Select
+                    End If
+                    fBySubContractorId = False
+                    Grid.DataSource = cls.ReportContractsBySubContractorId(cboBranch.Value)
+                Case 16 'Báo cáo Tình trạng nhiều hợp đồng
+                    fByStatusContracts = False
+                    Grid.DataSource = cls.ReportStatusOfContracts(dtFrom.Value, dtTo.Value)
             End Select
-            ModMain.HiddenProcess()
         Catch ex As Exception
             ShowMsg(ex.Message)
-            'ModMain.HiddenProcess()
+        Finally
+            ModMain.HideProcess()
         End Try
     End Sub
 
@@ -42,7 +71,7 @@ Public Class frmTotalReports
         Me.GetListReports()
         cboTime.SelectedIndex = 0
     End Sub
-    Dim fByClientGroup, fByProject, fByItem As Boolean
+    Dim fByClientGroup, fByProject, fByItem, fByAssigned, fBySubContractorId, fByStatusContracts As Boolean
     Private Sub Grid_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles Grid.InitializeLayout
         Grid.DisplayLayout.Bands(0).Columns(0).MergedCellEvaluationType = MergedCellEvaluationType.MergeSameText
         Grid.DisplayLayout.Bands(0).Columns(0).MergedCellStyle = MergedCellStyle.Always
@@ -60,6 +89,18 @@ Public Class frmTotalReports
                 If fByItem Then Exit Sub
                 fByItem = True
                 clsuf.FormatGridFromDB(Me.Name + "ByItem", Grid, m_Lang)
+            Case 12 ' Tổng số Nhà thầu phụ đang được thuê
+                If fByAssigned Then Exit Sub
+                fByAssigned = True
+                clsuf.FormatGridFromDB(Me.Name + "ByAssigned", Grid, m_Lang)
+            Case 13 ' Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
+                If fBySubContractorId Then Exit Sub
+                fBySubContractorId = True
+                clsuf.FormatGridFromDB(Me.Name + "BySubContractorId", Grid, m_Lang)
+            Case 16 'Báo cáo Tình trạng nhiều hợp đồng
+                If fByStatusContracts Then Exit Sub
+                fByStatusContracts = True
+                clsuf.FormatGridFromDB(Me.Name + "ByStatusContracts", Grid, m_Lang)
         End Select
 
     End Sub
@@ -118,6 +159,15 @@ Public Class frmTotalReports
                     Case 9 ' theo hạng mục
                         Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "ByItem", Grid, m_Lang)
                         frm.ShowDialog()
+                    Case 12 ' Tổng số Nhà thầu phụ đang được thuê
+                        Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "ByAssigned", Grid, m_Lang)
+                        frm.ShowDialog()
+                    Case 13 ' Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
+                        Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "BySubContractorId", Grid, m_Lang)
+                        frm.ShowDialog()
+                    Case 16 'Báo cáo Tình trạng nhiều hợp đồng
+                        Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "ByStatusContracts", Grid, m_Lang)
+                        frm.ShowDialog()
                 End Select
 
             End If
@@ -164,5 +214,44 @@ Public Class frmTotalReports
 
     Private Sub btnView_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnView.Click
         Me.ViewData()
+    End Sub
+
+    Private Sub cboBranch_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboBranch.InitializeLayout
+        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
+            e.Layout.Bands(0).Columns(i).Hidden = True
+        Next
+
+        Select Case lstFunc.SelectedValue
+            Case 7 ' Tổng doanh thu theo Mốc thời gian
+            Case 13 'Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
+                e.Layout.Bands(0).Columns("SubContractorId").Hidden = False
+                e.Layout.Bands(0).Columns("SubContractorId").Width = 50
+                e.Layout.Bands(0).Columns("SubContractorName").Hidden = False
+            Case 15 'Báo cáo Tình trạng cụ thể 01 hợp đồng
+                e.Layout.Bands(0).Columns("ContractId").Hidden = False
+        End Select
+    End Sub
+
+    Private Sub lstFunc_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstFunc.SelectedIndexChanged
+        lblBranch.Visible = False
+        cboBranch.Visible = False
+        cboTime.Enabled = True
+
+        Select Case lstFunc.SelectedValue
+            Case 7 ' Tổng doanh thu theo Mốc thời gian
+
+            Case 13 'Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
+                cboTime.Enabled = False
+                lblBranch.Visible = True
+                cboBranch.Visible = True
+                lblBranch.Text = "Nhà thầu"
+                Me.LoadSubContractors()
+            Case 15 'Báo cáo Tình trạng cụ thể 01 hợp đồng
+                cboTime.Enabled = False
+                lblBranch.Visible = True
+                cboBranch.Visible = True
+                lblBranch.Text = "Hợp đồng"
+                Me.LoadContracts()
+        End Select
     End Sub
 End Class

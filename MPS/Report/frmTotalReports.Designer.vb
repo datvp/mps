@@ -218,7 +218,7 @@ Partial Class frmTotalReports
         'lblBranch
         '
         Me.lblBranch.AutoSize = True
-        Me.lblBranch.Location = New System.Drawing.Point(11, 75)
+        Me.lblBranch.Location = New System.Drawing.Point(11, 77)
         Me.lblBranch.Name = "lblBranch"
         Me.lblBranch.Size = New System.Drawing.Size(51, 13)
         Me.lblBranch.TabIndex = 68
@@ -344,18 +344,16 @@ Partial Class frmTotalReports
         Appearance14.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Appearance14.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Grid.DisplayLayout.Override.ActiveCellAppearance = Appearance14
-        Appearance7.BackColor = System.Drawing.Color.RoyalBlue
-        Appearance7.BackColor2 = System.Drawing.Color.CornflowerBlue
-        Appearance7.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance7.BackColor = System.Drawing.Color.Transparent
+        Appearance7.BackColor2 = System.Drawing.Color.Transparent
         Appearance7.FontData.BoldAsString = "True"
-        Appearance7.ForeColor = System.Drawing.Color.White
         Me.Grid.DisplayLayout.Override.ActiveRowAppearance = Appearance7
         Me.Grid.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
         Me.Grid.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[True]
         Me.Grid.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
         Appearance2.BackColor = System.Drawing.Color.Transparent
         Me.Grid.DisplayLayout.Override.CardAreaAppearance = Appearance2
-        Me.Grid.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
+        Me.Grid.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.CellSelect
         Me.Grid.DisplayLayout.Override.FilterClearButtonLocation = Infragistics.Win.UltraWinGrid.FilterClearButtonLocation.Cell
         Me.Grid.DisplayLayout.Override.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.UseColumnEditor
         Me.Grid.DisplayLayout.Override.FilterOperatorLocation = Infragistics.Win.UltraWinGrid.FilterOperatorLocation.Hidden
@@ -369,7 +367,7 @@ Partial Class frmTotalReports
         Appearance3.TextHAlignAsString = "Left"
         Appearance3.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
         Me.Grid.DisplayLayout.Override.HeaderAppearance = Appearance3
-        Me.Grid.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.Grid.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.[Select]
         Appearance17.BackColor = System.Drawing.Color.AliceBlue
         Me.Grid.DisplayLayout.Override.RowAlternateAppearance = Appearance17
         Appearance5.BackColor = System.Drawing.Color.AliceBlue

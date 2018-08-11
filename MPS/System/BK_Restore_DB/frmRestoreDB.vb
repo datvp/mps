@@ -110,7 +110,7 @@
             ShowMsg("Không thực hiện phục hồi được.")
         End If
 
-        ModMain.HiddenProcess()
+        ModMain.HideProcess()
     End Sub
 
     Private Sub RBK_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RBK.CheckedChanged

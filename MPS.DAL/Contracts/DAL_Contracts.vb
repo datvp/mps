@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
+
 Public Class DAL_Contracts
     Inherits DALSQL
     Private Sub New()
@@ -20,6 +22,60 @@ Public Class DAL_Contracts
             Return True
         End If
         Return False
+    End Function
+    ''' <summary>
+    ''' tạo folder by ContractId trên Server để lưu file
+    ''' </summary>
+    ''' <param name="targetPath"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Private Function createTargetPath(ByVal targetPath As String) As Boolean
+        Try
+            If Not Directory.Exists(targetPath) Then
+                System.IO.Directory.CreateDirectory(targetPath)
+            End If
+            Return True
+        Catch ex As Exception
+            MsgBox("Create target path error." & vbCrLf & ex.Message)
+            Return False
+        End Try
+    End Function
+    ''' <summary>
+    ''' Copy file lên server
+    ''' </summary>
+    ''' <param name="item"></param>
+    ''' <param name="targetPath"></param>
+    ''' <returns>a full path of destination File</returns>
+    ''' <remarks></remarks>
+    Private Function copyFileToServer(ByVal item As Model.MAttachFileContract, ByVal targetPath As String) As String
+        Try
+            Dim destFile = System.IO.Path.Combine(targetPath, item.FileName)
+            'đã copy rồi -> return
+            If destFile.Contains(item.FilePath) Then
+                Return destFile
+            End If
+
+            File.Copy(item.FilePath, destFile, True)
+            Return destFile
+        Catch ex As Exception
+            MsgBox("Process copy file occurs error." & vbCrLf & ex.Message)
+            Return ""
+        End Try
+    End Function
+    ''' <summary>
+    ''' xóa những file đã xóa trên server khi hiệu chỉnh
+    ''' </summary>
+    ''' <param name="item"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Private Function deleteFileAtServer(ByVal item As Model.MAttachFileContract) As Boolean
+        Try
+            File.Delete(item.FilePath)
+            Return True
+        Catch ex As Exception
+            MsgBox("Process delete file occurs error." & vbCrLf & ex.Message)
+            Return False
+        End Try
     End Function
     Public Function updateDB(ByVal m As Model.MContract) As Boolean
         Dim sql = ""
@@ -127,10 +183,23 @@ Public Class DAL_Contracts
             End If
         End If
 
+        If Not Me.createTargetPath(m.PathToSave) Then
+            Me.RollbackTransction()
+            Return False
+        End If
+
         sql = "Insert into AttachFileContracts(ContractId,FileId,FileName,FilePath,FileType,CreatedAt)"
         sql += " values(@ContractId,@FileId,@FileName,@FilePath,@FileType,getdate())"
         Dim count = 1
         For Each it In m.arrFile
+            'copy file from local folder to server folder
+            Dim desFile = Me.copyFileToServer(it, m.PathToSave)
+            If desFile = "" Then
+                Me.RollbackTransction()
+                Return False
+            End If
+            it.FilePath = desFile
+            'write path file to database
             Dim pm(4) As SqlParameter
             pm(0) = New SqlParameter("@ContractId", m.ContractId)
             pm(1) = New SqlParameter("@FileId", count)
@@ -143,6 +212,16 @@ Public Class DAL_Contracts
             End If
             count += 1
         Next
+
+        'xóa các file đã xóa (nếu có)
+        If isEdit Then
+            For Each it In m.arrFileDeleted
+                If Not Me.deleteFileAtServer(it) Then
+                    Me.RollbackTransction()
+                    Return False
+                End If
+            Next
+        End If
 
         'các đợt thanh toán thu (optional)
         If isEdit Then
@@ -240,6 +319,9 @@ Public Class DAL_Contracts
 
     Public Function getListContracts(ByVal branchId As String, ByVal dateFilter As Integer) As DataTable
         Return Me.getTableSQL("Exec sp_getListContracts @branchId,@dateFilter", New SqlParameter("@branchId", branchId), New SqlParameter("@dateFilter", dateFilter))
+    End Function
+    Public Function getListAllContractId(ByVal branchId As String) As DataTable
+        Return Me.getTableSQL("Exec getListAllContractId @branchId", New SqlParameter("@branchId", branchId))
     End Function
     Public Function getListContractsByFilter(ByVal branchId As String, ByVal perform As Integer, ByVal operatorPerform As String, ByVal length As Integer, ByVal operatorLength As String) As DataTable
         Dim pm(4) As SqlParameter

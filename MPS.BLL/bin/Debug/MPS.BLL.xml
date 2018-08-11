@@ -13,6 +13,29 @@ MPS.BLL
 	<param name="deadline">số ngày hết hạn so với ngày hiện tại</param>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="M:MPS.BLL.B_Report.ReportSubContractorsByAssigned(System.DateTime,System.DateTime)">
+	<summary>
+ tổng số nhà thầu phụ đang được thuê
+ </summary>
+	<param name="dtFrom"></param>
+	<param name="dtTo"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.BLL.B_Report.ReportContractsBySubContractorId(System.String)">
+	<summary>
+ Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
+ </summary>
+	<param name="SubContractorId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.BLL.B_Report.ReportStatusOfContracts(System.DateTime,System.DateTime)">
+	<summary>
+ báo cáo tình trạng nhiều hợp đồng
+ </summary>
+	<param name="dtFrom"></param>
+	<param name="dtTo"></param>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.BLL.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.

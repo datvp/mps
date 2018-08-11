@@ -6,7 +6,29 @@ MPS.DAL
 </name>
 </assembly>
 <members>
-<member name="P:MPS.DAL.My.Resources.Resources.ResourceManager">
+<member name="M:MPS.DAL.DAL_Contracts.createTargetPath(System.String)">
+	<summary>
+ tạo folder by ContractId trên Server để lưu file
+ </summary>
+	<param name="targetPath"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:MPS.DAL.DAL_Contracts.copyFileToServer(MPS.Model.MAttachFileContract,System.String)">
+	<summary>
+ Copy file lên server
+ </summary>
+	<param name="item"></param>
+	<param name="targetPath"></param>
+	<returns>a full path of destination File</returns>
+	<remarks></remarks>
+</member><member name="M:MPS.DAL.DAL_Contracts.deleteFileAtServer(MPS.Model.MAttachFileContract)">
+	<summary>
+ xóa những file đã xóa trên server khi hiệu chỉnh
+ </summary>
+	<param name="item"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.DAL.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>

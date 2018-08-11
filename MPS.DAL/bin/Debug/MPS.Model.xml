@@ -188,6 +188,13 @@ MPS.Model
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.arrFileDeleted">
+	<summary>
+ ds tập tin đính kèm đã xóa (sau khi lưu trên server rồi, hiệu chỉnh hợp đồng -&gt; xóa bớt file -&gt; xóa trên server)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:MPS.Model.MContract.arrHistory">
 	<summary>
  ds lịch sử hợp đồng
@@ -240,6 +247,13 @@ MPS.Model
 </member><member name="P:MPS.Model.MContract.ValueExt">
 	<summary>
  giá trị cộng thêm(lấy từ phụ lục HĐ)
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:MPS.Model.MContract.PathToSave">
+	<summary>
+ Path tai server de luu file
  </summary>
 	<value></value>
 	<returns></returns>
