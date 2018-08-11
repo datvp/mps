@@ -1,2 +1,10 @@
 MPS/bin
 MPS/obj
+MPS.BLL/bin
+MPS.BLL/obj
+MPS.DAL/bin
+MPS.DAL/obj
+MPS.Model/bin
+MPS.Model/obj
+MPS.Reports/bin
+MPS.Reports/obj
