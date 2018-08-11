@@ -38,6 +38,8 @@ Partial Class frmMain
         Dim UltraStatusPanel7 As Infragistics.Win.UltraWinStatusBar.UltraStatusPanel = New Infragistics.Win.UltraWinStatusBar.UltraStatusPanel
         Dim UltraStatusPanel8 As Infragistics.Win.UltraWinStatusBar.UltraStatusPanel = New Infragistics.Win.UltraWinStatusBar.UltraStatusPanel
         Dim Appearance100 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool187 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnLogin")
         Dim ButtonTool207 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("UserGroups")
         Dim ButtonTool208 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Users")
@@ -108,21 +110,19 @@ Partial Class frmMain
         Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool185 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ClientGroups")
         Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel
         Me.UltraStatusBar1 = New Infragistics.Win.UltraWinStatusBar.UltraStatusBar
         Me.lblRight = New Infragistics.Win.Misc.UltraLabel
         Me.UltraLabel4 = New Infragistics.Win.Misc.UltraLabel
         Me._frmMain_Toolbars_Dock_Area_Left = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
-        Me.tbManager = New Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(Me.components)
         Me._frmMain_Toolbars_Dock_Area_Right = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me._frmMain_Toolbars_Dock_Area_Top = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me._frmMain_Toolbars_Dock_Area_Bottom = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me.uTabbedMdi = New Infragistics.Win.UltraWinTabbedMdi.UltraTabbedMdiManager(Me.components)
-        CType(Me.tbManager, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tbManager = New Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(Me.components)
         CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbManager, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ImageList1
@@ -175,14 +175,14 @@ Partial Class frmMain
         Me.UltraLabel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.UltraLabel1.Location = New System.Drawing.Point(4, 156)
         Me.UltraLabel1.Name = "UltraLabel1"
-        Me.UltraLabel1.Size = New System.Drawing.Size(1192, 1)
+        Me.UltraLabel1.Size = New System.Drawing.Size(792, 1)
         Me.UltraLabel1.TabIndex = 3
         Me.UltraLabel1.Text = "UltraLabel1"
         '
         'UltraStatusBar1
         '
         Me.UltraStatusBar1.BorderStylePanel = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.UltraStatusBar1.Location = New System.Drawing.Point(0, 679)
+        Me.UltraStatusBar1.Location = New System.Drawing.Point(0, 579)
         Me.UltraStatusBar1.Name = "UltraStatusBar1"
         UltraStatusPanel1.Key = "Helptext"
         UltraStatusPanel1.SizingMode = Infragistics.Win.UltraWinStatusBar.PanelSizingMode.Spring
@@ -221,7 +221,7 @@ Partial Class frmMain
         UltraStatusPanel8.SizingMode = Infragistics.Win.UltraWinStatusBar.PanelSizingMode.Automatic
         UltraStatusPanel8.Visible = False
         Me.UltraStatusBar1.Panels.AddRange(New Infragistics.Win.UltraWinStatusBar.UltraStatusPanel() {UltraStatusPanel1, UltraStatusPanel2, UltraStatusPanel3, UltraStatusPanel4, UltraStatusPanel5, UltraStatusPanel6, UltraStatusPanel7, UltraStatusPanel8})
-        Me.UltraStatusBar1.Size = New System.Drawing.Size(1200, 21)
+        Me.UltraStatusBar1.Size = New System.Drawing.Size(800, 21)
         Me.UltraStatusBar1.TabIndex = 6
         Me.UltraStatusBar1.ViewStyle = Infragistics.Win.UltraWinStatusBar.ViewStyle.Office2007
         '
@@ -230,17 +230,17 @@ Partial Class frmMain
         Appearance100.BorderColor = System.Drawing.SystemColors.MenuHighlight
         Me.lblRight.Appearance = Appearance100
         Me.lblRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.lblRight.Location = New System.Drawing.Point(1195, 157)
+        Me.lblRight.Location = New System.Drawing.Point(795, 157)
         Me.lblRight.Name = "lblRight"
-        Me.lblRight.Size = New System.Drawing.Size(1, 522)
+        Me.lblRight.Size = New System.Drawing.Size(1, 422)
         Me.lblRight.TabIndex = 8
         '
         'UltraLabel4
         '
         Me.UltraLabel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UltraLabel4.Location = New System.Drawing.Point(4, 678)
+        Me.UltraLabel4.Location = New System.Drawing.Point(4, 578)
         Me.UltraLabel4.Name = "UltraLabel4"
-        Me.UltraLabel4.Size = New System.Drawing.Size(1191, 1)
+        Me.UltraLabel4.Size = New System.Drawing.Size(791, 1)
         Me.UltraLabel4.TabIndex = 11
         '
         '_frmMain_Toolbars_Dock_Area_Left
@@ -252,8 +252,67 @@ Partial Class frmMain
         Me._frmMain_Toolbars_Dock_Area_Left.InitialResizeAreaExtent = 4
         Me._frmMain_Toolbars_Dock_Area_Left.Location = New System.Drawing.Point(0, 156)
         Me._frmMain_Toolbars_Dock_Area_Left.Name = "_frmMain_Toolbars_Dock_Area_Left"
-        Me._frmMain_Toolbars_Dock_Area_Left.Size = New System.Drawing.Size(4, 523)
+        Me._frmMain_Toolbars_Dock_Area_Left.Size = New System.Drawing.Size(4, 423)
         Me._frmMain_Toolbars_Dock_Area_Left.ToolbarsManager = Me.tbManager
+        '
+        '_frmMain_Toolbars_Dock_Area_Right
+        '
+        Me._frmMain_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
+        Me._frmMain_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me._frmMain_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right
+        Me._frmMain_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText
+        Me._frmMain_Toolbars_Dock_Area_Right.InitialResizeAreaExtent = 4
+        Me._frmMain_Toolbars_Dock_Area_Right.Location = New System.Drawing.Point(796, 156)
+        Me._frmMain_Toolbars_Dock_Area_Right.Name = "_frmMain_Toolbars_Dock_Area_Right"
+        Me._frmMain_Toolbars_Dock_Area_Right.Size = New System.Drawing.Size(4, 423)
+        Me._frmMain_Toolbars_Dock_Area_Right.ToolbarsManager = Me.tbManager
+        '
+        '_frmMain_Toolbars_Dock_Area_Top
+        '
+        Me._frmMain_Toolbars_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
+        Me._frmMain_Toolbars_Dock_Area_Top.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me._frmMain_Toolbars_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Top
+        Me._frmMain_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText
+        Me._frmMain_Toolbars_Dock_Area_Top.Location = New System.Drawing.Point(0, 0)
+        Me._frmMain_Toolbars_Dock_Area_Top.Name = "_frmMain_Toolbars_Dock_Area_Top"
+        Me._frmMain_Toolbars_Dock_Area_Top.Size = New System.Drawing.Size(800, 156)
+        Me._frmMain_Toolbars_Dock_Area_Top.ToolbarsManager = Me.tbManager
+        '
+        '_frmMain_Toolbars_Dock_Area_Bottom
+        '
+        Me._frmMain_Toolbars_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
+        Me._frmMain_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me._frmMain_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom
+        Me._frmMain_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText
+        Me._frmMain_Toolbars_Dock_Area_Bottom.Location = New System.Drawing.Point(0, 579)
+        Me._frmMain_Toolbars_Dock_Area_Bottom.Name = "_frmMain_Toolbars_Dock_Area_Bottom"
+        Me._frmMain_Toolbars_Dock_Area_Bottom.Size = New System.Drawing.Size(800, 0)
+        Me._frmMain_Toolbars_Dock_Area_Bottom.ToolbarsManager = Me.tbManager
+        '
+        'uTabbedMdi
+        '
+        Me.uTabbedMdi.MdiParent = Me
+        Me.uTabbedMdi.TabGroupSettings.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007RibbonButton
+        Me.uTabbedMdi.TabGroupSettings.CloseButtonLocation = Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab
+        Me.uTabbedMdi.TabGroupSettings.ScrollButtons = Infragistics.Win.UltraWinTabbedMdi.DefaultableTabScrollButtons.Automatic
+        Me.uTabbedMdi.TabGroupSettings.ScrollButtonTypes = Infragistics.Win.UltraWinTabs.ScrollButtonTypes.Thumb
+        Me.uTabbedMdi.TabGroupSettings.ShowButtonSeparators = Infragistics.Win.DefaultableBoolean.[True]
+        Me.uTabbedMdi.TabGroupSettings.ShowPartialTabs = Infragistics.Win.DefaultableBoolean.[True]
+        Me.uTabbedMdi.TabGroupSettings.ShowTabListButton = Infragistics.Win.DefaultableBoolean.[True]
+        Me.uTabbedMdi.TabGroupSettings.TabButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007RibbonButton
+        Me.uTabbedMdi.TabGroupSettings.TabOrientation = Infragistics.Win.UltraWinTabs.TabOrientation.BottomLeft
+        Me.uTabbedMdi.TabGroupSettings.TabStyle = Infragistics.Win.UltraWinTabs.TabStyle.Office2007Ribbon
+        Me.uTabbedMdi.TabSettings.AllowClose = Infragistics.Win.DefaultableBoolean.[True]
+        Me.uTabbedMdi.TabSettings.AllowDrag = Infragistics.Win.UltraWinTabbedMdi.MdiTabDragStyle.WithinAndAcrossGroups
+        Me.uTabbedMdi.TabSettings.CloseButtonAlignment = Infragistics.Win.UltraWinTabs.TabCloseButtonAlignment.AfterContent
+        Me.uTabbedMdi.TabSettings.CloseButtonVisibility = Infragistics.Win.UltraWinTabs.TabCloseButtonVisibility.WhenSelectedOrHotTracked
+        Me.uTabbedMdi.TabSettings.HotTrack = Infragistics.Win.DefaultableBoolean.[True]
+        Appearance30.FontData.BoldAsString = "True"
+        Me.uTabbedMdi.TabSettings.HotTrackTabAppearance = Appearance30
+        Appearance29.FontData.BoldAsString = "True"
+        Me.uTabbedMdi.TabSettings.SelectedTabAppearance = Appearance29
+        Me.uTabbedMdi.TabSettings.TabCloseAction = Infragistics.Win.UltraWinTabbedMdi.MdiTabCloseAction.Close
+        Me.uTabbedMdi.ViewStyle = Infragistics.Win.UltraWinTabbedMdi.ViewStyle.Office2007
         '
         'tbManager
         '
@@ -372,71 +431,12 @@ Partial Class frmMain
         ButtonTool185.SharedProps.Caption = "Nhóm Khách Hàng"
         Me.tbManager.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool2, ButtonTool8, ButtonTool10, ButtonTool26, ButtonTool92, ButtonTool121, ButtonTool122, ButtonTool210, ButtonTool211, ButtonTool212, ButtonTool214, ButtonTool236, ButtonTool247, ButtonTool248, ButtonTool249, ButtonTool250, ButtonTool251, ButtonTool254, ButtonTool255, ButtonTool257, ButtonTool260, ButtonTool185})
         '
-        '_frmMain_Toolbars_Dock_Area_Right
-        '
-        Me._frmMain_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
-        Me._frmMain_Toolbars_Dock_Area_Right.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me._frmMain_Toolbars_Dock_Area_Right.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Right
-        Me._frmMain_Toolbars_Dock_Area_Right.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._frmMain_Toolbars_Dock_Area_Right.InitialResizeAreaExtent = 4
-        Me._frmMain_Toolbars_Dock_Area_Right.Location = New System.Drawing.Point(1196, 156)
-        Me._frmMain_Toolbars_Dock_Area_Right.Name = "_frmMain_Toolbars_Dock_Area_Right"
-        Me._frmMain_Toolbars_Dock_Area_Right.Size = New System.Drawing.Size(4, 523)
-        Me._frmMain_Toolbars_Dock_Area_Right.ToolbarsManager = Me.tbManager
-        '
-        '_frmMain_Toolbars_Dock_Area_Top
-        '
-        Me._frmMain_Toolbars_Dock_Area_Top.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
-        Me._frmMain_Toolbars_Dock_Area_Top.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me._frmMain_Toolbars_Dock_Area_Top.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Top
-        Me._frmMain_Toolbars_Dock_Area_Top.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._frmMain_Toolbars_Dock_Area_Top.Location = New System.Drawing.Point(0, 0)
-        Me._frmMain_Toolbars_Dock_Area_Top.Name = "_frmMain_Toolbars_Dock_Area_Top"
-        Me._frmMain_Toolbars_Dock_Area_Top.Size = New System.Drawing.Size(1200, 156)
-        Me._frmMain_Toolbars_Dock_Area_Top.ToolbarsManager = Me.tbManager
-        '
-        '_frmMain_Toolbars_Dock_Area_Bottom
-        '
-        Me._frmMain_Toolbars_Dock_Area_Bottom.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
-        Me._frmMain_Toolbars_Dock_Area_Bottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me._frmMain_Toolbars_Dock_Area_Bottom.DockedPosition = Infragistics.Win.UltraWinToolbars.DockedPosition.Bottom
-        Me._frmMain_Toolbars_Dock_Area_Bottom.ForeColor = System.Drawing.SystemColors.ControlText
-        Me._frmMain_Toolbars_Dock_Area_Bottom.Location = New System.Drawing.Point(0, 679)
-        Me._frmMain_Toolbars_Dock_Area_Bottom.Name = "_frmMain_Toolbars_Dock_Area_Bottom"
-        Me._frmMain_Toolbars_Dock_Area_Bottom.Size = New System.Drawing.Size(1200, 0)
-        Me._frmMain_Toolbars_Dock_Area_Bottom.ToolbarsManager = Me.tbManager
-        '
-        'uTabbedMdi
-        '
-        Me.uTabbedMdi.MdiParent = Me
-        Me.uTabbedMdi.TabGroupSettings.ButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007RibbonButton
-        Me.uTabbedMdi.TabGroupSettings.CloseButtonLocation = Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab
-        Me.uTabbedMdi.TabGroupSettings.ScrollButtons = Infragistics.Win.UltraWinTabbedMdi.DefaultableTabScrollButtons.Automatic
-        Me.uTabbedMdi.TabGroupSettings.ScrollButtonTypes = Infragistics.Win.UltraWinTabs.ScrollButtonTypes.Thumb
-        Me.uTabbedMdi.TabGroupSettings.ShowButtonSeparators = Infragistics.Win.DefaultableBoolean.[True]
-        Me.uTabbedMdi.TabGroupSettings.ShowPartialTabs = Infragistics.Win.DefaultableBoolean.[True]
-        Me.uTabbedMdi.TabGroupSettings.ShowTabListButton = Infragistics.Win.DefaultableBoolean.[True]
-        Me.uTabbedMdi.TabGroupSettings.TabButtonStyle = Infragistics.Win.UIElementButtonStyle.Office2007RibbonButton
-        Me.uTabbedMdi.TabGroupSettings.TabOrientation = Infragistics.Win.UltraWinTabs.TabOrientation.BottomLeft
-        Me.uTabbedMdi.TabGroupSettings.TabStyle = Infragistics.Win.UltraWinTabs.TabStyle.Office2007Ribbon
-        Me.uTabbedMdi.TabSettings.AllowClose = Infragistics.Win.DefaultableBoolean.[True]
-        Me.uTabbedMdi.TabSettings.AllowDrag = Infragistics.Win.UltraWinTabbedMdi.MdiTabDragStyle.WithinAndAcrossGroups
-        Me.uTabbedMdi.TabSettings.CloseButtonAlignment = Infragistics.Win.UltraWinTabs.TabCloseButtonAlignment.AfterContent
-        Me.uTabbedMdi.TabSettings.CloseButtonVisibility = Infragistics.Win.UltraWinTabs.TabCloseButtonVisibility.WhenSelectedOrHotTracked
-        Me.uTabbedMdi.TabSettings.HotTrack = Infragistics.Win.DefaultableBoolean.[True]
-        Appearance30.FontData.BoldAsString = "True"
-        Me.uTabbedMdi.TabSettings.HotTrackTabAppearance = Appearance30
-        Appearance29.FontData.BoldAsString = "True"
-        Me.uTabbedMdi.TabSettings.SelectedTabAppearance = Appearance29
-        Me.uTabbedMdi.TabSettings.TabCloseAction = Infragistics.Win.UltraWinTabbedMdi.MdiTabCloseAction.Close
-        Me.uTabbedMdi.ViewStyle = Infragistics.Win.UltraWinTabbedMdi.ViewStyle.Office2007
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.AliceBlue
-        Me.ClientSize = New System.Drawing.Size(1200, 700)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(800, 600)
         Me.Controls.Add(Me.UltraLabel4)
         Me.Controls.Add(Me.lblRight)
         Me.Controls.Add(Me.UltraLabel1)
@@ -446,15 +446,16 @@ Partial Class frmMain
         Me.Controls.Add(Me._frmMain_Toolbars_Dock_Area_Bottom)
         Me.Controls.Add(Me.UltraStatusBar1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.IsMdiContainer = True
         Me.KeyPreview = True
+        Me.MinimumSize = New System.Drawing.Size(800, 600)
         Me.Name = "frmMain"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MPS"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.tbManager, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tbManager, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
