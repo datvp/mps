@@ -36,7 +36,7 @@ Partial Class frmWaiting
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(62, 18)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(84, 13)
+        Me.Label1.Size = New System.Drawing.Size(87, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Please waiting..."
         '
@@ -44,9 +44,10 @@ Partial Class frmWaiting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.AliceBlue
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(218, 48)
         Me.Controls.Add(Me.Label1)
+        Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmWaiting"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -40,11 +40,11 @@ Partial Class frmBKData
         Me.btnApply = New Infragistics.Win.Misc.UltraButton
         Me.btnCancel = New Infragistics.Win.Misc.UltraButton
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
-        Me.UltraGroupBox1 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.grpAction = New Infragistics.Win.Misc.UltraGroupBox
         Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
         Me.txtFileBK = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox1.SuspendLayout()
+        CType(Me.grpAction, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpAction.SuspendLayout()
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox2.SuspendLayout()
         CType(Me.txtFileBK, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -160,20 +160,20 @@ Partial Class frmBKData
         Me.lblTitle.TabIndex = 25
         Me.lblTitle.Text = "SAO LƯU DỰ PHÒNG"
         '
-        'UltraGroupBox1
+        'grpAction
         '
-        Appearance15.BackColor = System.Drawing.Color.AliceBlue
-        Me.UltraGroupBox1.Appearance = Appearance15
-        Me.UltraGroupBox1.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.Header3D
-        Me.UltraGroupBox1.Controls.Add(Me.btnCancel)
-        Me.UltraGroupBox1.Controls.Add(Me.btnApply)
-        Me.UltraGroupBox1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UltraGroupBox1.Location = New System.Drawing.Point(0, 261)
-        Me.UltraGroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraGroupBox1.Name = "UltraGroupBox1"
-        Me.UltraGroupBox1.Size = New System.Drawing.Size(514, 52)
-        Me.UltraGroupBox1.TabIndex = 26
-        Me.UltraGroupBox1.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Appearance15.BackColor = System.Drawing.Color.Transparent
+        Me.grpAction.Appearance = Appearance15
+        Me.grpAction.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.Header3D
+        Me.grpAction.Controls.Add(Me.btnCancel)
+        Me.grpAction.Controls.Add(Me.btnApply)
+        Me.grpAction.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.grpAction.Location = New System.Drawing.Point(0, 261)
+        Me.grpAction.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.grpAction.Name = "grpAction"
+        Me.grpAction.Size = New System.Drawing.Size(514, 52)
+        Me.grpAction.TabIndex = 26
+        Me.grpAction.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'UltraGroupBox2
         '
@@ -208,11 +208,11 @@ Partial Class frmBKData
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.AliceBlue
+        Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnCancel
         Me.ClientSize = New System.Drawing.Size(514, 313)
         Me.Controls.Add(Me.UltraGroupBox2)
-        Me.Controls.Add(Me.UltraGroupBox1)
+        Me.Controls.Add(Me.grpAction)
         Me.Controls.Add(Me.lblTitle)
         Me.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -222,8 +222,8 @@ Partial Class frmBKData
         Me.MinimizeBox = False
         Me.Name = "frmBKData"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox1.ResumeLayout(False)
+        CType(Me.grpAction, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpAction.ResumeLayout(False)
         CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox2.ResumeLayout(False)
         Me.UltraGroupBox2.PerformLayout()
@@ -237,7 +237,7 @@ Partial Class frmBKData
     Friend WithEvents btnApply As Infragistics.Win.Misc.UltraButton
     Friend WithEvents btnCancel As Infragistics.Win.Misc.UltraButton
     Friend WithEvents lblTitle As Infragistics.Win.Misc.UltraLabel
-    Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents grpAction As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents txtFileBK As Infragistics.Win.UltraWinEditors.UltraTextEditor
 End Class

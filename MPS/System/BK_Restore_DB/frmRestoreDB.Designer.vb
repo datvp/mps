@@ -50,11 +50,11 @@ Partial Class frmRestoreDB
         Me.RMDF = New System.Windows.Forms.RadioButton
         Me.RBK = New System.Windows.Forms.RadioButton
         Me.Label4 = New System.Windows.Forms.Label
-        Me.UltraGroupBox2 = New Infragistics.Win.Misc.UltraGroupBox
+        Me.grpAction = New Infragistics.Win.Misc.UltraGroupBox
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.UltraGroupBox1.SuspendLayout()
-        CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.UltraGroupBox2.SuspendLayout()
+        CType(Me.grpAction, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpAction.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -292,31 +292,31 @@ Partial Class frmRestoreDB
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Ví dụ :  *. bak , *. mdf"
         '
-        'UltraGroupBox2
+        'grpAction
         '
-        Appearance15.BackColor = System.Drawing.Color.AliceBlue
-        Me.UltraGroupBox2.Appearance = Appearance15
-        Me.UltraGroupBox2.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.Header3D
-        Me.UltraGroupBox2.Controls.Add(Me.btnCancel)
-        Me.UltraGroupBox2.Controls.Add(Me.btnApply)
-        Me.UltraGroupBox2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.UltraGroupBox2.Location = New System.Drawing.Point(0, 287)
-        Me.UltraGroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.UltraGroupBox2.Name = "UltraGroupBox2"
-        Me.UltraGroupBox2.Size = New System.Drawing.Size(498, 58)
-        Me.UltraGroupBox2.TabIndex = 28
-        Me.UltraGroupBox2.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        Appearance15.BackColor = System.Drawing.Color.Transparent
+        Me.grpAction.Appearance = Appearance15
+        Me.grpAction.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.Header3D
+        Me.grpAction.Controls.Add(Me.btnCancel)
+        Me.grpAction.Controls.Add(Me.btnApply)
+        Me.grpAction.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.grpAction.Location = New System.Drawing.Point(0, 287)
+        Me.grpAction.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.grpAction.Name = "grpAction"
+        Me.grpAction.Size = New System.Drawing.Size(498, 58)
+        Me.grpAction.TabIndex = 28
+        Me.grpAction.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'frmRestoreDB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.AliceBlue
+        Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnCancel
         Me.ClientSize = New System.Drawing.Size(498, 345)
         Me.Controls.Add(Me.UltraGroupBox1)
         Me.Controls.Add(Me.UltraLabel1)
-        Me.Controls.Add(Me.UltraGroupBox2)
+        Me.Controls.Add(Me.grpAction)
         Me.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.KeyPreview = True
@@ -328,8 +328,8 @@ Partial Class frmRestoreDB
         CType(Me.UltraGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.UltraGroupBox1.ResumeLayout(False)
         Me.UltraGroupBox1.PerformLayout()
-        CType(Me.UltraGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.UltraGroupBox2.ResumeLayout(False)
+        CType(Me.grpAction, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpAction.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -344,7 +344,7 @@ Partial Class frmRestoreDB
     Friend WithEvents btnBrown2 As Infragistics.Win.Misc.UltraButton
     Friend WithEvents UltraLabel1 As Infragistics.Win.Misc.UltraLabel
     Friend WithEvents UltraGroupBox1 As Infragistics.Win.Misc.UltraGroupBox
-    Friend WithEvents UltraGroupBox2 As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents grpAction As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents RMDF As System.Windows.Forms.RadioButton
     Friend WithEvents RBK As System.Windows.Forms.RadioButton

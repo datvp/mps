@@ -201,7 +201,7 @@ Partial Class frmConfirm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(215, Byte), Integer), CType(CType(228, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnExit
         Me.ClientSize = New System.Drawing.Size(370, 246)
         Me.Controls.Add(Me.UltraGroupBox2)

@@ -59,10 +59,10 @@ Partial Class frmConfig
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.grpContact = New Infragistics.Win.Misc.UltraGroupBox
-        Me.Label10 = New System.Windows.Forms.Label
         Me.txtPathToSave = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.Label9 = New System.Windows.Forms.Label
         Me.nudDeadLineAlert = New System.Windows.Forms.NumericUpDown
+        Me.Label9 = New System.Windows.Forms.Label
+        Me.Label10 = New System.Windows.Forms.Label
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -439,17 +439,6 @@ Partial Class frmConfig
         Me.grpContact.Text = "Nơi lưu File đính kèm"
         Me.grpContact.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(10, 36)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(76, 16)
-        Me.Label10.TabIndex = 11
-        Me.Label10.Text = "Đường dẫn:"
-        '
         'txtPathToSave
         '
         Appearance1.TextHAlignAsString = "Center"
@@ -467,6 +456,16 @@ Partial Class frmConfig
         Me.txtPathToSave.Size = New System.Drawing.Size(422, 25)
         Me.txtPathToSave.TabIndex = 10
         '
+        'nudDeadLineAlert
+        '
+        Me.nudDeadLineAlert.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nudDeadLineAlert.Location = New System.Drawing.Point(453, 64)
+        Me.nudDeadLineAlert.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
+        Me.nudDeadLineAlert.Name = "nudDeadLineAlert"
+        Me.nudDeadLineAlert.Size = New System.Drawing.Size(82, 26)
+        Me.nudDeadLineAlert.TabIndex = 11
+        Me.nudDeadLineAlert.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -478,20 +477,22 @@ Partial Class frmConfig
         Me.Label9.TabIndex = 11
         Me.Label9.Text = "Cảnh báo deadline (ngày)"
         '
-        'nudDeadLineAlert
+        'Label10
         '
-        Me.nudDeadLineAlert.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nudDeadLineAlert.Location = New System.Drawing.Point(453, 64)
-        Me.nudDeadLineAlert.Maximum = New Decimal(New Integer() {1000, 0, 0, 0})
-        Me.nudDeadLineAlert.Name = "nudDeadLineAlert"
-        Me.nudDeadLineAlert.Size = New System.Drawing.Size(82, 26)
-        Me.nudDeadLineAlert.TabIndex = 11
-        Me.nudDeadLineAlert.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(10, 36)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(76, 16)
+        Me.Label10.TabIndex = 11
+        Me.Label10.Text = "Đường dẫn:"
         '
         'frmConfig
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnExit
         Me.ClientSize = New System.Drawing.Size(583, 519)
         Me.Controls.Add(Me.grpContact)

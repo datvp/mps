@@ -37,9 +37,9 @@ Partial Class frmDirDevice
         Me.btnChoose = New Infragistics.Win.Misc.UltraButton
         Me.lbTemp = New System.Windows.Forms.Label
         Me.Panel3 = New System.Windows.Forms.Panel
+        Me.Lb = New System.Windows.Forms.Label
         Me.txtFile = New System.Windows.Forms.TextBox
         Me.lblName = New System.Windows.Forms.Label
-        Me.Lb = New System.Windows.Forms.Label
         Me.grpBottom = New Infragistics.Win.Misc.UltraGroupBox
         Me.Panel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -162,6 +162,17 @@ Partial Class frmDirDevice
         Me.Panel3.Size = New System.Drawing.Size(358, 78)
         Me.Panel3.TabIndex = 2
         '
+        'Lb
+        '
+        Me.Lb.BackColor = System.Drawing.Color.Transparent
+        Me.Lb.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Lb.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Lb.Location = New System.Drawing.Point(10, 33)
+        Me.Lb.Name = "Lb"
+        Me.Lb.Size = New System.Drawing.Size(335, 38)
+        Me.Lb.TabIndex = 12
+        Me.Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'txtFile
         '
         Me.txtFile.Location = New System.Drawing.Point(73, 6)
@@ -179,17 +190,6 @@ Partial Class frmDirDevice
         Me.lblName.Size = New System.Drawing.Size(51, 16)
         Me.lblName.TabIndex = 0
         Me.lblName.Text = "Tên file"
-        '
-        'Lb
-        '
-        Me.Lb.BackColor = System.Drawing.Color.Transparent
-        Me.Lb.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lb.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Lb.Location = New System.Drawing.Point(10, 33)
-        Me.Lb.Name = "Lb"
-        Me.Lb.Size = New System.Drawing.Size(335, 38)
-        Me.Lb.TabIndex = 12
-        Me.Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'grpBottom
         '
@@ -209,7 +209,7 @@ Partial Class frmDirDevice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.AliceBlue
+        Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnCancel
         Me.ClientSize = New System.Drawing.Size(358, 444)
         Me.Controls.Add(Me.Panel1)

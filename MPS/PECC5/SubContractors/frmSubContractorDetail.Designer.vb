@@ -416,6 +416,7 @@ Partial Class frmSubContractorDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnExit
         Me.ClientSize = New System.Drawing.Size(583, 453)
         Me.Controls.Add(Me.grpContact)
