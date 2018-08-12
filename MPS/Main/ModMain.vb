@@ -393,11 +393,11 @@ Module ModMain
     End Sub
     Private thProcess As System.Threading.Thread
     Public Sub ShowProcess()
-        thProcess = New System.Threading.Thread(AddressOf InitProcess)
-        thProcess.Start()
+        'thProcess = New System.Threading.Thread(AddressOf InitProcess)
+        'thProcess.Start()
     End Sub
     Public Sub HideProcess()
-        thProcess.Abort()
+        'thProcess.Abort()
     End Sub
 #End Region
 

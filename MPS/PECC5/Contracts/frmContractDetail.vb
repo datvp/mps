@@ -261,6 +261,7 @@ Public Class frmContractDetail
                             OrElse it.Status <> foundItem.Status _
                             OrElse it.ItemValue <> foundItem.ItemValue _
                             OrElse it.SubContractorId <> foundItem.SubContractorId _
+                            OrElse it.Fee <> foundItem.Fee _
                         Then
                             desc += vbCrLf & "Sửa hạng mục [" + it.ItemName + "]: "
                             If it.ItemName <> foundItem.ItemName Then
@@ -270,10 +271,13 @@ Public Class frmContractDetail
                                 desc += vbCrLf & " - Trạng thái: [" + StatusText(foundItem.Status) + "] -> [" + StatusText(it.Status) + "]"
                             End If
                             If it.ItemValue <> foundItem.ItemValue Then
-                                desc += vbCrLf & " - Chi phí: [" + Format(foundItem.ItemValue, ModMain.m_strFormatCur) + "] -> [" + Format(it.ItemValue, ModMain.m_strFormatCur) + "]"
+                                desc += vbCrLf & " - Tổng chi phí: [" + Format(foundItem.ItemValue, ModMain.m_strFormatCur) + "] -> [" + Format(it.ItemValue, ModMain.m_strFormatCur) + "]"
                             End If
                             If it.SubContractorId <> foundItem.SubContractorId Then
                                 desc += vbCrLf & " - Nhà thầu phụ: [" + foundItem.SubContractorName + "] -> [" + it.SubContractorName + "]"
+                            End If
+                            If it.Fee <> foundItem.Fee Then
+                                desc += vbCrLf & " - Chi phí thuê nhà thầu: [" + Format(foundItem.Fee, ModMain.m_strFormatCur) + "] -> [" + Format(it.Fee, ModMain.m_strFormatCur) + "]"
                             End If
                         End If
                     End If
@@ -518,10 +522,11 @@ Public Class frmContractDetail
         If item IsNot Nothing Then
             Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
             If arr IsNot Nothing Then
-                Dim found = Me.findItem(item, arr)
-                If found IsNot Nothing Then
-                    grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
+                Dim foundItem = Me.findItem(item, arr)
+                If foundItem Is Nothing Then
+                    arr.Insert(arr.Count, item)
                 End If
+                grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
             End If
         End If
     End Sub
@@ -649,6 +654,7 @@ Public Class frmContractDetail
                     arr.Item(i).SubContractorName = item.SubContractorName
                     arr.Item(i).Status = item.Status
                     arr.Item(i).StatusDesc = StatusText(item.Status)
+                    arr.Item(i).Fee = item.Fee
                 End If
                 foundItem = arr.Item(i)
             End If
@@ -747,27 +753,7 @@ Public Class frmContractDetail
 
 #Region "Links"
     Private Sub lnkAddItem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkAddItem.Click
-        Dim frm As New frmItems
-        Dim selectedObj = frm.ShowDialog(True)
-        If selectedObj IsNot Nothing Then
-            Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
-            If arr IsNot Nothing Then
-                Dim item As New Model.MContractDetail
-                item.ItemId = selectedObj.ItemId
-                item.ItemName = selectedObj.ItemName
-                item.Status = Statuses.Waiting
-                item.StatusDesc = StatusText(item.Status)
-
-                Dim foundItem = Me.findItem(item, arr)
-                If foundItem Is Nothing Then
-                    arr.Insert(arr.Count, item)
-                    grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
-                Else
-                    ShowMsg("Hạng mục: [" + foundItem.ItemName + "] đã được thêm.")
-                End If
-            End If
-
-        End If
+        Me.showItemDetail(Nothing)
     End Sub
 
     Private Sub lnkAddSubContract_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkAddSubContract.Click
@@ -843,6 +829,8 @@ Public Class frmContractDetail
             m.ItemName = r.Cells("ItemName").Value
             m.ItemValue = CDbl(r.Cells("ItemValue").Value)
             m.Status = r.Cells("Status").Value
+            m.SubContractorId = r.Cells("SubContractorId").Value
+            m.Fee = CDbl(IsNull(r.Cells("Fee").Value, 0))
             Me.showItemDetail(m)
         End If
     End Sub

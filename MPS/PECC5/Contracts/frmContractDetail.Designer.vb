@@ -158,7 +158,6 @@ Partial Class frmContractDetail
         Me.txtContractName = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.lblUnit = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
-        Me.lblExample = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
         Me.lblContractValue = New System.Windows.Forms.Label
         Me.lblExpireDate = New System.Windows.Forms.Label
@@ -345,7 +344,6 @@ Partial Class frmContractDetail
         Me.grpMainInfo.Controls.Add(Me.txtContractName)
         Me.grpMainInfo.Controls.Add(Me.lblUnit)
         Me.grpMainInfo.Controls.Add(Me.Label8)
-        Me.grpMainInfo.Controls.Add(Me.lblExample)
         Me.grpMainInfo.Controls.Add(Me.Label4)
         Me.grpMainInfo.Controls.Add(Me.lblContractValue)
         Me.grpMainInfo.Controls.Add(Me.lblExpireDate)
@@ -650,7 +648,7 @@ Partial Class frmContractDetail
         Me.txtContractId.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContractId.Location = New System.Drawing.Point(161, 70)
         Me.txtContractId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtContractId.MaxLength = 9
+        Me.txtContractId.MaxLength = 50
         Me.txtContractId.Name = "txtContractId"
         Me.txtContractId.Size = New System.Drawing.Size(191, 25)
         Me.txtContractId.TabIndex = 1
@@ -698,17 +696,6 @@ Partial Class frmContractDetail
         Me.Label8.Size = New System.Drawing.Size(110, 16)
         Me.Label8.TabIndex = 11
         Me.Label8.Text = "9. Tổng giá trị HĐ"
-        '
-        'lblExample
-        '
-        Me.lblExample.AutoSize = True
-        Me.lblExample.BackColor = System.Drawing.Color.Transparent
-        Me.lblExample.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblExample.Location = New System.Drawing.Point(358, 74)
-        Me.lblExample.Name = "lblExample"
-        Me.lblExample.Size = New System.Drawing.Size(108, 16)
-        Me.lblExample.TabIndex = 11
-        Me.lblExample.Text = "Ví dụ: 11819.BNN"
         '
         'Label4
         '
@@ -1069,7 +1056,7 @@ Partial Class frmContractDetail
         '
         Me.lnkAddFile.AutoSize = True
         Me.lnkAddFile.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.lnkAddFile.Location = New System.Drawing.Point(851, 5)
+        Me.lnkAddFile.Location = New System.Drawing.Point(851, 9)
         Me.lnkAddFile.Name = "lnkAddFile"
         Me.lnkAddFile.Size = New System.Drawing.Size(41, 16)
         Me.lnkAddFile.TabIndex = 12
@@ -1588,7 +1575,6 @@ Partial Class frmContractDetail
     Friend WithEvents cboMainContractor As Infragistics.Win.UltraWinGrid.UltraCombo
     Friend WithEvents txtContractId As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents txtContractName As Infragistics.Win.UltraWinEditors.UltraTextEditor
-    Friend WithEvents lblExample As System.Windows.Forms.Label
     Friend WithEvents lblContractId As System.Windows.Forms.Label
     Friend WithEvents lblCreateDate As System.Windows.Forms.Label
     Friend WithEvents lblContractName As System.Windows.Forms.Label

@@ -134,16 +134,17 @@ Public Class DAL_Contracts
             End If
         End If
 
-        sql = "Insert into ContractDetails(ContractId,ItemId,ItemName,Status,ItemValue,SubContractorId,CreatedAt)"
-        sql += " values(@ContractId,@ItemId,@ItemName,@Status,@ItemValue,@SubContractorId,getdate())"
+        sql = "Insert into ContractDetails(ContractId,ItemId,ItemName,Status,ItemValue,SubContractorId,Fee,CreatedAt)"
+        sql += " values(@ContractId,@ItemId,@ItemName,@Status,@ItemValue,@SubContractorId,@Fee,getdate())"
         For Each it In m.arrContractDetail
-            Dim pm(5) As SqlParameter
+            Dim pm(6) As SqlParameter
             pm(0) = New SqlParameter("@ContractId", m.ContractId)
             pm(1) = New SqlParameter("@ItemId", it.ItemId)
             pm(2) = New SqlParameter("@ItemName", it.ItemName)
             pm(3) = New SqlParameter("@Status", it.Status)
             pm(4) = New SqlParameter("@ItemValue", it.ItemValue)
             pm(5) = New SqlParameter("@SubContractorId", it.SubContractorId)
+            pm(6) = New SqlParameter("@Fee", it.Fee)
             If Not Me.execSQL(sql, pm) Then
                 Me.RollbackTransction()
                 Return False
@@ -401,6 +402,7 @@ Public Class DAL_Contracts
                 m.ItemValue = IsNull(r("ItemValue"), 0)
                 m.SubContractorId = IsNull(r("SubContractorId"), "")
                 m.SubContractorName = IsNull(r("SubContractorName"), "")
+                m.Fee = IsNull(r("Fee"), 0)
                 m.Status = IsNull(r("Status"), "")
                 m.StatusDesc = Me.StatusText(m.Status)
                 arr.Add(m)

@@ -148,4 +148,23 @@
             m_SubContractorName = value
         End Set
     End Property
+
+
+    Private m_Fee As Double = 0
+    ''' <summary>
+    ''' chi phí thuê nhà thầu
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Fee() As Double
+        Get
+            Return m_Fee
+        End Get
+        Set(ByVal value As Double)
+            m_Fee = value
+        End Set
+    End Property
+
+
 End Class
