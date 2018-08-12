@@ -2,8 +2,8 @@
     Inherits Infragistics.Win.UltraWinEditors.UltraTextEditor
 
     Private isPlaceHolder As Boolean = True
-    Private _placeHolderText As String
-    Public Property PlaceHolderText() As String
+    Private _placeHolderText As String = ""
+    Public Property PlaceHolder() As String
         Get
             Return _placeHolderText
         End Get
@@ -16,7 +16,7 @@
     'when the control loses focus, the placeholder is shown
     Private Sub setPlaceholder()
         If String.IsNullOrEmpty(Me.Text) Then
-            Me.Text = PlaceHolderText
+            Me.Text = PlaceHolder
             Me.ForeColor = Color.Gray
             Me.Font = New Font(Me.Font, FontStyle.Italic)
             isPlaceHolder = True
@@ -25,7 +25,6 @@
 
     'when the control is focused, the placeholder is removed
     Private Sub removePlaceHolder()
-
         If isPlaceHolder Then
             Me.Text = ""
             Me.ForeColor = System.Drawing.SystemColors.WindowText
@@ -36,6 +35,7 @@
     Public Sub New()
         AddHandler KeyDown, AddressOf removePlaceHolder
         AddHandler LostFocus, AddressOf setPlaceholder
+        AddHandler GotFocus, AddressOf removePlaceHolder
     End Sub
 
     Private Sub setPlaceholder(ByVal sender As Object, ByVal e As EventArgs)

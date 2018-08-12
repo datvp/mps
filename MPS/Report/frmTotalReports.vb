@@ -11,6 +11,8 @@ Public Class frmTotalReports
     Private bs As BLL.BSubContractors = BLL.BSubContractors.Instance
     Private tbContractId As DataTable = Nothing
     Private tbSubContractors As DataTable = Nothing
+    Private rp As New ReportDocument
+    Private clsrpt As New ClsReport
 
     Private Sub LoadSubContractors()
         If tbSubContractors Is Nothing Then tbSubContractors = bs.getListSubContractors()
@@ -54,6 +56,26 @@ Public Class frmTotalReports
                     End If
                     fBySubContractorId = False
                     Grid.DataSource = cls.ReportContractsBySubContractorId(cboBranch.Value)
+                Case 15 ' báo cáo tình trạng của 1 hợp đồng
+                    If cboBranch.Value Is Nothing Then
+                        ShowMsg("Bạn chưa chọn hợp đồng.")
+                        cboBranch.Focus()
+                        Exit Select
+                    End If
+                    Grid.DataSource = Nothing
+                    Dim contractId As String = cboBranch.Value
+                    Dim tb = lstFunc.DataSource
+                    Dim DF() As DataRow = tb.Select("ID=15")
+                    Dim pathReport = ""
+                    If DF.Length > 0 Then
+                        pathReport = IsNull(DF(0)("PathFile"), "")
+                    End If
+                    If pathReport = "" Then Exit Select
+                    rp = clsrpt.InitReport(Application.StartupPath & pathReport)
+                    clsrpt.SetParameter(rp, contractId)
+                    Dim frm As New FrmReport
+                    frm.rpt.ReportSource = rp
+                    frm.Show()
                 Case 16 'Báo cáo Tình trạng nhiều hợp đồng
                     fByStatusContracts = False
                     Grid.DataSource = cls.ReportStatusOfContracts(dtFrom.Value, dtTo.Value)

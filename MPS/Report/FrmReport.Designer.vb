@@ -62,7 +62,7 @@ Partial Class FrmReport
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button2.Location = New System.Drawing.Point(563, 2)
+        Me.Button2.Location = New System.Drawing.Point(558, 2)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(54, 23)
         Me.Button2.TabIndex = 3

@@ -1069,7 +1069,7 @@ Partial Class frmContractDetail
         '
         Me.lnkAddFile.AutoSize = True
         Me.lnkAddFile.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.lnkAddFile.Location = New System.Drawing.Point(851, 1)
+        Me.lnkAddFile.Location = New System.Drawing.Point(851, 5)
         Me.lnkAddFile.Name = "lnkAddFile"
         Me.lnkAddFile.Size = New System.Drawing.Size(41, 16)
         Me.lnkAddFile.TabIndex = 12
@@ -1172,7 +1172,7 @@ Partial Class frmContractDetail
         Me.grpPayment.Name = "grpPayment"
         Me.grpPayment.Size = New System.Drawing.Size(941, 434)
         Me.grpPayment.TabIndex = 14
-        Me.grpPayment.Text = "CHI TIẾT CÁC ĐỢT THANH TOÁN CHO CHỦ ĐẦU TƯ"
+        Me.grpPayment.Text = "CHI TIẾT CÁC ĐỢT NGHIỆM THU"
         Me.grpPayment.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
         'lnkAddPayment
