@@ -826,6 +826,8 @@ Public Class DALSQL
                 Return "Không duyệt"
             Case "Pending"
                 Return "Tạm ngưng"
+            Case "Inprogress"
+                Return "Đang xử lý"
             Case "Completed"
                 Return "Hoàn thành"
             Case "WaitForPay"

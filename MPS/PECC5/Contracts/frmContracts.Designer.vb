@@ -42,7 +42,7 @@ Partial Class frmContracts
         Dim Appearance65 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance27 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraToolbar1 As Infragistics.Win.UltraWinToolbars.UltraToolbar = New Infragistics.Win.UltraWinToolbars.UltraToolbar("Toolbar1")
+        Dim UltraToolbar2 As Infragistics.Win.UltraWinToolbars.UltraToolbar = New Infragistics.Win.UltraWinToolbars.UltraToolbar("Toolbar1")
         Dim ButtonTool1 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnAdd")
         Dim ButtonTool2 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnEdit")
         Dim ButtonTool3 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnDel")
@@ -61,16 +61,16 @@ Partial Class frmContracts
         Dim StateButtonTool2 As Infragistics.Win.UltraWinToolbars.StateButtonTool = New Infragistics.Win.UltraWinToolbars.StateButtonTool("btnFilter", "")
         Dim Appearance26 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ComboBoxTool2 As Infragistics.Win.UltraWinToolbars.ComboBoxTool = New Infragistics.Win.UltraWinToolbars.ComboBoxTool("cboDateFilter")
-        Dim ValueList1 As Infragistics.Win.ValueList = New Infragistics.Win.ValueList(0)
-        Dim ValueListItem1 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem2 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem3 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem4 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem5 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem6 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem7 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem8 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
-        Dim ValueListItem9 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueList2 As Infragistics.Win.ValueList = New Infragistics.Win.ValueList(0)
+        Dim ValueListItem10 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem11 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem12 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem13 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem14 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem15 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem16 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem17 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
+        Dim ValueListItem18 As Infragistics.Win.ValueListItem = New Infragistics.Win.ValueListItem
         Dim LabelTool2 As Infragistics.Win.UltraWinToolbars.LabelTool = New Infragistics.Win.UltraWinToolbars.LabelTool("lblTime")
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.Panel1 = New System.Windows.Forms.Panel
@@ -101,6 +101,12 @@ Partial Class frmContracts
         Me.T_Layout = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Export = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_UpdateStatus = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_StatusSigned = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_StatusInprogress = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_StatusCompleted = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_StatusPending = New System.Windows.Forms.ToolStripMenuItem
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.Panel1.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlFilter.SuspendLayout()
@@ -386,12 +392,12 @@ Partial Class frmContracts
         Me.Toolbars.ShowFullMenusDelay = 500
         Me.Toolbars.ShowQuickCustomizeButton = False
         Me.Toolbars.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.Office2007
-        UltraToolbar1.DockedColumn = 0
-        UltraToolbar1.DockedRow = 0
+        UltraToolbar2.DockedColumn = 0
+        UltraToolbar2.DockedRow = 0
         LabelTool1.InstanceProps.IsFirstInGroup = True
-        UltraToolbar1.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool1, ButtonTool2, ButtonTool3, ButtonTool7, LabelTool1, ComboBoxTool1, StateButtonTool1})
-        UltraToolbar1.Text = "Toolbar1"
-        Me.Toolbars.Toolbars.AddRange(New Infragistics.Win.UltraWinToolbars.UltraToolbar() {UltraToolbar1})
+        UltraToolbar2.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool1, ButtonTool2, ButtonTool3, ButtonTool7, LabelTool1, ComboBoxTool1, StateButtonTool1})
+        UltraToolbar2.Text = "Toolbar1"
+        Me.Toolbars.Toolbars.AddRange(New Infragistics.Win.UltraWinToolbars.UltraToolbar() {UltraToolbar2})
         Me.Toolbars.ToolbarSettings.FillEntireRow = Infragistics.Win.DefaultableBoolean.[True]
         Appearance12.FontData.BoldAsString = "True"
         Appearance12.Image = Global.MPS.My.Resources.Resources.document_new
@@ -421,26 +427,26 @@ Partial Class frmContracts
         StateButtonTool2.SharedProps.AppearancesSmall.Appearance = Appearance26
         StateButtonTool2.SharedProps.Caption = "Tìm kiếm nâng cao"
         ComboBoxTool2.SharedProps.Caption = "cboDateFilter"
-        ValueListItem1.DataValue = "ValueListItem0"
-        ValueListItem1.DisplayText = "Hôm nay"
-        ValueListItem2.DataValue = "ValueListItem1"
-        ValueListItem2.DisplayText = "Hôm qua"
-        ValueListItem3.DataValue = "ValueListItem2"
-        ValueListItem3.DisplayText = "Tuần này"
-        ValueListItem4.DataValue = "ValueListItem3"
-        ValueListItem4.DisplayText = "Tuần trước"
-        ValueListItem5.DataValue = "ValueListItem4"
-        ValueListItem5.DisplayText = "Tháng này"
-        ValueListItem6.DataValue = "ValueListItem5"
-        ValueListItem6.DisplayText = "Tháng trước"
-        ValueListItem7.DataValue = "ValueListItem6"
-        ValueListItem7.DisplayText = "Năm này"
-        ValueListItem8.DataValue = "ValueListItem7"
-        ValueListItem8.DisplayText = "Năm trước"
-        ValueListItem9.DataValue = "ValueListItem8"
-        ValueListItem9.DisplayText = "Tất cả"
-        ValueList1.ValueListItems.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem1, ValueListItem2, ValueListItem3, ValueListItem4, ValueListItem5, ValueListItem6, ValueListItem7, ValueListItem8, ValueListItem9})
-        ComboBoxTool2.ValueList = ValueList1
+        ValueListItem10.DataValue = "ValueListItem0"
+        ValueListItem10.DisplayText = "Hôm nay"
+        ValueListItem11.DataValue = "ValueListItem1"
+        ValueListItem11.DisplayText = "Hôm qua"
+        ValueListItem12.DataValue = "ValueListItem2"
+        ValueListItem12.DisplayText = "Tuần này"
+        ValueListItem13.DataValue = "ValueListItem3"
+        ValueListItem13.DisplayText = "Tuần trước"
+        ValueListItem14.DataValue = "ValueListItem4"
+        ValueListItem14.DisplayText = "Tháng này"
+        ValueListItem15.DataValue = "ValueListItem5"
+        ValueListItem15.DisplayText = "Tháng trước"
+        ValueListItem16.DataValue = "ValueListItem6"
+        ValueListItem16.DisplayText = "Năm này"
+        ValueListItem17.DataValue = "ValueListItem7"
+        ValueListItem17.DisplayText = "Năm trước"
+        ValueListItem18.DataValue = "ValueListItem8"
+        ValueListItem18.DisplayText = "Tất cả"
+        ValueList2.ValueListItems.AddRange(New Infragistics.Win.ValueListItem() {ValueListItem10, ValueListItem11, ValueListItem12, ValueListItem13, ValueListItem14, ValueListItem15, ValueListItem16, ValueListItem17, ValueListItem18})
+        ComboBoxTool2.ValueList = ValueList2
         LabelTool2.SharedProps.Caption = "Thời gian"
         Me.Toolbars.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool4, ButtonTool5, ButtonTool6, ButtonTool8, StateButtonTool2, ComboBoxTool2, LabelTool2})
         '
@@ -480,9 +486,9 @@ Partial Class frmContracts
         'ctMenu
         '
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export})
+        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export, Me.ToolStripSeparator1, Me.T_UpdateStatus})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 176)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 226)
         '
         'T_Add
         '
@@ -562,6 +568,47 @@ Partial Class frmContracts
         Me.T_Export.Size = New System.Drawing.Size(200, 22)
         Me.T_Export.Text = "Xuất ra Excel"
         '
+        'T_UpdateStatus
+        '
+        Me.T_UpdateStatus.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_StatusSigned, Me.T_StatusInprogress, Me.T_StatusCompleted, Me.T_StatusPending})
+        Me.T_UpdateStatus.ForeColor = System.Drawing.Color.Navy
+        Me.T_UpdateStatus.Name = "T_UpdateStatus"
+        Me.T_UpdateStatus.Size = New System.Drawing.Size(200, 22)
+        Me.T_UpdateStatus.Text = "Cập nhật tình trạng"
+        '
+        'T_StatusSigned
+        '
+        Me.T_StatusSigned.ForeColor = System.Drawing.Color.Navy
+        Me.T_StatusSigned.Name = "T_StatusSigned"
+        Me.T_StatusSigned.Size = New System.Drawing.Size(152, 22)
+        Me.T_StatusSigned.Text = "Đã ký"
+        '
+        'T_StatusInprogress
+        '
+        Me.T_StatusInprogress.ForeColor = System.Drawing.Color.Navy
+        Me.T_StatusInprogress.Name = "T_StatusInprogress"
+        Me.T_StatusInprogress.Size = New System.Drawing.Size(152, 22)
+        Me.T_StatusInprogress.Text = "Đang xử lý"
+        '
+        'T_StatusCompleted
+        '
+        Me.T_StatusCompleted.ForeColor = System.Drawing.Color.Navy
+        Me.T_StatusCompleted.Name = "T_StatusCompleted"
+        Me.T_StatusCompleted.Size = New System.Drawing.Size(152, 22)
+        Me.T_StatusCompleted.Text = "Hoàn thành"
+        '
+        'T_StatusPending
+        '
+        Me.T_StatusPending.ForeColor = System.Drawing.Color.Navy
+        Me.T_StatusPending.Name = "T_StatusPending"
+        Me.T_StatusPending.Size = New System.Drawing.Size(152, 22)
+        Me.T_StatusPending.Text = "Tạm ngưng"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(197, 6)
+        '
         'frmContracts
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -616,4 +663,10 @@ Partial Class frmContracts
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cboOperatorPer As System.Windows.Forms.ComboBox
     Friend WithEvents cboOperatorLength As System.Windows.Forms.ComboBox
+    Friend WithEvents T_UpdateStatus As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents T_StatusSigned As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents T_StatusInprogress As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents T_StatusCompleted As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents T_StatusPending As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
 End Class

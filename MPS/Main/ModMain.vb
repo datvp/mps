@@ -1168,6 +1168,8 @@ Module ModMain
                 Return "Không duyệt"
             Case Statuses.Pending
                 Return "Tạm ngưng"
+            Case Statuses.Inprogress
+                Return "Đang xử lý"
             Case Statuses.Completed
                 Return "Hoàn thành"
             Case Statuses.WaitForPay

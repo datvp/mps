@@ -29,6 +29,7 @@
     ''' </summary>
     ''' <remarks></remarks>
     Public Shared ReadOnly Pending As String = "Pending"
+    Public Shared ReadOnly Inprogress As String = "Inprogress"
     Public Shared ReadOnly Completed As String = "Completed"
     Public Shared ReadOnly WaitForPay As String = "WaitForPay"
     ''' <summary>

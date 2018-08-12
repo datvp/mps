@@ -111,7 +111,6 @@ Public Class frmContractDetail
         If cboProject.Value IsNot Nothing Then
             m.ProjectId = cboProject.Value
         End If
-        m.ContractState = Statuses.Signed
         If cboMainContractor.Value IsNot Nothing Then
             m.MainContractorId = cboMainContractor.Value
         End If
@@ -141,6 +140,12 @@ Public Class frmContractDetail
         Next
         m.PathToSave = Path.Combine(mbc.PathToSave, m.ContractId)
         m.arrFileDeleted = Me.arrFileDeleted
+
+        If mInfo IsNot Nothing Then ' edit
+            m.ContractState = mInfo.ContractState
+        Else 'add
+            m.ContractState = Statuses.Signed
+        End If
         Return m
     End Function
     Private Function CheckOK(ByVal m As Model.MContract) As Boolean

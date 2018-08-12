@@ -364,7 +364,7 @@ Public Class DAL_Contracts
         Me.BeginTranstion()
         Dim m = Me.getContractDetailById(contractId, False)
         Dim sql = "Update Contracts set ContractState=@ContractState where ContractId=@ContractId"
-        If Not Me.execSQL(sql, New SqlParameter("@ContractId", contractId)) Then
+        If Not Me.execSQL(sql, New SqlParameter("@ContractId", contractId), New SqlParameter("@ContractState", status)) Then
             Me.RollbackTransction()
             Return False
         End If

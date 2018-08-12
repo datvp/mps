@@ -220,24 +220,10 @@ Public Class frmContracts
         End Try
     End Sub
 
-    Private Sub approve(ByVal isAccepted As Boolean)
+    Private Sub approve(ByVal status As String)
         Dim r As UltraGridRow = Grid.ActiveRow
         If r IsNot Nothing AndAlso r.Index <> -1 Then
             Dim contractId = r.Cells("ContractId").Value
-            Dim status = Statuses.Accepted
-            If Not isAccepted Then
-                Dim reason = InputBox("Nhập lý do bạn KHÔNG duyệt hợp đồng:[" + contractId + "]")
-                If reason = "" Then
-                    Exit Sub
-                End If
-                status = Statuses.Rejected
-            Else
-                If ShowMsgYesNo("Bạn muốn Duyệt hợp đồng số:[" + contractId + "] ?", m_MsgCaption) = Windows.Forms.DialogResult.No Then
-                    Exit Sub
-                End If
-            End If
-
-
             Dim ok = cls.updateStatus(contractId, status, ModMain.m_UIDLogin)
             If ok Then
                 ShowMsgInfo(m_MsgSaveSuccess)
@@ -306,6 +292,16 @@ Public Class frmContracts
         T_Layout.Enabled = True
         T_Export.Enabled = True
 
+        T_StatusSigned.Enabled = True
+        T_StatusInprogress.Enabled = True
+        T_StatusCompleted.Enabled = True
+        T_StatusPending.Enabled = True
+
+        T_StatusSigned.Image = Nothing
+        T_StatusInprogress.Image = Nothing
+        T_StatusCompleted.Image = Nothing
+        T_StatusPending.Image = Nothing
+
         Dim r As UltraGridRow = Grid.ActiveRow
 
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
@@ -323,16 +319,33 @@ Public Class frmContracts
             fExit = True
             T_Edit.Enabled = False
             T_DEL.Enabled = False
-            If Grid.Rows.Count < 1 Then
-                T_SelectAll.Enabled = False
-                T_Export.Enabled = False
-            End If
+            T_SelectAll.Enabled = False
+            T_Export.Enabled = False
+            T_StatusSigned.Enabled = False
+            T_StatusInprogress.Enabled = False
+            T_StatusCompleted.Enabled = False
+            T_StatusPending.Enabled = False
         Else
             If Not result.IsDataRow Then
                 Exit Sub
             End If
             result.Activated = True
             r = result
+            Dim status = result.Cells("ContractState").Value.ToString
+            Select Case status
+                Case Statuses.Signed
+                    T_StatusSigned.Enabled = False
+                    T_StatusSigned.Image = ModMain.m_OkIcon
+                Case Statuses.Inprogress
+                    T_StatusInprogress.Enabled = False
+                    T_StatusInprogress.Image = ModMain.m_OkIcon
+                Case Statuses.Completed
+                    T_StatusCompleted.Enabled = False
+                    T_StatusCompleted.Image = ModMain.m_OkIcon
+                Case Statuses.Pending
+                    T_StatusPending.Enabled = False
+                    T_StatusPending.Image = ModMain.m_OkIcon
+            End Select
         End If
 
         If e.Button = Windows.Forms.MouseButtons.Right Then
@@ -375,12 +388,20 @@ Public Class frmContracts
         SelectAll(Grid)
     End Sub
 
-    Private Sub T_Accept_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.approve(True)
+    Private Sub T_StatusSigned_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_StatusSigned.Click
+        Me.approve(Statuses.Signed)
     End Sub
 
-    Private Sub T_Decline_Click(ByVal sender As Object, ByVal e As System.EventArgs)
-        Me.approve(False)
+    Private Sub T_StatusInprogress_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_StatusInprogress.Click
+        Me.approve(Statuses.Inprogress)
+    End Sub
+
+    Private Sub T_StatusCompleted_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_StatusCompleted.Click
+        Me.approve(Statuses.Completed)
+    End Sub
+
+    Private Sub T_StatusPending_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_StatusPending.Click
+        Me.approve(Statuses.Pending)
     End Sub
 #End Region
 
