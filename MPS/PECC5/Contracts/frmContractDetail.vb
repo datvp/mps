@@ -122,9 +122,9 @@ Public Class frmContractDetail
         m.Note = txtNote.Text
         For Each it In m.arrSubContract
             If m.SubContracts = "" Then
-                m.SubContracts = it.SubContractName
+                m.SubContracts = it.SubContractId
             Else
-                m.SubContracts += " | " + it.SubContractName
+                m.SubContracts += " | " + it.SubContractId
             End If
             m.ValueExt += it.SubContractValue
         Next
@@ -290,35 +290,39 @@ Public Class frmContractDetail
                 For Each it In m.arrSubContract
                     Dim foundItem = Me.findSubContract(it, mInfo.arrSubContract, False)
                     If foundItem Is Nothing Then
-                        desc += vbCrLf & "Thêm phụ lục hợp đồng: [" + it.SubContractName + "]"
+                        desc += vbCrLf & "Thêm phụ lục hợp đồng: [" + it.SubContractId + "]"
                     End If
                 Next
             ElseIf m.arrSubContract.Count < mInfo.arrSubContract.Count Then
                 For Each it In mInfo.arrSubContract
                     Dim foundItem = Me.findSubContract(it, m.arrSubContract, False)
                     If foundItem Is Nothing Then
-                        desc += vbCrLf & "Xóa phụ lục hợp đồng: [" + it.SubContractName + "]"
+                        desc += vbCrLf & "Xóa phụ lục hợp đồng: [" + it.SubContractId + "]"
                     End If
                 Next
             Else
                 For Each it In m.arrSubContract
                     Dim foundItem = Me.findSubContract(it, mInfo.arrSubContract, False)
                     If foundItem Is Nothing Then
-                        desc += vbCrLf & "Thay đổi phụ lục hợp đồng: -> [" + it.SubContractName + "]"
+                        desc += vbCrLf & "Thay đổi phụ lục hợp đồng: -> [" + it.SubContractId + "]"
                     Else 'found
-                        If it.SubContractName <> foundItem.SubContractName _
+                        If it.Note <> foundItem.Note _
+                            OrElse it.SubContractDate <> foundItem.SubContractDate _
                             OrElse it.SubContractValue <> foundItem.SubContractValue _
                             OrElse it.SubContractDeadLine <> foundItem.SubContractDeadLine _
                         Then
-                            desc += vbCrLf & "Sửa phụ lục hợp đồng [" + it.SubContractName + "]: "
-                            If it.SubContractName <> foundItem.SubContractName Then
-                                desc += vbCrLf & " - Tên: [" + foundItem.SubContractName + "] -> [" + it.SubContractName + "]"
+                            desc += vbCrLf & "Sửa phụ lục hợp đồng [" + it.SubContractId + "]: "
+                            If it.Note <> foundItem.Note Then
+                                desc += vbCrLf & " - Nội dung: [" + foundItem.Note + "] -> [" + it.Note + "]"
+                            End If
+                            If it.SubContractDate <> foundItem.SubContractDate Then
+                                desc += vbCrLf & " - Ngày gia hạn: [" + foundItem.SubContractDate.ToString("dd/MM/yyyy") + "] -> [" + it.SubContractDate.ToString("dd/MM/yyyy") + "]"
                             End If
                             If it.SubContractValue <> foundItem.SubContractValue Then
-                                desc += vbCrLf & " - Giá trị: [" + foundItem.SubContractValue + "] -> [" + it.SubContractValue + "]"
+                                desc += vbCrLf & " - Thay đổi giá trị: [" + foundItem.SubContractValue + "] -> [" + it.SubContractValue + "]"
                             End If
                             If it.SubContractDeadLine <> foundItem.SubContractDeadLine Then
-                                desc += vbCrLf & " - Ngày gia hạn: [" + foundItem.SubContractDeadLine.ToString("dd/MM/yyyy") + "] -> [" + it.SubContractDeadLine.ToString("dd/MM/yyyy") + "]"
+                                desc += vbCrLf & " - Thay đổi thời gian: [" + foundItem.SubContractDeadLine.ToString("dd/MM/yyyy") + "] -> [" + it.SubContractDeadLine.ToString("dd/MM/yyyy") + "]"
                             End If
                         End If
                     End If
@@ -540,9 +544,10 @@ Public Class frmContractDetail
                 If found Is Nothing Then
                     Dim m As New Model.MSubContract
                     m.SubContractId = item.SubContractId
-                    m.SubContractName = item.SubContractName
+                    m.Note = item.Note
                     m.SubContractValue = item.SubContractValue
                     m.SubContractDeadLine = item.SubContractDeadLine
+                    m.SubContractDate = item.SubContractDate
                     arr.Insert(arr.Count, m)
                 End If
                 grdSubContracts.Rows.Refresh(RefreshRow.RefreshDisplay)
@@ -683,9 +688,10 @@ Public Class frmContractDetail
         While i < arr.Count And found Is Nothing
             If arr.Item(i).SubContractId = item.SubContractId Then
                 If isUpdate Then
-                    arr.Item(i).SubContractName = item.SubContractName
+                    arr.Item(i).Note = item.Note
                     arr.Item(i).SubContractValue = item.SubContractValue
                     arr.Item(i).SubContractDeadLine = item.SubContractDeadLine
+                    arr.Item(i).SubContractDate = item.SubContractDate
                 End If
                 found = arr.Item(i)
             End If
@@ -922,9 +928,10 @@ Public Class frmContractDetail
         If r IsNot Nothing Then
             Dim m As New Model.MSubContract
             m.SubContractId = r.Cells("SubContractId").Value
-            m.SubContractName = r.Cells("SubContractName").Value
+            m.Note = r.Cells("Note").Value
             m.SubContractValue = CDbl(r.Cells("SubContractValue").Value)
             m.SubContractDeadLine = CDate(r.Cells("SubContractDeadLine").Value)
+            m.SubContractDate = CDate(IsNull(r.Cells("SubContractDate").Value, "2000-1-1"))
             Me.showSubContractDetail(m)
         End If
     End Sub
@@ -1190,4 +1197,7 @@ Public Class frmContractDetail
     End Sub
 
 
+    Private Sub lnkAddSubContract_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkAddSubContract.LinkClicked
+
+    End Sub
 End Class

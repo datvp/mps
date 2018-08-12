@@ -160,15 +160,16 @@ Public Class DAL_Contracts
             End If
         End If
 
-        sql = "Insert into SubContracts(ContractId,SubContractId,SubContractName,SubContractDeadLine,SubContractValue,CreatedAt)"
-        sql += " values(@ContractId,@SubContractId,@SubContractName,@SubContractDeadLine,@SubContractValue,getdate())"
+        sql = "Insert into SubContracts(ContractId,SubContractId,Note,SubContractDate,SubContractDeadLine,SubContractValue,CreatedAt)"
+        sql += " values(@ContractId,@SubContractId,@Note,@SubContractDate,@SubContractDeadLine,@SubContractValue,getdate())"
         For Each it In m.arrSubContract
-            Dim pm(4) As SqlParameter
+            Dim pm(5) As SqlParameter
             pm(0) = New SqlParameter("@ContractId", m.ContractId)
             pm(1) = New SqlParameter("@SubContractId", it.SubContractId)
-            pm(2) = New SqlParameter("@SubContractName", it.SubContractName)
+            pm(2) = New SqlParameter("@Note", it.Note)
             pm(3) = New SqlParameter("@SubContractDeadLine", it.SubContractDeadLine)
             pm(4) = New SqlParameter("@SubContractValue", it.SubContractValue)
+            pm(5) = New SqlParameter("@SubContractDate", it.SubContractDate)
             If Not Me.execSQL(sql, pm) Then
                 Me.RollbackTransction()
                 Return False
@@ -436,7 +437,8 @@ Public Class DAL_Contracts
                 Dim m As New Model.MSubContract
                 m.ContractId = IsNull(r("ContractId"), "")
                 m.SubContractId = IsNull(r("SubContractId"), "")
-                m.SubContractName = IsNull(r("SubContractName"), "")
+                m.Note = IsNull(r("Note"), "")
+                m.SubContractDate = IsNull(r("SubContractDate"), CDate("2000-1-1"))
                 m.SubContractDeadLine = IsNull(r("SubContractDeadLine"), CDate("2000-1-1"))
                 m.SubContractValue = IsNull(r("SubContractValue"), 0)
                 arr.Add(m)

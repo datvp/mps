@@ -15,7 +15,7 @@
         End Set
     End Property
 
-    Private m_ContractId As String
+    Private m_ContractId As String = ""
     Public Property ContractId() As String
         Get
             Return m_ContractId
@@ -25,24 +25,13 @@
         End Set
     End Property
 
-    Private m_SubContractId As String
+    Private m_SubContractId As String = ""
     Public Property SubContractId() As String
         Get
             Return m_SubContractId
         End Get
         Set(ByVal value As String)
             m_SubContractId = value
-        End Set
-    End Property
-
-
-    Private m_SubContractName As String
-    Public Property SubContractName() As String
-        Get
-            Return m_SubContractName
-        End Get
-        Set(ByVal value As String)
-            m_SubContractName = value
         End Set
     End Property
 
@@ -55,7 +44,21 @@
             m_SubContractValue = value
         End Set
     End Property
-
+    Private m_SubContractDate As Date = CDate("2000-1-1")
+    ''' <summary>
+    ''' ngày ký phụ lục
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property SubContractDate() As Date
+        Get
+            Return m_SubContractDate
+        End Get
+        Set(ByVal value As Date)
+            m_SubContractDate = value
+        End Set
+    End Property
     Private m_SubContractDeadLine As Date = CDate("2000-1-1")
     Public Property SubContractDeadLine() As Date
         Get
@@ -85,4 +88,22 @@
             m_UpdatedAt = value
         End Set
     End Property
+
+    Private m_Note As String = ""
+    ''' <summary>
+    ''' nội dung phụ lục hợp đồng
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property Note() As String
+        Get
+            Return m_Note
+        End Get
+        Set(ByVal value As String)
+            m_Note = value
+        End Set
+    End Property
+
+
 End Class

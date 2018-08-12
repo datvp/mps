@@ -21,32 +21,35 @@
     End Sub
     Private Sub LoadInfo(ByVal m As Model.MSubContract)
         txtSubContractorId.Text = m.SubContractId
-        txtSubContractorName.Text = m.SubContractName
+        txtNote.Text = m.Note
+        dtSubContractDate.Value = m.SubContractDate
+
+        If m.SubContractDeadLine.Year <> 2000 Then
+            dtSubContractDeadLine.Checked = True
+            dtSubContractDeadLine.Value = m.SubContractDeadLine
+        End If
         txtSubContractValue.Text = Format(m.SubContractValue, ModMain.m_strFormatCur)
-        dtSubContractDeadLine.Value = m.SubContractDeadLine
     End Sub
     Private Function setInfo() As Model.MSubContract
         Dim m As New Model.MSubContract
         m.SubContractId = txtSubContractorId.Text
-        m.SubContractName = txtSubContractorName.Text
+        m.Note = txtNote.Text
+        m.SubContractDate = dtSubContractDate.Value
         m.SubContractValue = CDbl(txtSubContractValue.Text)
-        m.SubContractDeadLine = dtSubContractDeadLine.Value
+        If dtSubContractDeadLine.Checked Then
+            m.SubContractDeadLine = dtSubContractDeadLine.Value
+        End If
         Return m
     End Function
     Private Function CheckOK(ByVal m As Model.MSubContract) As Boolean
-        If m.SubContractName = "" Then
-            ShowMsg("Chưa nhập tên phụ lục")
-            txtSubContractorName.Focus()
+        If m.Note = "" Then
+            ShowMsg("Chưa nhập nội dung hợp đồng")
+            txtNote.Focus()
             Return False
         End If
         If m.SubContractId = "" Then
             ShowMsg("Chưa nhập mã phụ lục")
             txtSubContractorId.Focus()
-            Return False
-        End If
-        If m.SubContractValue = 0 Then
-            ShowMsg("Nhập giá trị cộng thêm")
-            txtSubContractValue.Focus()
             Return False
         End If
         If DateDiffM("day", Me.deadline, dtSubContractDeadLine.Value) <= 0 Then
