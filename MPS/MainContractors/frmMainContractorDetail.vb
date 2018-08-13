@@ -40,6 +40,7 @@
         txtContactName.Text = m.ContactName
         txtContactEmail.Text = m.ContactEmail
         txtContactPhone.Text = m.ContactPhone
+        txtNote.Text = m.Note
     End Sub
     Private Sub LoadInfo(ByVal MainContractorId As String)
         Dim m = b.getMainContractorDetailById(MainContractorId)
@@ -55,6 +56,7 @@
         txtContactName.Text = m.ContactName
         txtContactEmail.Text = m.ContactEmail
         txtContactPhone.Text = m.ContactPhone
+        txtNote.Text = m.Note
     End Sub
     Private Function setInfo() As Model.MMainContractor
         Dim m As New Model.MMainContractor
@@ -68,6 +70,7 @@
         m.ContactName = txtContactName.Text
         m.ContactEmail = txtContactEmail.Text
         m.ContactPhone = txtContactPhone.Text
+        m.Note = txtNote.Text
         Return m
     End Function
     Private Function CheckOK(ByVal m As Model.MMainContractor) As Boolean

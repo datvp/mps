@@ -636,9 +636,9 @@ Partial Class frmContractDetail
         Me.Label9.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(358, 312)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(33, 16)
+        Me.Label9.Size = New System.Drawing.Size(15, 16)
         Me.Label9.TabIndex = 11
-        Me.Label9.Text = "VNĐ"
+        Me.Label9.Text = "đ"
         '
         'txtContractId
         '
@@ -660,9 +660,9 @@ Partial Class frmContractDetail
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(358, 277)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(33, 16)
+        Me.Label5.Size = New System.Drawing.Size(15, 16)
         Me.Label5.TabIndex = 11
-        Me.Label5.Text = "VNĐ"
+        Me.Label5.Text = "đ"
         '
         'txtContractName
         '
@@ -682,9 +682,9 @@ Partial Class frmContractDetail
         Me.lblUnit.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUnit.Location = New System.Drawing.Point(358, 243)
         Me.lblUnit.Name = "lblUnit"
-        Me.lblUnit.Size = New System.Drawing.Size(33, 16)
+        Me.lblUnit.Size = New System.Drawing.Size(15, 16)
         Me.lblUnit.TabIndex = 11
-        Me.lblUnit.Text = "VNĐ"
+        Me.lblUnit.Text = "đ"
         '
         'Label8
         '
@@ -1056,7 +1056,7 @@ Partial Class frmContractDetail
         '
         Me.lnkAddFile.AutoSize = True
         Me.lnkAddFile.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.lnkAddFile.Location = New System.Drawing.Point(851, 1)
+        Me.lnkAddFile.Location = New System.Drawing.Point(851, 5)
         Me.lnkAddFile.Name = "lnkAddFile"
         Me.lnkAddFile.Size = New System.Drawing.Size(41, 16)
         Me.lnkAddFile.TabIndex = 12

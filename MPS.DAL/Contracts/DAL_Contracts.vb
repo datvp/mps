@@ -225,9 +225,15 @@ Public Class DAL_Contracts
             Next
         End If
 
-        'các đợt thanh toán thu (optional)
+        'các đợt nghiệm thu (optional)
         If isEdit Then
             sql = "Delete from ContractPayments where ContractId=@ContractId"
+            If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
+                Me.RollbackTransction()
+                Return False
+            End If
+
+            sql = "Delete from ContractPaymentDetails where ContractId=@ContractId"
             If Not Me.execSQL(sql, New SqlParameter("@ContractId", m.ContractId)) Then
                 Me.RollbackTransction()
                 Return False
@@ -248,6 +254,20 @@ Public Class DAL_Contracts
                 Me.RollbackTransction()
                 Return False
             End If
+
+            Dim query = "Insert into ContractPaymentDetails(ContractId,PaymentId,ItemId,ItemName,PaidValue)values(@ContractId,@PaymentId,@ItemId,@ItemName,@PaidValue)"
+            For Each paidItem In it.arrPaidItem
+                Dim param(4) As SqlParameter
+                param(0) = New SqlParameter("@PaymentId", it.PaymentId)
+                param(1) = New SqlParameter("@ItemId", paidItem.ItemId)
+                param(2) = New SqlParameter("@ItemName", paidItem.ItemName)
+                param(3) = New SqlParameter("@PaidValue", paidItem.PaidValue)
+                param(4) = New SqlParameter("@ContractId", m.ContractId)
+                If Not Me.execSQL(query, param) Then
+                    Me.RollbackTransction()
+                    Return False
+                End If
+            Next
         Next
 
         'các đợt hach toan chi (optional)
@@ -465,6 +485,24 @@ Public Class DAL_Contracts
         Return arr
     End Function
 
+    Public Function getContractPaymentDetails(ByVal contractId As String, ByVal paymentId As String) As IList(Of Model.MContractPaymentDetail)
+        Dim arr As IList(Of Model.MContractPaymentDetail) = New List(Of Model.MContractPaymentDetail)
+        Dim sql = "select * from ContractPaymentDetails where ContractId=@ContractId and PaymentId=@PaymentId"
+        Dim tb = getTableSQL(sql, New SqlParameter("@ContractId", contractId), New SqlParameter("@PaymentId", paymentId))
+        If tb IsNot Nothing AndAlso tb.Rows.Count > 0 Then
+            For Each r As DataRow In tb.Rows
+                Dim m As New Model.MContractPaymentDetail
+                m.ContractId = IsNull(r("ContractId"), "")
+                m.PaymentId = IsNull(r("PaymentId"), "")
+                m.ItemId = IsNull(r("ItemId"), "")
+                m.ItemName = IsNull(r("ItemName"), "")
+                m.PaidValue = IsNull(r("PaidValue"), 0)
+                arr.Add(m)
+            Next
+        End If
+        Return arr
+    End Function
+
     Public Function getContractPayments(ByVal contractId As String) As IList(Of Model.MContractPayment)
         Dim arr As IList(Of Model.MContractPayment) = New List(Of Model.MContractPayment)
         Dim sql = "select * from ContractPayments where ContractId=@ContractId order by PaymentDate"
@@ -479,6 +517,7 @@ Public Class DAL_Contracts
                 m.StatusDesc = Me.StatusText(m.PaymentStatus)
                 m.PaymentDate = IsNull(r("PaymentDate"), CDate("2000-1-1"))
                 m.PaymentTotal = IsNull(r("PaymentTotal"), 0)
+                m.arrPaidItem = Me.getContractPaymentDetails(m.ContractId, m.PaymentId)
                 arr.Add(m)
             Next
         End If

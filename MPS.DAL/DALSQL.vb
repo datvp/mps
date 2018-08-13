@@ -732,7 +732,7 @@ Public Class DALSQL
 
             msgerr = ex.Message
             Me.WriteLog(strSQL & ";(" & msgerr & ")")
-            RaiseEvent _error(ex.Message)
+            'RaiseEvent _error(ex.Message)
             Return Nothing
         End Try
 

@@ -85,4 +85,20 @@
             m_StatusDesc = value
         End Set
     End Property
+
+    Private m_arrPaidItem As IList(Of MContractPaymentDetail) = New List(Of MContractPaymentDetail)
+    ''' <summary>
+    ''' ds hạng mục nghiệm thu
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property arrPaidItem() As IList(Of MContractPaymentDetail)
+        Get
+            Return m_arrPaidItem
+        End Get
+        Set(ByVal value As IList(Of MContractPaymentDetail))
+            m_arrPaidItem = value
+        End Set
+    End Property
 End Class

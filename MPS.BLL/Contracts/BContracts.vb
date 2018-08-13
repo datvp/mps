@@ -45,28 +45,69 @@
     End Function
 
 #Region "get details"
+    ''' <summary>
+    ''' get ds các hạng mục công việc
+    ''' </summary>
+    ''' <param name="contractId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function getContractDetails(ByVal contractId As String) As IList(Of Model.MContractDetail)
         Return cls.getContractDetails(contractId)
     End Function
-
+    ''' <summary>
+    ''' get ds nhà thầu phụ
+    ''' </summary>
+    ''' <param name="contractId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function getSubContractors(ByVal contractId As String) As IList(Of Model.MContract_SubContractor)
         Return cls.getSubContractors(contractId)
     End Function
-
+    ''' <summary>
+    ''' get ds phụ lục hợp đồng
+    ''' </summary>
+    ''' <param name="contractId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function getSubContracts(ByVal contractId As String) As IList(Of Model.MSubContract)
         Return cls.getSubContracts(contractId)
     End Function
-
+    ''' <summary>
+    ''' get ds file đính kèm
+    ''' </summary>
+    ''' <param name="contractId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function getAttachFiles(ByVal contractId As String) As IList(Of Model.MAttachFileContract)
         Return cls.getAttachFiles(contractId)
     End Function
-
+    ''' <summary>
+    ''' get ds nghiệm thu
+    ''' </summary>
+    ''' <param name="contractId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function getContractPayments(ByVal contractId As String) As IList(Of Model.MContractPayment)
         Return cls.getContractPayments(contractId)
     End Function
-
+    ''' <summary>
+    ''' get ds các khoản chi
+    ''' </summary>
+    ''' <param name="contractId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function getContractRefunds(ByVal contractId As String) As IList(Of Model.MContractRefund)
         Return cls.getContractRefunds(contractId)
+    End Function
+    ''' <summary>
+    ''' get ds chi tiết các hạng mục nghiệm thu
+    ''' </summary>
+    ''' <param name="contractId"></param>
+    ''' <param name="paymentId"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function getContractPaymentDetails(ByVal contractId As String, ByVal paymentId As String) As IList(Of Model.MContractPaymentDetail)
+        Return cls.getContractPaymentDetails(contractId, paymentId)
     End Function
 #End Region
 End Class

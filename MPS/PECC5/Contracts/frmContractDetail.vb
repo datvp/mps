@@ -374,27 +374,33 @@ Public Class frmContractDetail
                 For Each it In m.arrPayment
                     Dim foundItem = Me.findPayment(it, mInfo.arrPayment, False)
                     If foundItem Is Nothing Then
-                        desc += vbCrLf & "Thay đổi đợt thanh toán thu: -> [" + it.PaymentName + "]"
+                        desc += vbCrLf & "Thay đổi đợt nghiệm thu: -> [" + it.PaymentName + "]"
                     Else 'found
                         If it.PaymentName <> foundItem.PaymentName _
                             OrElse it.PaymentTotal <> foundItem.PaymentTotal _
                             OrElse it.PaymentDate <> foundItem.PaymentDate _
                             OrElse it.PaymentStatus <> foundItem.PaymentStatus _
                         Then
-                            desc += vbCrLf & "Sửa đợt thanh toán thu [" + it.PaymentName + "]: "
+                            desc += vbCrLf & "Sửa đợt nghiệm thu [" + it.PaymentName + "]: "
                             If it.PaymentName <> foundItem.PaymentName Then
-                                desc += vbCrLf & " - Tên đợt TT: [" + foundItem.PaymentName + "] -> [" + it.PaymentName + "]"
+                                desc += vbCrLf & " - Tên đợt nghiệm thu: [" + foundItem.PaymentName + "] -> [" + it.PaymentName + "]"
                             End If
                             If it.PaymentTotal <> foundItem.PaymentTotal Then
-                                desc += vbCrLf & " - Giá trị TT: [" + Format(foundItem.PaymentTotal, ModMain.m_strFormatCur) + "] -> [" + Format(it.PaymentTotal, ModMain.m_strFormatCur) + "]"
+                                desc += vbCrLf & " - Giá trị nghiệm thu: [" + Format(foundItem.PaymentTotal, ModMain.m_strFormatCur) + "] -> [" + Format(it.PaymentTotal, ModMain.m_strFormatCur) + "]"
                             End If
                             If it.PaymentDate <> foundItem.PaymentDate Then
-                                desc += vbCrLf & " - Ngày TT: [" + foundItem.PaymentDate.ToString("dd/MM/yyyy") + "] -> [" + it.PaymentDate.ToString("dd/MM/yyyy") + "]"
+                                desc += vbCrLf & " - Ngày nghiệm thu: [" + foundItem.PaymentDate.ToString("dd/MM/yyyy") + "] -> [" + it.PaymentDate.ToString("dd/MM/yyyy") + "]"
                             End If
                             If it.PaymentStatus <> foundItem.PaymentStatus Then
-                                desc += vbCrLf & " - Trạng thái TT: [" + StatusText(foundItem.PaymentStatus) + "] -> [" + StatusText(it.PaymentStatus) + "]"
+                                desc += vbCrLf & " - Trạng thái nghiệm thu: [" + StatusText(foundItem.PaymentStatus) + "] -> [" + StatusText(it.PaymentStatus) + "]"
                             End If
                         End If
+                    End If
+
+                    'check các hạng mục nghiệm thu
+                    Dim arrPaid = b.getContractPaymentDetails(mInfo.ContractId, it.PaymentId)
+                    If it.arrPaidItem.Count <> arrPaid.Count Then
+                        desc += vbCrLf & " - Thay đổi các hạng mục của đợt nghiệm thu: [" + it.PaymentName + "]"
                     End If
                 Next
             End If
@@ -570,6 +576,7 @@ Public Class frmContractDetail
                     m.PaymentDate = item.PaymentDate
                     m.PaymentStatus = item.PaymentStatus
                     m.StatusDesc = StatusText(item.PaymentStatus)
+                    m.arrPaidItem = item.arrPaidItem
                     arr.Insert(arr.Count, m)
                 End If
                 grdPayment.Rows.Refresh(RefreshRow.RefreshDisplay)
@@ -1060,13 +1067,21 @@ Public Class frmContractDetail
     Private Sub grdPayment_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles grdPayment.DoubleClick
         Dim r As UltraGridRow = grdPayment.ActiveRow
         If r IsNot Nothing Then
-            Dim m As New Model.MContractPayment
-            m.PaymentId = r.Cells("PaymentId").Value
-            m.PaymentName = r.Cells("PaymentName").Value
-            m.PaymentTotal = CDbl(r.Cells("PaymentTotal").Value)
-            m.PaymentDate = CDate(r.Cells("PaymentDate").Value)
-            m.PaymentStatus = r.Cells("PaymentStatus").Value
-            Me.showPaymentDetail(m)
+            Dim arr As IList(Of Model.MContractPayment) = grdPayment.DataSource
+            If arr IsNot Nothing Then
+                Dim item = arr.Item(r.Index)
+                If item Is Nothing Then Exit Sub
+                Me.showPaymentDetail(item)
+            End If
+
+            'Dim m As New Model.MContractPayment
+            'm.PaymentId = r.Cells("PaymentId").Value
+            'm.PaymentName = r.Cells("PaymentName").Value
+            'm.PaymentTotal = CDbl(r.Cells("PaymentTotal").Value)
+            'm.PaymentDate = CDate(r.Cells("PaymentDate").Value)
+            'm.PaymentStatus = r.Cells("PaymentStatus").Value
+            'm.arrPaidItem = b.getContractPaymentDetails(txtContractId.Text, m.PaymentId)
+            'Me.showPaymentDetail(m)
         End If
     End Sub
     Dim fgrdPayment As Boolean = False

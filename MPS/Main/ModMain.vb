@@ -1129,7 +1129,7 @@ Module ModMain
             wb.Application.Visible = True
 
         Catch ex As Exception
-            ModMain.WriteLog(ex.Message, TypeEvents.Order)
+            'ModMain.WriteLog(ex.Message, TypeEvents.Order)
         End Try
 
     End Sub

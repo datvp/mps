@@ -26,18 +26,18 @@ Public Class DAL_SubContractors
 
         If isExist(m.SubContractorId) Then
             sql = "Update SubContractors set SubContractorName=@SubContractorName,ShortName=@ShortName,Address=@Address,Phone=@Phone,Email=@Email,"
-            sql += "ContactName=@ContactName,ContactPhone=@ContactPhone,ContactEmail=@ContactEmail,UpdatedAt=getdate()"
+            sql += "ContactName=@ContactName,ContactPhone=@ContactPhone,ContactEmail=@ContactEmail,UpdatedAt=getdate(),Note=@Note"
             sql += " where SubContractorId=@SubContractorId"
         Else
-            sql = "Insert into SubContractors(SubContractorId,SubContractorName,ShortName,Address,Phone,Email,ContactName,ContactPhone,ContactEmail,CreatedAt)"
-            sql += "values(@SubContractorId,@SubContractorName,@ShortName,@Address,@Phone,@Email,@ContactName,@ContactPhone,@ContactEmail,getdate())"
+            sql = "Insert into SubContractors(SubContractorId,SubContractorName,ShortName,Address,Phone,Email,ContactName,ContactPhone,ContactEmail,CreatedAt,Note)"
+            sql += "values(@SubContractorId,@SubContractorName,@ShortName,@Address,@Phone,@Email,@ContactName,@ContactPhone,@ContactEmail,getdate(),@Note)"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(8) As SqlParameter
+        Dim p(9) As SqlParameter
         p(0) = New SqlParameter("@SubContractorId", m.SubContractorId)
         p(1) = New SqlParameter("@SubContractorName", m.SubContractorName)
         p(2) = New SqlParameter("@ShortName", m.ShortName)
@@ -46,6 +46,7 @@ Public Class DAL_SubContractors
         p(5) = New SqlParameter("@Email", m.Email)
         p(6) = New SqlParameter("@ContactName", m.ContactName)
         p(7) = New SqlParameter("@ContactPhone", m.ContactPhone)        p(8) = New SqlParameter("@ContactEmail", m.ContactEmail)
+        p(9) = New SqlParameter("@Note", m.Note)
         Return execSQL(sql, p)
     End Function
 
@@ -93,6 +94,7 @@ Public Class DAL_SubContractors
             m.ContactName = IsNull(tb.Rows(0)("ContactName"), "")
             m.ContactPhone = IsNull(tb.Rows(0)("ContactPhone"), "")
             m.ContactEmail = IsNull(tb.Rows(0)("ContactEmail"), "")
+            m.Note = IsNull(tb.Rows(0)("Note"), "")
         End If
         Return m
     End Function

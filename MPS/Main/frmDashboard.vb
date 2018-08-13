@@ -1,5 +1,6 @@
 ﻿Imports Infragistics.Win.UltraWinGrid.ExcelExport
 Imports Infragistics.Win.UltraWinGrid
+Imports System.Drawing.Printing
 
 Public Class frmDashboard
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
