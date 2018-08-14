@@ -46,16 +46,29 @@ Public Class frmContractDetail
 #End Region
 
 #Region "Subs"
-    Private Sub LoadComboBox()
+    Private Sub LoadProjects()
         Dim tbProject = bProject.getListProjects(ModMain.m_BranchId)
+        Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 24)
+        If m.A Then
+            ModMain.AddNewRow(tbProject)
+        End If
         cboProject.ValueMember = "ProjectId"
         cboProject.DisplayMember = "ProjectName"
         cboProject.DataSource = tbProject
-
+    End Sub
+    Private Sub LoadbMainContractors()
         Dim tb = bMainContractor.getListMainContractors()
+        Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 9)
+        If m.A Then
+            ModMain.AddNewRow(tb)
+        End If
         cboMainContractor.ValueMember = "Id"
         cboMainContractor.DisplayMember = "Company"
         cboMainContractor.DataSource = tb
+    End Sub
+    Private Sub LoadComboBox()
+        LoadProjects()
+        LoadbMainContractors()
     End Sub
     Private Sub ClearInfo()
         txtContractId.Clear()
@@ -609,11 +622,43 @@ Public Class frmContractDetail
 #End Region
 
 #Region "Combobox InitializeLayout"
+
+    Private Sub cboProject_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboProject.AfterCloseUp
+        Dim cbo As UltraCombo = sender
+        ModMain.FilterOwnerCombo_CloseUp(cbo, "")
+        If cbo.Value Is Nothing Then Exit Sub
+        If cbo.Value = "" Then
+            Dim frm As New frmProjectDetail
+            Dim result = frm.ShowDialog("")
+            If result <> "" Then
+                Me.LoadProjects()
+                cboProject.Value = result
+            Else
+                cboProject.Value = Nothing
+            End If
+        End If
+    End Sub
     Private Sub cboProject_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboProject.InitializeLayout
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("ProjectName").Hidden = False
+    End Sub
+
+    Private Sub cboMainContractor_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboMainContractor.AfterCloseUp
+        Dim cbo As UltraCombo = sender
+        ModMain.FilterOwnerCombo_CloseUp(cbo, "")
+        If cbo.Value Is Nothing Then Exit Sub
+        If cbo.Value = "" Then
+            Dim frm As New frmMainContractorDetail
+            Dim result = frm.ShowDialog("")
+            If result <> "" Then
+                Me.LoadbMainContractors()
+                cboMainContractor.Value = result
+            Else
+                cboMainContractor.Value = Nothing
+            End If
+        End If
     End Sub
     Private Sub cboMainContractor_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboMainContractor.InitializeLayout
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1

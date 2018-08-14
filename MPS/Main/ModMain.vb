@@ -197,7 +197,6 @@ Module ModMain
     End Sub
 
     Public Sub FilterOwnerCombo_CloseUp(ByVal cbo As Infragistics.Win.UltraWinGrid.UltraCombo, Optional ByVal sParentFilter As String = "")
-
         Dim tb As DataTable = cbo.DataSource
         If tb Is Nothing Then Exit Sub
         If sParentFilter <> "" Then
@@ -205,7 +204,6 @@ Module ModMain
         Else
             tb.DefaultView.RowFilter = Nothing
         End If
-
     End Sub
     Public Function HostName2IP(ByVal HostName As String) As String
         Try
@@ -1224,4 +1222,16 @@ Module ModMain
         Return arrImage
     End Function
 
+    ''' <summary>
+    ''' add thêm row cho combobox để thêm mới nhanh
+    ''' </summary>
+    ''' <param name="tb"></param>
+    ''' <remarks></remarks>
+    Public Sub AddNewRow(ByVal tb As DataTable)
+        If tb Is Nothing Then Exit Sub
+        Dim r As DataRow = tb.NewRow
+        r(0) = ""
+        r(1) = "Thêm ..."
+        tb.Rows.InsertAt(r, tb.Rows.Count)
+    End Sub
 End Module
