@@ -1234,4 +1234,15 @@ Module ModMain
         r(1) = "Thêm ..."
         tb.Rows.InsertAt(r, tb.Rows.Count)
     End Sub
+
+    Public Sub PrintReport(ByVal path As String)
+        If path = "" Then Exit Sub
+        Dim rp As New ReportDocument
+        Dim clsrpt As New ClsReport
+        rp = clsrpt.InitReport(Application.StartupPath & path)
+        'clsrpt.SetParameter(rp, contractId)
+        Dim frm As New FrmReport
+        frm.rpt.ReportSource = rp
+        frm.Show()
+    End Sub
 End Module

@@ -86,4 +86,15 @@ Public Class frmDashboard
             End If
         End If
     End Sub
+
+    Private Sub lnkPrintItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintItem.Click
+        ModMain.PrintReport("\Reports\ChartByItem.rpt")
+    End Sub
+
+    Private Sub lnkPrintProject_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintProject.Click
+        ModMain.PrintReport("\Reports\ChartByProject.rpt")
+    End Sub
+    Private Sub lnkPrintClientGroup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintClientGroup.Click
+        ModMain.PrintReport("\Reports\ChartByClientGroup.rpt")
+    End Sub
 End Class

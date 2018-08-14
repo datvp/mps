@@ -62,11 +62,13 @@ Partial Class frmDashboard
         Dim GradientEffect4 As Infragistics.UltraChart.Resources.Appearance.GradientEffect = New Infragistics.UltraChart.Resources.Appearance.GradientEffect
         Me.GridBagLayout = New Infragistics.Win.Misc.UltraGridBagLayoutPanel
         Me.grpRevenueByClientGroup = New Infragistics.Win.Misc.UltraGroupBox
+        Me.lnkPrintClientGroup = New System.Windows.Forms.LinkLabel
         Me.ChartByClientGroup = New Infragistics.Win.UltraWinChart.UltraChart
         Me.grpRevenueByItem = New Infragistics.Win.Misc.UltraGroupBox
         Me.ChartBySubContractor = New Infragistics.Win.UltraWinChart.UltraChart
         Me.grpTotalSaleChart = New Infragistics.Win.Misc.UltraGroupBox
         Me.ChartByItem = New Infragistics.Win.UltraWinChart.UltraChart
+        Me.lnkPrintItem = New System.Windows.Forms.LinkLabel
         Me.grpItemSaleToday = New Infragistics.Win.Misc.UltraGroupBox
         Me.GridProduct = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.grpTotalBranch = New Infragistics.Win.Misc.UltraGroupBox
@@ -76,6 +78,7 @@ Partial Class frmDashboard
         Me.UltraLabel8 = New Infragistics.Win.Misc.UltraLabel
         Me.UltraLabel7 = New Infragistics.Win.Misc.UltraLabel
         Me.grpRevenueByProject = New Infragistics.Win.Misc.UltraGroupBox
+        Me.lnkPrintProject = New System.Windows.Forms.LinkLabel
         Me.ChartByProject = New Infragistics.Win.UltraWinChart.UltraChart
         CType(Me.GridBagLayout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GridBagLayout.SuspendLayout()
@@ -118,19 +121,34 @@ Partial Class frmDashboard
         'grpRevenueByClientGroup
         '
         Me.grpRevenueByClientGroup.Controls.Add(Me.ChartByClientGroup)
+        Me.grpRevenueByClientGroup.Controls.Add(Me.lnkPrintClientGroup)
         GridBagConstraint1.Fill = Infragistics.Win.Layout.FillType.Both
         GridBagConstraint1.OriginX = 1
         GridBagConstraint1.OriginY = 0
         Me.GridBagLayout.SetGridBagConstraint(Me.grpRevenueByClientGroup, GridBagConstraint1)
         Appearance2.FontData.BoldAsString = "True"
+        Appearance2.ForeColor = System.Drawing.Color.Navy
         Me.grpRevenueByClientGroup.HeaderAppearance = Appearance2
         Me.grpRevenueByClientGroup.Location = New System.Drawing.Point(461, 0)
         Me.grpRevenueByClientGroup.Name = "grpRevenueByClientGroup"
         Me.GridBagLayout.SetPreferredSize(Me.grpRevenueByClientGroup, New System.Drawing.Size(222, 110))
         Me.grpRevenueByClientGroup.Size = New System.Drawing.Size(255, 226)
         Me.grpRevenueByClientGroup.TabIndex = 2
-        Me.grpRevenueByClientGroup.Text = "Doanh thu theo nhóm khách hàng"
+        Me.grpRevenueByClientGroup.Text = "Doanh thu theo nhóm khách hàng |"
         Me.grpRevenueByClientGroup.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
+        '
+        'lnkPrintClientGroup
+        '
+        Me.lnkPrintClientGroup.AutoSize = True
+        Me.lnkPrintClientGroup.BackColor = System.Drawing.Color.Transparent
+        Me.lnkPrintClientGroup.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkPrintClientGroup.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintClientGroup.Location = New System.Drawing.Point(206, 1)
+        Me.lnkPrintClientGroup.Name = "lnkPrintClientGroup"
+        Me.lnkPrintClientGroup.Size = New System.Drawing.Size(19, 13)
+        Me.lnkPrintClientGroup.TabIndex = 4
+        Me.lnkPrintClientGroup.TabStop = True
+        Me.lnkPrintClientGroup.Text = "In"
         '
         '			'UltraChart' properties's serialization: Since 'ChartType' changes the way axes look,
         '			'ChartType' must be persisted ahead of any Axes change made in design time.
@@ -324,6 +342,7 @@ Partial Class frmDashboard
         GridBagConstraint2.OriginY = 1
         Me.GridBagLayout.SetGridBagConstraint(Me.grpRevenueByItem, GridBagConstraint2)
         Appearance61.FontData.BoldAsString = "True"
+        Appearance61.ForeColor = System.Drawing.Color.Navy
         Me.grpRevenueByItem.HeaderAppearance = Appearance61
         Me.grpRevenueByItem.Location = New System.Drawing.Point(716, 226)
         Me.grpRevenueByItem.Name = "grpRevenueByItem"
@@ -414,7 +433,7 @@ Partial Class frmDashboard
         Me.ChartBySubContractor.Axis.Y.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartBySubContractor.Axis.Y.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartBySubContractor.Axis.Y.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.Y.TickmarkInterval = 50
+        Me.ChartBySubContractor.Axis.Y.TickmarkInterval = 20
         Me.ChartBySubContractor.Axis.Y.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartBySubContractor.Axis.Y.Visible = True
         Me.ChartBySubContractor.Axis.Y2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -440,7 +459,7 @@ Partial Class frmDashboard
         Me.ChartBySubContractor.Axis.Y2.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartBySubContractor.Axis.Y2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartBySubContractor.Axis.Y2.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.Y2.TickmarkInterval = 40
+        Me.ChartBySubContractor.Axis.Y2.TickmarkInterval = 20
         Me.ChartBySubContractor.Axis.Y2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartBySubContractor.Axis.Y2.Visible = False
         Me.ChartBySubContractor.Axis.Z.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -522,18 +541,20 @@ Partial Class frmDashboard
         'grpTotalSaleChart
         '
         Me.grpTotalSaleChart.Controls.Add(Me.ChartByItem)
+        Me.grpTotalSaleChart.Controls.Add(Me.lnkPrintItem)
         GridBagConstraint3.Fill = Infragistics.Win.Layout.FillType.Both
         GridBagConstraint3.OriginX = 0
         GridBagConstraint3.OriginY = 0
         Me.GridBagLayout.SetGridBagConstraint(Me.grpTotalSaleChart, GridBagConstraint3)
         Appearance62.FontData.BoldAsString = "True"
+        Appearance62.ForeColor = System.Drawing.Color.Navy
         Me.grpTotalSaleChart.HeaderAppearance = Appearance62
         Me.grpTotalSaleChart.Location = New System.Drawing.Point(0, 0)
         Me.grpTotalSaleChart.Name = "grpTotalSaleChart"
         Me.GridBagLayout.SetPreferredSize(Me.grpTotalSaleChart, New System.Drawing.Size(337, 110))
         Me.grpTotalSaleChart.Size = New System.Drawing.Size(461, 226)
         Me.grpTotalSaleChart.TabIndex = 2
-        Me.grpTotalSaleChart.Text = "Doanh thu theo hạng mục"
+        Me.grpTotalSaleChart.Text = "Doanh thu theo hạng mục | "
         Me.grpTotalSaleChart.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
         '			'UltraChart' properties's serialization: Since 'ChartType' changes the way axes look,
@@ -622,7 +643,7 @@ Partial Class frmDashboard
         Me.ChartByItem.Axis.Y.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartByItem.Axis.Y.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartByItem.Axis.Y.MinorGridLines.Visible = False
-        Me.ChartByItem.Axis.Y.TickmarkInterval = 40
+        Me.ChartByItem.Axis.Y.TickmarkInterval = 50
         Me.ChartByItem.Axis.Y.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartByItem.Axis.Y.Visible = True
         Me.ChartByItem.Axis.Y2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -648,7 +669,7 @@ Partial Class frmDashboard
         Me.ChartByItem.Axis.Y2.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartByItem.Axis.Y2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartByItem.Axis.Y2.MinorGridLines.Visible = False
-        Me.ChartByItem.Axis.Y2.TickmarkInterval = 40
+        Me.ChartByItem.Axis.Y2.TickmarkInterval = 50
         Me.ChartByItem.Axis.Y2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartByItem.Axis.Y2.Visible = False
         Me.ChartByItem.Axis.Z.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -731,6 +752,19 @@ Partial Class frmDashboard
         Me.ChartByItem.Tooltips.HighlightFillColor = System.Drawing.Color.DimGray
         Me.ChartByItem.Tooltips.HighlightOutlineColor = System.Drawing.Color.DarkGray
         '
+        'lnkPrintItem
+        '
+        Me.lnkPrintItem.AutoSize = True
+        Me.lnkPrintItem.BackColor = System.Drawing.Color.Transparent
+        Me.lnkPrintItem.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkPrintItem.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintItem.Location = New System.Drawing.Point(163, 1)
+        Me.lnkPrintItem.Name = "lnkPrintItem"
+        Me.lnkPrintItem.Size = New System.Drawing.Size(19, 13)
+        Me.lnkPrintItem.TabIndex = 2
+        Me.lnkPrintItem.TabStop = True
+        Me.lnkPrintItem.Text = "In"
+        '
         'grpItemSaleToday
         '
         Me.grpItemSaleToday.Controls.Add(Me.GridProduct)
@@ -739,6 +773,7 @@ Partial Class frmDashboard
         GridBagConstraint4.OriginY = 0
         Me.GridBagLayout.SetGridBagConstraint(Me.grpItemSaleToday, GridBagConstraint4)
         Appearance3.FontData.BoldAsString = "True"
+        Appearance3.ForeColor = System.Drawing.Color.Navy
         Me.grpItemSaleToday.HeaderAppearance = Appearance3
         Me.grpItemSaleToday.Location = New System.Drawing.Point(716, 0)
         Me.grpItemSaleToday.Name = "grpItemSaleToday"
@@ -814,6 +849,7 @@ Partial Class frmDashboard
         GridBagConstraint5.OriginY = 1
         Me.GridBagLayout.SetGridBagConstraint(Me.grpTotalBranch, GridBagConstraint5)
         Appearance1.FontData.BoldAsString = "True"
+        Appearance1.ForeColor = System.Drawing.Color.Navy
         Me.grpTotalBranch.HeaderAppearance = Appearance1
         Me.grpTotalBranch.Location = New System.Drawing.Point(0, 226)
         Me.grpTotalBranch.Name = "grpTotalBranch"
@@ -896,19 +932,34 @@ Partial Class frmDashboard
         'grpRevenueByProject
         '
         Me.grpRevenueByProject.Controls.Add(Me.ChartByProject)
+        Me.grpRevenueByProject.Controls.Add(Me.lnkPrintProject)
         GridBagConstraint6.Fill = Infragistics.Win.Layout.FillType.Both
         GridBagConstraint6.OriginX = 1
         GridBagConstraint6.OriginY = 1
         Me.GridBagLayout.SetGridBagConstraint(Me.grpRevenueByProject, GridBagConstraint6)
         Appearance55.FontData.BoldAsString = "True"
+        Appearance55.ForeColor = System.Drawing.Color.Navy
         Me.grpRevenueByProject.HeaderAppearance = Appearance55
         Me.grpRevenueByProject.Location = New System.Drawing.Point(461, 226)
         Me.grpRevenueByProject.Name = "grpRevenueByProject"
         Me.GridBagLayout.SetPreferredSize(Me.grpRevenueByProject, New System.Drawing.Size(222, 110))
         Me.grpRevenueByProject.Size = New System.Drawing.Size(255, 270)
         Me.grpRevenueByProject.TabIndex = 2
-        Me.grpRevenueByProject.Text = "Doanh thu theo dự án"
+        Me.grpRevenueByProject.Text = "Doanh thu theo dự án |"
         Me.grpRevenueByProject.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
+        '
+        'lnkPrintProject
+        '
+        Me.lnkPrintProject.AutoSize = True
+        Me.lnkPrintProject.BackColor = System.Drawing.Color.Transparent
+        Me.lnkPrintProject.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkPrintProject.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintProject.Location = New System.Drawing.Point(140, 1)
+        Me.lnkPrintProject.Name = "lnkPrintProject"
+        Me.lnkPrintProject.Size = New System.Drawing.Size(19, 13)
+        Me.lnkPrintProject.TabIndex = 4
+        Me.lnkPrintProject.TabStop = True
+        Me.lnkPrintProject.Text = "In"
         '
         '			'UltraChart' properties's serialization: Since 'ChartType' changes the way axes look,
         '			'ChartType' must be persisted ahead of any Axes change made in design time.
@@ -1110,12 +1161,14 @@ Partial Class frmDashboard
         Me.GridBagLayout.ResumeLayout(False)
         CType(Me.grpRevenueByClientGroup, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpRevenueByClientGroup.ResumeLayout(False)
+        Me.grpRevenueByClientGroup.PerformLayout()
         CType(Me.ChartByClientGroup, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpRevenueByItem, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpRevenueByItem.ResumeLayout(False)
         CType(Me.ChartBySubContractor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpTotalSaleChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpTotalSaleChart.ResumeLayout(False)
+        Me.grpTotalSaleChart.PerformLayout()
         CType(Me.ChartByItem, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpItemSaleToday, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpItemSaleToday.ResumeLayout(False)
@@ -1125,6 +1178,7 @@ Partial Class frmDashboard
         Me.Panel1.ResumeLayout(False)
         CType(Me.grpRevenueByProject, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpRevenueByProject.ResumeLayout(False)
+        Me.grpRevenueByProject.PerformLayout()
         CType(Me.ChartByProject, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1146,4 +1200,7 @@ Partial Class frmDashboard
     Friend WithEvents GridProduct As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents grpRevenueByItem As Infragistics.Win.Misc.UltraGroupBox
     Private WithEvents ChartBySubContractor As Infragistics.Win.UltraWinChart.UltraChart
+    Friend WithEvents lnkPrintItem As System.Windows.Forms.LinkLabel
+    Friend WithEvents lnkPrintClientGroup As System.Windows.Forms.LinkLabel
+    Friend WithEvents lnkPrintProject As System.Windows.Forms.LinkLabel
 End Class
