@@ -4,6 +4,7 @@ Imports Infragistics.Win.UltraWinGrid
 Imports CrystalDecisions.CrystalReports.Engine
 Imports System.Management
 Imports Microsoft.Office.Interop
+Imports System.Threading
 
 Module ModMain
     Public m_MsgCaption As String = "MPS"
@@ -377,25 +378,30 @@ Module ModMain
 
     End Sub
 
-    
+
 #Region "Show process"
     Private lockObject As New Object
     Private Sub InitProcess()
-        Try
-            SyncLock lockObject
-                Dim frm As FrmProcess = FrmProcess.Instance
-                frm.ShowDialog()
-            End SyncLock
-        Catch
-        End Try
+        SyncLock lockObject
+            Dim frm As FrmProcess = FrmProcess.Instance
+            frm.ShowDialog()
+        End SyncLock
     End Sub
     Private thProcess As System.Threading.Thread
     Public Sub ShowProcess()
-        'thProcess = New System.Threading.Thread(AddressOf InitProcess)
-        'thProcess.Start()
+        Try
+            thProcess = New System.Threading.Thread(AddressOf InitProcess)
+            thProcess.Start()
+        Catch ex As ThreadAbortException
+            Thread.ResetAbort()
+        End Try
     End Sub
     Public Sub HideProcess()
-        'thProcess.Abort()
+        Try
+            thProcess.Abort()
+        Catch ex As ThreadAbortException
+            Thread.ResetAbort()
+        End Try
     End Sub
 #End Region
 
@@ -632,7 +638,7 @@ Module ModMain
         Return MessageBox.Show(sMsg, sCaption, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
     End Function
 
-    
+
     Public Function Message(ByVal Title As String, ByVal Content As String, ByVal Icon As Integer) As Boolean
         Dim frm As New VsoftBMS.Ulti.frmMsg
         Dim fSelect As Boolean = frm.ShowDialog(Title, Content, Icon)
@@ -659,7 +665,7 @@ Module ModMain
         Return tb
 
     End Function
-   
+
     Public Function getDatechar(ByVal d_Date As DateTime) As String
         Dim clsL As BLL.BLogin = BLL.BLogin.Instance
         Return clsL.getDatechar(d_Date)
@@ -968,7 +974,7 @@ Module ModMain
             End Select
         End If
     End Sub
-    
+
     Public Function LoadBranch() As DataTable
         Dim db As BLL.B_Branchs = BLL.B_Branchs.Instance
         Dim tb As DataTable = db.getList()
@@ -1066,7 +1072,7 @@ Module ModMain
         bt.PressedAppearance = Appearance36
         bt.Cursor = Cursors.Hand
     End Sub
-   
+
     Public Function GenerateReportFilePath(ByVal filePath As String) As String
         Dim fileName = System.IO.Path.GetFileName(System.IO.Path.Combine(Application.StartupPath, filePath))
         Dim resultPath = System.IO.Path.Combine("\Reports", fileName)
