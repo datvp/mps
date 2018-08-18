@@ -597,8 +597,9 @@ Public Class frmContractDetail
         End If
     End Sub
     Private Sub showRefundDetail(ByVal item As Model.MContractRefund)
+        Dim arrSub As IList(Of Model.MContractDetail) = grdItems.DataSource
         Dim frm As New frmRefundDetail
-        item = frm.ShowDialog(item, dtCreateDate.Value)
+        item = frm.ShowDialog(item, dtCreateDate.Value, arrSub)
         If item IsNot Nothing Then
             Dim arr As IList(Of Model.MContractRefund) = grdRefund.DataSource
             If arr IsNot Nothing Then

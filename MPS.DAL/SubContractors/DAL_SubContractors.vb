@@ -75,8 +75,12 @@ Public Class DAL_SubContractors
         Return Me.execSQL(sql, New SqlParameter("@SubContractorId", SubContractorId))
     End Function
 
-    Public Function getListSubContractors() As DataTable
-        Dim sql As String = "Select '' as Choose,* from SubContractors order by CreatedAt"
+    Public Function getListSubContractors(Optional ByVal strFilter As String = "") As DataTable
+        Dim sql As String = "Select '' as Choose,* from SubContractors"
+        If strFilter <> "" Then
+            sql += " where SubContractorId in(" + strFilter + ")"
+        End If
+        sql += " order by CreatedAt"
         Return Me.getTableSQL(sql)
     End Function
 

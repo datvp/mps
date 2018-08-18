@@ -2,9 +2,11 @@
     Private bSub As BLL.BSubContractors = BLL.BSubContractors.Instance
     Private item As Model.MContractRefund
     Dim dtCreated As Date
-    Public Overloads Function ShowDialog(ByVal item As Model.MContractRefund, ByVal dtCreated As Date) As Model.MContractRefund
+    Dim arrSub As IList(Of Model.MContractDetail) = Nothing
+    Public Overloads Function ShowDialog(ByVal item As Model.MContractRefund, ByVal dtCreated As Date, ByVal arrSub As IList(Of Model.MContractDetail)) As Model.MContractRefund
         Me.item = item
         Me.dtCreated = dtCreated
+        Me.arrSub = arrSub
         Me.ShowDialog()
         Return Me.item
     End Function
@@ -44,7 +46,19 @@
         cboRefundStatus.DisplayMember = "Name"
         cboRefundStatus.DataSource = tb
 
-        Dim tbSub = bSub.getListSubContractors()
+        Dim strFilter = ""
+        If arrSub IsNot Nothing Then
+            For Each o In arrSub
+                If Not strFilter.Contains(o.SubContractorId) Then
+                    If strFilter = "" Then
+                        strFilter = "'" + o.SubContractorId + "'"
+                    Else
+                        strFilter += ",'" + o.SubContractorId + "'"
+                    End If
+                End If
+            Next
+        End If
+        Dim tbSub = bSub.getListSubContractors(strFilter)
         cboSubContractor.ValueMember = "SubContractorId"
         cboSubContractor.DisplayMember = "SubContractorName"
         cboSubContractor.DataSource = tbSub

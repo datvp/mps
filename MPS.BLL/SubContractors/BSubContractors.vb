@@ -28,8 +28,8 @@
     Public Function deleteDB(ByVal SubContractorId As String) As Boolean
         Return cls.deleteDB(SubContractorId)
     End Function
-    Public Function getListSubContractors() As DataTable
-        Return cls.getListSubContractors()
+    Public Function getListSubContractors(Optional ByVal strFilter As String = "") As DataTable
+        Return cls.getListSubContractors(strFilter)
     End Function
     Public Function getSubContractorDetailById(ByVal SubContractorId As String) As Model.MSubContractor
         Return cls.getSubContractorDetailById(SubContractorId)
