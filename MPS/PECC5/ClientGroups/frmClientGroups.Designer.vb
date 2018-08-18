@@ -37,6 +37,9 @@ Partial Class frmClientGroups
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraToolbar1 As Infragistics.Win.UltraWinToolbars.UltraToolbar = New Infragistics.Win.UltraWinToolbars.UltraToolbar("Toolbar1")
+        Dim ButtonTool2 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnAdd")
+        Dim ButtonTool1 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnEdit")
+        Dim ButtonTool3 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnDel")
         Dim ButtonTool7 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnRefresh")
         Dim ButtonTool4 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnAdd")
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -210,7 +213,7 @@ Partial Class frmClientGroups
         Me.Toolbars.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.Office2007
         UltraToolbar1.DockedColumn = 0
         UltraToolbar1.DockedRow = 0
-        UltraToolbar1.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool7})
+        UltraToolbar1.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool2, ButtonTool1, ButtonTool3, ButtonTool7})
         UltraToolbar1.Text = "Toolbar1"
         Me.Toolbars.Toolbars.AddRange(New Infragistics.Win.UltraWinToolbars.UltraToolbar() {UltraToolbar1})
         Me.Toolbars.ToolbarSettings.FillEntireRow = Infragistics.Win.DefaultableBoolean.[True]
@@ -288,7 +291,6 @@ Partial Class frmClientGroups
         Me.T_Add.ShortcutKeyDisplayString = "Ctrl+T"
         Me.T_Add.Size = New System.Drawing.Size(200, 22)
         Me.T_Add.Text = "Thêm mới"
-        Me.T_Add.Visible = False
         '
         'T_Edit
         '
@@ -298,7 +300,6 @@ Partial Class frmClientGroups
         Me.T_Edit.ShortcutKeyDisplayString = "F6"
         Me.T_Edit.Size = New System.Drawing.Size(200, 22)
         Me.T_Edit.Text = "Hiệu chỉnh"
-        Me.T_Edit.Visible = False
         '
         'T_DEL
         '
@@ -308,7 +309,6 @@ Partial Class frmClientGroups
         Me.T_DEL.ShortcutKeyDisplayString = "Del"
         Me.T_DEL.Size = New System.Drawing.Size(200, 22)
         Me.T_DEL.Text = "Xóa"
-        Me.T_DEL.Visible = False
         '
         'ToolStripMenuItem2
         '

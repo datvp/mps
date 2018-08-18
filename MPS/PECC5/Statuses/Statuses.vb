@@ -52,4 +52,14 @@
     ''' </summary>
     ''' <remarks></remarks>
     Public Shared ReadOnly Deleted As String = "Deleted"
+    ''' <summary>
+    ''' đã chi
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Shared ReadOnly Refunded As String = "Refunded"
+    ''' <summary>
+    ''' chờ chi
+    ''' </summary>
+    ''' <remarks></remarks>
+    Public Shared ReadOnly WaitForRefund As String = "WaitForRefund"
 End Class

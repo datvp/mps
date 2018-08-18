@@ -130,29 +130,29 @@ Public Class frmClientGroups
     End Sub
     Private Sub ADDNew()
         Dim frm As New frmClientGroupDetail
-        frm.ShowDialog()
+        Dim result = frm.ShowDialog("")
+        If result <> "" Then
+            Me.Loadlist()
+        End If
     End Sub
 
     Private Sub Edit()
-        'Dim r As UltraGridRow = Grid.ActiveRow
-        'If r Is Nothing Then Exit Sub
-        'If r.Index = -1 Then Exit Sub
-        'If Not r.ChildBands Is Nothing Then Exit Sub
-        'Dim frm As New FrmNewGroupUser
-        'frm.Loadinfo(r.Cells("ClientGroupId").Value)
-        'Dim s As String = frm.ShowDialog(True)
-        'If s <> "" Then
-        '    Loadlist()
-        '    For i As Integer = 0 To Grid.Rows.Count - 1
-        '        If Grid.Rows(i).Cells("ClientGroupId").Value.ToString = s Then
-        '            Grid.Rows(i).Selected = True
-        '            Grid.Rows(i).Activated = True
-        '            Exit For
-        '        End If
-
-        '    Next
-        'End If
-
+        Dim r As UltraGridRow = Grid.ActiveRow
+        If r Is Nothing Then Exit Sub
+        If r.Index = -1 Then Exit Sub
+        If Not r.ChildBands Is Nothing Then Exit Sub
+        Dim frm As New frmClientGroupDetail
+        Dim result = frm.ShowDialog(r.Cells("ClientGroupId").Value)
+        If result <> "" Then
+            Me.Loadlist()
+            For i As Integer = 0 To Grid.Rows.Count - 1
+                If Grid.Rows(i).Cells("ClientGroupId").Value.ToString = result Then
+                    Grid.Rows(i).Selected = True
+                    Grid.Rows(i).Activated = True
+                    Exit For
+                End If
+            Next
+        End If
 
     End Sub
 
@@ -314,11 +314,6 @@ Public Class frmClientGroups
 
     Private Sub T_Layout_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Layout.Click
         Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, Grid, m_Lang)
-        frm.ShowDialog()
-    End Sub
-
-    Private Sub T_Search_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim frm As New VsoftBMS.Ulti.FrmFind(Grid, m_Lang)
         frm.ShowDialog()
     End Sub
 

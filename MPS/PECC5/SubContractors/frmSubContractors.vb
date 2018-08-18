@@ -8,7 +8,6 @@ Public Class frmSubContractors
     Dim selectedItem As Model.MSubContractor
     Private fFinish As Boolean = False
 
-
 #Region "Form "
 
     Public Overloads Function ShowDialog(ByVal f As Boolean) As Model.MSubContractor
@@ -74,7 +73,6 @@ Public Class frmSubContractors
         Me.Toolbars.Tools("btnEdit").SharedProps.Enabled = f_SecE
         Me.Toolbars.Tools("btnDel").SharedProps.Enabled = f_SecD
         Me.Toolbars.Visible = Not fselect
-        Me.ctMenu.Visible = Not fselect
         Me.LabelBottom.Visible = Not fselect
     End Sub
 

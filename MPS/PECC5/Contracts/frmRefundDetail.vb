@@ -31,13 +31,13 @@
         tb.Columns.Add("Name", GetType(String))
 
         Dim r As DataRow = tb.NewRow
-        r("Id") = Statuses.WaitForPay
-        r("Name") = StatusText(Statuses.WaitForPay)
+        r("Id") = Statuses.WaitForRefund
+        r("Name") = StatusText(Statuses.WaitForRefund)
         tb.Rows.Add(r)
 
         r = tb.NewRow
-        r("Id") = Statuses.Paid
-        r("Name") = StatusText(Statuses.Paid)
+        r("Id") = Statuses.Refunded
+        r("Name") = StatusText(Statuses.Refunded)
         tb.Rows.Add(r)
 
         cboRefundStatus.ValueMember = "Id"

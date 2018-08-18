@@ -1180,6 +1180,10 @@ Module ModMain
                 Return "Chờ thanh toán"
             Case Statuses.Paid
                 Return "Đã thanh toán"
+            Case Statuses.Refunded
+                Return "Đã chi"
+            Case Statuses.WaitForRefund
+                Return "Chờ chi"
             Case Else
                 Return ""
         End Select

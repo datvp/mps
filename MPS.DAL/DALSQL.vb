@@ -834,6 +834,10 @@ Public Class DALSQL
                 Return "Chờ thanh toán"
             Case "Paid"
                 Return "Đã thanh toán"
+            Case "Refunded"
+                Return "Đã chi"
+            Case "WaitForRefund"
+                Return "Chờ chi"
             Case Else
                 Return ""
         End Select

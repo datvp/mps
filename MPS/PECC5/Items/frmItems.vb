@@ -74,7 +74,6 @@ Public Class frmItems
         Me.Toolbars.Tools("btnEdit").SharedProps.Enabled = f_SecE
         Me.Toolbars.Tools("btnDel").SharedProps.Enabled = f_SecD
         Me.Toolbars.Visible = Not fselect
-        Me.ctMenu.Visible = Not fselect
         Me.LabelBottom.Visible = Not fselect
     End Sub
 
