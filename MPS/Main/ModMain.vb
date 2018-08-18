@@ -1246,13 +1246,22 @@ Module ModMain
     End Sub
 
     Public Sub PrintReport(ByVal path As String)
-        If path = "" Then Exit Sub
-        Dim rp As New ReportDocument
-        Dim clsrpt As New ClsReport
-        rp = clsrpt.InitReport(Application.StartupPath & path)
-        'clsrpt.SetParameter(rp, contractId)
-        Dim frm As New FrmReport
-        frm.rpt.ReportSource = rp
-        frm.Show()
+        Try
+            ShowProcess()
+            Dim fullPath = Application.StartupPath & path
+            If Not System.IO.File.Exists(fullPath) Then
+                ShowMsg("Không tìm thấy file: " & fullPath)
+                Exit Sub
+            End If
+
+            Dim rp As New ReportDocument
+            Dim clsrpt As New ClsReport
+            rp = clsrpt.InitReport(Application.StartupPath & path)
+            Dim frm As New FrmReport
+            frm.rpt.ReportSource = rp
+            frm.Show()
+        Finally
+            HideProcess()
+        End Try
     End Sub
 End Module

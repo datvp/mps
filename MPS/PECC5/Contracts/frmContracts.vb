@@ -35,7 +35,6 @@ Public Class frmContracts
 
     Private Sub frmContracts_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
         If e.KeyCode = Keys.Delete And Toolbars.Tools("btnDel").SharedProps.Enabled = True Then
-            ' DEL()
             T_DEL.PerformClick()
         End If
 
@@ -49,14 +48,14 @@ Public Class frmContracts
             Select Case e.KeyCode
                 Case Keys.T And Toolbars.Tools("btnAdd").SharedProps.Enabled = True
                     Me.ADDNew()
-                    'Case Keys.H
-                    '    Me.Edit()
                 Case Keys.V
                     T_Layout.PerformClick()
                 Case Keys.E
                     T_Export.PerformClick()
                 Case Keys.A
                     T_SelectAll.PerformClick()
+                Case Keys.P
+                    Me.PrintBill()
             End Select
         End If
     End Sub
@@ -233,6 +232,34 @@ Public Class frmContracts
             End If
         End If
     End Sub
+
+    Private Sub PrintBill()
+        Try
+            ModMain.ShowProcess()
+            Dim r As UltraGridRow = Grid.ActiveRow
+            If r Is Nothing Then Exit Sub
+            If r.Index = -1 Then Exit Sub
+            If Not r.ChildBands Is Nothing Then Exit Sub
+
+            Dim contractId = r.Cells("ContractId").Value
+
+            Dim fullPath = Application.StartupPath & "\Reports\StatusOfContract.rpt"
+            If Not System.IO.File.Exists(fullPath) Then
+                ShowMsg("Không tìm thấy file: " & fullPath)
+                Exit Sub
+            End If
+
+            Dim rp As New ReportDocument
+            Dim clsrpt As New ClsReport
+            rp = clsrpt.InitReport(Application.StartupPath & "\Reports\StatusOfContract.rpt")
+            clsrpt.SetParameter(rp, contractId)
+            Dim frm As New FrmReport
+            frm.rpt.ReportSource = rp
+            frm.Show()
+        Finally
+            ModMain.HideProcess()
+        End Try
+    End Sub
 #End Region
 
 #Region "Toolbar "
@@ -388,6 +415,10 @@ Public Class frmContracts
         SelectAll(Grid)
     End Sub
 
+    Private Sub T_Print_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Print.Click
+        Me.PrintBill()
+    End Sub
+
     Private Sub T_StatusSigned_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_StatusSigned.Click
         Me.approve(Statuses.Signed)
     End Sub
@@ -447,4 +478,6 @@ Public Class frmContracts
             Me.Loadlist()
         End If
     End Sub
+
+  
 End Class
