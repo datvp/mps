@@ -370,7 +370,7 @@ Partial Class frmClientDetail
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(268, 173)
+        Me.Label7.Location = New System.Drawing.Point(268, 174)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(54, 16)
         Me.Label7.TabIndex = 11
@@ -381,7 +381,7 @@ Partial Class frmClientDetail
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(268, 141)
+        Me.Label6.Location = New System.Drawing.Point(268, 142)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(39, 16)
         Me.Label6.TabIndex = 11
@@ -392,18 +392,18 @@ Partial Class frmClientDetail
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(10, 173)
+        Me.Label8.Location = New System.Drawing.Point(10, 174)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(72, 16)
+        Me.Label8.Size = New System.Drawing.Size(94, 16)
         Me.Label8.TabIndex = 11
-        Me.Label8.Text = "Phân nhóm"
+        Me.Label8.Text = "Phân nhóm (*)"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(10, 141)
+        Me.Label5.Location = New System.Drawing.Point(10, 142)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(66, 16)
         Me.Label5.TabIndex = 11
@@ -438,9 +438,9 @@ Partial Class frmClientDetail
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(10, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 16)
+        Me.Label3.Size = New System.Drawing.Size(97, 16)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Tên công ty"
+        Me.Label3.Text = "Tên công ty (*)"
         '
         'Label2
         '
@@ -449,9 +449,9 @@ Partial Class frmClientDetail
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(10, 75)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(94, 16)
+        Me.Label2.Size = New System.Drawing.Size(66, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Mã khách hàng"
+        Me.Label2.Text = "Mã KH (*)"
         '
         'grpContact
         '

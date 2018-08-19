@@ -169,34 +169,34 @@ Partial Class frmItemDetail
         '
         Me.txtNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtNote.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNote.Location = New System.Drawing.Point(113, 108)
+        Me.txtNote.Location = New System.Drawing.Point(85, 108)
         Me.txtNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNote.MaxLength = 500
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
-        Me.txtNote.Size = New System.Drawing.Size(328, 77)
+        Me.txtNote.Size = New System.Drawing.Size(356, 77)
         Me.txtNote.TabIndex = 12
         '
         'txtItemName
         '
         Me.txtItemName.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtItemName.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemName.Location = New System.Drawing.Point(113, 41)
+        Me.txtItemName.Location = New System.Drawing.Point(85, 41)
         Me.txtItemName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtItemName.MaxLength = 255
         Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.Size = New System.Drawing.Size(328, 25)
+        Me.txtItemName.Size = New System.Drawing.Size(356, 25)
         Me.txtItemName.TabIndex = 0
         '
         'txtItemId
         '
         Me.txtItemId.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtItemId.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemId.Location = New System.Drawing.Point(113, 74)
+        Me.txtItemId.Location = New System.Drawing.Point(85, 74)
         Me.txtItemId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtItemId.MaxLength = 50
         Me.txtItemId.Name = "txtItemId"
-        Me.txtItemId.Size = New System.Drawing.Size(144, 25)
+        Me.txtItemId.Size = New System.Drawing.Size(172, 25)
         Me.txtItemId.TabIndex = 1
         '
         'Label4
@@ -217,9 +217,9 @@ Partial Class frmItemDetail
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(10, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(90, 16)
+        Me.Label3.Size = New System.Drawing.Size(52, 16)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Tên hạng mục"
+        Me.Label3.Text = "Tên (*)"
         '
         'Label2
         '
@@ -228,9 +228,9 @@ Partial Class frmItemDetail
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(10, 75)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(85, 16)
+        Me.Label2.Size = New System.Drawing.Size(47, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Mã hạng mục"
+        Me.Label2.Text = "Mã (*)"
         '
         'frmItemDetail
         '

@@ -49,14 +49,14 @@ Partial Class frmSubContractorDetail
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.grpContact = New Infragistics.Win.Misc.UltraGroupBox
+        Me.txtNote = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.Label8 = New System.Windows.Forms.Label
         Me.Label9 = New System.Windows.Forms.Label
         Me.txtContactEmail = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label10 = New System.Windows.Forms.Label
         Me.txtContactPhone = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.txtContactName = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.Label11 = New System.Windows.Forms.Label
-        Me.txtNote = New Infragistics.Win.UltraWinEditors.UltraTextEditor
-        Me.Label8 = New System.Windows.Forms.Label
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,10 +69,10 @@ Partial Class frmSubContractorDetail
         CType(Me.txtSubContractorId, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpContact, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpContact.SuspendLayout()
+        CType(Me.txtNote, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtContactEmail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtContactPhone, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtContactName, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtNote, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'grpBottom
@@ -313,9 +313,9 @@ Partial Class frmSubContractorDetail
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(5, 33)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 16)
+        Me.Label3.Size = New System.Drawing.Size(97, 16)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Tên công ty"
+        Me.Label3.Text = "Tên công ty (*)"
         '
         'Label2
         '
@@ -324,9 +324,9 @@ Partial Class frmSubContractorDetail
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(5, 66)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(104, 16)
+        Me.Label2.Size = New System.Drawing.Size(47, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Mã nhà thầu phụ"
+        Me.Label2.Text = "Mã (*)"
         '
         'grpContact
         '
@@ -350,6 +350,29 @@ Partial Class frmSubContractorDetail
         Me.grpContact.TabIndex = 8
         Me.grpContact.Text = "THÔNG TIN LIÊN HỆ"
         Me.grpContact.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
+        '
+        'txtNote
+        '
+        Me.txtNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.txtNote.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNote.Location = New System.Drawing.Point(113, 99)
+        Me.txtNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtNote.MaxLength = 500
+        Me.txtNote.Multiline = True
+        Me.txtNote.Name = "txtNote"
+        Me.txtNote.Size = New System.Drawing.Size(422, 77)
+        Me.txtNote.TabIndex = 11
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.BackColor = System.Drawing.Color.Transparent
+        Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(10, 99)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(50, 16)
+        Me.Label8.TabIndex = 15
+        Me.Label8.Text = "Ghi chú"
         '
         'Label9
         '
@@ -417,29 +440,6 @@ Partial Class frmSubContractorDetail
         Me.Label11.TabIndex = 11
         Me.Label11.Text = "Email"
         '
-        'txtNote
-        '
-        Me.txtNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.txtNote.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNote.Location = New System.Drawing.Point(113, 99)
-        Me.txtNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtNote.MaxLength = 500
-        Me.txtNote.Multiline = True
-        Me.txtNote.Name = "txtNote"
-        Me.txtNote.Size = New System.Drawing.Size(422, 77)
-        Me.txtNote.TabIndex = 11
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.BackColor = System.Drawing.Color.Transparent
-        Me.Label8.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(10, 99)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(50, 16)
-        Me.Label8.TabIndex = 15
-        Me.Label8.Text = "Ghi chú"
-        '
         'frmSubContractorDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -474,10 +474,10 @@ Partial Class frmSubContractorDetail
         CType(Me.grpContact, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpContact.ResumeLayout(False)
         Me.grpContact.PerformLayout()
+        CType(Me.txtNote, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContactEmail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContactPhone, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtContactName, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtNote, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

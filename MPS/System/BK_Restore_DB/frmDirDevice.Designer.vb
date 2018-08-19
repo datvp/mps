@@ -55,7 +55,7 @@ Partial Class frmDirDevice
         Me.Panel1.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Padding = New System.Windows.Forms.Padding(10)
-        Me.Panel1.Size = New System.Drawing.Size(358, 305)
+        Me.Panel1.Size = New System.Drawing.Size(358, 369)
         Me.Panel1.TabIndex = 0
         '
         'TV
@@ -67,7 +67,7 @@ Partial Class frmDirDevice
         Me.TV.Margin = New System.Windows.Forms.Padding(4)
         Me.TV.Name = "TV"
         Me.TV.SelectedImageIndex = 0
-        Me.TV.Size = New System.Drawing.Size(338, 285)
+        Me.TV.Size = New System.Drawing.Size(338, 349)
         Me.TV.TabIndex = 1
         '
         'ImageList1
@@ -96,7 +96,7 @@ Partial Class frmDirDevice
         Appearance14.BackColor2 = System.Drawing.Color.White
         Appearance14.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnCancel.HotTrackAppearance = Appearance14
-        Me.btnCancel.Location = New System.Drawing.Point(228, 14)
+        Me.btnCancel.Location = New System.Drawing.Point(228, 10)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
         Me.btnCancel.Name = "btnCancel"
         Appearance15.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -125,7 +125,7 @@ Partial Class frmDirDevice
         Appearance5.BackColor2 = System.Drawing.Color.White
         Appearance5.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnChoose.HotTrackAppearance = Appearance5
-        Me.btnChoose.Location = New System.Drawing.Point(123, 14)
+        Me.btnChoose.Location = New System.Drawing.Point(123, 10)
         Me.btnChoose.Margin = New System.Windows.Forms.Padding(4)
         Me.btnChoose.Name = "btnChoose"
         Appearance6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -156,35 +156,37 @@ Partial Class frmDirDevice
         Me.Panel3.Controls.Add(Me.lblName)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Panel3.Location = New System.Drawing.Point(0, 305)
+        Me.Panel3.Location = New System.Drawing.Point(0, 369)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(4)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(358, 78)
+        Me.Panel3.Padding = New System.Windows.Forms.Padding(10, 0, 10, 5)
+        Me.Panel3.Size = New System.Drawing.Size(358, 102)
         Me.Panel3.TabIndex = 2
         '
         'Lb
         '
         Me.Lb.BackColor = System.Drawing.Color.Transparent
+        Me.Lb.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Lb.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Lb.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Lb.Location = New System.Drawing.Point(10, 33)
         Me.Lb.Name = "Lb"
-        Me.Lb.Size = New System.Drawing.Size(335, 38)
+        Me.Lb.Size = New System.Drawing.Size(338, 64)
         Me.Lb.TabIndex = 12
         Me.Lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'txtFile
         '
-        Me.txtFile.Location = New System.Drawing.Point(73, 6)
+        Me.txtFile.Location = New System.Drawing.Point(83, 6)
         Me.txtFile.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFile.Name = "txtFile"
-        Me.txtFile.Size = New System.Drawing.Size(272, 23)
+        Me.txtFile.Size = New System.Drawing.Size(262, 23)
         Me.txtFile.TabIndex = 2
         '
         'lblName
         '
         Me.lblName.AutoSize = True
-        Me.lblName.Location = New System.Drawing.Point(14, 7)
+        Me.lblName.Location = New System.Drawing.Point(24, 7)
         Me.lblName.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(51, 16)
@@ -198,10 +200,10 @@ Partial Class frmDirDevice
         Me.grpBottom.Controls.Add(Me.lbTemp)
         Me.grpBottom.Controls.Add(Me.btnChoose)
         Me.grpBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.grpBottom.Location = New System.Drawing.Point(0, 383)
+        Me.grpBottom.Location = New System.Drawing.Point(0, 471)
         Me.grpBottom.Margin = New System.Windows.Forms.Padding(0)
         Me.grpBottom.Name = "grpBottom"
-        Me.grpBottom.Size = New System.Drawing.Size(358, 61)
+        Me.grpBottom.Size = New System.Drawing.Size(358, 50)
         Me.grpBottom.TabIndex = 20
         Me.grpBottom.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
@@ -211,12 +213,12 @@ Partial Class frmDirDevice
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(358, 444)
+        Me.ClientSize = New System.Drawing.Size(358, 521)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.grpBottom)
         Me.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False

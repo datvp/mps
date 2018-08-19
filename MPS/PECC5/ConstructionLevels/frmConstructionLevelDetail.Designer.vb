@@ -169,34 +169,34 @@ Partial Class frmConstructionLevelDetail
         '
         Me.txtNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtNote.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNote.Location = New System.Drawing.Point(113, 108)
+        Me.txtNote.Location = New System.Drawing.Point(85, 108)
         Me.txtNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNote.MaxLength = 500
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
-        Me.txtNote.Size = New System.Drawing.Size(328, 77)
+        Me.txtNote.Size = New System.Drawing.Size(356, 77)
         Me.txtNote.TabIndex = 12
         '
         'txtConstructionLevelName
         '
         Me.txtConstructionLevelName.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtConstructionLevelName.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtConstructionLevelName.Location = New System.Drawing.Point(113, 41)
+        Me.txtConstructionLevelName.Location = New System.Drawing.Point(85, 41)
         Me.txtConstructionLevelName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtConstructionLevelName.MaxLength = 255
         Me.txtConstructionLevelName.Name = "txtConstructionLevelName"
-        Me.txtConstructionLevelName.Size = New System.Drawing.Size(328, 25)
+        Me.txtConstructionLevelName.Size = New System.Drawing.Size(356, 25)
         Me.txtConstructionLevelName.TabIndex = 0
         '
         'txtConstructionLevelId
         '
         Me.txtConstructionLevelId.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtConstructionLevelId.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtConstructionLevelId.Location = New System.Drawing.Point(113, 74)
+        Me.txtConstructionLevelId.Location = New System.Drawing.Point(85, 74)
         Me.txtConstructionLevelId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtConstructionLevelId.MaxLength = 50
         Me.txtConstructionLevelId.Name = "txtConstructionLevelId"
-        Me.txtConstructionLevelId.Size = New System.Drawing.Size(144, 25)
+        Me.txtConstructionLevelId.Size = New System.Drawing.Size(172, 25)
         Me.txtConstructionLevelId.TabIndex = 1
         '
         'Label4
@@ -217,9 +217,9 @@ Partial Class frmConstructionLevelDetail
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(10, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 16)
+        Me.Label3.Size = New System.Drawing.Size(52, 16)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Tên phân cấp"
+        Me.Label3.Text = "Tên (*)"
         '
         'Label2
         '
@@ -228,9 +228,9 @@ Partial Class frmConstructionLevelDetail
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(10, 75)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(81, 16)
+        Me.Label2.Size = New System.Drawing.Size(47, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Mã phân cấp"
+        Me.Label2.Text = "Mã (*)"
         '
         'frmConstructionLevelDetail
         '

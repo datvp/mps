@@ -39,15 +39,15 @@ Partial Class frmSubContractDetail
         Me.lblConvertMoney = New System.Windows.Forms.Label
         Me.txtSubContractValue = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.lblUnit = New System.Windows.Forms.Label
+        Me.dtSubContractDate = New System.Windows.Forms.DateTimePicker
         Me.dtSubContractDeadLine = New System.Windows.Forms.DateTimePicker
         Me.txtNote = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.txtSubContractorId = New Infragistics.Win.UltraWinEditors.UltraTextEditor
+        Me.Label1 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.dtSubContractDate = New System.Windows.Forms.DateTimePicker
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -215,6 +215,14 @@ Partial Class frmSubContractDetail
         Me.lblUnit.TabIndex = 15
         Me.lblUnit.Text = "đ"
         '
+        'dtSubContractDate
+        '
+        Me.dtSubContractDate.Checked = False
+        Me.dtSubContractDate.Location = New System.Drawing.Point(391, 228)
+        Me.dtSubContractDate.Name = "dtSubContractDate"
+        Me.dtSubContractDate.Size = New System.Drawing.Size(144, 23)
+        Me.dtSubContractDate.TabIndex = 2
+        '
         'dtSubContractDeadLine
         '
         Me.dtSubContractDeadLine.Checked = False
@@ -247,6 +255,17 @@ Partial Class frmSubContractDetail
         Me.txtSubContractorId.Size = New System.Drawing.Size(144, 25)
         Me.txtSubContractorId.TabIndex = 1
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(330, 230)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(52, 16)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Ngày ký"
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -276,9 +295,9 @@ Partial Class frmSubContractDetail
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(10, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(58, 16)
+        Me.Label3.Size = New System.Drawing.Size(80, 16)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Nội dung"
+        Me.Label3.Text = "Nội dung (*)"
         '
         'Label2
         '
@@ -287,28 +306,9 @@ Partial Class frmSubContractDetail
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(10, 229)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(70, 16)
+        Me.Label2.Size = New System.Drawing.Size(92, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Mã phụ lục"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(330, 230)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(52, 16)
-        Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Ngày ký"
-        '
-        'dtSubContractDate
-        '
-        Me.dtSubContractDate.Checked = False
-        Me.dtSubContractDate.Location = New System.Drawing.Point(391, 228)
-        Me.dtSubContractDate.Name = "dtSubContractDate"
-        Me.dtSubContractDate.Size = New System.Drawing.Size(144, 23)
-        Me.dtSubContractDate.TabIndex = 2
+        Me.Label2.Text = "Mã phụ lục (*)"
         '
         'frmSubContractDetail
         '

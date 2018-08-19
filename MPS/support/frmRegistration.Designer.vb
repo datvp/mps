@@ -89,6 +89,7 @@ Partial Class frmRegistration
         Appearance5.TextHAlignAsString = "Center"
         Appearance5.TextVAlignAsString = "Middle"
         Me.txtID.Appearance = Appearance5
+        Me.txtID.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtID.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtID.Location = New System.Drawing.Point(71, 9)
         Me.txtID.MaxLength = 50
@@ -102,6 +103,7 @@ Partial Class frmRegistration
         Appearance1.TextHAlignAsString = "Center"
         Appearance1.TextVAlignAsString = "Middle"
         Me.txtGenegateCode.Appearance = Appearance1
+        Me.txtGenegateCode.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtGenegateCode.Font = New System.Drawing.Font("Tahoma", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtGenegateCode.Location = New System.Drawing.Point(13, 86)
         Me.txtGenegateCode.MaxLength = 255

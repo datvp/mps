@@ -290,9 +290,9 @@ Partial Class frmRefundDetail
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(10, 145)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(84, 16)
+        Me.Label6.Size = New System.Drawing.Size(106, 16)
         Me.Label6.TabIndex = 20
-        Me.Label6.Text = "Nhà thầu phụ"
+        Me.Label6.Text = "Nhà thầu phụ (*)"
         '
         'txtRefundTotal
         '
@@ -449,9 +449,9 @@ Partial Class frmRefundDetail
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(10, 110)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(96, 16)
+        Me.Label5.Size = New System.Drawing.Size(90, 16)
         Me.Label5.TabIndex = 11
-        Me.Label5.Text = "Số tiền phải chi"
+        Me.Label5.Text = "Số tiền chi (*)"
         '
         'Label4
         '
@@ -471,9 +471,9 @@ Partial Class frmRefundDetail
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(10, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(48, 16)
+        Me.Label3.Size = New System.Drawing.Size(70, 16)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Đợt chi"
+        Me.Label3.Text = "Đợt chi (*)"
         '
         'Label2
         '
@@ -482,9 +482,9 @@ Partial Class frmRefundDetail
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(10, 75)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 16)
+        Me.Label2.Size = New System.Drawing.Size(89, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Mã đợt chi"
+        Me.Label2.Text = "Mã đợt chi (*)"
         '
         'frmRefundDetail
         '

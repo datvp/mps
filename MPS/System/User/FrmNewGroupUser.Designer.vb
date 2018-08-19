@@ -82,6 +82,7 @@ Partial Class FrmNewGroupUser
         '
         'txtSID
         '
+        Me.txtSID.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtSID.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtSID.Location = New System.Drawing.Point(149, 17)
         Me.txtSID.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -114,6 +115,7 @@ Partial Class FrmNewGroupUser
         '
         Appearance2.TextHAlignAsString = "Right"
         Me.txtOrderNo.Appearance = Appearance2
+        Me.txtOrderNo.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtOrderNo.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtOrderNo.Location = New System.Drawing.Point(398, 17)
         Me.txtOrderNo.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -146,6 +148,7 @@ Partial Class FrmNewGroupUser
         '
         'txtName
         '
+        Me.txtName.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtName.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtName.Location = New System.Drawing.Point(149, 54)
         Me.txtName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -178,10 +181,11 @@ Partial Class FrmNewGroupUser
         '
         'txtNote
         '
+        Me.txtNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtNote.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNote.Location = New System.Drawing.Point(149, 91)
         Me.txtNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.txtNote.MaxLength = 1024
+        Me.txtNote.MaxLength = 255
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
         Me.txtNote.Scrollbars = System.Windows.Forms.ScrollBars.Vertical

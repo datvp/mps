@@ -169,34 +169,34 @@ Partial Class frmProjectTypeDetail
         '
         Me.txtNote.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtNote.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNote.Location = New System.Drawing.Point(113, 108)
+        Me.txtNote.Location = New System.Drawing.Point(92, 108)
         Me.txtNote.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtNote.MaxLength = 500
         Me.txtNote.Multiline = True
         Me.txtNote.Name = "txtNote"
-        Me.txtNote.Size = New System.Drawing.Size(328, 77)
+        Me.txtNote.Size = New System.Drawing.Size(349, 77)
         Me.txtNote.TabIndex = 12
         '
         'txtProjectTypeName
         '
         Me.txtProjectTypeName.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtProjectTypeName.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProjectTypeName.Location = New System.Drawing.Point(113, 41)
+        Me.txtProjectTypeName.Location = New System.Drawing.Point(92, 41)
         Me.txtProjectTypeName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtProjectTypeName.MaxLength = 255
         Me.txtProjectTypeName.Name = "txtProjectTypeName"
-        Me.txtProjectTypeName.Size = New System.Drawing.Size(328, 25)
+        Me.txtProjectTypeName.Size = New System.Drawing.Size(349, 25)
         Me.txtProjectTypeName.TabIndex = 0
         '
         'txtProjectTypeId
         '
         Me.txtProjectTypeId.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
         Me.txtProjectTypeId.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtProjectTypeId.Location = New System.Drawing.Point(113, 74)
+        Me.txtProjectTypeId.Location = New System.Drawing.Point(92, 74)
         Me.txtProjectTypeId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtProjectTypeId.MaxLength = 50
         Me.txtProjectTypeId.Name = "txtProjectTypeId"
-        Me.txtProjectTypeId.Size = New System.Drawing.Size(144, 25)
+        Me.txtProjectTypeId.Size = New System.Drawing.Size(165, 25)
         Me.txtProjectTypeId.TabIndex = 1
         '
         'Label4
@@ -217,9 +217,9 @@ Partial Class frmProjectTypeDetail
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(10, 42)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(91, 16)
+        Me.Label3.Size = New System.Drawing.Size(76, 16)
         Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Tên loại dự án"
+        Me.Label3.Text = "Tên loại (*)"
         '
         'Label2
         '
@@ -228,9 +228,9 @@ Partial Class frmProjectTypeDetail
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(10, 75)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(86, 16)
+        Me.Label2.Size = New System.Drawing.Size(71, 16)
         Me.Label2.TabIndex = 11
-        Me.Label2.Text = "Mã loại dự án"
+        Me.Label2.Text = "Mã loại (*)"
         '
         'frmProjectTypeDetail
         '
