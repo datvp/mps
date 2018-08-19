@@ -128,5 +128,9 @@ Public Class DAL_Public
         Dim tb = getTableSQL(sql, New SqlParameter("@CurYear", CurYear), New SqlParameter("@PreYear", PreYear))
         Return tb
     End Function
-
+    Public Function getListTop10Refunded() As DataTable
+        Dim sql = "Select top 10 * from V_GetListRefunded Order by Total desc"
+        Dim tb = getTableSQL(sql)
+        Return tb
+    End Function
 End Class

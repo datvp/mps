@@ -29,18 +29,6 @@ Partial Class frmDashboard
         Dim PieChartAppearance1 As Infragistics.UltraChart.Resources.Appearance.PieChartAppearance = New Infragistics.UltraChart.Resources.Appearance.PieChartAppearance
         Dim GridBagConstraint2 As Infragistics.Win.Layout.GridBagConstraint = New Infragistics.Win.Layout.GridBagConstraint
         Dim Appearance61 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim PaintElement2 As Infragistics.UltraChart.Resources.Appearance.PaintElement = New Infragistics.UltraChart.Resources.Appearance.PaintElement
-        Dim ColumnChartAppearance1 As Infragistics.UltraChart.Resources.Appearance.ColumnChartAppearance = New Infragistics.UltraChart.Resources.Appearance.ColumnChartAppearance
-        Dim GradientEffect2 As Infragistics.UltraChart.Resources.Appearance.GradientEffect = New Infragistics.UltraChart.Resources.Appearance.GradientEffect
-        Dim GridBagConstraint3 As Infragistics.Win.Layout.GridBagConstraint = New Infragistics.Win.Layout.GridBagConstraint
-        Dim Appearance62 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim PaintElement3 As Infragistics.UltraChart.Resources.Appearance.PaintElement = New Infragistics.UltraChart.Resources.Appearance.PaintElement
-        Dim ColumnChartAppearance2 As Infragistics.UltraChart.Resources.Appearance.ColumnChartAppearance = New Infragistics.UltraChart.Resources.Appearance.ColumnChartAppearance
-        Dim ChartLayerAppearance1 As Infragistics.UltraChart.Resources.Appearance.ChartLayerAppearance = New Infragistics.UltraChart.Resources.Appearance.ChartLayerAppearance
-        Dim ChartLayerAppearance2 As Infragistics.UltraChart.Resources.Appearance.ChartLayerAppearance = New Infragistics.UltraChart.Resources.Appearance.ChartLayerAppearance
-        Dim GradientEffect3 As Infragistics.UltraChart.Resources.Appearance.GradientEffect = New Infragistics.UltraChart.Resources.Appearance.GradientEffect
-        Dim GridBagConstraint4 As Infragistics.Win.Layout.GridBagConstraint = New Infragistics.Win.Layout.GridBagConstraint
-        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance7 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim UltraGridBand1 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
         Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -49,10 +37,27 @@ Partial Class frmDashboard
         Dim Appearance11 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance14 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim GridBagConstraint3 As Infragistics.Win.Layout.GridBagConstraint = New Infragistics.Win.Layout.GridBagConstraint
+        Dim Appearance62 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim PaintElement2 As Infragistics.UltraChart.Resources.Appearance.PaintElement = New Infragistics.UltraChart.Resources.Appearance.PaintElement
+        Dim ColumnChartAppearance1 As Infragistics.UltraChart.Resources.Appearance.ColumnChartAppearance = New Infragistics.UltraChart.Resources.Appearance.ColumnChartAppearance
+        Dim ChartLayerAppearance1 As Infragistics.UltraChart.Resources.Appearance.ChartLayerAppearance = New Infragistics.UltraChart.Resources.Appearance.ChartLayerAppearance
+        Dim ChartLayerAppearance2 As Infragistics.UltraChart.Resources.Appearance.ChartLayerAppearance = New Infragistics.UltraChart.Resources.Appearance.ChartLayerAppearance
+        Dim GradientEffect2 As Infragistics.UltraChart.Resources.Appearance.GradientEffect = New Infragistics.UltraChart.Resources.Appearance.GradientEffect
+        Dim GridBagConstraint4 As Infragistics.Win.Layout.GridBagConstraint = New Infragistics.Win.Layout.GridBagConstraint
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance15 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim UltraGridBand2 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
+        Dim Appearance16 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance17 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance18 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance19 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance20 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance21 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim GridBagConstraint5 As Infragistics.Win.Layout.GridBagConstraint = New Infragistics.Win.Layout.GridBagConstraint
         Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance5 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim UltraGridBand2 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
+        Dim UltraGridBand3 As Infragistics.Win.UltraWinGrid.UltraGridBand = New Infragistics.Win.UltraWinGrid.UltraGridBand("", -1)
         Dim Appearance6 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -61,36 +66,37 @@ Partial Class frmDashboard
         Dim Appearance60 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim GridBagConstraint6 As Infragistics.Win.Layout.GridBagConstraint = New Infragistics.Win.Layout.GridBagConstraint
         Dim Appearance55 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim PaintElement4 As Infragistics.UltraChart.Resources.Appearance.PaintElement = New Infragistics.UltraChart.Resources.Appearance.PaintElement
+        Dim PaintElement3 As Infragistics.UltraChart.Resources.Appearance.PaintElement = New Infragistics.UltraChart.Resources.Appearance.PaintElement
         Dim DoughnutChartAppearance1 As Infragistics.UltraChart.Resources.Appearance.DoughnutChartAppearance = New Infragistics.UltraChart.Resources.Appearance.DoughnutChartAppearance
-        Dim GradientEffect4 As Infragistics.UltraChart.Resources.Appearance.GradientEffect = New Infragistics.UltraChart.Resources.Appearance.GradientEffect
+        Dim GradientEffect3 As Infragistics.UltraChart.Resources.Appearance.GradientEffect = New Infragistics.UltraChart.Resources.Appearance.GradientEffect
         Me.GridBagLayout = New Infragistics.Win.Misc.UltraGridBagLayoutPanel
         Me.grpRevenueByClientGroup = New Infragistics.Win.Misc.UltraGroupBox
         Me.ChartByClientGroup = New Infragistics.Win.UltraWinChart.UltraChart
         Me.lnkPrintClientGroup = New System.Windows.Forms.LinkLabel
-        Me.grpRevenueByItem = New Infragistics.Win.Misc.UltraGroupBox
-        Me.ChartBySubContractor = New Infragistics.Win.UltraWinChart.UltraChart
+        Me.grpRefund = New Infragistics.Win.Misc.UltraGroupBox
+        Me.grdRefund = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.grpTotalSaleChart = New Infragistics.Win.Misc.UltraGroupBox
         Me.ChartByItem = New Infragistics.Win.UltraWinChart.UltraChart
         Me.lnkPrintItem = New System.Windows.Forms.LinkLabel
         Me.grpItemSaleToday = New Infragistics.Win.Misc.UltraGroupBox
         Me.GridProduct = New Infragistics.Win.UltraWinGrid.UltraGrid
+        Me.lnkPrintListDeadlineContract = New System.Windows.Forms.LinkLabel
         Me.grpTotalYear = New Infragistics.Win.Misc.UltraGroupBox
+        Me.lnkPrintRevenueByYear = New System.Windows.Forms.LinkLabel
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.grdRevenueByYear = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.grpRevenueByProject = New Infragistics.Win.Misc.UltraGroupBox
         Me.ChartByProject = New Infragistics.Win.UltraWinChart.UltraChart
         Me.lnkPrintProject = New System.Windows.Forms.LinkLabel
-        Me.lnkPrintRevenueByYear = New System.Windows.Forms.LinkLabel
-        Me.lnkPrintListDeadlineContract = New System.Windows.Forms.LinkLabel
+        Me.lnkPrintRefund = New System.Windows.Forms.LinkLabel
         CType(Me.GridBagLayout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GridBagLayout.SuspendLayout()
         CType(Me.grpRevenueByClientGroup, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpRevenueByClientGroup.SuspendLayout()
         CType(Me.ChartByClientGroup, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grpRevenueByItem, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpRevenueByItem.SuspendLayout()
-        CType(Me.ChartBySubContractor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grpRefund, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpRefund.SuspendLayout()
+        CType(Me.grdRefund, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpTotalSaleChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpTotalSaleChart.SuspendLayout()
         CType(Me.ChartByItem, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,7 +115,7 @@ Partial Class frmDashboard
         'GridBagLayout
         '
         Me.GridBagLayout.Controls.Add(Me.grpRevenueByClientGroup)
-        Me.GridBagLayout.Controls.Add(Me.grpRevenueByItem)
+        Me.GridBagLayout.Controls.Add(Me.grpRefund)
         Me.GridBagLayout.Controls.Add(Me.grpTotalSaleChart)
         Me.GridBagLayout.Controls.Add(Me.grpItemSaleToday)
         Me.GridBagLayout.Controls.Add(Me.grpTotalYear)
@@ -338,209 +344,85 @@ Partial Class frmDashboard
         Me.lnkPrintClientGroup.TabStop = True
         Me.lnkPrintClientGroup.Text = "In"
         '
-        'grpRevenueByItem
+        'grpRefund
         '
-        Me.grpRevenueByItem.Controls.Add(Me.ChartBySubContractor)
+        Me.grpRefund.Controls.Add(Me.grdRefund)
+        Me.grpRefund.Controls.Add(Me.lnkPrintRefund)
         GridBagConstraint2.Fill = Infragistics.Win.Layout.FillType.Both
         GridBagConstraint2.OriginX = 2
         GridBagConstraint2.OriginY = 1
-        Me.GridBagLayout.SetGridBagConstraint(Me.grpRevenueByItem, GridBagConstraint2)
+        Me.GridBagLayout.SetGridBagConstraint(Me.grpRefund, GridBagConstraint2)
         Appearance61.FontData.BoldAsString = "True"
         Appearance61.ForeColor = System.Drawing.Color.Navy
-        Me.grpRevenueByItem.HeaderAppearance = Appearance61
-        Me.grpRevenueByItem.Location = New System.Drawing.Point(716, 226)
-        Me.grpRevenueByItem.Name = "grpRevenueByItem"
-        Me.GridBagLayout.SetPreferredSize(Me.grpRevenueByItem, New System.Drawing.Size(246, 131))
-        Me.grpRevenueByItem.Size = New System.Drawing.Size(286, 270)
-        Me.grpRevenueByItem.TabIndex = 4
-        Me.grpRevenueByItem.Text = "Doanh thu theo...(coming soon...)"
-        Me.grpRevenueByItem.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
+        Me.grpRefund.HeaderAppearance = Appearance61
+        Me.grpRefund.Location = New System.Drawing.Point(716, 226)
+        Me.grpRefund.Name = "grpRefund"
+        Me.GridBagLayout.SetPreferredSize(Me.grpRefund, New System.Drawing.Size(246, 131))
+        Me.grpRefund.Size = New System.Drawing.Size(286, 270)
+        Me.grpRefund.TabIndex = 4
+        Me.grpRefund.Text = "Top 10 tổng chi phí cho nhà thầu |"
+        Me.grpRefund.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
-        'ChartBySubContractor
+        'grdRefund
         '
-        Me.ChartBySubContractor.Axis.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(220, Byte), Integer))
-        PaintElement2.ElementType = Infragistics.UltraChart.[Shared].Styles.PaintElementType.None
-        PaintElement2.Fill = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.ChartBySubContractor.Axis.PE = PaintElement2
-        Me.ChartBySubContractor.Axis.X.Labels.Font = New System.Drawing.Font("Times New Roman", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChartBySubContractor.Axis.X.Labels.FontColor = System.Drawing.Color.DimGray
-        Me.ChartBySubContractor.Axis.X.Labels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.ChartBySubContractor.Axis.X.Labels.ItemFormatString = "<ITEM_LABEL>"
-        Me.ChartBySubContractor.Axis.X.Labels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.X.Labels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.VerticalLeftFacing
-        Me.ChartBySubContractor.Axis.X.Labels.SeriesLabels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.X.Labels.SeriesLabels.FontColor = System.Drawing.Color.DimGray
-        Me.ChartBySubContractor.Axis.X.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.X.Labels.SeriesLabels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.X.Labels.SeriesLabels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
-        Me.ChartBySubContractor.Axis.X.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.X.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.X.LineColor = System.Drawing.Color.Blue
-        Me.ChartBySubContractor.Axis.X.LineDrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.X.LineEndCapStyle = Infragistics.UltraChart.[Shared].Styles.LineCapStyle.ArrowAnchor
-        Me.ChartBySubContractor.Axis.X.LineThickness = 1
-        Me.ChartBySubContractor.Axis.X.MajorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.X.MajorGridLines.Color = System.Drawing.Color.Gainsboro
-        Me.ChartBySubContractor.Axis.X.MajorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.X.MajorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.X.MinorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.X.MinorGridLines.Color = System.Drawing.Color.LightGray
-        Me.ChartBySubContractor.Axis.X.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.X.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.X.TickmarkIntervalType = Infragistics.UltraChart.[Shared].Styles.AxisIntervalType.Hours
-        Me.ChartBySubContractor.Axis.X.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
-        Me.ChartBySubContractor.Axis.X.Visible = True
-        Me.ChartBySubContractor.Axis.X2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.X2.Labels.FontColor = System.Drawing.Color.Gray
-        Me.ChartBySubContractor.Axis.X2.Labels.HorizontalAlign = System.Drawing.StringAlignment.Far
-        Me.ChartBySubContractor.Axis.X2.Labels.ItemFormatString = "<ITEM_LABEL>"
-        Me.ChartBySubContractor.Axis.X2.Labels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.X2.Labels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.VerticalLeftFacing
-        Me.ChartBySubContractor.Axis.X2.Labels.SeriesLabels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.X2.Labels.SeriesLabels.FontColor = System.Drawing.Color.Gray
-        Me.ChartBySubContractor.Axis.X2.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.X2.Labels.SeriesLabels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.X2.Labels.SeriesLabels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
-        Me.ChartBySubContractor.Axis.X2.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.X2.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.X2.LineThickness = 1
-        Me.ChartBySubContractor.Axis.X2.MajorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.X2.MajorGridLines.Color = System.Drawing.Color.Gainsboro
-        Me.ChartBySubContractor.Axis.X2.MajorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.X2.MajorGridLines.Visible = True
-        Me.ChartBySubContractor.Axis.X2.MinorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.X2.MinorGridLines.Color = System.Drawing.Color.LightGray
-        Me.ChartBySubContractor.Axis.X2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.X2.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.X2.TickmarkIntervalType = Infragistics.UltraChart.[Shared].Styles.AxisIntervalType.Hours
-        Me.ChartBySubContractor.Axis.X2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
-        Me.ChartBySubContractor.Axis.X2.Visible = False
-        Me.ChartBySubContractor.Axis.Y.Extent = 60
-        Me.ChartBySubContractor.Axis.Y.Labels.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChartBySubContractor.Axis.Y.Labels.HorizontalAlign = System.Drawing.StringAlignment.Far
-        Me.ChartBySubContractor.Axis.Y.Labels.ItemFormatString = "<DATA_VALUE:#,###>"
-        Me.ChartBySubContractor.Axis.Y.Labels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.Y.Labels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
-        Me.ChartBySubContractor.Axis.Y.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Far
-        Me.ChartBySubContractor.Axis.Y.Labels.SeriesLabels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.Y.Labels.SeriesLabels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.VerticalLeftFacing
-        Me.ChartBySubContractor.Axis.Y.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.Y.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.Y.LineColor = System.Drawing.Color.Blue
-        Me.ChartBySubContractor.Axis.Y.LineEndCapStyle = Infragistics.UltraChart.[Shared].Styles.LineCapStyle.ArrowAnchor
-        Me.ChartBySubContractor.Axis.Y.LineThickness = 1
-        Me.ChartBySubContractor.Axis.Y.MajorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.Y.MajorGridLines.Color = System.Drawing.Color.Gainsboro
-        Me.ChartBySubContractor.Axis.Y.MajorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.Y.MajorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.Y.MinorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.Y.MinorGridLines.Color = System.Drawing.Color.LightGray
-        Me.ChartBySubContractor.Axis.Y.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.Y.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.Y.TickmarkInterval = 50
-        Me.ChartBySubContractor.Axis.Y.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
-        Me.ChartBySubContractor.Axis.Y.Visible = True
-        Me.ChartBySubContractor.Axis.Y2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.Y2.Labels.FontColor = System.Drawing.Color.Gray
-        Me.ChartBySubContractor.Axis.Y2.Labels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.ChartBySubContractor.Axis.Y2.Labels.ItemFormatString = "<DATA_VALUE:00.##>"
-        Me.ChartBySubContractor.Axis.Y2.Labels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.Y2.Labels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
-        Me.ChartBySubContractor.Axis.Y2.Labels.SeriesLabels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.Y2.Labels.SeriesLabels.FontColor = System.Drawing.Color.Gray
-        Me.ChartBySubContractor.Axis.Y2.Labels.SeriesLabels.FormatString = ""
-        Me.ChartBySubContractor.Axis.Y2.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.ChartBySubContractor.Axis.Y2.Labels.SeriesLabels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.Y2.Labels.SeriesLabels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.VerticalLeftFacing
-        Me.ChartBySubContractor.Axis.Y2.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.Y2.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.Y2.LineThickness = 1
-        Me.ChartBySubContractor.Axis.Y2.MajorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.Y2.MajorGridLines.Color = System.Drawing.Color.Gainsboro
-        Me.ChartBySubContractor.Axis.Y2.MajorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.Y2.MajorGridLines.Visible = True
-        Me.ChartBySubContractor.Axis.Y2.MinorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.Y2.MinorGridLines.Color = System.Drawing.Color.LightGray
-        Me.ChartBySubContractor.Axis.Y2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.Y2.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.Y2.TickmarkInterval = 50
-        Me.ChartBySubContractor.Axis.Y2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
-        Me.ChartBySubContractor.Axis.Y2.Visible = False
-        Me.ChartBySubContractor.Axis.Z.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.Z.Labels.FontColor = System.Drawing.Color.DimGray
-        Me.ChartBySubContractor.Axis.Z.Labels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.ChartBySubContractor.Axis.Z.Labels.ItemFormatString = "<ITEM_LABEL>"
-        Me.ChartBySubContractor.Axis.Z.Labels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.Z.Labels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
-        Me.ChartBySubContractor.Axis.Z.Labels.SeriesLabels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.Z.Labels.SeriesLabels.FontColor = System.Drawing.Color.DimGray
-        Me.ChartBySubContractor.Axis.Z.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.ChartBySubContractor.Axis.Z.Labels.SeriesLabels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.Z.Labels.SeriesLabels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
-        Me.ChartBySubContractor.Axis.Z.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.Z.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.Z.LineThickness = 1
-        Me.ChartBySubContractor.Axis.Z.MajorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.Z.MajorGridLines.Color = System.Drawing.Color.Gainsboro
-        Me.ChartBySubContractor.Axis.Z.MajorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.Z.MajorGridLines.Visible = True
-        Me.ChartBySubContractor.Axis.Z.MinorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.Z.MinorGridLines.Color = System.Drawing.Color.LightGray
-        Me.ChartBySubContractor.Axis.Z.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.Z.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.Z.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
-        Me.ChartBySubContractor.Axis.Z.Visible = False
-        Me.ChartBySubContractor.Axis.Z2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.Z2.Labels.FontColor = System.Drawing.Color.Gray
-        Me.ChartBySubContractor.Axis.Z2.Labels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.ChartBySubContractor.Axis.Z2.Labels.ItemFormatString = ""
-        Me.ChartBySubContractor.Axis.Z2.Labels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.Z2.Labels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
-        Me.ChartBySubContractor.Axis.Z2.Labels.SeriesLabels.Font = New System.Drawing.Font("Verdana", 7.0!)
-        Me.ChartBySubContractor.Axis.Z2.Labels.SeriesLabels.FontColor = System.Drawing.Color.Gray
-        Me.ChartBySubContractor.Axis.Z2.Labels.SeriesLabels.HorizontalAlign = System.Drawing.StringAlignment.Near
-        Me.ChartBySubContractor.Axis.Z2.Labels.SeriesLabels.Layout.Behavior = Infragistics.UltraChart.[Shared].Styles.AxisLabelLayoutBehaviors.[Auto]
-        Me.ChartBySubContractor.Axis.Z2.Labels.SeriesLabels.Orientation = Infragistics.UltraChart.[Shared].Styles.TextOrientation.Horizontal
-        Me.ChartBySubContractor.Axis.Z2.Labels.SeriesLabels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.Z2.Labels.VerticalAlign = System.Drawing.StringAlignment.Center
-        Me.ChartBySubContractor.Axis.Z2.LineThickness = 1
-        Me.ChartBySubContractor.Axis.Z2.MajorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.Z2.MajorGridLines.Color = System.Drawing.Color.Gainsboro
-        Me.ChartBySubContractor.Axis.Z2.MajorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.Z2.MajorGridLines.Visible = True
-        Me.ChartBySubContractor.Axis.Z2.MinorGridLines.AlphaLevel = CType(255, Byte)
-        Me.ChartBySubContractor.Axis.Z2.MinorGridLines.Color = System.Drawing.Color.LightGray
-        Me.ChartBySubContractor.Axis.Z2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
-        Me.ChartBySubContractor.Axis.Z2.MinorGridLines.Visible = False
-        Me.ChartBySubContractor.Axis.Z2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
-        Me.ChartBySubContractor.Axis.Z2.Visible = False
-        Me.ChartBySubContractor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.ChartBySubContractor.Border.Thickness = 0
-        Me.ChartBySubContractor.ColorModel.AlphaLevel = CType(150, Byte)
-        Me.ChartBySubContractor.ColorModel.ColorBegin = System.Drawing.Color.Pink
-        Me.ChartBySubContractor.ColorModel.ColorEnd = System.Drawing.Color.DarkRed
-        Me.ChartBySubContractor.ColorModel.ModelStyle = Infragistics.UltraChart.[Shared].Styles.ColorModels.CustomLinear
-        ColumnChartAppearance1.SeriesSpacing = 0
-        Me.ChartBySubContractor.ColumnChart = ColumnChartAppearance1
-        Me.ChartBySubContractor.Data.EmptyStyle.PointStyle.IconSize = Infragistics.UltraChart.[Shared].Styles.SymbolIconSize.Small
-        Me.ChartBySubContractor.Data.EmptyStyle.ShowInLegend = True
-        Me.ChartBySubContractor.Data.RowLabelsColumn = 0
-        Me.ChartBySubContractor.Data.UseMinMax = True
-        Me.ChartBySubContractor.Data.UseRowLabelsColumn = True
-        Me.ChartBySubContractor.Data.ZeroAligned = True
-        Me.ChartBySubContractor.Dock = System.Windows.Forms.DockStyle.Fill
-        GradientEffect2.Coloring = Infragistics.UltraChart.[Shared].Styles.GradientColoringStyle.Lighten
-        GradientEffect2.Style = Infragistics.UltraChart.[Shared].Styles.GradientStyle.HorizontalBump
-        Me.ChartBySubContractor.Effects.Effects.Add(GradientEffect2)
-        Me.ChartBySubContractor.Location = New System.Drawing.Point(3, 17)
-        Me.ChartBySubContractor.Name = "ChartBySubContractor"
-        Me.ChartBySubContractor.Size = New System.Drawing.Size(280, 250)
-        Me.ChartBySubContractor.TabIndex = 2
-        Me.ChartBySubContractor.TitleLeft.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChartBySubContractor.Tooltips.Font = New System.Drawing.Font("Times New Roman", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChartBySubContractor.Tooltips.FormatString = "<DATA_VALUE:#,###>"
-        Me.ChartBySubContractor.Tooltips.HighlightFillColor = System.Drawing.Color.DimGray
-        Me.ChartBySubContractor.Tooltips.HighlightOutlineColor = System.Drawing.Color.DarkGray
+        Appearance7.BackColor = System.Drawing.Color.White
+        Me.grdRefund.DisplayLayout.Appearance = Appearance7
+        Me.grdRefund.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
+        UltraGridBand1.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Solid
+        UltraGridBand1.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Solid
+        Appearance8.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        UltraGridBand1.Override.RowAppearance = Appearance8
+        Me.grdRefund.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
+        Me.grdRefund.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
+        Me.grdRefund.DisplayLayout.EmptyRowSettings.ShowEmptyRows = True
+        Me.grdRefund.DisplayLayout.GroupByBox.Hidden = True
+        Me.grdRefund.DisplayLayout.InterBandSpacing = 10
+        Me.grdRefund.DisplayLayout.MaxColScrollRegions = 1
+        Me.grdRefund.DisplayLayout.MaxRowScrollRegions = 1
+        Appearance9.BackColor = System.Drawing.Color.White
+        Me.grdRefund.DisplayLayout.Override.ActiveRowAppearance = Appearance9
+        Me.grdRefund.DisplayLayout.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.No
+        Me.grdRefund.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdRefund.DisplayLayout.Override.AllowGroupBy = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdRefund.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdRefund.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
+        Appearance10.BackColor = System.Drawing.Color.Transparent
+        Me.grdRefund.DisplayLayout.Override.CardAreaAppearance = Appearance10
+        Me.grdRefund.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
+        Me.grdRefund.DisplayLayout.Override.FilterClearButtonLocation = Infragistics.Win.UltraWinGrid.FilterClearButtonLocation.Cell
+        Me.grdRefund.DisplayLayout.Override.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.UseColumnEditor
+        Me.grdRefund.DisplayLayout.Override.FilterOperatorDefaultValue = Infragistics.Win.UltraWinGrid.FilterOperatorDefaultValue.[Like]
+        Me.grdRefund.DisplayLayout.Override.FilterOperatorLocation = Infragistics.Win.UltraWinGrid.FilterOperatorLocation.Hidden
+        Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.grdRefund.DisplayLayout.Override.FilterRowAppearance = Appearance11
+        Me.grdRefund.DisplayLayout.Override.FilterUIType = Infragistics.Win.UltraWinGrid.FilterUIType.FilterRow
+        Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(240, Byte), Integer))
+        Appearance12.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(240, Byte), Integer))
+        Appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance12.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
+        Appearance12.BorderColor2 = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
+        Appearance12.FontData.BoldAsString = "True"
+        Appearance12.ForeColor = System.Drawing.Color.Navy
+        Appearance12.TextHAlignAsString = "Left"
+        Appearance12.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
+        Me.grdRefund.DisplayLayout.Override.HeaderAppearance = Appearance12
+        Me.grdRefund.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.grdRefund.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.ListIndex
+        Me.grdRefund.DisplayLayout.Override.RowSelectorWidth = 12
+        Me.grdRefund.DisplayLayout.Override.RowSpacingBefore = 0
+        Appearance14.BackColor = System.Drawing.Color.White
+        Appearance14.ForeColor = System.Drawing.Color.Black
+        Me.grdRefund.DisplayLayout.Override.SelectedRowAppearance = Appearance14
+        Me.grdRefund.DisplayLayout.Override.SummaryFooterCaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdRefund.DisplayLayout.RowConnectorStyle = Infragistics.Win.UltraWinGrid.RowConnectorStyle.Solid
+        Me.grdRefund.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.grdRefund.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.grdRefund.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.grdRefund.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdRefund.Location = New System.Drawing.Point(3, 17)
+        Me.grdRefund.Name = "grdRefund"
+        Me.grdRefund.Size = New System.Drawing.Size(280, 250)
+        Me.grdRefund.TabIndex = 4
         '
         'grpTotalSaleChart
         '
@@ -569,9 +451,9 @@ Partial Class frmDashboard
         'ChartByItem
         '
         Me.ChartByItem.Axis.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(220, Byte), Integer))
-        PaintElement3.ElementType = Infragistics.UltraChart.[Shared].Styles.PaintElementType.None
-        PaintElement3.Fill = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.ChartByItem.Axis.PE = PaintElement3
+        PaintElement2.ElementType = Infragistics.UltraChart.[Shared].Styles.PaintElementType.None
+        PaintElement2.Fill = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.ChartByItem.Axis.PE = PaintElement2
         Me.ChartByItem.Axis.X.Labels.Font = New System.Drawing.Font("Times New Roman", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChartByItem.Axis.X.Labels.FontColor = System.Drawing.Color.DimGray
         Me.ChartByItem.Axis.X.Labels.HorizontalAlign = System.Drawing.StringAlignment.Near
@@ -647,7 +529,7 @@ Partial Class frmDashboard
         Me.ChartByItem.Axis.Y.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartByItem.Axis.Y.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartByItem.Axis.Y.MinorGridLines.Visible = False
-        Me.ChartByItem.Axis.Y.TickmarkInterval = 40
+        Me.ChartByItem.Axis.Y.TickmarkInterval = 100
         Me.ChartByItem.Axis.Y.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartByItem.Axis.Y.Visible = True
         Me.ChartByItem.Axis.Y2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -673,7 +555,7 @@ Partial Class frmDashboard
         Me.ChartByItem.Axis.Y2.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartByItem.Axis.Y2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartByItem.Axis.Y2.MinorGridLines.Visible = False
-        Me.ChartByItem.Axis.Y2.TickmarkInterval = 40
+        Me.ChartByItem.Axis.Y2.TickmarkInterval = 50
         Me.ChartByItem.Axis.Y2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartByItem.Axis.Y2.Visible = False
         Me.ChartByItem.Axis.Z.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -730,8 +612,8 @@ Partial Class frmDashboard
         Me.ChartByItem.ColorModel.ColorBegin = System.Drawing.Color.Pink
         Me.ChartByItem.ColorModel.ColorEnd = System.Drawing.Color.DarkRed
         Me.ChartByItem.ColorModel.ModelStyle = Infragistics.UltraChart.[Shared].Styles.ColorModels.DataValueCustomLinear
-        ColumnChartAppearance2.SeriesSpacing = 0
-        Me.ChartByItem.ColumnChart = ColumnChartAppearance2
+        ColumnChartAppearance1.SeriesSpacing = 0
+        Me.ChartByItem.ColumnChart = ColumnChartAppearance1
         ChartLayerAppearance1.Key = "chartLayer1"
         ChartLayerAppearance2.ChartType = Infragistics.UltraChart.[Shared].Styles.ChartType.ColumnChart
         ChartLayerAppearance2.Key = "chartLayer2"
@@ -743,9 +625,9 @@ Partial Class frmDashboard
         Me.ChartByItem.Data.UseRowLabelsColumn = True
         Me.ChartByItem.Data.ZeroAligned = True
         Me.ChartByItem.Dock = System.Windows.Forms.DockStyle.Fill
-        GradientEffect3.Coloring = Infragistics.UltraChart.[Shared].Styles.GradientColoringStyle.Lighten
-        GradientEffect3.Style = Infragistics.UltraChart.[Shared].Styles.GradientStyle.HorizontalBump
-        Me.ChartByItem.Effects.Effects.Add(GradientEffect3)
+        GradientEffect2.Coloring = Infragistics.UltraChart.[Shared].Styles.GradientColoringStyle.Lighten
+        GradientEffect2.Style = Infragistics.UltraChart.[Shared].Styles.GradientStyle.HorizontalBump
+        Me.ChartByItem.Effects.Effects.Add(GradientEffect2)
         Me.ChartByItem.Location = New System.Drawing.Point(3, 17)
         Me.ChartByItem.Name = "ChartByItem"
         Me.ChartByItem.Size = New System.Drawing.Size(455, 206)
@@ -790,54 +672,54 @@ Partial Class frmDashboard
         '
         'GridProduct
         '
-        Appearance7.BackColor = System.Drawing.Color.White
-        Me.GridProduct.DisplayLayout.Appearance = Appearance7
+        Appearance15.BackColor = System.Drawing.Color.White
+        Me.GridProduct.DisplayLayout.Appearance = Appearance15
         Me.GridProduct.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
-        UltraGridBand1.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Solid
-        UltraGridBand1.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Solid
-        Appearance8.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        UltraGridBand1.Override.RowAppearance = Appearance8
-        Me.GridProduct.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
+        UltraGridBand2.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Solid
+        UltraGridBand2.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Solid
+        Appearance16.BorderColor = System.Drawing.SystemColors.InactiveCaption
+        UltraGridBand2.Override.RowAppearance = Appearance16
+        Me.GridProduct.DisplayLayout.BandsSerializer.Add(UltraGridBand2)
         Me.GridProduct.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
         Me.GridProduct.DisplayLayout.EmptyRowSettings.ShowEmptyRows = True
         Me.GridProduct.DisplayLayout.GroupByBox.Hidden = True
         Me.GridProduct.DisplayLayout.InterBandSpacing = 10
         Me.GridProduct.DisplayLayout.MaxColScrollRegions = 1
         Me.GridProduct.DisplayLayout.MaxRowScrollRegions = 1
-        Appearance9.BackColor = System.Drawing.Color.White
-        Me.GridProduct.DisplayLayout.Override.ActiveRowAppearance = Appearance9
+        Appearance17.BackColor = System.Drawing.Color.White
+        Me.GridProduct.DisplayLayout.Override.ActiveRowAppearance = Appearance17
         Me.GridProduct.DisplayLayout.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.No
         Me.GridProduct.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
         Me.GridProduct.DisplayLayout.Override.AllowGroupBy = Infragistics.Win.DefaultableBoolean.[False]
-        Me.GridProduct.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[True]
+        Me.GridProduct.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[False]
         Me.GridProduct.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
-        Appearance10.BackColor = System.Drawing.Color.Transparent
-        Me.GridProduct.DisplayLayout.Override.CardAreaAppearance = Appearance10
+        Appearance18.BackColor = System.Drawing.Color.Transparent
+        Me.GridProduct.DisplayLayout.Override.CardAreaAppearance = Appearance18
         Me.GridProduct.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
         Me.GridProduct.DisplayLayout.Override.FilterClearButtonLocation = Infragistics.Win.UltraWinGrid.FilterClearButtonLocation.Cell
         Me.GridProduct.DisplayLayout.Override.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.UseColumnEditor
         Me.GridProduct.DisplayLayout.Override.FilterOperatorDefaultValue = Infragistics.Win.UltraWinGrid.FilterOperatorDefaultValue.[Like]
         Me.GridProduct.DisplayLayout.Override.FilterOperatorLocation = Infragistics.Win.UltraWinGrid.FilterOperatorLocation.Hidden
-        Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.GridProduct.DisplayLayout.Override.FilterRowAppearance = Appearance11
+        Appearance19.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GridProduct.DisplayLayout.Override.FilterRowAppearance = Appearance19
         Me.GridProduct.DisplayLayout.Override.FilterUIType = Infragistics.Win.UltraWinGrid.FilterUIType.FilterRow
-        Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(240, Byte), Integer))
-        Appearance12.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(240, Byte), Integer))
-        Appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
-        Appearance12.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
-        Appearance12.BorderColor2 = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
-        Appearance12.FontData.BoldAsString = "True"
-        Appearance12.ForeColor = System.Drawing.Color.Navy
-        Appearance12.TextHAlignAsString = "Left"
-        Appearance12.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
-        Me.GridProduct.DisplayLayout.Override.HeaderAppearance = Appearance12
+        Appearance20.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(240, Byte), Integer))
+        Appearance20.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(240, Byte), Integer))
+        Appearance20.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
+        Appearance20.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
+        Appearance20.BorderColor2 = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
+        Appearance20.FontData.BoldAsString = "True"
+        Appearance20.ForeColor = System.Drawing.Color.Navy
+        Appearance20.TextHAlignAsString = "Left"
+        Appearance20.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
+        Me.GridProduct.DisplayLayout.Override.HeaderAppearance = Appearance20
         Me.GridProduct.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
         Me.GridProduct.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.ListIndex
         Me.GridProduct.DisplayLayout.Override.RowSelectorWidth = 12
         Me.GridProduct.DisplayLayout.Override.RowSpacingBefore = 0
-        Appearance14.BackColor = System.Drawing.Color.White
-        Appearance14.ForeColor = System.Drawing.Color.Black
-        Me.GridProduct.DisplayLayout.Override.SelectedRowAppearance = Appearance14
+        Appearance21.BackColor = System.Drawing.Color.White
+        Appearance21.ForeColor = System.Drawing.Color.Black
+        Me.GridProduct.DisplayLayout.Override.SelectedRowAppearance = Appearance21
         Me.GridProduct.DisplayLayout.Override.SummaryFooterCaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Me.GridProduct.DisplayLayout.RowConnectorStyle = Infragistics.Win.UltraWinGrid.RowConnectorStyle.Solid
         Me.GridProduct.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
@@ -848,6 +730,19 @@ Partial Class frmDashboard
         Me.GridProduct.Name = "GridProduct"
         Me.GridProduct.Size = New System.Drawing.Size(280, 206)
         Me.GridProduct.TabIndex = 3
+        '
+        'lnkPrintListDeadlineContract
+        '
+        Me.lnkPrintListDeadlineContract.AutoSize = True
+        Me.lnkPrintListDeadlineContract.BackColor = System.Drawing.Color.Transparent
+        Me.lnkPrintListDeadlineContract.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkPrintListDeadlineContract.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintListDeadlineContract.Location = New System.Drawing.Point(200, 1)
+        Me.lnkPrintListDeadlineContract.Name = "lnkPrintListDeadlineContract"
+        Me.lnkPrintListDeadlineContract.Size = New System.Drawing.Size(19, 13)
+        Me.lnkPrintListDeadlineContract.TabIndex = 4
+        Me.lnkPrintListDeadlineContract.TabStop = True
+        Me.lnkPrintListDeadlineContract.Text = "In"
         '
         'grpTotalYear
         '
@@ -868,6 +763,18 @@ Partial Class frmDashboard
         Me.grpTotalYear.Text = "Tổng doanh thu theo thời gian |"
         Me.grpTotalYear.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
+        'lnkPrintRevenueByYear
+        '
+        Me.lnkPrintRevenueByYear.BackColor = System.Drawing.Color.Transparent
+        Me.lnkPrintRevenueByYear.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkPrintRevenueByYear.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintRevenueByYear.Location = New System.Drawing.Point(189, 1)
+        Me.lnkPrintRevenueByYear.Name = "lnkPrintRevenueByYear"
+        Me.lnkPrintRevenueByYear.Size = New System.Drawing.Size(19, 13)
+        Me.lnkPrintRevenueByYear.TabIndex = 3
+        Me.lnkPrintRevenueByYear.TabStop = True
+        Me.lnkPrintRevenueByYear.Text = "In"
+        '
         'Panel1
         '
         Me.Panel1.AutoScroll = True
@@ -884,11 +791,11 @@ Partial Class frmDashboard
         Appearance5.BackColor = System.Drawing.Color.White
         Me.grdRevenueByYear.DisplayLayout.Appearance = Appearance5
         Me.grdRevenueByYear.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
-        UltraGridBand2.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Solid
-        UltraGridBand2.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Solid
+        UltraGridBand3.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Solid
+        UltraGridBand3.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance6.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        UltraGridBand2.Override.RowAppearance = Appearance6
-        Me.grdRevenueByYear.DisplayLayout.BandsSerializer.Add(UltraGridBand2)
+        UltraGridBand3.Override.RowAppearance = Appearance6
+        Me.grdRevenueByYear.DisplayLayout.BandsSerializer.Add(UltraGridBand3)
         Me.grdRevenueByYear.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
         Me.grdRevenueByYear.DisplayLayout.EmptyRowSettings.ShowEmptyRows = True
         Me.grdRevenueByYear.DisplayLayout.GroupByBox.Hidden = True
@@ -924,6 +831,7 @@ Partial Class frmDashboard
         Appearance57.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
         Me.grdRevenueByYear.DisplayLayout.Override.HeaderAppearance = Appearance57
         Me.grdRevenueByYear.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.[Select]
+        Me.grdRevenueByYear.DisplayLayout.Override.HeaderPlacement = Infragistics.Win.UltraWinGrid.HeaderPlacement.FixedOnTop
         Me.grdRevenueByYear.DisplayLayout.Override.MinRowHeight = 50
         Me.grdRevenueByYear.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.RowIndex
         Me.grdRevenueByYear.DisplayLayout.Override.RowSelectorWidth = 12
@@ -969,9 +877,9 @@ Partial Class frmDashboard
         'ChartByProject
         '
         Me.ChartByProject.Axis.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(220, Byte), Integer))
-        PaintElement4.ElementType = Infragistics.UltraChart.[Shared].Styles.PaintElementType.None
-        PaintElement4.Fill = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(220, Byte), Integer))
-        Me.ChartByProject.Axis.PE = PaintElement4
+        PaintElement3.ElementType = Infragistics.UltraChart.[Shared].Styles.PaintElementType.None
+        PaintElement3.Fill = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(248, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.ChartByProject.Axis.PE = PaintElement3
         Me.ChartByProject.Axis.X.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
         Me.ChartByProject.Axis.X.Labels.FontColor = System.Drawing.Color.DimGray
         Me.ChartByProject.Axis.X.Labels.HorizontalAlign = System.Drawing.StringAlignment.Near
@@ -1133,9 +1041,9 @@ Partial Class frmDashboard
         Me.ChartByProject.Dock = System.Windows.Forms.DockStyle.Fill
         DoughnutChartAppearance1.Labels.FormatString = "<ITEM_LABEL>" & Global.Microsoft.VisualBasic.ChrW(10) & "<PERCENT_VALUE:#0.00>%"
         Me.ChartByProject.DoughnutChart = DoughnutChartAppearance1
-        GradientEffect4.Coloring = Infragistics.UltraChart.[Shared].Styles.GradientColoringStyle.Lighten
-        GradientEffect4.Style = Infragistics.UltraChart.[Shared].Styles.GradientStyle.HorizontalBump
-        Me.ChartByProject.Effects.Effects.Add(GradientEffect4)
+        GradientEffect3.Coloring = Infragistics.UltraChart.[Shared].Styles.GradientColoringStyle.Lighten
+        GradientEffect3.Style = Infragistics.UltraChart.[Shared].Styles.GradientStyle.HorizontalBump
+        Me.ChartByProject.Effects.Effects.Add(GradientEffect3)
         Me.ChartByProject.Location = New System.Drawing.Point(3, 17)
         Me.ChartByProject.Name = "ChartByProject"
         Me.ChartByProject.Size = New System.Drawing.Size(249, 250)
@@ -1158,30 +1066,18 @@ Partial Class frmDashboard
         Me.lnkPrintProject.TabStop = True
         Me.lnkPrintProject.Text = "In"
         '
-        'lnkPrintRevenueByYear
+        'lnkPrintRefund
         '
-        Me.lnkPrintRevenueByYear.BackColor = System.Drawing.Color.Transparent
-        Me.lnkPrintRevenueByYear.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintRevenueByYear.LinkColor = System.Drawing.Color.Navy
-        Me.lnkPrintRevenueByYear.Location = New System.Drawing.Point(189, 1)
-        Me.lnkPrintRevenueByYear.Name = "lnkPrintRevenueByYear"
-        Me.lnkPrintRevenueByYear.Size = New System.Drawing.Size(19, 13)
-        Me.lnkPrintRevenueByYear.TabIndex = 3
-        Me.lnkPrintRevenueByYear.TabStop = True
-        Me.lnkPrintRevenueByYear.Text = "In"
-        '
-        'lnkPrintListDeadlineContract
-        '
-        Me.lnkPrintListDeadlineContract.AutoSize = True
-        Me.lnkPrintListDeadlineContract.BackColor = System.Drawing.Color.Transparent
-        Me.lnkPrintListDeadlineContract.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintListDeadlineContract.LinkColor = System.Drawing.Color.Navy
-        Me.lnkPrintListDeadlineContract.Location = New System.Drawing.Point(200, 1)
-        Me.lnkPrintListDeadlineContract.Name = "lnkPrintListDeadlineContract"
-        Me.lnkPrintListDeadlineContract.Size = New System.Drawing.Size(19, 13)
-        Me.lnkPrintListDeadlineContract.TabIndex = 4
-        Me.lnkPrintListDeadlineContract.TabStop = True
-        Me.lnkPrintListDeadlineContract.Text = "In"
+        Me.lnkPrintRefund.AutoSize = True
+        Me.lnkPrintRefund.BackColor = System.Drawing.Color.Transparent
+        Me.lnkPrintRefund.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkPrintRefund.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintRefund.Location = New System.Drawing.Point(200, 1)
+        Me.lnkPrintRefund.Name = "lnkPrintRefund"
+        Me.lnkPrintRefund.Size = New System.Drawing.Size(19, 13)
+        Me.lnkPrintRefund.TabIndex = 4
+        Me.lnkPrintRefund.TabStop = True
+        Me.lnkPrintRefund.Text = "In"
         '
         'frmDashboard
         '
@@ -1201,9 +1097,10 @@ Partial Class frmDashboard
         Me.grpRevenueByClientGroup.ResumeLayout(False)
         Me.grpRevenueByClientGroup.PerformLayout()
         CType(Me.ChartByClientGroup, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grpRevenueByItem, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpRevenueByItem.ResumeLayout(False)
-        CType(Me.ChartBySubContractor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grpRefund, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpRefund.ResumeLayout(False)
+        Me.grpRefund.PerformLayout()
+        CType(Me.grdRefund, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpTotalSaleChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpTotalSaleChart.ResumeLayout(False)
         Me.grpTotalSaleChart.PerformLayout()
@@ -1234,12 +1131,13 @@ Partial Class frmDashboard
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents grpItemSaleToday As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents GridProduct As Infragistics.Win.UltraWinGrid.UltraGrid
-    Friend WithEvents grpRevenueByItem As Infragistics.Win.Misc.UltraGroupBox
-    Private WithEvents ChartBySubContractor As Infragistics.Win.UltraWinChart.UltraChart
+    Friend WithEvents grpRefund As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents lnkPrintItem As System.Windows.Forms.LinkLabel
     Friend WithEvents lnkPrintClientGroup As System.Windows.Forms.LinkLabel
     Friend WithEvents lnkPrintProject As System.Windows.Forms.LinkLabel
     Friend WithEvents grdRevenueByYear As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents lnkPrintRevenueByYear As System.Windows.Forms.LinkLabel
     Friend WithEvents lnkPrintListDeadlineContract As System.Windows.Forms.LinkLabel
+    Friend WithEvents grdRefund As Infragistics.Win.UltraWinGrid.UltraGrid
+    Friend WithEvents lnkPrintRefund As System.Windows.Forms.LinkLabel
 End Class

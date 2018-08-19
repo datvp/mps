@@ -1,6 +1,7 @@
 ﻿Imports Infragistics.Win.UltraWinGrid.ExcelExport
 Imports Infragistics.Win.UltraWinGrid
 Imports System.Drawing.Printing
+Imports Infragistics.Win
 
 Public Class frmDashboard
     Dim clsuf As New VsoftBMS.Ulti.ClsFormatUltraGrid
@@ -22,9 +23,6 @@ Public Class frmDashboard
         ChartByItem.Data.DataSource = tb
         ChartByItem.Data.DataBind()
 
-        ChartBySubContractor.Data.DataSource = tb
-        ChartBySubContractor.Data.DataBind()
-
         'doanh thu theo nhóm kh
         ChartByClientGroup.Data.DataSource = b.getChartByClientGroup()
         ChartByClientGroup.Data.DataBind()
@@ -37,6 +35,8 @@ Public Class frmDashboard
         GridProduct.DataSource = b.getListDeadlineContracts(mbc.DeadLineAlert)
 
         grdRevenueByYear.DataSource = b.getListRevenueByYear()
+
+        grdRefund.DataSource = b.getListTop10Refunded()
     End Sub
 
     Private Sub TotalSaleChart_ChartDataClicked(ByVal sender As System.Object, ByVal e As Infragistics.UltraChart.Shared.Events.ChartDataEventArgs) Handles ChartByItem.ChartDataClicked
@@ -101,6 +101,24 @@ Public Class frmDashboard
             End If
         End If
     End Sub
+    Dim fgrdRefund As Boolean = False
+    Private Sub grdRefund_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdRefund.InitializeLayout
+        If fgrdRefund Then Exit Sub
+        fgrdRefund = True
+        clsuf.FormatGridFromDB(Me.Name, grdRefund, m_Lang)
+        grdRefund.DisplayLayout.Override.RowAppearance.BorderColor = Color.White
+        grdRefund.DisplayLayout.Override.RowAlternateAppearance.BackColor = Color.White
+    End Sub
+
+    Private Sub grdRefund_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdRefund.KeyUp
+        If e.Control Then
+            If e.KeyCode = Keys.Z Then
+                Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, grdRefund, m_Lang)
+                frm.ShowDialog()
+            End If
+        End If
+    End Sub
+
     Private Sub lnkPrintItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintItem.Click
         ModMain.PrintReport("\Reports\ChartByItem.rpt")
     End Sub
@@ -118,5 +136,10 @@ Public Class frmDashboard
 
     Private Sub lnkPrintListDeadlineContract_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintListDeadlineContract.Click
         GridProduct.PrintPreview()
+    End Sub
+
+
+    Private Sub lnkPrintRefund_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkPrintRefund.Click
+        grdRefund.PrintPreview()
     End Sub
 End Class

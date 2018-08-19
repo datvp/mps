@@ -46,4 +46,7 @@
     Public Function getListRevenueByYear() As DataTable
         Return cls.getListRevenueByYear()
     End Function
+    Public Function getListTop10Refunded() As DataTable
+        Return cls.getListTop10Refunded()
+    End Function
 End Class
