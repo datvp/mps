@@ -120,4 +120,13 @@ Public Class DAL_Public
     Public Function getListReports() As DataTable
         Return getTableSQL("Select * from Ls_Reports where Valid=1 Order by IDSort asc")
     End Function
+
+    Public Function getListRevenueByYear() As DataTable
+        Dim CurYear = Now.Year.ToString()
+        Dim PreYear = (Now.Year - 1).ToString()
+        Dim sql = "Exec sp_RevenueByYear @CurYear,@PreYear"
+        Dim tb = getTableSQL(sql, New SqlParameter("@CurYear", CurYear), New SqlParameter("@PreYear", PreYear))
+        Return tb
+    End Function
+
 End Class

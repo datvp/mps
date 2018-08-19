@@ -17,8 +17,6 @@ Public Class frmDashboard
         LoadChart()
     End Sub
     Public Sub LoadChart()
-        Me.Cursor = Cursors.WaitCursor
-
         'Tổng doanh thu theo mốc thời gian
         Dim tb = b.getChartByItem()
         ChartByItem.Data.DataSource = tb
@@ -38,7 +36,7 @@ Public Class frmDashboard
         'Tổng hợp các Hợp đồng sắp hết hạn
         GridProduct.DataSource = b.getListDeadlineContracts(mbc.DeadLineAlert)
 
-        Me.Cursor = Cursors.Default
+        grdRevenueByYear.DataSource = b.getListRevenueByYear()
     End Sub
 
     Private Sub TotalSaleChart_ChartDataClicked(ByVal sender As System.Object, ByVal e As Infragistics.UltraChart.Shared.Events.ChartDataEventArgs) Handles ChartByItem.ChartDataClicked
@@ -86,7 +84,23 @@ Public Class frmDashboard
             End If
         End If
     End Sub
+    Dim fgrdRevenueByYear As Boolean = False
+    Private Sub grdRevenueByYear_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdRevenueByYear.InitializeLayout
+        If fgrdRevenueByYear Then Exit Sub
+        fgrdRevenueByYear = True
+        clsuf.FormatGridFromDB(Me.Name, grdRevenueByYear, m_Lang)
+        grdRevenueByYear.DisplayLayout.Override.RowAppearance.BorderColor = Color.White
+        grdRevenueByYear.DisplayLayout.Override.RowAlternateAppearance.BackColor = Color.White
+    End Sub
 
+    Private Sub grdRevenueByYear_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdRevenueByYear.KeyUp
+        If e.Control Then
+            If e.KeyCode = Keys.Z Then
+                Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, grdRevenueByYear, m_Lang)
+                frm.ShowDialog()
+            End If
+        End If
+    End Sub
     Private Sub lnkPrintItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintItem.Click
         ModMain.PrintReport("\Reports\ChartByItem.rpt")
     End Sub
@@ -96,5 +110,13 @@ Public Class frmDashboard
     End Sub
     Private Sub lnkPrintClientGroup_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintClientGroup.Click
         ModMain.PrintReport("\Reports\ChartByClientGroup.rpt")
+    End Sub
+
+    Private Sub lnkPrintRevenueByYear_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintRevenueByYear.Click
+        grdRevenueByYear.PrintPreview()
+    End Sub
+
+    Private Sub lnkPrintListDeadlineContract_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lnkPrintListDeadlineContract.Click
+        GridProduct.PrintPreview()
     End Sub
 End Class

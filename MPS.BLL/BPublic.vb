@@ -43,4 +43,7 @@
     Public Function getListReports() As DataTable
         Return cls.getListReports()
     End Function
+    Public Function getListRevenueByYear() As DataTable
+        Return cls.getListRevenueByYear()
+    End Function
 End Class
