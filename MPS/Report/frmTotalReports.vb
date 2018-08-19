@@ -42,6 +42,9 @@ Public Class frmTotalReports
                 Case 6 'theo project
                     fByProject = False
                     Grid.DataSource = cls.RevenueByProject(dtFrom.Value, dtTo.Value)
+                Case 7 'theo thời gian
+                    fByYear = False
+                    Grid.DataSource = cls.RevenueByYear()
                 Case 9 'theo hạng mục
                     fByItem = False
                     Grid.DataSource = cls.RevenueByItem(dtFrom.Value, dtTo.Value)
@@ -93,7 +96,7 @@ Public Class frmTotalReports
         Me.GetListReports()
         cboTime.SelectedIndex = 0
     End Sub
-    Dim fByClientGroup, fByProject, fByItem, fByAssigned, fBySubContractorId, fByStatusContracts As Boolean
+    Dim fByClientGroup, fByProject, fByItem, fByAssigned, fBySubContractorId, fByStatusContracts, fByYear As Boolean
     Private Sub Grid_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles Grid.InitializeLayout
         Grid.DisplayLayout.Bands(0).Columns(0).MergedCellEvaluationType = MergedCellEvaluationType.MergeSameText
         Grid.DisplayLayout.Bands(0).Columns(0).MergedCellStyle = MergedCellStyle.Always
@@ -107,6 +110,10 @@ Public Class frmTotalReports
                 If fByProject Then Exit Sub
                 fByProject = True
                 clsuf.FormatGridFromDB(Me.Name + "ByProject", Grid, m_Lang)
+            Case 7 ' theo thời gian
+                If fByYear Then Exit Sub
+                fByYear = True
+                clsuf.FormatGridFromDB(Me.Name + "ByYear", Grid, m_Lang)
             Case 9 ' theo hạng mục
                 If fByItem Then Exit Sub
                 fByItem = True
@@ -145,7 +152,11 @@ Public Class frmTotalReports
         ' Horizontally fit everything in a signle page.
         e.DefaultLogicalPageLayoutInfo.FitWidthToPages = 1
 
-        Dim title = lstFunc.Text & vbCrLf & "Từ: " & dtFrom.Value.ToString("dd/MM/yyyy") & " đến: " & dtTo.Value.ToString("dd/MM/yyyy")
+        Dim title = lstFunc.Text
+        If lstFunc.SelectedValue = 7 Then ' theo thời gian
+        Else
+            title += vbCrLf & "Từ: " & dtFrom.Value.ToString("dd/MM/yyyy") & " đến: " & dtTo.Value.ToString("dd/MM/yyyy")
+        End If
         ' Set up the header and the footer.
         e.DefaultLogicalPageLayoutInfo.PageHeader = title
         e.DefaultLogicalPageLayoutInfo.PageHeaderHeight = 80
@@ -177,6 +188,9 @@ Public Class frmTotalReports
                         frm.ShowDialog()
                     Case 6 ' theo dự án công trình
                         Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "ByProject", Grid, m_Lang)
+                        frm.ShowDialog()
+                    Case 7 ' theo thời gian
+                        Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "ByYear", Grid, m_Lang)
                         frm.ShowDialog()
                     Case 9 ' theo hạng mục
                         Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "ByItem", Grid, m_Lang)
@@ -261,7 +275,7 @@ Public Class frmTotalReports
 
         Select Case lstFunc.SelectedValue
             Case 7 ' Tổng doanh thu theo Mốc thời gian
-
+                cboTime.Enabled = False
             Case 13 'Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
                 cboTime.Enabled = False
                 lblBranch.Visible = True

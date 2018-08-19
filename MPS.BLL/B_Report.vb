@@ -27,6 +27,10 @@
     Public Function RevenueByItem(ByVal dtFrom As Date, ByVal dtTo As Date) As DataTable
         Return cls.RevenueByItem(dtFrom, dtTo)
     End Function
+    Public Function RevenueByYear() As DataTable
+        Dim pb As BLL.BPublic = BLL.BPublic.Instance
+        Return pb.getListRevenueByYear()
+    End Function
     ''' <summary>
     ''' tổng số nhà thầu phụ đang được thuê
     ''' </summary>
