@@ -103,6 +103,7 @@
     <Compile Include="Projects\DAL_Projects.vb" />
     <Compile Include="ProjectTypes\DAL_ProjectTypes.vb" />
     <Compile Include="SubContractors\DAL_SubContractors.vb" />
+    <Compile Include="Uniteds\DAL_Uniteds.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

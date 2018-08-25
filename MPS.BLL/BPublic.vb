@@ -43,10 +43,28 @@
     Public Function getListReports() As DataTable
         Return cls.getListReports()
     End Function
+    ''' <summary>
+    ''' doanh thu theo quý
+    ''' </summary>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function getListRevenueByYear() As DataTable
         Return cls.getListRevenueByYear()
     End Function
+    ''' <summary>
+    ''' top 10 chi phí cho nhà thầu cao nhất
+    ''' </summary>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
     Public Function getListTop10Refunded() As DataTable
         Return cls.getListTop10Refunded()
+    End Function
+    ''' <summary>
+    ''' Top 10 khách hàng có doanh thu cao nhất
+    ''' </summary>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function getListTop10RevenueClient() As DataTable
+        Return cls.getListTop10RevenueClient()
     End Function
 End Class

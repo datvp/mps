@@ -35,6 +35,34 @@ Public Class DAL_Report
         p(1) = New SqlParameter("@dtTo", dtTo)
         Return getTableSQL(sql, p)
     End Function
+    Public Function ReportByDate(ByVal dtFrom As Date, ByVal dtTo As Date) As Boolean
+        If Not execSQL("Delete from ReportTemp") Then
+            Return False
+        End If
+        Dim sql = "Exec sp_ReportByDate @dtFrom,@dtTo"
+        Dim p(1) As SqlParameter
+        p(0) = New SqlParameter("@dtFrom", dtFrom)
+        p(1) = New SqlParameter("@dtTo", dtTo)
+        Dim tb = getTableSQL(sql, p)
+        If Not IsNothing(tb) Then
+            sql = "Insert into ReportTemp(ProjectName,ContractName,Note,Thu,Chi,DKThu,DKChi)"
+            sql += "values(@ProjectName,@ContractName,@Note,@Thu,@Chi,@DKThu,@DKChi)"
+            For Each r As DataRow In tb.Rows
+                Dim pm(6) As SqlParameter
+                pm(0) = New SqlParameter("@ProjectName", r("ProjectName"))
+                pm(1) = New SqlParameter("@ContractName", r("ContractName"))
+                pm(2) = New SqlParameter("@Note", r("Note"))
+                pm(3) = New SqlParameter("@Thu", CDbl(r("Thu")))
+                pm(4) = New SqlParameter("@Chi", CDbl(r("Chi")))
+                pm(5) = New SqlParameter("@DKThu", CDbl(r("DuKienThu")))
+                pm(6) = New SqlParameter("@DKChi", CDbl(r("DuKienChi")))
+                If Not Me.execSQL(sql, pm) Then
+                    Return False
+                End If
+            Next
+        End If
+        Return True
+    End Function
     ''' <summary>
     ''' tổng số nhà thầu phụ đang được thuê
     ''' </summary>

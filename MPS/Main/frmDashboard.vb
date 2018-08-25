@@ -36,7 +36,7 @@ Public Class frmDashboard
 
         grdRevenueByYear.DataSource = b.getListRevenueByYear()
 
-        grdRefund.DataSource = b.getListTop10Refunded()
+        grdTopRevClient.DataSource = b.getListTop10RevenueClient()
     End Sub
 
     Private Sub TotalSaleChart_ChartDataClicked(ByVal sender As System.Object, ByVal e As Infragistics.UltraChart.Shared.Events.ChartDataEventArgs) Handles ChartByItem.ChartDataClicked
@@ -102,18 +102,18 @@ Public Class frmDashboard
         End If
     End Sub
     Dim fgrdRefund As Boolean = False
-    Private Sub grdRefund_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdRefund.InitializeLayout
+    Private Sub grdRefund_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles grdTopRevClient.InitializeLayout
         If fgrdRefund Then Exit Sub
         fgrdRefund = True
-        clsuf.FormatGridFromDB(Me.Name, grdRefund, m_Lang)
-        grdRefund.DisplayLayout.Override.RowAppearance.BorderColor = Color.White
-        grdRefund.DisplayLayout.Override.RowAlternateAppearance.BackColor = Color.White
+        clsuf.FormatGridFromDB(Me.Name, grdTopRevClient, m_Lang)
+        grdTopRevClient.DisplayLayout.Override.RowAppearance.BorderColor = Color.White
+        grdTopRevClient.DisplayLayout.Override.RowAlternateAppearance.BackColor = Color.White
     End Sub
 
-    Private Sub grdRefund_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdRefund.KeyUp
+    Private Sub grdRefund_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles grdTopRevClient.KeyUp
         If e.Control Then
             If e.KeyCode = Keys.Z Then
-                Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, grdRefund, m_Lang)
+                Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, grdTopRevClient, m_Lang)
                 frm.ShowDialog()
             End If
         End If
@@ -140,6 +140,6 @@ Public Class frmDashboard
 
 
     Private Sub lnkPrintRefund_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkPrintRefund.Click
-        grdRefund.PrintPreview()
+        grdTopRevClient.PrintPreview()
     End Sub
 End Class

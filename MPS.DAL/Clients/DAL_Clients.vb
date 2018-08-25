@@ -27,17 +27,17 @@ Public Class DAL_Clients
         If isExist(m.ClientId) Then
             sql = "Update Clients set ClientName=@ClientName,ShortName=@ShortName,Address=@Address,Phone=@Phone,Email=@Email,Website=@Website,"
             sql += "ContactName=@ContactName,ContactPhone=@ContactPhone,ContactEmail=@ContactEmail,UpdatedAt=getdate(),ClientGroupId=@ClientGroupId,"
-            sql += "Status=@Status where ClientId=@ClientId"
+            sql += "Status=@Status,UnitedId=@UnitedId where ClientId=@ClientId"
         Else
-            sql = "Insert into Clients(ClientId,ClientName,ShortName,Address,Phone,Email,Website,ContactName,ContactPhone,ContactEmail,CreatedAt,ClientGroupId,Status)"
-            sql += "values(@ClientId,@ClientName,@ShortName,@Address,@Phone,@Email,@Website,@ContactName,@ContactPhone,@ContactEmail,getdate(),@ClientGroupId,@Status)"
+            sql = "Insert into Clients(ClientId,ClientName,ShortName,Address,Phone,Email,Website,ContactName,ContactPhone,ContactEmail,CreatedAt,ClientGroupId,Status,UnitedId)"
+            sql += "values(@ClientId,@ClientName,@ShortName,@Address,@Phone,@Email,@Website,@ContactName,@ContactPhone,@ContactEmail,getdate(),@ClientGroupId,@Status,@UnitedId)"
         End If
 
         If sql = "" Then
             Return False
         End If
 
-        Dim p(11) As SqlParameter
+        Dim p(12) As SqlParameter
         p(0) = New SqlParameter("@ClientId", m.ClientId)
         p(1) = New SqlParameter("@ClientName", m.ClientName)
         p(2) = New SqlParameter("@ShortName", m.ShortName)
@@ -49,6 +49,7 @@ Public Class DAL_Clients
         p(8) = New SqlParameter("@ContactPhone", m.ContactPhone)        p(9) = New SqlParameter("@ContactEmail", m.ContactEmail)
         p(10) = New SqlParameter("@ClientGroupId", m.ClientGroupId)
         p(11) = New SqlParameter("@Status", m.Status)
+        p(12) = New SqlParameter("@UnitedId", m.UnitedId)
         Return execSQL(sql, p)
     End Function
 
@@ -96,6 +97,7 @@ Public Class DAL_Clients
             m.ContactEmail = IsNull(tb.Rows(0)("ContactEmail"), "")
             m.ClientGroupId = IsNull(tb.Rows(0)("ClientGroupId"), "")
             m.Status = IsNull(tb.Rows(0)("Status"), "")
+            m.UnitedId = IsNull(tb.Rows(0)("UnitedId"), "")
         End If
         Return m
     End Function

@@ -74,7 +74,8 @@ Partial Class frmDashboard
         Me.ChartByClientGroup = New Infragistics.Win.UltraWinChart.UltraChart
         Me.lnkPrintClientGroup = New System.Windows.Forms.LinkLabel
         Me.grpRefund = New Infragistics.Win.Misc.UltraGroupBox
-        Me.grdRefund = New Infragistics.Win.UltraWinGrid.UltraGrid
+        Me.grdTopRevClient = New Infragistics.Win.UltraWinGrid.UltraGrid
+        Me.lnkPrintRefund = New System.Windows.Forms.LinkLabel
         Me.grpTotalSaleChart = New Infragistics.Win.Misc.UltraGroupBox
         Me.ChartByItem = New Infragistics.Win.UltraWinChart.UltraChart
         Me.lnkPrintItem = New System.Windows.Forms.LinkLabel
@@ -88,7 +89,6 @@ Partial Class frmDashboard
         Me.grpRevenueByProject = New Infragistics.Win.Misc.UltraGroupBox
         Me.ChartByProject = New Infragistics.Win.UltraWinChart.UltraChart
         Me.lnkPrintProject = New System.Windows.Forms.LinkLabel
-        Me.lnkPrintRefund = New System.Windows.Forms.LinkLabel
         CType(Me.GridBagLayout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GridBagLayout.SuspendLayout()
         CType(Me.grpRevenueByClientGroup, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +96,7 @@ Partial Class frmDashboard
         CType(Me.ChartByClientGroup, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpRefund, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpRefund.SuspendLayout()
-        CType(Me.grdRefund, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdTopRevClient, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grpTotalSaleChart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpTotalSaleChart.SuspendLayout()
         CType(Me.ChartByItem, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -346,7 +346,7 @@ Partial Class frmDashboard
         '
         'grpRefund
         '
-        Me.grpRefund.Controls.Add(Me.grdRefund)
+        Me.grpRefund.Controls.Add(Me.grdTopRevClient)
         Me.grpRefund.Controls.Add(Me.lnkPrintRefund)
         GridBagConstraint2.Fill = Infragistics.Win.Layout.FillType.Both
         GridBagConstraint2.OriginX = 2
@@ -360,42 +360,42 @@ Partial Class frmDashboard
         Me.GridBagLayout.SetPreferredSize(Me.grpRefund, New System.Drawing.Size(246, 131))
         Me.grpRefund.Size = New System.Drawing.Size(286, 270)
         Me.grpRefund.TabIndex = 4
-        Me.grpRefund.Text = "Top 10 tổng chi phí cho nhà thầu |"
+        Me.grpRefund.Text = "Top 10 khách hàng có doanh thu cao nhất |"
         Me.grpRefund.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2007
         '
-        'grdRefund
+        'grdTopRevClient
         '
         Appearance7.BackColor = System.Drawing.Color.White
-        Me.grdRefund.DisplayLayout.Appearance = Appearance7
-        Me.grdRefund.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
+        Me.grdTopRevClient.DisplayLayout.Appearance = Appearance7
+        Me.grdTopRevClient.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ExtendLastColumn
         UltraGridBand1.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Solid
         UltraGridBand1.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance8.BorderColor = System.Drawing.SystemColors.InactiveCaption
         UltraGridBand1.Override.RowAppearance = Appearance8
-        Me.grdRefund.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
-        Me.grdRefund.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
-        Me.grdRefund.DisplayLayout.EmptyRowSettings.ShowEmptyRows = True
-        Me.grdRefund.DisplayLayout.GroupByBox.Hidden = True
-        Me.grdRefund.DisplayLayout.InterBandSpacing = 10
-        Me.grdRefund.DisplayLayout.MaxColScrollRegions = 1
-        Me.grdRefund.DisplayLayout.MaxRowScrollRegions = 1
+        Me.grdTopRevClient.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
+        Me.grdTopRevClient.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.None
+        Me.grdTopRevClient.DisplayLayout.EmptyRowSettings.ShowEmptyRows = True
+        Me.grdTopRevClient.DisplayLayout.GroupByBox.Hidden = True
+        Me.grdTopRevClient.DisplayLayout.InterBandSpacing = 10
+        Me.grdTopRevClient.DisplayLayout.MaxColScrollRegions = 1
+        Me.grdTopRevClient.DisplayLayout.MaxRowScrollRegions = 1
         Appearance9.BackColor = System.Drawing.Color.White
-        Me.grdRefund.DisplayLayout.Override.ActiveRowAppearance = Appearance9
-        Me.grdRefund.DisplayLayout.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.No
-        Me.grdRefund.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
-        Me.grdRefund.DisplayLayout.Override.AllowGroupBy = Infragistics.Win.DefaultableBoolean.[False]
-        Me.grdRefund.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[False]
-        Me.grdRefund.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdTopRevClient.DisplayLayout.Override.ActiveRowAppearance = Appearance9
+        Me.grdTopRevClient.DisplayLayout.Override.AllowAddNew = Infragistics.Win.UltraWinGrid.AllowAddNew.No
+        Me.grdTopRevClient.DisplayLayout.Override.AllowDelete = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdTopRevClient.DisplayLayout.Override.AllowGroupBy = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdTopRevClient.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdTopRevClient.DisplayLayout.Override.AllowUpdate = Infragistics.Win.DefaultableBoolean.[False]
         Appearance10.BackColor = System.Drawing.Color.Transparent
-        Me.grdRefund.DisplayLayout.Override.CardAreaAppearance = Appearance10
-        Me.grdRefund.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
-        Me.grdRefund.DisplayLayout.Override.FilterClearButtonLocation = Infragistics.Win.UltraWinGrid.FilterClearButtonLocation.Cell
-        Me.grdRefund.DisplayLayout.Override.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.UseColumnEditor
-        Me.grdRefund.DisplayLayout.Override.FilterOperatorDefaultValue = Infragistics.Win.UltraWinGrid.FilterOperatorDefaultValue.[Like]
-        Me.grdRefund.DisplayLayout.Override.FilterOperatorLocation = Infragistics.Win.UltraWinGrid.FilterOperatorLocation.Hidden
+        Me.grdTopRevClient.DisplayLayout.Override.CardAreaAppearance = Appearance10
+        Me.grdTopRevClient.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.RowSelect
+        Me.grdTopRevClient.DisplayLayout.Override.FilterClearButtonLocation = Infragistics.Win.UltraWinGrid.FilterClearButtonLocation.Cell
+        Me.grdTopRevClient.DisplayLayout.Override.FilterOperandStyle = Infragistics.Win.UltraWinGrid.FilterOperandStyle.UseColumnEditor
+        Me.grdTopRevClient.DisplayLayout.Override.FilterOperatorDefaultValue = Infragistics.Win.UltraWinGrid.FilterOperatorDefaultValue.[Like]
+        Me.grdTopRevClient.DisplayLayout.Override.FilterOperatorLocation = Infragistics.Win.UltraWinGrid.FilterOperatorLocation.Hidden
         Appearance11.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.grdRefund.DisplayLayout.Override.FilterRowAppearance = Appearance11
-        Me.grdRefund.DisplayLayout.Override.FilterUIType = Infragistics.Win.UltraWinGrid.FilterUIType.FilterRow
+        Me.grdTopRevClient.DisplayLayout.Override.FilterRowAppearance = Appearance11
+        Me.grdTopRevClient.DisplayLayout.Override.FilterUIType = Infragistics.Win.UltraWinGrid.FilterUIType.FilterRow
         Appearance12.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(240, Byte), Integer))
         Appearance12.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(217, Byte), Integer), CType(CType(240, Byte), Integer))
         Appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
@@ -405,24 +405,37 @@ Partial Class frmDashboard
         Appearance12.ForeColor = System.Drawing.Color.Navy
         Appearance12.TextHAlignAsString = "Left"
         Appearance12.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
-        Me.grdRefund.DisplayLayout.Override.HeaderAppearance = Appearance12
-        Me.grdRefund.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.grdRefund.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.ListIndex
-        Me.grdRefund.DisplayLayout.Override.RowSelectorWidth = 12
-        Me.grdRefund.DisplayLayout.Override.RowSpacingBefore = 0
+        Me.grdTopRevClient.DisplayLayout.Override.HeaderAppearance = Appearance12
+        Me.grdTopRevClient.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.grdTopRevClient.DisplayLayout.Override.RowSelectorNumberStyle = Infragistics.Win.UltraWinGrid.RowSelectorNumberStyle.ListIndex
+        Me.grdTopRevClient.DisplayLayout.Override.RowSelectorWidth = 12
+        Me.grdTopRevClient.DisplayLayout.Override.RowSpacingBefore = 0
         Appearance14.BackColor = System.Drawing.Color.White
         Appearance14.ForeColor = System.Drawing.Color.Black
-        Me.grdRefund.DisplayLayout.Override.SelectedRowAppearance = Appearance14
-        Me.grdRefund.DisplayLayout.Override.SummaryFooterCaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
-        Me.grdRefund.DisplayLayout.RowConnectorStyle = Infragistics.Win.UltraWinGrid.RowConnectorStyle.Solid
-        Me.grdRefund.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.grdRefund.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.grdRefund.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.grdRefund.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grdRefund.Location = New System.Drawing.Point(3, 17)
-        Me.grdRefund.Name = "grdRefund"
-        Me.grdRefund.Size = New System.Drawing.Size(280, 250)
-        Me.grdRefund.TabIndex = 4
+        Me.grdTopRevClient.DisplayLayout.Override.SelectedRowAppearance = Appearance14
+        Me.grdTopRevClient.DisplayLayout.Override.SummaryFooterCaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Me.grdTopRevClient.DisplayLayout.RowConnectorStyle = Infragistics.Win.UltraWinGrid.RowConnectorStyle.Solid
+        Me.grdTopRevClient.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.grdTopRevClient.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.grdTopRevClient.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.grdTopRevClient.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grdTopRevClient.Location = New System.Drawing.Point(3, 17)
+        Me.grdTopRevClient.Name = "grdTopRevClient"
+        Me.grdTopRevClient.Size = New System.Drawing.Size(280, 250)
+        Me.grdTopRevClient.TabIndex = 4
+        '
+        'lnkPrintRefund
+        '
+        Me.lnkPrintRefund.AutoSize = True
+        Me.lnkPrintRefund.BackColor = System.Drawing.Color.Transparent
+        Me.lnkPrintRefund.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lnkPrintRefund.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintRefund.Location = New System.Drawing.Point(252, 1)
+        Me.lnkPrintRefund.Name = "lnkPrintRefund"
+        Me.lnkPrintRefund.Size = New System.Drawing.Size(19, 13)
+        Me.lnkPrintRefund.TabIndex = 4
+        Me.lnkPrintRefund.TabStop = True
+        Me.lnkPrintRefund.Text = "In"
         '
         'grpTotalSaleChart
         '
@@ -529,7 +542,7 @@ Partial Class frmDashboard
         Me.ChartByItem.Axis.Y.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartByItem.Axis.Y.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartByItem.Axis.Y.MinorGridLines.Visible = False
-        Me.ChartByItem.Axis.Y.TickmarkInterval = 100
+        Me.ChartByItem.Axis.Y.TickmarkInterval = 40
         Me.ChartByItem.Axis.Y.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartByItem.Axis.Y.Visible = True
         Me.ChartByItem.Axis.Y2.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -555,7 +568,7 @@ Partial Class frmDashboard
         Me.ChartByItem.Axis.Y2.MinorGridLines.Color = System.Drawing.Color.LightGray
         Me.ChartByItem.Axis.Y2.MinorGridLines.DrawStyle = Infragistics.UltraChart.[Shared].Styles.LineDrawStyle.Dot
         Me.ChartByItem.Axis.Y2.MinorGridLines.Visible = False
-        Me.ChartByItem.Axis.Y2.TickmarkInterval = 50
+        Me.ChartByItem.Axis.Y2.TickmarkInterval = 40
         Me.ChartByItem.Axis.Y2.TickmarkStyle = Infragistics.UltraChart.[Shared].Styles.AxisTickStyle.Smart
         Me.ChartByItem.Axis.Y2.Visible = False
         Me.ChartByItem.Axis.Z.Labels.Font = New System.Drawing.Font("Verdana", 7.0!)
@@ -1066,19 +1079,6 @@ Partial Class frmDashboard
         Me.lnkPrintProject.TabStop = True
         Me.lnkPrintProject.Text = "In"
         '
-        'lnkPrintRefund
-        '
-        Me.lnkPrintRefund.AutoSize = True
-        Me.lnkPrintRefund.BackColor = System.Drawing.Color.Transparent
-        Me.lnkPrintRefund.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintRefund.LinkColor = System.Drawing.Color.Navy
-        Me.lnkPrintRefund.Location = New System.Drawing.Point(200, 1)
-        Me.lnkPrintRefund.Name = "lnkPrintRefund"
-        Me.lnkPrintRefund.Size = New System.Drawing.Size(19, 13)
-        Me.lnkPrintRefund.TabIndex = 4
-        Me.lnkPrintRefund.TabStop = True
-        Me.lnkPrintRefund.Text = "In"
-        '
         'frmDashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1100,7 +1100,7 @@ Partial Class frmDashboard
         CType(Me.grpRefund, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpRefund.ResumeLayout(False)
         Me.grpRefund.PerformLayout()
-        CType(Me.grdRefund, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdTopRevClient, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grpTotalSaleChart, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpTotalSaleChart.ResumeLayout(False)
         Me.grpTotalSaleChart.PerformLayout()
@@ -1138,6 +1138,6 @@ Partial Class frmDashboard
     Friend WithEvents grdRevenueByYear As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents lnkPrintRevenueByYear As System.Windows.Forms.LinkLabel
     Friend WithEvents lnkPrintListDeadlineContract As System.Windows.Forms.LinkLabel
-    Friend WithEvents grdRefund As Infragistics.Win.UltraWinGrid.UltraGrid
+    Friend WithEvents grdTopRevClient As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents lnkPrintRefund As System.Windows.Forms.LinkLabel
 End Class

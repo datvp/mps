@@ -130,6 +130,13 @@
 #Region "Toolbar manager"
     Private Sub tbManager_ToolClick(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) Handles tbManager.ToolClick
         Select Case e.Tool.Key
+            Case "United"
+                If Not CheckSecurity(28, Add) Then
+                    ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
+                    Exit Sub
+                End If
+                Dim frm As New frmUnited
+                ShowForm(frm)
             Case "Reports"
                 If Not CheckSecurity(20, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)

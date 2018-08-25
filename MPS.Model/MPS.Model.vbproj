@@ -73,6 +73,7 @@
     <Compile Include="Lists\MClientGroup.vb" />
     <Compile Include="Lists\MItem.vb" />
     <Compile Include="Lists\MSubContractor.vb" />
+    <Compile Include="Lists\MUnited.vb" />
     <Compile Include="MEvent.vb" />
     <Compile Include="MFuncList.vb" />
     <Compile Include="MFuncRight.vb" />

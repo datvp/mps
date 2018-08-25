@@ -44,7 +44,14 @@ Public Class frmTotalReports
                     Grid.DataSource = cls.RevenueByProject(dtFrom.Value, dtTo.Value)
                 Case 7 'theo thời gian
                     fByYear = False
-                    Grid.DataSource = cls.RevenueByYear()
+                    Dim ok = cls.ReportByDate(dtFrom.Value, dtTo.Value)
+                    If Not ok Then Exit Select
+                    Dim contractId As String = cboBranch.Value
+                    rp = clsrpt.InitReport(Application.StartupPath & "\Reports\ReportByDate.rpt")
+                    clsrpt.SetParameter(rp, dtFrom.Value.ToString("dd/MM/yyyy"), dtTo.Value.ToString("dd/MM/yyyy"))
+                    Dim frm As New FrmReport
+                    frm.rpt.ReportSource = rp
+                    frm.Show()
                 Case 9 'theo hạng mục
                     fByItem = False
                     Grid.DataSource = cls.RevenueByItem(dtFrom.Value, dtTo.Value)
@@ -275,7 +282,6 @@ Public Class frmTotalReports
 
         Select Case lstFunc.SelectedValue
             Case 7 ' Tổng doanh thu theo Mốc thời gian
-                cboTime.Enabled = False
             Case 13 'Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
                 cboTime.Enabled = False
                 lblBranch.Visible = True

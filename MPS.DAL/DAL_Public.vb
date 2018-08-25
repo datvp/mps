@@ -133,4 +133,9 @@ Public Class DAL_Public
         Dim tb = getTableSQL(sql)
         Return tb
     End Function
+    Public Function getListTop10RevenueClient() As DataTable
+        Dim sql = "Select top 10 * from V_GetListRevenueByCient Order by Total desc"
+        Dim tb = getTableSQL(sql)
+        Return tb
+    End Function
 End Class

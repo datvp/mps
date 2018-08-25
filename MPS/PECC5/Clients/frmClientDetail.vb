@@ -1,5 +1,6 @@
 ﻿Public Class frmClientDetail
     Private WithEvents b As BLL.BClients = BLL.BClients.Instance
+    Private bu As BLL.BUniteds = BLL.BUniteds.Instance
     Private Sub b__errorRaise(ByVal messege As String) Handles b._errorRaise
         ShowMsg(messege)
     End Sub
@@ -25,6 +26,7 @@
         ModMain.GreenButton(btnExit, ModMain.m_CancelIcon)
         If Me.clientId = "" Then
             Me.LoadClientGroup()
+            Me.LoadUnited()
         Else
             Me.LoadInfo(clientId)
         End If
@@ -40,6 +42,12 @@
                 cboClientGroup.Rows(0).Activate()
             End If
         End If
+    End Sub
+    Private Sub LoadUnited()
+        Dim tb = bu.getListUniteds()
+        cboUnited.ValueMember = "UnitedId"
+        cboUnited.DisplayMember = "UnitedName"
+        cboUnited.DataSource = tb
     End Sub
     Private Sub ClearInfo()
         Dim m As New Model.MClient
@@ -59,6 +67,7 @@
         Dim m = b.getClientDetailById(ClientId)
         If m.ClientId = "" Then Exit Sub
         Me.LoadClientGroup()
+        Me.LoadUnited()
         txtClientId.Text = m.ClientId
         txtClientId.Enabled = False
         txtShortName.Text = m.ShortName
@@ -71,6 +80,7 @@
         txtContactEmail.Text = m.ContactEmail
         txtContactPhone.Text = m.ContactPhone
         cboClientGroup.Value = m.ClientGroupId
+        cboUnited.Value = m.UnitedId
     End Sub
     Private Function setInfo() As Model.MClient
         Dim m As New Model.MClient
@@ -88,6 +98,9 @@
             m.ClientGroupId = cboClientGroup.Value
         End If
         m.Status = "Active"
+        If cboUnited.Value IsNot Nothing Then
+            m.UnitedId = cboUnited.Value
+        End If
         Return m
     End Function
     Private Function CheckOK(ByVal m As Model.MClient) As Boolean
@@ -142,5 +155,13 @@
 
     Private Sub btnExit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExit.Click
         Me.Close()
+    End Sub
+
+    Private Sub cboUnited_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboUnited.InitializeLayout
+        If Me.cboUnited.DataSource Is Nothing Then Exit Sub
+        For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
+            e.Layout.Bands(0).Columns(i).Hidden = True
+        Next
+        e.Layout.Bands(0).Columns("UnitedName").Hidden = False
     End Sub
 End Class

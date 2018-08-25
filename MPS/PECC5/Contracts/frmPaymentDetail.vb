@@ -24,6 +24,7 @@ Public Class frmPaymentDetail
             If cboStatus.DataSource IsNot Nothing AndAlso cboStatus.Rows.Count > 0 Then
                 cboStatus.Rows(0).Activate()
             End If
+            grdPaidItems.DataSource = New List(Of Model.MContractPaymentDetail)
         End If
     End Sub
     Private Sub LoadStatus()

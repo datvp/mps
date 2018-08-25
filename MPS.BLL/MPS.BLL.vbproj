@@ -97,6 +97,7 @@
     <Compile Include="Projects\BProjects.vb" />
     <Compile Include="ProjectTypes\BProjectTypes.vb" />
     <Compile Include="SubContractors\BSubContractors.vb" />
+    <Compile Include="Uniteds\BUniteds.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

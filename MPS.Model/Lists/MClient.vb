@@ -152,4 +152,21 @@
         End Set
     End Property
 
+    Private m_UnitedId As String = ""
+    ''' <summary>
+    ''' mã đơn vị quản lý
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property UnitedId() As String
+        Get
+            Return m_UnitedId
+        End Get
+        Set(ByVal value As String)
+            m_UnitedId = value
+        End Set
+    End Property
+
+
 End Class

@@ -38,8 +38,6 @@ Partial Class frmMain
         Dim UltraStatusPanel7 As Infragistics.Win.UltraWinStatusBar.UltraStatusPanel = New Infragistics.Win.UltraWinStatusBar.UltraStatusPanel
         Dim UltraStatusPanel8 As Infragistics.Win.UltraWinStatusBar.UltraStatusPanel = New Infragistics.Win.UltraWinStatusBar.UltraStatusPanel
         Dim Appearance100 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool187 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnLogin")
         Dim ButtonTool207 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("UserGroups")
         Dim ButtonTool208 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Users")
@@ -49,19 +47,21 @@ Partial Class frmMain
         Dim ButtonTool191 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnExit")
         Dim RibbonTab1 As Infragistics.Win.UltraWinToolbars.RibbonTab = New Infragistics.Win.UltraWinToolbars.RibbonTab("ribbon1")
         Dim RibbonGroup1 As Infragistics.Win.UltraWinToolbars.RibbonGroup = New Infragistics.Win.UltraWinToolbars.RibbonGroup("Items")
+        Dim ButtonTool11 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("United")
         Dim ButtonTool145 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ClientGroups")
         Dim ButtonTool241 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Clients")
-        Dim ButtonTool242 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Items")
-        Dim ButtonTool258 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ConstructionLevels")
-        Dim ButtonTool243 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ProjectTypes")
         Dim RibbonGroup2 As Infragistics.Win.UltraWinToolbars.RibbonGroup = New Infragistics.Win.UltraWinToolbars.RibbonGroup("Projects")
-        Dim ButtonTool252 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Projects")
-        Dim ButtonTool253 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Contracts")
+        Dim ButtonTool9 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Items")
+        Dim ButtonTool7 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ConstructionLevels")
+        Dim ButtonTool6 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ProjectTypes")
         Dim RibbonGroup3 As Infragistics.Win.UltraWinToolbars.RibbonGroup = New Infragistics.Win.UltraWinToolbars.RibbonGroup("Reports")
-        Dim ButtonTool259 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Reports")
+        Dim ButtonTool5 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Projects")
+        Dim ButtonTool4 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Contracts")
         Dim RibbonGroup4 As Infragistics.Win.UltraWinToolbars.RibbonGroup = New Infragistics.Win.UltraWinToolbars.RibbonGroup("UnitExecContracts")
         Dim ButtonTool186 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Uniteds")
         Dim ButtonTool190 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("SubContractors")
+        Dim RibbonGroup5 As Infragistics.Win.UltraWinToolbars.RibbonGroup = New Infragistics.Win.UltraWinToolbars.RibbonGroup("grpReportTotal")
+        Dim ButtonTool3 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Reports")
         Dim ButtonTool143 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnLogin")
         Dim ButtonTool213 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Dashboard")
         Dim ButtonTool144 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnExit")
@@ -110,19 +110,23 @@ Partial Class frmMain
         Dim Appearance25 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool185 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("ClientGroups")
         Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ButtonTool12 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("United")
+        Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.UltraLabel1 = New Infragistics.Win.Misc.UltraLabel
         Me.UltraStatusBar1 = New Infragistics.Win.UltraWinStatusBar.UltraStatusBar
         Me.lblRight = New Infragistics.Win.Misc.UltraLabel
         Me.UltraLabel4 = New Infragistics.Win.Misc.UltraLabel
         Me._frmMain_Toolbars_Dock_Area_Left = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
+        Me.tbManager = New Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(Me.components)
         Me._frmMain_Toolbars_Dock_Area_Right = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me._frmMain_Toolbars_Dock_Area_Top = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me._frmMain_Toolbars_Dock_Area_Bottom = New Infragistics.Win.UltraWinToolbars.UltraToolbarsDockArea
         Me.uTabbedMdi = New Infragistics.Win.UltraWinTabbedMdi.UltraTabbedMdiManager(Me.components)
-        Me.tbManager = New Infragistics.Win.UltraWinToolbars.UltraToolbarsManager(Me.components)
-        CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbManager, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ImageList1
@@ -255,6 +259,128 @@ Partial Class frmMain
         Me._frmMain_Toolbars_Dock_Area_Left.Size = New System.Drawing.Size(4, 423)
         Me._frmMain_Toolbars_Dock_Area_Left.ToolbarsManager = Me.tbManager
         '
+        'tbManager
+        '
+        Me.tbManager.DesignerFlags = 1
+        Me.tbManager.DockWithinContainer = Me
+        Me.tbManager.DockWithinContainerBaseType = GetType(System.Windows.Forms.Form)
+        Me.tbManager.ImageListLarge = Me.ImageList1
+        Me.tbManager.LockToolbars = True
+        ButtonTool207.InstanceProps.IsFirstInGroup = True
+        ButtonTool191.InstanceProps.IsFirstInGroup = True
+        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaLeft.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool187, ButtonTool207, ButtonTool208, ButtonTool209, ButtonTool183, ButtonTool1, ButtonTool191})
+        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaRight.MaxWidth = 1
+        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaRight.MinWidth = 1
+        Me.tbManager.Ribbon.ApplicationMenuButtonImage = Global.MPS.My.Resources.Resources.globe
+        Me.tbManager.Ribbon.Caption = "CONTRACT MANAGER SOFTWARE FOR ENERGY PROJECT"
+        RibbonTab1.Caption = ""
+        RibbonGroup1.Caption = "Khách Hàng"
+        ButtonTool11.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        ButtonTool145.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        ButtonTool241.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        RibbonGroup1.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool11, ButtonTool145, ButtonTool241})
+        RibbonGroup2.Caption = "Phân Loại"
+        ButtonTool9.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        ButtonTool7.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        ButtonTool6.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        RibbonGroup2.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool9, ButtonTool7, ButtonTool6})
+        RibbonGroup3.Caption = "Chi Tiết"
+        ButtonTool5.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        ButtonTool4.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        RibbonGroup3.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool5, ButtonTool4})
+        RibbonGroup4.Caption = "Thực Hiện"
+        ButtonTool186.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        ButtonTool190.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        RibbonGroup4.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool186, ButtonTool190})
+        RibbonGroup5.Caption = "Báo Cáo"
+        ButtonTool3.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
+        RibbonGroup5.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool3})
+        RibbonTab1.Groups.AddRange(New Infragistics.Win.UltraWinToolbars.RibbonGroup() {RibbonGroup1, RibbonGroup2, RibbonGroup3, RibbonGroup4, RibbonGroup5})
+        Me.tbManager.Ribbon.NonInheritedRibbonTabs.AddRange(New Infragistics.Win.UltraWinToolbars.RibbonTab() {RibbonTab1})
+        Me.tbManager.Ribbon.QuickAccessToolbar.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool143, ButtonTool213, ButtonTool144})
+        Me.tbManager.Ribbon.Visible = True
+        Me.tbManager.ShowFullMenusDelay = 500
+        Me.tbManager.ShowQuickCustomizeButton = False
+        Me.tbManager.ShowShortcutsInToolTips = True
+        Me.tbManager.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.Office2007
+        UltraToolbar1.DockedColumn = 0
+        UltraToolbar1.DockedRow = 0
+        UltraToolbar1.FloatingLocation = New System.Drawing.Point(673, 292)
+        UltraToolbar1.FloatingSize = New System.Drawing.Size(100, 100)
+        UltraToolbar1.IsMainMenuBar = True
+        UltraToolbar1.Text = "UltraToolbar1"
+        Me.tbManager.Toolbars.AddRange(New Infragistics.Win.UltraWinToolbars.UltraToolbar() {UltraToolbar1})
+        Appearance201.Image = Global.MPS.My.Resources.Resources.Login
+        ButtonTool2.SharedProps.AppearancesSmall.Appearance = Appearance201
+        ButtonTool2.SharedProps.Caption = "Khóa màn hình"
+        Appearance205.Image = Global.MPS.My.Resources.Resources.exit1
+        ButtonTool8.SharedProps.AppearancesSmall.Appearance = Appearance205
+        ButtonTool8.SharedProps.Caption = "Thoát"
+        Appearance204.Image = "Task New.png"
+        ButtonTool10.SharedProps.AppearancesSmall.Appearance = Appearance204
+        ButtonTool10.SharedProps.Caption = "Lược sử giao tác"
+        Appearance213.Image = Global.MPS.My.Resources.Resources.tools
+        ButtonTool26.SharedProps.AppearancesSmall.Appearance = Appearance213
+        ButtonTool26.SharedProps.Caption = "Thiết lập cấu hình"
+        Appearance253.Image = Global.MPS.My.Resources.Resources.user_headset
+        ButtonTool92.SharedProps.AppearancesSmall.Appearance = Appearance253
+        ButtonTool92.SharedProps.Caption = "Nhân viên"
+        Appearance269.Image = Global.MPS.My.Resources.Resources.database_list132x32_24_bit
+        ButtonTool121.SharedProps.AppearancesSmall.Appearance = Appearance269
+        ButtonTool121.SharedProps.Caption = "Sao lưu dự phòng"
+        Appearance270.Image = Global.MPS.My.Resources.Resources.data
+        ButtonTool122.SharedProps.AppearancesSmall.Appearance = Appearance270
+        ButtonTool122.SharedProps.Caption = "Phục hồi dữ liệu"
+        Appearance38.Image = Global.MPS.My.Resources.Resources.UserGroup
+        ButtonTool210.SharedProps.AppearancesSmall.Appearance = Appearance38
+        ButtonTool210.SharedProps.Caption = "Nhóm tài khoản"
+        Appearance39.Image = Global.MPS.My.Resources.Resources.user2
+        ButtonTool211.SharedProps.AppearancesSmall.Appearance = Appearance39
+        ButtonTool211.SharedProps.Caption = "Tài khoản sử dụng"
+        Appearance37.Image = Global.MPS.My.Resources.Resources.check
+        ButtonTool212.SharedProps.AppearancesSmall.Appearance = Appearance37
+        ButtonTool212.SharedProps.Caption = "Cấp quyền"
+        Appearance27.Image = Global.MPS.My.Resources.Resources.home1
+        ButtonTool214.SharedProps.AppearancesSmall.Appearance = Appearance27
+        ButtonTool214.SharedProps.Caption = "Dashboard"
+        Appearance41.Image = Global.MPS.My.Resources.Resources.label_red
+        ButtonTool236.SharedProps.AppearancesSmall.Appearance = Appearance41
+        ButtonTool236.SharedProps.Caption = "Chi nhánh"
+        Appearance43.Image = Global.MPS.My.Resources.Resources.user2
+        ButtonTool247.SharedProps.AppearancesLarge.Appearance = Appearance43
+        ButtonTool247.SharedProps.Caption = "Chi Tiết"
+        Appearance44.Image = Global.MPS.My.Resources.Resources.Nhom_Hang
+        ButtonTool248.SharedProps.AppearancesLarge.Appearance = Appearance44
+        ButtonTool248.SharedProps.Caption = "Công Việc"
+        Appearance45.Image = Global.MPS.My.Resources.Resources.cubes
+        ButtonTool249.SharedProps.AppearancesLarge.Appearance = Appearance45
+        ButtonTool249.SharedProps.Caption = "Loại Dự Án"
+        Appearance47.Image = Global.MPS.My.Resources.Resources.businessmen
+        ButtonTool250.SharedProps.AppearancesLarge.Appearance = Appearance47
+        ButtonTool250.SharedProps.Caption = "Thầu Phụ"
+        Appearance48.Image = Global.MPS.My.Resources.Resources.id_cards
+        ButtonTool251.SharedProps.AppearancesLarge.Appearance = Appearance48
+        ButtonTool251.SharedProps.Caption = "PECC5"
+        Appearance49.Image = Global.MPS.My.Resources.Resources.Danh_Muc2
+        ButtonTool254.SharedProps.AppearancesLarge.Appearance = Appearance49
+        ButtonTool254.SharedProps.Caption = "Dự Án"
+        Appearance50.Image = Global.MPS.My.Resources.Resources.document_new
+        ButtonTool255.SharedProps.AppearancesLarge.Appearance = Appearance50
+        ButtonTool255.SharedProps.Caption = "Hợp Đồng"
+        Appearance46.Image = Global.MPS.My.Resources.Resources.QuanHuyen_t
+        ButtonTool257.SharedProps.AppearancesLarge.Appearance = Appearance46
+        ButtonTool257.SharedProps.Caption = "Cấp Công Trình"
+        Appearance25.Image = Global.MPS.My.Resources.Resources.statistics4
+        ButtonTool260.SharedProps.AppearancesLarge.Appearance = Appearance25
+        ButtonTool260.SharedProps.Caption = "Thống Kê"
+        Appearance51.Image = Global.MPS.My.Resources.Resources.UserGroup
+        ButtonTool185.SharedProps.AppearancesLarge.Appearance = Appearance51
+        ButtonTool185.SharedProps.Caption = "Phân Nhóm"
+        Appearance12.Image = Global.MPS.My.Resources.Resources.users22
+        ButtonTool12.SharedProps.AppearancesLarge.Appearance = Appearance12
+        ButtonTool12.SharedProps.Caption = "Đơn Vị"
+        Me.tbManager.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool2, ButtonTool8, ButtonTool10, ButtonTool26, ButtonTool92, ButtonTool121, ButtonTool122, ButtonTool210, ButtonTool211, ButtonTool212, ButtonTool214, ButtonTool236, ButtonTool247, ButtonTool248, ButtonTool249, ButtonTool250, ButtonTool251, ButtonTool254, ButtonTool255, ButtonTool257, ButtonTool260, ButtonTool185, ButtonTool12})
+        '
         '_frmMain_Toolbars_Dock_Area_Right
         '
         Me._frmMain_Toolbars_Dock_Area_Right.AccessibleRole = System.Windows.Forms.AccessibleRole.Grouping
@@ -314,123 +440,6 @@ Partial Class frmMain
         Me.uTabbedMdi.TabSettings.TabCloseAction = Infragistics.Win.UltraWinTabbedMdi.MdiTabCloseAction.Close
         Me.uTabbedMdi.ViewStyle = Infragistics.Win.UltraWinTabbedMdi.ViewStyle.Office2007
         '
-        'tbManager
-        '
-        Me.tbManager.DesignerFlags = 1
-        Me.tbManager.DockWithinContainer = Me
-        Me.tbManager.DockWithinContainerBaseType = GetType(System.Windows.Forms.Form)
-        Me.tbManager.ImageListLarge = Me.ImageList1
-        Me.tbManager.LockToolbars = True
-        ButtonTool207.InstanceProps.IsFirstInGroup = True
-        ButtonTool191.InstanceProps.IsFirstInGroup = True
-        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaLeft.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool187, ButtonTool207, ButtonTool208, ButtonTool209, ButtonTool183, ButtonTool1, ButtonTool191})
-        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaRight.MaxWidth = 1
-        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaRight.MinWidth = 1
-        Me.tbManager.Ribbon.ApplicationMenuButtonImage = Global.MPS.My.Resources.Resources.globe
-        Me.tbManager.Ribbon.Caption = "CONTRACT MANAGER SOFTWARE FOR ENERGY PROJECT"
-        RibbonTab1.Caption = ""
-        RibbonGroup1.Caption = "Danh Mục"
-        ButtonTool145.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        ButtonTool241.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        ButtonTool242.InstanceProps.IsFirstInGroup = True
-        ButtonTool242.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        ButtonTool258.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        ButtonTool243.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        RibbonGroup1.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool145, ButtonTool241, ButtonTool242, ButtonTool258, ButtonTool243})
-        RibbonGroup2.Caption = "Dự Án"
-        ButtonTool252.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        ButtonTool253.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        RibbonGroup2.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool252, ButtonTool253})
-        RibbonGroup3.Caption = "Tổng Hợp Báo Cáo"
-        ButtonTool259.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        RibbonGroup3.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool259})
-        RibbonGroup4.Caption = "Đơn Vị Thực Hiện Hợp Đồng"
-        ButtonTool186.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        ButtonTool190.InstanceProps.PreferredSizeOnRibbon = Infragistics.Win.UltraWinToolbars.RibbonToolSize.Large
-        RibbonGroup4.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool186, ButtonTool190})
-        RibbonTab1.Groups.AddRange(New Infragistics.Win.UltraWinToolbars.RibbonGroup() {RibbonGroup1, RibbonGroup2, RibbonGroup3, RibbonGroup4})
-        Me.tbManager.Ribbon.NonInheritedRibbonTabs.AddRange(New Infragistics.Win.UltraWinToolbars.RibbonTab() {RibbonTab1})
-        Me.tbManager.Ribbon.QuickAccessToolbar.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool143, ButtonTool213, ButtonTool144})
-        Me.tbManager.Ribbon.Visible = True
-        Me.tbManager.ShowFullMenusDelay = 500
-        Me.tbManager.ShowQuickCustomizeButton = False
-        Me.tbManager.ShowShortcutsInToolTips = True
-        Me.tbManager.Style = Infragistics.Win.UltraWinToolbars.ToolbarStyle.Office2007
-        UltraToolbar1.DockedColumn = 0
-        UltraToolbar1.DockedRow = 0
-        UltraToolbar1.FloatingLocation = New System.Drawing.Point(673, 292)
-        UltraToolbar1.FloatingSize = New System.Drawing.Size(100, 100)
-        UltraToolbar1.IsMainMenuBar = True
-        UltraToolbar1.Text = "UltraToolbar1"
-        Me.tbManager.Toolbars.AddRange(New Infragistics.Win.UltraWinToolbars.UltraToolbar() {UltraToolbar1})
-        Appearance201.Image = Global.MPS.My.Resources.Resources.Login
-        ButtonTool2.SharedProps.AppearancesSmall.Appearance = Appearance201
-        ButtonTool2.SharedProps.Caption = "Khóa màn hình"
-        Appearance205.Image = Global.MPS.My.Resources.Resources.exit1
-        ButtonTool8.SharedProps.AppearancesSmall.Appearance = Appearance205
-        ButtonTool8.SharedProps.Caption = "Thoát"
-        Appearance204.Image = "Task New.png"
-        ButtonTool10.SharedProps.AppearancesSmall.Appearance = Appearance204
-        ButtonTool10.SharedProps.Caption = "Lược sử giao tác"
-        Appearance213.Image = Global.MPS.My.Resources.Resources.tools
-        ButtonTool26.SharedProps.AppearancesSmall.Appearance = Appearance213
-        ButtonTool26.SharedProps.Caption = "Thiết lập cấu hình"
-        Appearance253.Image = Global.MPS.My.Resources.Resources.user_headset
-        ButtonTool92.SharedProps.AppearancesSmall.Appearance = Appearance253
-        ButtonTool92.SharedProps.Caption = "Nhân viên"
-        Appearance269.Image = Global.MPS.My.Resources.Resources.database_list132x32_24_bit
-        ButtonTool121.SharedProps.AppearancesSmall.Appearance = Appearance269
-        ButtonTool121.SharedProps.Caption = "Sao lưu dự phòng"
-        Appearance270.Image = Global.MPS.My.Resources.Resources.data
-        ButtonTool122.SharedProps.AppearancesSmall.Appearance = Appearance270
-        ButtonTool122.SharedProps.Caption = "Phục hồi dữ liệu"
-        Appearance38.Image = Global.MPS.My.Resources.Resources.UserGroup
-        ButtonTool210.SharedProps.AppearancesSmall.Appearance = Appearance38
-        ButtonTool210.SharedProps.Caption = "Nhóm tài khoản"
-        Appearance39.Image = Global.MPS.My.Resources.Resources.user2
-        ButtonTool211.SharedProps.AppearancesSmall.Appearance = Appearance39
-        ButtonTool211.SharedProps.Caption = "Tài khoản sử dụng"
-        Appearance37.Image = Global.MPS.My.Resources.Resources.check
-        ButtonTool212.SharedProps.AppearancesSmall.Appearance = Appearance37
-        ButtonTool212.SharedProps.Caption = "Cấp quyền"
-        Appearance27.Image = Global.MPS.My.Resources.Resources.home1
-        ButtonTool214.SharedProps.AppearancesSmall.Appearance = Appearance27
-        ButtonTool214.SharedProps.Caption = "Dashboard"
-        Appearance41.Image = Global.MPS.My.Resources.Resources.label_red
-        ButtonTool236.SharedProps.AppearancesSmall.Appearance = Appearance41
-        ButtonTool236.SharedProps.Caption = "Chi nhánh"
-        Appearance43.Image = Global.MPS.My.Resources.Resources.user2
-        ButtonTool247.SharedProps.AppearancesLarge.Appearance = Appearance43
-        ButtonTool247.SharedProps.Caption = "Khách Hàng"
-        Appearance44.Image = Global.MPS.My.Resources.Resources.Nhom_Hang
-        ButtonTool248.SharedProps.AppearancesLarge.Appearance = Appearance44
-        ButtonTool248.SharedProps.Caption = "Hạng Mục"
-        Appearance45.Image = Global.MPS.My.Resources.Resources.cubes
-        ButtonTool249.SharedProps.AppearancesLarge.Appearance = Appearance45
-        ButtonTool249.SharedProps.Caption = "Loại Dự Án"
-        Appearance47.Image = Global.MPS.My.Resources.Resources.businessmen
-        ButtonTool250.SharedProps.AppearancesLarge.Appearance = Appearance47
-        ButtonTool250.SharedProps.Caption = "Nhà Thầu Phụ"
-        Appearance48.Image = Global.MPS.My.Resources.Resources.id_cards
-        ButtonTool251.SharedProps.AppearancesLarge.Appearance = Appearance48
-        ButtonTool251.SharedProps.Caption = "Các Đơn Vị Thuộc PECC 5"
-        Appearance49.Image = Global.MPS.My.Resources.Resources.Danh_Muc2
-        ButtonTool254.SharedProps.AppearancesLarge.Appearance = Appearance49
-        ButtonTool254.SharedProps.Caption = "Dự Án Công Trình"
-        Appearance50.Image = Global.MPS.My.Resources.Resources.document_new
-        ButtonTool255.SharedProps.AppearancesLarge.Appearance = Appearance50
-        ButtonTool255.SharedProps.Caption = "Danh Sách Hợp Đồng"
-        Appearance46.Image = Global.MPS.My.Resources.Resources.QuanHuyen_t
-        ButtonTool257.SharedProps.AppearancesLarge.Appearance = Appearance46
-        ButtonTool257.SharedProps.Caption = "Phân Cấp Công Trình"
-        Appearance25.Image = Global.MPS.My.Resources.Resources.statistics4
-        ButtonTool260.SharedProps.AppearancesLarge.Appearance = Appearance25
-        ButtonTool260.SharedProps.Caption = "Báo Cáo Thống Kê"
-        Appearance51.Image = Global.MPS.My.Resources.Resources.UserGroup
-        ButtonTool185.SharedProps.AppearancesLarge.Appearance = Appearance51
-        ButtonTool185.SharedProps.Caption = "Nhóm Khách Hàng"
-        Me.tbManager.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool2, ButtonTool8, ButtonTool10, ButtonTool26, ButtonTool92, ButtonTool121, ButtonTool122, ButtonTool210, ButtonTool211, ButtonTool212, ButtonTool214, ButtonTool236, ButtonTool247, ButtonTool248, ButtonTool249, ButtonTool250, ButtonTool251, ButtonTool254, ButtonTool255, ButtonTool257, ButtonTool260, ButtonTool185})
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -454,8 +463,8 @@ Partial Class frmMain
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "MPS"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbManager, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.uTabbedMdi, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
