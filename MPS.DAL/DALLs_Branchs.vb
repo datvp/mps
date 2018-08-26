@@ -67,7 +67,7 @@ Public Class DALLs_Branchs
     ''' <remarks></remarks>
     Public Function getListByRightToExecute(ByVal UID As String) As DataTable
         Dim sql As String = "Select b.* from Ls_Branchs b"
-        sql += " where Exists(select top 1 1 from Pr_FunRight_Ext where FuncID=b.s_ID and [UID]=@UID and A=1)"
+        sql += " where Exists(select top 1 1 from Pr_FunRight_Ext where FuncID=b.s_ID and [UID]=@UID and R=1)"
         sql += " order by b.s_Name"
         Return Me.getTableSQL(sql, New SqlParameter("@UID", UID))
     End Function
@@ -91,19 +91,18 @@ Public Class DALLs_Branchs
 
     'KIỂM TRA TRƯỚC KHI XÓA HÀNG HÓA*******
 
-    Public Function checkDelete(ByVal ID As String) As Boolean
-        'Dim sql As String = "Exec sp_CheckDelete_Branch @s_ID"
-
-        'Dim p(0) As SqlParameter
-        'p(0) = New SqlParameter("@s_ID", ID)
-        'Dim tb As DataTable = Me.getTableSQL(sql, p)
-        'If tb Is Nothing Then Return False
-        'For Each dr As DataRow In tb.Rows
-        '    If dr("C") > 0 Then
-        '        Return True
-        '    End If
-        'Next
-        Return False
+    Public Function isDelete(ByVal ID As String) As Boolean
+        Dim isOk = True
+        Dim sql = "Select count(*) as C from Contracts where BranchId=@BranchId"
+        Dim tb = Me.getTableSQL(sql, New SqlParameter("@BranchId", ID))
+        If tb Is Nothing Then Return False
+        For Each r As DataRow In tb.Rows
+            If r("C") > 0 Then
+                isOk = False
+                Exit For
+            End If
+        Next
+        Return isOk
     End Function
     Public Function getInfo(ByVal ID As String) As Model.MLs_Branchs
         Dim m As New Model.MLs_Branchs

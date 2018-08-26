@@ -82,6 +82,7 @@ Partial Class frmProjects
         Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance4.FontData.BoldAsString = "True"
         Appearance4.FontData.SizeInPoints = 12.0!
+        Appearance4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Appearance4.Image = Global.MPS.My.Resources.Resources.document_new
         Appearance4.TextVAlignAsString = "Middle"
         Me.lblTitle.Appearance = Appearance4
@@ -90,7 +91,7 @@ Partial Class frmProjects
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(726, 23)
         Me.lblTitle.TabIndex = 36
-        Me.lblTitle.Text = "Danh Sách Dự Án Công Trình"
+        Me.lblTitle.Text = "Dự Án"
         '
         'Panel1
         '
@@ -281,7 +282,7 @@ Partial Class frmProjects
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 198)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 176)
         '
         'T_Add
         '

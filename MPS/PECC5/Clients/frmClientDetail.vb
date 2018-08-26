@@ -1,6 +1,9 @@
-﻿Public Class frmClientDetail
+﻿Imports Infragistics.Win.UltraWinGrid
+
+Public Class frmClientDetail
     Private WithEvents b As BLL.BClients = BLL.BClients.Instance
     Private bu As BLL.BUniteds = BLL.BUniteds.Instance
+    Private noSelectedItemId As String = "-1"
     Private Sub b__errorRaise(ByVal messege As String) Handles b._errorRaise
         ShowMsg(messege)
     End Sub
@@ -43,8 +46,20 @@
             End If
         End If
     End Sub
+    Dim isAddUnited As Boolean
     Private Sub LoadUnited()
         Dim tb = bu.getListUniteds()
+        If tb IsNot Nothing Then
+            Dim r As DataRow = tb.NewRow
+            r(0) = Me.noSelectedItemId
+            r(1) = ""
+            tb.Rows.InsertAt(r, 0)
+        End If
+        Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 28)
+        isAddUnited = m.A
+        If m.A Then
+            ModMain.AddNewRow(tb)
+        End If
         cboUnited.ValueMember = "UnitedId"
         cboUnited.DisplayMember = "UnitedName"
         cboUnited.DataSource = tb
@@ -80,7 +95,7 @@
         txtContactEmail.Text = m.ContactEmail
         txtContactPhone.Text = m.ContactPhone
         cboClientGroup.Value = m.ClientGroupId
-        cboUnited.Value = m.UnitedId
+        cboUnited.Value = IIf(m.UnitedId = "", Me.noSelectedItemId, m.UnitedId)
     End Sub
     Private Function setInfo() As Model.MClient
         Dim m As New Model.MClient
@@ -98,7 +113,7 @@
             m.ClientGroupId = cboClientGroup.Value
         End If
         m.Status = "Active"
-        If cboUnited.Value IsNot Nothing Then
+        If cboUnited.Value IsNot Nothing AndAlso cboUnited.Value.ToString <> Me.noSelectedItemId Then
             m.UnitedId = cboUnited.Value
         End If
         Return m
@@ -157,11 +172,34 @@
         Me.Close()
     End Sub
 
+    Private Sub cboUnited_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboUnited.AfterCloseUp
+        Dim cbo As UltraCombo = sender
+        ModMain.FilterOwnerCombo_CloseUp(cbo, "")
+        If cbo.Value Is Nothing Then Exit Sub
+        If cbo.Value = "" Then
+            Dim frm As New frmUnitedDetail
+            Dim result = frm.ShowDialog("")
+            If result <> "" Then
+                Me.LoadUnited()
+                cboUnited.Value = result
+            Else
+                cboUnited.Value = Nothing
+            End If
+        End If
+    End Sub
+
     Private Sub cboUnited_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboUnited.InitializeLayout
         If Me.cboUnited.DataSource Is Nothing Then Exit Sub
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("UnitedName").Hidden = False
+        If isAddUnited AndAlso cboUnited.Rows.Count > 0 Then
+            With cboUnited.Rows(cboUnited.Rows.Count - 1)
+                .Appearance.BackColor = ModMain.m_AddColor
+                .Appearance.FontData.Italic = Infragistics.Win.DefaultableBoolean.True
+            End With
+        End If
     End Sub
+
 End Class

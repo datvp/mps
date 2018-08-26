@@ -82,6 +82,7 @@ Partial Class frmClientGroups
         Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance4.FontData.BoldAsString = "True"
         Appearance4.FontData.SizeInPoints = 12.0!
+        Appearance4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Appearance4.Image = Global.MPS.My.Resources.Resources.document_new
         Appearance4.TextVAlignAsString = "Middle"
         Me.lblTitle.Appearance = Appearance4
@@ -90,7 +91,7 @@ Partial Class frmClientGroups
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(726, 23)
         Me.lblTitle.TabIndex = 36
-        Me.lblTitle.Text = "Danh Mục Nhóm Khách Hàng"
+        Me.lblTitle.Text = "Phân Nhóm"
         '
         'Panel1
         '

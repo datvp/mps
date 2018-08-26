@@ -98,7 +98,7 @@ Public Class DALFuncRight
         sql += " from LS_FUN f left outer join (Select * from PR_FunRight where [UID]=@UID) as r On f.i_ID=r.FuncID"
         sql += " where(IsNull(f.i_Uplevel, 0) = 0)"
         sql += " Union all"
-        sql += " Select f.s_ID as sFunID,N'Danh sách Chi nhánh' as s_Name,f.i_ID,isnull(r.U,0) as U,isnull(r.A,0) as A,isnull(r.D,0) as D,isnull(r.R,0) as R,"
+        sql += " Select f.s_ID as sFunID,N'Chi nhánh' as s_Name,f.i_ID,isnull(r.U,0) as U,isnull(r.A,0) as A,isnull(r.D,0) as D,isnull(r.R,0) as R,"
         sql += " isnull(r.IDSort,0) as IDSort"
         sql += " From (Select cast(-98 as int) as i_ID,'-1' as s_ID ) f"
         sql += " left outer join (Select * from PR_FunRight_EXT where [UID]=@UID) as r On f.s_ID=r.FuncID"

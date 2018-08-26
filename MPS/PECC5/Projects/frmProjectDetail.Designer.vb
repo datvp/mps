@@ -184,7 +184,7 @@ Partial Class frmProjectDetail
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(758, 47)
         Me.lblTitle.TabIndex = 1
-        Me.lblTitle.Text = "DỰ ÁN CÔNG TRÌNH"
+        Me.lblTitle.Text = "DỰ ÁN"
         '
         'grpAction
         '
@@ -349,7 +349,6 @@ Partial Class frmProjectDetail
         Me.cboClient.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
         Me.cboClient.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
         Me.cboClient.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
-        Me.cboClient.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
         Me.cboClient.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboClient.Location = New System.Drawing.Point(129, 226)
         Me.cboClient.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)

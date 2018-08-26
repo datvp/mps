@@ -39,6 +39,7 @@ Partial Class frmMain
         Dim UltraStatusPanel8 As Infragistics.Win.UltraWinStatusBar.UltraStatusPanel = New Infragistics.Win.UltraWinStatusBar.UltraStatusPanel
         Dim Appearance100 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool187 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnLogin")
+        Dim ButtonTool13 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Branchs")
         Dim ButtonTool207 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("UserGroups")
         Dim ButtonTool208 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Users")
         Dim ButtonTool209 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("SetPermission")
@@ -266,9 +267,9 @@ Partial Class frmMain
         Me.tbManager.DockWithinContainerBaseType = GetType(System.Windows.Forms.Form)
         Me.tbManager.ImageListLarge = Me.ImageList1
         Me.tbManager.LockToolbars = True
-        ButtonTool207.InstanceProps.IsFirstInGroup = True
+        ButtonTool13.InstanceProps.IsFirstInGroup = True
         ButtonTool191.InstanceProps.IsFirstInGroup = True
-        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaLeft.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool187, ButtonTool207, ButtonTool208, ButtonTool209, ButtonTool183, ButtonTool1, ButtonTool191})
+        Me.tbManager.Ribbon.ApplicationMenu.ToolAreaLeft.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool187, ButtonTool13, ButtonTool207, ButtonTool208, ButtonTool209, ButtonTool183, ButtonTool1, ButtonTool191})
         Me.tbManager.Ribbon.ApplicationMenu.ToolAreaRight.MaxWidth = 1
         Me.tbManager.Ribbon.ApplicationMenu.ToolAreaRight.MinWidth = 1
         Me.tbManager.Ribbon.ApplicationMenuButtonImage = Global.MPS.My.Resources.Resources.globe

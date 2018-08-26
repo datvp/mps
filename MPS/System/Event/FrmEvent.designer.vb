@@ -93,7 +93,7 @@ Partial Class FrmEvent
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Refresh, Me.T_DEL, Me.T_SelectAll, Me.ToolStripMenuItem2, Me.T_Layout, Me.ToolStripSeparator1, Me.T_Export})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 148)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 126)
         '
         'T_Refresh
         '
@@ -381,6 +381,7 @@ Partial Class FrmEvent
         Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance4.FontData.BoldAsString = "True"
         Appearance4.FontData.SizeInPoints = 12.0!
+        Appearance4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Appearance4.Image = Global.MPS.My.Resources.Resources.Task_New
         Appearance4.TextVAlignAsString = "Middle"
         Me.UltraLabel1.Appearance = Appearance4

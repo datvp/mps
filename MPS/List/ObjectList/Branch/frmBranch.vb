@@ -79,7 +79,7 @@ Public Class frmBranch
     Private f_SecD As Boolean = False
 
     Private Sub Security()
-        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 12)
+        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 29)
 
         f_SecE = m.U
         f_SecA = m.A
@@ -183,7 +183,7 @@ Public Class frmBranch
 
         Try
             If Grid.Selected.Rows.Count > 1 Then
-                If MessageBox.Show("Xóa " & Grid.Selected.Rows.Count & " dòng đang chọn ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.No Then
+                If ShowMsgYesNo("Xóa " & Grid.Selected.Rows.Count & " dòng đang chọn ?") = Windows.Forms.DialogResult.No Then
                     Exit Sub
                 End If
 
@@ -192,21 +192,15 @@ Public Class frmBranch
                     idchar = Grid.Selected.Rows(i).Cells("s_Branch_ID").Value
                     name = Grid.Selected.Rows(i).Cells("s_Name").Value
 
-                    If cls.checkDelete(id) Then
-                        If MessageBox.Show("Có dữ liệu liên quan đến chi nhánh hàng " & name & " có mã là " & idchar & ", tiếp tục hay dừng lại ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = Windows.Forms.DialogResult.No Then
+                    If Not cls.isDelete(id) Then
+                        If ShowMsgYesNo("Có dữ liệu liên quan đến chi nhánh " & name & " có mã là " & idchar & ", tiếp tục hay dừng lại ?") = Windows.Forms.DialogResult.No Then
                             LoadList()
                             Exit Sub
                         End If
 
                     Else
                         If Not cls.DELETEDB(id) Then
-                            Dim s As String = ""
-                            If m_Lang = 1 Then
-                                ShowMsg("Quá trình xóa chi nhánh hàng " & name & " có mã là " & idchar & " có lỗi. Kiểm tra và thực hiện lại !", m_MsgCaption)
-                            Else
-                                ShowMsg(m_DelError, m_MsgCaption)
-                            End If
-
+                            ShowMsg("Quá trình xóa chi nhánh " & name & " có mã là " & idchar & " có lỗi. Kiểm tra và thực hiện lại !", m_MsgCaption)
                             LoadList()
                             Exit Sub
                         Else
@@ -219,7 +213,7 @@ Public Class frmBranch
                 idchar = r.Cells("s_Branch_ID").Value
                 name = r.Cells("s_Name").Value
 
-                If cls.checkDelete(id) Then
+                If Not cls.isDelete(id) Then
                     ShowMsg("Có dữ liệu liên quan đến chi nhánh hàng " & name & " có mã là " & idchar & " !", m_MsgCaption)
                     Exit Sub
                 End If
@@ -227,12 +221,7 @@ Public Class frmBranch
                 If ShowMsgYesNoCancel(m_MsgAskDel, m_MsgCaption) <> Windows.Forms.DialogResult.Yes Then Exit Sub
 
                 If Not cls.DELETEDB(id) Then
-                    If m_Lang = 1 Then
-                        ShowMsg("Quá trình xóa chi nhánh hàng " & name & " có mã là " & idchar & " có lỗi. Kiểm tra và thực hiện lại !", m_MsgCaption)
-                    Else
-                        ShowMsg(m_DelError, m_MsgCaption)
-                    End If
-
+                    ShowMsg("Quá trình xóa chi nhánh hàng " & name & " có mã là " & idchar & " có lỗi. Kiểm tra và thực hiện lại !", m_MsgCaption)
                     Exit Sub
                 Else
                     ModMain.UpdateEvent(ModMain.m_UIDLogin, "Xóa chi nhánh hàng có mã '" & idchar & "'", TypeEvents.List)
@@ -244,21 +233,6 @@ Public Class frmBranch
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
-    Private Sub ViewReport()
-        'Dim rp As New ReportDocument
-        'Dim cls As New ClsReport
-
-        'Try
-        '    rp = cls.InitReport(Application.StartupPath & "\Reports\rptchi nhánhHang.rpt")
-        '    cls.SetParameter(rp, ModMain.m_CompanyName, ModMain.m_CompanyAddress)
-
-        '    Dim frm As New FrmReport
-        '    frm.rpt.ReportSource = rp
-        '    frm.Show()
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
     End Sub
 #End Region
 
@@ -287,7 +261,7 @@ Public Class frmBranch
         T_Refresh.Enabled = True
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
-        T_Export.Enabled = True
+        T_Export.Enabled = ModMain.m_AllowExportExcel
 
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
         Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))
@@ -336,17 +310,9 @@ Public Class frmBranch
         Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, Grid, m_Lang)
         frm.ShowDialog()
     End Sub
-    Private Sub T_Search_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Dim frm As New VsoftBMS.Ulti.FrmFind(Grid, m_Lang)
-        frm.ShowDialog()
-    End Sub
-    Private Sub T_Print_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        Me.ViewReport()
-    End Sub
     Private Sub T_Export_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_Export.Click
         ExportExcel(Grid)
     End Sub
-    '20/05/2009dat
     Private Sub T_SelectAll_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_SelectAll.Click
         SelectAll(Grid)
     End Sub

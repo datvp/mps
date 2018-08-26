@@ -170,7 +170,7 @@ Partial Class frmMainContractorDetail
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(583, 47)
         Me.lblTitle.TabIndex = 13
-        Me.lblTitle.Text = "ĐƠN VỊ THUỘC PECC5"
+        Me.lblTitle.Text = "PECC5"
         '
         'grpMain
         '

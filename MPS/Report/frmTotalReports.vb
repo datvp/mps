@@ -16,15 +16,15 @@ Public Class frmTotalReports
 
     Private Sub LoadSubContractors()
         If tbSubContractors Is Nothing Then tbSubContractors = bs.getListSubContractors()
-        cboBranch.DisplayMember = "SubContractorName"
-        cboBranch.ValueMember = "SubContractorId"
-        cboBranch.DataSource = tbSubContractors
+        cboObject.DisplayMember = "SubContractorName"
+        cboObject.ValueMember = "SubContractorId"
+        cboObject.DataSource = tbSubContractors
     End Sub
     Private Sub LoadContracts()
         If tbContractId Is Nothing Then tbContractId = bc.getListAllContractId(ModMain.m_BranchId)
-        cboBranch.DisplayMember = "ContractId"
-        cboBranch.ValueMember = "ContractId"
-        cboBranch.DataSource = tbContractId
+        cboObject.DisplayMember = "ContractId"
+        cboObject.ValueMember = "ContractId"
+        cboObject.DataSource = tbContractId
     End Sub
     Private Sub GetListReports()
         lstFunc.DisplayMember = "Name"
@@ -46,7 +46,7 @@ Public Class frmTotalReports
                     fByYear = False
                     Dim ok = cls.ReportByDate(dtFrom.Value, dtTo.Value)
                     If Not ok Then Exit Select
-                    Dim contractId As String = cboBranch.Value
+                    Dim contractId As String = cboObject.Value
                     rp = clsrpt.InitReport(Application.StartupPath & "\Reports\ReportByDate.rpt")
                     clsrpt.SetParameter(rp, dtFrom.Value.ToString("dd/MM/yyyy"), dtTo.Value.ToString("dd/MM/yyyy"))
                     Dim frm As New FrmReport
@@ -59,21 +59,21 @@ Public Class frmTotalReports
                     fByAssigned = False
                     Grid.DataSource = cls.ReportSubContractorsByAssigned(dtFrom.Value, dtTo.Value)
                 Case 13 ' Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
-                    If cboBranch.Value Is Nothing Then
+                    If cboObject.Value Is Nothing Then
                         ShowMsg("Bạn chưa chọn nhà thầu.")
-                        cboBranch.Focus()
+                        cboObject.Focus()
                         Exit Select
                     End If
                     fBySubContractorId = False
-                    Grid.DataSource = cls.ReportContractsBySubContractorId(cboBranch.Value)
+                    Grid.DataSource = cls.ReportContractsBySubContractorId(cboObject.Value)
                 Case 15 ' báo cáo tình trạng của 1 hợp đồng
-                    If cboBranch.Value Is Nothing Then
+                    If cboObject.Value Is Nothing Then
                         ShowMsg("Bạn chưa chọn hợp đồng.")
-                        cboBranch.Focus()
+                        cboObject.Focus()
                         Exit Select
                     End If
                     Grid.DataSource = Nothing
-                    Dim contractId As String = cboBranch.Value
+                    Dim contractId As String = cboObject.Value
                     Dim tb = lstFunc.DataSource
                     Dim DF() As DataRow = tb.Select("ID=15")
                     Dim pathReport = ""
@@ -99,7 +99,7 @@ Public Class frmTotalReports
 
     Private Sub frmTotalReports_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         ModMain.SetTitle(Me, lblTitle.Text)
-        ModMain.BlueButton(btnView, ModMain.m_OkIcon)
+        ModMain.BlueButton(btnView)
         Me.GetListReports()
         cboTime.SelectedIndex = 0
     End Sub
@@ -259,7 +259,8 @@ Public Class frmTotalReports
         Me.ViewData()
     End Sub
 
-    Private Sub cboBranch_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboBranch.InitializeLayout
+
+    Private Sub cboBranch_InitializeLayout(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboObject.InitializeLayout
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
@@ -276,24 +277,59 @@ Public Class frmTotalReports
     End Sub
 
     Private Sub lstFunc_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles lstFunc.SelectedIndexChanged
-        lblBranch.Visible = False
-        cboBranch.Visible = False
+        lblObject.Visible = False
+        cboObject.Visible = False
         cboTime.Enabled = True
 
         Select Case lstFunc.SelectedValue
             Case 7 ' Tổng doanh thu theo Mốc thời gian
             Case 13 'Số lượng dự án mà 01 nhà thầu phụ đang thực hiện
                 cboTime.Enabled = False
-                lblBranch.Visible = True
-                cboBranch.Visible = True
-                lblBranch.Text = "Nhà thầu"
+                lblObject.Visible = True
+                cboObject.Visible = True
+                lblObject.Text = "Nhà thầu"
                 Me.LoadSubContractors()
             Case 15 'Báo cáo Tình trạng cụ thể 01 hợp đồng
                 cboTime.Enabled = False
-                lblBranch.Visible = True
-                cboBranch.Visible = True
-                lblBranch.Text = "Hợp đồng"
+                lblObject.Visible = True
+                cboObject.Visible = True
+                lblObject.Text = "Hợp đồng"
                 Me.LoadContracts()
+        End Select
+    End Sub
+
+    Private Sub cboObject_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboObject.KeyUp
+        Dim cbo As UltraCombo = sender
+        If e.KeyCode = Keys.Escape Then
+            cbo.Text = ""
+            FilterOwnerCombo(cbo, "")
+            If cbo.IsDroppedDown Then
+                cbo.ToggleDropdown()
+            End If
+            Exit Sub
+        End If
+
+        If e.KeyCode = Keys.Enter OrElse e.KeyCode = Keys.Tab Then
+            If cbo.IsDroppedDown Then
+                cbo.ToggleDropdown()
+            End If
+            btnView.Focus()
+            Exit Sub
+        End If
+
+        If Not cbo.IsDroppedDown Then
+            cbo.ToggleDropdown()
+            Dim txt = cbo.Textbox
+            txt.SelectionStart = txt.Text.Length
+        End If
+
+        Select Case e.KeyCode
+            Case Keys.Back, Keys.Delete
+                FilterOwnerCombo(cbo, "")
+            Case Keys.Left, Keys.Right, Keys.Down, Keys.Up, Keys.End, Keys.Home
+                Exit Sub
+            Case Else
+                FilterOwnerCombo(cbo, "")
         End Select
     End Sub
 End Class

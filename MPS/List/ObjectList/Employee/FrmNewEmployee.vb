@@ -106,7 +106,7 @@ Public Class FrmNewEmployee
     Private f_SecE As Boolean = False
 
     Private Sub Security()
-        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 27)
+        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 11)
 
         f_SecA = m.A
         f_SecE = m.U

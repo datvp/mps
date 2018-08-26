@@ -82,7 +82,8 @@ Partial Class frmUnited
         Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance4.FontData.BoldAsString = "True"
         Appearance4.FontData.SizeInPoints = 12.0!
-        Appearance4.Image = Global.MPS.My.Resources.Resources.document_new
+        Appearance4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
+        Appearance4.Image = Global.MPS.My.Resources.Resources.users22
         Appearance4.TextVAlignAsString = "Middle"
         Me.lblTitle.Appearance = Appearance4
         Me.lblTitle.Dock = System.Windows.Forms.DockStyle.Top

@@ -53,8 +53,8 @@
 
     'KIỂM TRA TRƯỚC KHI XÓA HÀNG HÓA*******
 
-    Public Function checkDelete(ByVal ID As String) As Boolean
-        Return cls.checkDelete(ID)
+    Public Function isDelete(ByVal ID As String) As Boolean
+        Return cls.isDelete(ID)
     End Function
     Public Function getCode(ByVal CodeID As String) As String
         Return cls.getCode(CodeID)

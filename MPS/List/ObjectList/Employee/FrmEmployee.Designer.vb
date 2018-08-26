@@ -79,6 +79,7 @@ Partial Class FrmEmployee
         Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance4.FontData.BoldAsString = "True"
         Appearance4.FontData.SizeInPoints = 12.0!
+        Appearance4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Appearance4.Image = Global.MPS.My.Resources.Resources.ds_NhanVien_t
         Appearance4.TextVAlignAsString = "Middle"
         Me.UltraLabel1.Appearance = Appearance4

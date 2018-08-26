@@ -22,7 +22,6 @@ Partial Class frmContractDetail
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
         Dim Appearance63 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance64 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance65 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -190,10 +189,6 @@ Partial Class frmContractDetail
         Me.grpCompleted = New Infragistics.Win.Misc.UltraGroupBox
         Me.grdHistory = New Infragistics.Win.UltraWinGrid.UltraGrid
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
-        Me.ctMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.T_Item_Waiting = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_Item_Completed = New System.Windows.Forms.ToolStripMenuItem
-        Me.T_Item_Pending = New System.Windows.Forms.ToolStripMenuItem
         CType(Me.grpBottom, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpBottom.SuspendLayout()
         CType(Me.grpMainInfo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -232,7 +227,6 @@ Partial Class frmContractDetail
         CType(Me.grpCompleted, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpCompleted.SuspendLayout()
         CType(Me.grdHistory, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.ctMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'grpBottom
@@ -1472,33 +1466,6 @@ Partial Class frmContractDetail
         Me.lblTitle.TabIndex = 12
         Me.lblTitle.Text = "HỢP ĐỒNG"
         '
-        'ctMenu
-        '
-        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Item_Waiting, Me.T_Item_Completed, Me.T_Item_Pending})
-        Me.ctMenu.Name = "ctMenu"
-        Me.ctMenu.Size = New System.Drawing.Size(138, 70)
-        '
-        'T_Item_Waiting
-        '
-        Me.T_Item_Waiting.Image = Global.MPS.My.Resources.Resources.ChamCong_t
-        Me.T_Item_Waiting.Name = "T_Item_Waiting"
-        Me.T_Item_Waiting.Size = New System.Drawing.Size(137, 22)
-        Me.T_Item_Waiting.Text = "Đang chờ"
-        '
-        'T_Item_Completed
-        '
-        Me.T_Item_Completed.Image = Global.MPS.My.Resources.Resources.check
-        Me.T_Item_Completed.Name = "T_Item_Completed"
-        Me.T_Item_Completed.Size = New System.Drawing.Size(137, 22)
-        Me.T_Item_Completed.Text = "Hoàn thành"
-        '
-        'T_Item_Pending
-        '
-        Me.T_Item_Pending.Image = Global.MPS.My.Resources.Resources.cancl_32
-        Me.T_Item_Pending.Name = "T_Item_Pending"
-        Me.T_Item_Pending.Size = New System.Drawing.Size(137, 22)
-        Me.T_Item_Pending.Text = "Tạm ngưng"
-        '
         'frmContractDetail
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -1563,7 +1530,6 @@ Partial Class frmContractDetail
         CType(Me.grpCompleted, System.ComponentModel.ISupportInitialize).EndInit()
         Me.grpCompleted.ResumeLayout(False)
         CType(Me.grdHistory, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ctMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -1616,10 +1582,6 @@ Partial Class frmContractDetail
     Friend WithEvents dtDeadlineExt As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents lnkAddPayment As System.Windows.Forms.LinkLabel
-    Friend WithEvents ctMenu As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents T_Item_Waiting As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents T_Item_Completed As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents T_Item_Pending As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents grpNote As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents txtNote As Infragistics.Win.UltraWinEditors.UltraTextEditor
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage

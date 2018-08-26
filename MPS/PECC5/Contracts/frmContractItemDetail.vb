@@ -1,4 +1,6 @@
-﻿Public Class frmContractItemDetail
+﻿Imports Infragistics.Win.UltraWinGrid
+
+Public Class frmContractItemDetail
     Private item As Model.MContractDetail
     Private bSub As BLL.BSubContractors = BLL.BSubContractors.Instance
     Dim bItem As BLL.BItems = BLL.BItems.Instance
@@ -20,16 +22,25 @@
             btnSave.Text = ModMain.m_Add
         End If
     End Sub
+    Dim isAddItem As Boolean
+    Private Sub LoadItems()
+        Dim tbItem = bItem.getListItems()
+        Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 7)
+        isAddItem = m.A
+        If m.A Then
+            ModMain.AddNewRow(tbItem)
+        End If
+        cboItem.ValueMember = "ItemId"
+        cboItem.DisplayMember = "ItemName"
+        cboItem.DataSource = tbItem
+    End Sub
     Private Sub LoadCombo()
         Dim tbSub = bSub.getListSubContractors()
         cboSubContractor.ValueMember = "SubContractorId"
         cboSubContractor.DisplayMember = "SubContractorName"
         cboSubContractor.DataSource = tbSub
 
-        Dim tbItem = bItem.getListItems()
-        cboItem.ValueMember = "ItemId"
-        cboItem.DisplayMember = "ItemName"
-        cboItem.DataSource = tbItem
+        Me.LoadItems()
     End Sub
     Private Sub LoadInfo(ByVal m As Model.MContractDetail)
         cboItem.Value = m.ItemId
@@ -111,11 +122,33 @@
         Next
         e.Layout.Bands(0).Columns("SubContractorName").Hidden = False
     End Sub
+
+    Private Sub cboItem_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboItem.AfterCloseUp
+        Dim cbo As UltraCombo = sender
+        ModMain.FilterOwnerCombo_CloseUp(cbo, "")
+        If cbo.Value Is Nothing Then Exit Sub
+        If cbo.Value = "" Then
+            Dim frm As New frmItemDetail
+            Dim result = frm.ShowDialog("")
+            If result <> "" Then
+                Me.LoadItems()
+                cboItem.Value = result
+            Else
+                cboItem.Value = Nothing
+            End If
+        End If
+    End Sub
     Private Sub cboItem_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboItem.InitializeLayout
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("ItemName").Hidden = False
+        If isAddItem AndAlso cboItem.Rows.Count > 0 Then
+            With cboItem.Rows(cboItem.Rows.Count - 1)
+                .Appearance.BackColor = ModMain.m_AddColor
+                .Appearance.FontData.Italic = Infragistics.Win.DefaultableBoolean.True
+            End With
+        End If
     End Sub
 
     Private Sub chkGetSubContractor_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkGetSubContractor.CheckedChanged

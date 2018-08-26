@@ -211,7 +211,7 @@
                 Dim frm As New frmContracts
                 ShowForm(frm)
             Case "Branchs"
-                If Not CheckSecurity(12, Add) Then
+                If Not CheckSecurity(29, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
                     Exit Sub
                 End If

@@ -258,7 +258,7 @@ Public Class frmProjectTypes
         T_Refresh.Enabled = True
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
-        T_Export.Enabled = True
+        T_Export.Enabled = ModMain.m_AllowExportExcel
 
         Dim r As UltraGridRow = Grid.ActiveRow
 

@@ -82,7 +82,7 @@
     Private f_SecD As Boolean = False
 
     Private Sub Security()
-        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 12)
+        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 29)
 
         f_SecE = m.U
         f_SecA = m.A

@@ -80,7 +80,7 @@ Public Class frmContracts
     Private f_SecE As Boolean = False
     Private f_SecA As Boolean = False
     Private f_SecD As Boolean = False
-
+    Private isAllowApprove As Boolean
     Private Sub Security()
         Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 25)
 
@@ -90,6 +90,8 @@ Public Class frmContracts
         Me.Toolbars.Tools("btnAdd").SharedProps.Enabled = f_SecA
         Me.Toolbars.Tools("btnEdit").SharedProps.Enabled = f_SecE
         Me.Toolbars.Tools("btnDel").SharedProps.Enabled = f_SecD
+
+        isAllowApprove = ModMain.getPermitFunc(ModMain.m_UIDLogin, 26).R
     End Sub
 
     Private Sub FindItem(ByVal rParent As Infragistics.Win.UltraWinGrid.UltraGridRow, ByVal ColName As String, ByVal Value As String)
@@ -317,7 +319,9 @@ Public Class frmContracts
         T_Refresh.Enabled = True
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
-        T_Export.Enabled = True
+        T_Export.Enabled = ModMain.m_AllowExportExcel
+
+        T_UpdateStatus.Enabled = Me.isAllowApprove
 
         T_StatusSigned.Enabled = True
         T_StatusInprogress.Enabled = True

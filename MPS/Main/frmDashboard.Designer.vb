@@ -137,7 +137,7 @@ Partial Class frmDashboard
         GridBagConstraint1.OriginY = 0
         Me.GridBagLayout.SetGridBagConstraint(Me.grpRevenueByClientGroup, GridBagConstraint1)
         Appearance2.FontData.BoldAsString = "True"
-        Appearance2.ForeColor = System.Drawing.Color.Navy
+        Appearance2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.grpRevenueByClientGroup.HeaderAppearance = Appearance2
         Me.grpRevenueByClientGroup.Location = New System.Drawing.Point(461, 0)
         Me.grpRevenueByClientGroup.Name = "grpRevenueByClientGroup"
@@ -336,7 +336,7 @@ Partial Class frmDashboard
         Me.lnkPrintClientGroup.AutoSize = True
         Me.lnkPrintClientGroup.BackColor = System.Drawing.Color.Transparent
         Me.lnkPrintClientGroup.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintClientGroup.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintClientGroup.LinkColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.lnkPrintClientGroup.Location = New System.Drawing.Point(206, 1)
         Me.lnkPrintClientGroup.Name = "lnkPrintClientGroup"
         Me.lnkPrintClientGroup.Size = New System.Drawing.Size(19, 13)
@@ -353,7 +353,7 @@ Partial Class frmDashboard
         GridBagConstraint2.OriginY = 1
         Me.GridBagLayout.SetGridBagConstraint(Me.grpRefund, GridBagConstraint2)
         Appearance61.FontData.BoldAsString = "True"
-        Appearance61.ForeColor = System.Drawing.Color.Navy
+        Appearance61.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.grpRefund.HeaderAppearance = Appearance61
         Me.grpRefund.Location = New System.Drawing.Point(716, 226)
         Me.grpRefund.Name = "grpRefund"
@@ -402,7 +402,7 @@ Partial Class frmDashboard
         Appearance12.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
         Appearance12.BorderColor2 = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
         Appearance12.FontData.BoldAsString = "True"
-        Appearance12.ForeColor = System.Drawing.Color.Navy
+        Appearance12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Appearance12.TextHAlignAsString = "Left"
         Appearance12.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
         Me.grdTopRevClient.DisplayLayout.Override.HeaderAppearance = Appearance12
@@ -429,7 +429,7 @@ Partial Class frmDashboard
         Me.lnkPrintRefund.AutoSize = True
         Me.lnkPrintRefund.BackColor = System.Drawing.Color.Transparent
         Me.lnkPrintRefund.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintRefund.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintRefund.LinkColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.lnkPrintRefund.Location = New System.Drawing.Point(252, 1)
         Me.lnkPrintRefund.Name = "lnkPrintRefund"
         Me.lnkPrintRefund.Size = New System.Drawing.Size(19, 13)
@@ -446,7 +446,7 @@ Partial Class frmDashboard
         GridBagConstraint3.OriginY = 0
         Me.GridBagLayout.SetGridBagConstraint(Me.grpTotalSaleChart, GridBagConstraint3)
         Appearance62.FontData.BoldAsString = "True"
-        Appearance62.ForeColor = System.Drawing.Color.Navy
+        Appearance62.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.grpTotalSaleChart.HeaderAppearance = Appearance62
         Me.grpTotalSaleChart.Location = New System.Drawing.Point(0, 0)
         Me.grpTotalSaleChart.Name = "grpTotalSaleChart"
@@ -656,7 +656,7 @@ Partial Class frmDashboard
         Me.lnkPrintItem.AutoSize = True
         Me.lnkPrintItem.BackColor = System.Drawing.Color.Transparent
         Me.lnkPrintItem.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintItem.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintItem.LinkColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.lnkPrintItem.Location = New System.Drawing.Point(163, 1)
         Me.lnkPrintItem.Name = "lnkPrintItem"
         Me.lnkPrintItem.Size = New System.Drawing.Size(19, 13)
@@ -673,7 +673,7 @@ Partial Class frmDashboard
         GridBagConstraint4.OriginY = 0
         Me.GridBagLayout.SetGridBagConstraint(Me.grpItemSaleToday, GridBagConstraint4)
         Appearance3.FontData.BoldAsString = "True"
-        Appearance3.ForeColor = System.Drawing.Color.Navy
+        Appearance3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.grpItemSaleToday.HeaderAppearance = Appearance3
         Me.grpItemSaleToday.Location = New System.Drawing.Point(716, 0)
         Me.grpItemSaleToday.Name = "grpItemSaleToday"
@@ -722,7 +722,7 @@ Partial Class frmDashboard
         Appearance20.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
         Appearance20.BorderColor2 = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
         Appearance20.FontData.BoldAsString = "True"
-        Appearance20.ForeColor = System.Drawing.Color.Navy
+        Appearance20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Appearance20.TextHAlignAsString = "Left"
         Appearance20.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
         Me.GridProduct.DisplayLayout.Override.HeaderAppearance = Appearance20
@@ -749,7 +749,7 @@ Partial Class frmDashboard
         Me.lnkPrintListDeadlineContract.AutoSize = True
         Me.lnkPrintListDeadlineContract.BackColor = System.Drawing.Color.Transparent
         Me.lnkPrintListDeadlineContract.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintListDeadlineContract.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintListDeadlineContract.LinkColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.lnkPrintListDeadlineContract.Location = New System.Drawing.Point(200, 1)
         Me.lnkPrintListDeadlineContract.Name = "lnkPrintListDeadlineContract"
         Me.lnkPrintListDeadlineContract.Size = New System.Drawing.Size(19, 13)
@@ -766,7 +766,7 @@ Partial Class frmDashboard
         GridBagConstraint5.OriginY = 1
         Me.GridBagLayout.SetGridBagConstraint(Me.grpTotalYear, GridBagConstraint5)
         Appearance1.FontData.BoldAsString = "True"
-        Appearance1.ForeColor = System.Drawing.Color.Navy
+        Appearance1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.grpTotalYear.HeaderAppearance = Appearance1
         Me.grpTotalYear.Location = New System.Drawing.Point(0, 226)
         Me.grpTotalYear.Name = "grpTotalYear"
@@ -780,7 +780,7 @@ Partial Class frmDashboard
         '
         Me.lnkPrintRevenueByYear.BackColor = System.Drawing.Color.Transparent
         Me.lnkPrintRevenueByYear.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintRevenueByYear.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintRevenueByYear.LinkColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.lnkPrintRevenueByYear.Location = New System.Drawing.Point(189, 1)
         Me.lnkPrintRevenueByYear.Name = "lnkPrintRevenueByYear"
         Me.lnkPrintRevenueByYear.Size = New System.Drawing.Size(19, 13)
@@ -839,7 +839,7 @@ Partial Class frmDashboard
         Appearance57.BorderColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
         Appearance57.BorderColor2 = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(219, Byte), Integer))
         Appearance57.FontData.BoldAsString = "True"
-        Appearance57.ForeColor = System.Drawing.Color.Navy
+        Appearance57.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Appearance57.TextHAlignAsString = "Left"
         Appearance57.ThemedElementAlpha = Infragistics.Win.Alpha.Transparent
         Me.grdRevenueByYear.DisplayLayout.Override.HeaderAppearance = Appearance57
@@ -872,7 +872,7 @@ Partial Class frmDashboard
         GridBagConstraint6.OriginY = 1
         Me.GridBagLayout.SetGridBagConstraint(Me.grpRevenueByProject, GridBagConstraint6)
         Appearance55.FontData.BoldAsString = "True"
-        Appearance55.ForeColor = System.Drawing.Color.Navy
+        Appearance55.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.grpRevenueByProject.HeaderAppearance = Appearance55
         Me.grpRevenueByProject.Location = New System.Drawing.Point(461, 226)
         Me.grpRevenueByProject.Name = "grpRevenueByProject"
@@ -1071,7 +1071,7 @@ Partial Class frmDashboard
         Me.lnkPrintProject.AutoSize = True
         Me.lnkPrintProject.BackColor = System.Drawing.Color.Transparent
         Me.lnkPrintProject.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnkPrintProject.LinkColor = System.Drawing.Color.Navy
+        Me.lnkPrintProject.LinkColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Me.lnkPrintProject.Location = New System.Drawing.Point(140, 1)
         Me.lnkPrintProject.Name = "lnkPrintProject"
         Me.lnkPrintProject.Size = New System.Drawing.Size(19, 13)

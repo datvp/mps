@@ -142,7 +142,7 @@ Partial Class frmConstructionLevelDetail
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(485, 47)
         Me.lblTitle.TabIndex = 13
-        Me.lblTitle.Text = "PHÂN CẤP CÔNG TRÌNH"
+        Me.lblTitle.Text = "CẤP CÔNG TRÌNH"
         '
         'grpMain
         '

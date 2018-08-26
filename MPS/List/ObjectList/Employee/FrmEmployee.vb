@@ -123,7 +123,7 @@ Public Class FrmEmployee
     Private f_SecD As Boolean = False
 
     Private Sub Security()
-        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 27)
+        Dim m As Model.MFuncRight = ModMain.getPermitFunc(ModMain.m_UIDLogin, 11)
         f_SecE = m.U
         f_SecA = m.A
         f_SecD = m.D
@@ -373,7 +373,7 @@ Public Class FrmEmployee
         T_Refresh.Enabled = True
         T_SelectAll.Enabled = True
         T_Layout.Enabled = True
-        T_Export.Enabled = True
+        T_Export.Enabled = ModMain.m_AllowExportExcel
         Dim element As Infragistics.Win.UIElement = Grid.DisplayLayout.UIElement.ElementFromPoint(e.Location)
         If element Is Nothing Then Exit Sub
         Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))

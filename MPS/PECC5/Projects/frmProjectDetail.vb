@@ -36,9 +36,11 @@ Public Class frmProjectDetail
             End If
         End If
     End Sub
+    Dim isAddProjectType As Boolean
     Private Sub LoadProjectTypes()
         Dim tbType = b.getListProjectTypes()
         Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 10)
+        isAddProjectType = m.A
         If m.A Then
             ModMain.AddNewRow(tbType)
         End If
@@ -78,9 +80,11 @@ Public Class frmProjectDetail
         End If
 
     End Sub
+    Dim isAddConstructionLevel As Boolean
     Private Sub LoadConstructionLevels()
         Dim tbLevel = b.getListConstructionLevels()
         Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 27)
+        isAddConstructionLevel = m.A
         If m.A Then
             ModMain.AddNewRow(tbLevel)
         End If
@@ -93,9 +97,11 @@ Public Class frmProjectDetail
             End If
         End If
     End Sub
+    Dim isAddClient As Boolean
     Private Sub LoadClients()
         Dim tbClient = bClient.getListClients()
         Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 6)
+        isAddClient = m.A
         If m.A Then
             ModMain.AddNewRow(tbClient)
         End If
@@ -253,6 +259,12 @@ Public Class frmProjectDetail
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("ProjectTypeName").Hidden = False
+        If isAddProjectType AndAlso cboProjectType.Rows.Count > 0 Then
+            With cboProjectType.Rows(cboProjectType.Rows.Count - 1)
+                .Appearance.BackColor = ModMain.m_AddColor
+                .Appearance.FontData.Italic = Infragistics.Win.DefaultableBoolean.True
+            End With
+        End If
     End Sub
 
     Private Sub cboConstructionLevel_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboConstructionLevel.AfterCloseUp
@@ -276,6 +288,13 @@ Public Class frmProjectDetail
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("ConstructionLevelName").Hidden = False
+
+        If isAddConstructionLevel AndAlso cboConstructionLevel.Rows.Count > 0 Then
+            With cboConstructionLevel.Rows(cboConstructionLevel.Rows.Count - 1)
+                .Appearance.BackColor = ModMain.m_AddColor
+                .Appearance.FontData.Italic = Infragistics.Win.DefaultableBoolean.True
+            End With
+        End If
     End Sub
     Private Sub cboPerformUnit_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboPerformUnit.InitializeLayout
         If Me.cboPerformUnit.DataSource Is Nothing Then Exit Sub
@@ -341,10 +360,50 @@ Public Class frmProjectDetail
     End Sub
 
     Private Sub cboClient_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboClient.InitializeLayout
-        If Me.cboClient.DataSource Is Nothing Then Exit Sub
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("ClientName").Hidden = False
+        If isAddClient AndAlso cboClient.Rows.Count > 0 Then
+            With cboClient.Rows(cboClient.Rows.Count - 1)
+                .Appearance.BackColor = ModMain.m_AddColor
+                .Appearance.FontData.Italic = Infragistics.Win.DefaultableBoolean.True
+            End With
+        End If
+    End Sub
+
+    Private Sub cboClient_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles cboClient.KeyUp
+        Dim cbo As UltraCombo = sender
+        If e.KeyCode = Keys.Escape Then
+            cbo.Text = ""
+            FilterOwnerCombo(cbo, "")
+            If cbo.IsDroppedDown Then
+                cbo.ToggleDropdown()
+            End If
+            Exit Sub
+        End If
+
+        If e.KeyCode = Keys.Enter OrElse e.KeyCode = Keys.Tab Then
+            If cbo.IsDroppedDown Then
+                cbo.ToggleDropdown()
+            End If
+            txtPerformance.Focus()
+            Exit Sub
+        End If
+
+        If Not cbo.IsDroppedDown Then
+            cbo.ToggleDropdown()
+            Dim txt = cbo.Textbox
+            txt.SelectionStart = txt.Text.Length
+        End If
+
+        Select Case e.KeyCode
+            Case Keys.Back, Keys.Delete
+                FilterOwnerCombo(cbo, "")
+            Case Keys.Left, Keys.Right, Keys.Down, Keys.Up, Keys.End, Keys.Home
+                Exit Sub
+            Case Else
+                FilterOwnerCombo(cbo, "")
+        End Select
     End Sub
 End Class

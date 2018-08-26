@@ -158,7 +158,7 @@ Partial Class frmUnitedDetail
         Appearance12.FontData.BoldAsString = "True"
         Appearance12.FontData.SizeInPoints = 14.0!
         Appearance12.ForeColor = System.Drawing.Color.Black
-        Appearance12.Image = Global.MPS.My.Resources.Resources.document_new
+        Appearance12.Image = Global.MPS.My.Resources.Resources.users22
         Appearance12.TextHAlignAsString = "Left"
         Appearance12.TextVAlignAsString = "Middle"
         Me.lblTitle.Appearance = Appearance12

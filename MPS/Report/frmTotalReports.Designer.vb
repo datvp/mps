@@ -56,8 +56,8 @@ Partial Class frmTotalReports
         Me.lblTitle = New Infragistics.Win.Misc.UltraLabel
         Me.pnlCondition = New System.Windows.Forms.Panel
         Me.grpLineBorder = New Infragistics.Win.Misc.UltraGroupBox
-        Me.cboBranch = New Infragistics.Win.UltraWinGrid.UltraCombo
-        Me.lblBranch = New System.Windows.Forms.Label
+        Me.cboObject = New Infragistics.Win.UltraWinGrid.UltraCombo
+        Me.lblObject = New System.Windows.Forms.Label
         Me.cboTime = New System.Windows.Forms.ComboBox
         Me.btnView = New Infragistics.Win.Misc.UltraButton
         Me.dtTo = New System.Windows.Forms.DateTimePicker
@@ -72,7 +72,7 @@ Partial Class frmTotalReports
         Me.Panel2.SuspendLayout()
         Me.pnlCondition.SuspendLayout()
         CType(Me.grpLineBorder, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cboBranch, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboObject, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlListReportName.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ctMenu.SuspendLayout()
@@ -83,9 +83,9 @@ Partial Class frmTotalReports
         Me.dtFrom.CustomFormat = "dd/MM/yyyy"
         Me.dtFrom.Enabled = False
         Me.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtFrom.Location = New System.Drawing.Point(70, 46)
+        Me.dtFrom.Location = New System.Drawing.Point(70, 50)
         Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(81, 21)
+        Me.dtFrom.Size = New System.Drawing.Size(121, 23)
         Me.dtFrom.TabIndex = 2
         '
         'Panel2
@@ -105,7 +105,7 @@ Partial Class frmTotalReports
         Appearance95.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance95.FontData.BoldAsString = "True"
         Appearance95.FontData.SizeInPoints = 12.0!
-        Appearance95.ForeColor = System.Drawing.Color.Black
+        Appearance95.ForeColor = System.Drawing.Color.FromArgb(CType(CType(21, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(139, Byte), Integer))
         Appearance95.Image = Global.MPS.My.Resources.Resources.statistics4
         Appearance95.TextVAlignAsString = "Middle"
         Me.lblTitle.Appearance = Appearance95
@@ -115,21 +115,22 @@ Partial Class frmTotalReports
         Me.lblTitle.Name = "lblTitle"
         Me.lblTitle.Size = New System.Drawing.Size(758, 24)
         Me.lblTitle.TabIndex = 2
-        Me.lblTitle.Text = "Báo cáo - Thống kê"
+        Me.lblTitle.Text = "Thống kê"
         '
         'pnlCondition
         '
         Me.pnlCondition.AutoScroll = True
         Me.pnlCondition.BackColor = System.Drawing.Color.Transparent
         Me.pnlCondition.Controls.Add(Me.grpLineBorder)
-        Me.pnlCondition.Controls.Add(Me.cboBranch)
-        Me.pnlCondition.Controls.Add(Me.lblBranch)
+        Me.pnlCondition.Controls.Add(Me.cboObject)
+        Me.pnlCondition.Controls.Add(Me.lblObject)
         Me.pnlCondition.Controls.Add(Me.cboTime)
         Me.pnlCondition.Controls.Add(Me.btnView)
         Me.pnlCondition.Controls.Add(Me.dtFrom)
         Me.pnlCondition.Controls.Add(Me.dtTo)
         Me.pnlCondition.Controls.Add(Me.lblTime)
         Me.pnlCondition.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.pnlCondition.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pnlCondition.Location = New System.Drawing.Point(20, 300)
         Me.pnlCondition.Name = "pnlCondition"
         Me.pnlCondition.Size = New System.Drawing.Size(325, 161)
@@ -146,84 +147,83 @@ Partial Class frmTotalReports
         Me.grpLineBorder.TabIndex = 70
         Me.grpLineBorder.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
-        'cboBranch
+        'cboObject
         '
-        Me.cboBranch.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
+        Me.cboObject.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal
         Appearance49.BackColor = System.Drawing.SystemColors.Window
         Appearance49.BorderColor = System.Drawing.SystemColors.InactiveCaption
-        Me.cboBranch.DisplayLayout.Appearance = Appearance49
-        Me.cboBranch.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
+        Me.cboObject.DisplayLayout.Appearance = Appearance49
+        Me.cboObject.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns
         UltraGridBand1.ColHeadersVisible = False
-        Me.cboBranch.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
-        Me.cboBranch.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
-        Me.cboBranch.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboObject.DisplayLayout.BandsSerializer.Add(UltraGridBand1)
+        Me.cboObject.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboObject.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.[False]
         Appearance50.BackColor = System.Drawing.SystemColors.ActiveBorder
         Appearance50.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance50.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical
         Appearance50.BorderColor = System.Drawing.SystemColors.Window
-        Me.cboBranch.DisplayLayout.GroupByBox.Appearance = Appearance50
+        Me.cboObject.DisplayLayout.GroupByBox.Appearance = Appearance50
         Appearance51.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.cboBranch.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance51
-        Me.cboBranch.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
+        Me.cboObject.DisplayLayout.GroupByBox.BandLabelAppearance = Appearance51
+        Me.cboObject.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid
         Appearance52.BackColor = System.Drawing.SystemColors.ControlLightLight
         Appearance52.BackColor2 = System.Drawing.SystemColors.Control
         Appearance52.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance52.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.cboBranch.DisplayLayout.GroupByBox.PromptAppearance = Appearance52
-        Me.cboBranch.DisplayLayout.MaxColScrollRegions = 1
-        Me.cboBranch.DisplayLayout.MaxRowScrollRegions = 1
+        Me.cboObject.DisplayLayout.GroupByBox.PromptAppearance = Appearance52
+        Me.cboObject.DisplayLayout.MaxColScrollRegions = 1
+        Me.cboObject.DisplayLayout.MaxRowScrollRegions = 1
         Appearance53.BackColor = System.Drawing.SystemColors.Window
         Appearance53.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cboBranch.DisplayLayout.Override.ActiveCellAppearance = Appearance53
+        Me.cboObject.DisplayLayout.Override.ActiveCellAppearance = Appearance53
         Appearance54.BackColor = System.Drawing.SystemColors.Highlight
         Appearance54.ForeColor = System.Drawing.SystemColors.HighlightText
-        Me.cboBranch.DisplayLayout.Override.ActiveRowAppearance = Appearance54
-        Me.cboBranch.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
-        Me.cboBranch.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboObject.DisplayLayout.Override.ActiveRowAppearance = Appearance54
+        Me.cboObject.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted
+        Me.cboObject.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted
         Appearance55.BackColor = System.Drawing.SystemColors.Window
-        Me.cboBranch.DisplayLayout.Override.CardAreaAppearance = Appearance55
+        Me.cboObject.DisplayLayout.Override.CardAreaAppearance = Appearance55
         Appearance56.BorderColor = System.Drawing.Color.Silver
         Appearance56.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter
-        Me.cboBranch.DisplayLayout.Override.CellAppearance = Appearance56
-        Me.cboBranch.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
-        Me.cboBranch.DisplayLayout.Override.CellPadding = 0
+        Me.cboObject.DisplayLayout.Override.CellAppearance = Appearance56
+        Me.cboObject.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText
+        Me.cboObject.DisplayLayout.Override.CellPadding = 0
         Appearance57.BackColor = System.Drawing.SystemColors.Control
         Appearance57.BackColor2 = System.Drawing.SystemColors.ControlDark
         Appearance57.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element
         Appearance57.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal
         Appearance57.BorderColor = System.Drawing.SystemColors.Window
-        Me.cboBranch.DisplayLayout.Override.GroupByRowAppearance = Appearance57
+        Me.cboObject.DisplayLayout.Override.GroupByRowAppearance = Appearance57
         Appearance58.TextHAlignAsString = "Left"
-        Me.cboBranch.DisplayLayout.Override.HeaderAppearance = Appearance58
-        Me.cboBranch.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
-        Me.cboBranch.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
+        Me.cboObject.DisplayLayout.Override.HeaderAppearance = Appearance58
+        Me.cboObject.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti
+        Me.cboObject.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand
         Appearance75.BackColor = System.Drawing.SystemColors.Window
         Appearance75.BorderColor = System.Drawing.Color.Silver
-        Me.cboBranch.DisplayLayout.Override.RowAppearance = Appearance75
-        Me.cboBranch.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
+        Me.cboObject.DisplayLayout.Override.RowAppearance = Appearance75
+        Me.cboObject.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.[False]
         Appearance76.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.cboBranch.DisplayLayout.Override.TemplateAddRowAppearance = Appearance76
-        Me.cboBranch.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
-        Me.cboBranch.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
-        Me.cboBranch.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
-        Me.cboBranch.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.[Default]
-        Me.cboBranch.DropDownStyle = Infragistics.Win.UltraWinGrid.UltraComboStyle.DropDownList
-        Me.cboBranch.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboBranch.Location = New System.Drawing.Point(70, 75)
-        Me.cboBranch.Name = "cboBranch"
-        Me.cboBranch.Size = New System.Drawing.Size(252, 23)
-        Me.cboBranch.TabIndex = 69
-        Me.cboBranch.Visible = False
+        Me.cboObject.DisplayLayout.Override.TemplateAddRowAppearance = Appearance76
+        Me.cboObject.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill
+        Me.cboObject.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate
+        Me.cboObject.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy
+        Me.cboObject.DisplayStyle = Infragistics.Win.EmbeddableElementDisplayStyle.Office2007
+        Me.cboObject.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboObject.Location = New System.Drawing.Point(70, 80)
+        Me.cboObject.Name = "cboObject"
+        Me.cboObject.Size = New System.Drawing.Size(252, 23)
+        Me.cboObject.TabIndex = 69
+        Me.cboObject.Visible = False
         '
-        'lblBranch
+        'lblObject
         '
-        Me.lblBranch.AutoSize = True
-        Me.lblBranch.Location = New System.Drawing.Point(11, 77)
-        Me.lblBranch.Name = "lblBranch"
-        Me.lblBranch.Size = New System.Drawing.Size(51, 13)
-        Me.lblBranch.TabIndex = 68
-        Me.lblBranch.Text = "Nhà thầu"
-        Me.lblBranch.Visible = False
+        Me.lblObject.AutoSize = True
+        Me.lblObject.Location = New System.Drawing.Point(5, 82)
+        Me.lblObject.Name = "lblObject"
+        Me.lblObject.Size = New System.Drawing.Size(59, 16)
+        Me.lblObject.TabIndex = 68
+        Me.lblObject.Text = "Nhà thầu"
+        Me.lblObject.Visible = False
         '
         'cboTime
         '
@@ -232,7 +232,7 @@ Partial Class frmTotalReports
         Me.cboTime.Items.AddRange(New Object() {"Hôm nay", "Hôm qua", "Tuần này", "Tuần trước", "Tháng này", "Tháng trước", "Năm này", "Năm trước", "Tùy chọn..."})
         Me.cboTime.Location = New System.Drawing.Point(70, 19)
         Me.cboTime.Name = "cboTime"
-        Me.cboTime.Size = New System.Drawing.Size(100, 21)
+        Me.cboTime.Size = New System.Drawing.Size(121, 24)
         Me.cboTime.TabIndex = 65
         '
         'btnView
@@ -243,21 +243,23 @@ Partial Class frmTotalReports
         Appearance4.BorderColor = System.Drawing.Color.LightSteelBlue
         Appearance4.FontData.BoldAsString = "True"
         Appearance4.ForeColor = System.Drawing.Color.Black
+        Appearance4.Image = Global.MPS.My.Resources.Resources.view
         Me.btnView.Appearance = Appearance4
         Me.btnView.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
         Me.btnView.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnView.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnView.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Appearance12.BackColor = System.Drawing.Color.Yellow
         Appearance12.BackColor2 = System.Drawing.Color.White
         Appearance12.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
         Me.btnView.HotTrackAppearance = Appearance12
-        Me.btnView.Location = New System.Drawing.Point(70, 104)
+        Me.btnView.ImageSize = New System.Drawing.Size(32, 32)
+        Me.btnView.Location = New System.Drawing.Point(70, 109)
         Me.btnView.Name = "btnView"
         Appearance13.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
         Appearance13.BackColor2 = System.Drawing.Color.White
         Appearance13.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
         Me.btnView.PressedAppearance = Appearance13
-        Me.btnView.Size = New System.Drawing.Size(77, 25)
+        Me.btnView.Size = New System.Drawing.Size(121, 38)
         Me.btnView.TabIndex = 21
         Me.btnView.Text = "Xem"
         Me.btnView.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
@@ -268,17 +270,17 @@ Partial Class frmTotalReports
         Me.dtTo.CustomFormat = "dd/MM/yyyy"
         Me.dtTo.Enabled = False
         Me.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtTo.Location = New System.Drawing.Point(157, 46)
+        Me.dtTo.Location = New System.Drawing.Point(201, 50)
         Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(79, 21)
+        Me.dtTo.Size = New System.Drawing.Size(121, 23)
         Me.dtTo.TabIndex = 3
         '
         'lblTime
         '
         Me.lblTime.AutoSize = True
-        Me.lblTime.Location = New System.Drawing.Point(11, 19)
+        Me.lblTime.Location = New System.Drawing.Point(5, 19)
         Me.lblTime.Name = "lblTime"
-        Me.lblTime.Size = New System.Drawing.Size(50, 13)
+        Me.lblTime.Size = New System.Drawing.Size(61, 16)
         Me.lblTime.TabIndex = 64
         Me.lblTime.Text = "Thời gian"
         '
@@ -431,7 +433,7 @@ Partial Class frmTotalReports
         Me.pnlCondition.ResumeLayout(False)
         Me.pnlCondition.PerformLayout()
         CType(Me.grpLineBorder, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cboBranch, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboObject, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlListReportName.ResumeLayout(False)
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ctMenu.ResumeLayout(False)
@@ -448,8 +450,8 @@ Partial Class frmTotalReports
     Friend WithEvents btnView As Infragistics.Win.Misc.UltraButton
     Friend WithEvents cboTime As System.Windows.Forms.ComboBox
     Friend WithEvents lblTime As System.Windows.Forms.Label
-    Friend WithEvents cboBranch As Infragistics.Win.UltraWinGrid.UltraCombo
-    Friend WithEvents lblBranch As System.Windows.Forms.Label
+    Friend WithEvents cboObject As Infragistics.Win.UltraWinGrid.UltraCombo
+    Friend WithEvents lblObject As System.Windows.Forms.Label
     Friend WithEvents CollapsibleSplitter2 As NJFLib.Controls.CollapsibleSplitter
     Friend WithEvents Grid As Infragistics.Win.UltraWinGrid.UltraGrid
     Friend WithEvents grpLineBorder As Infragistics.Win.Misc.UltraGroupBox

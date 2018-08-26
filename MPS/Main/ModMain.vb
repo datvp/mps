@@ -80,6 +80,8 @@ Module ModMain
 
     Public clsu As New VsoftBMS.Ulti.ClsUti
     Public mbc As Model.MConfigProgram
+    Public m_AddColor As System.Drawing.Color = Color.FromArgb(234, 242, 251)
+    Public m_AllowExportExcel As Boolean = False
 
     <System.Runtime.InteropServices.DllImportAttribute("user32.dll")> _
     Private Function DestroyIcon(ByVal handle As IntPtr) As Boolean

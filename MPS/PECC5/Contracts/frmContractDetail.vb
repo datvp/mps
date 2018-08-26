@@ -46,9 +46,11 @@ Public Class frmContractDetail
 #End Region
 
 #Region "Subs"
+    Dim isAddProject As Boolean
     Private Sub LoadProjects()
         Dim tbProject = bProject.getListProjects(ModMain.m_BranchId)
         Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 24)
+        isAddProject = m.A
         If m.A Then
             ModMain.AddNewRow(tbProject)
         End If
@@ -56,9 +58,11 @@ Public Class frmContractDetail
         cboProject.DisplayMember = "ProjectName"
         cboProject.DataSource = tbProject
     End Sub
+    Dim isAddMainContractor As Boolean
     Private Sub LoadbMainContractors()
         Dim tb = bMainContractor.getListMainContractors()
         Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 9)
+        isAddMainContractor = m.A
         If m.A Then
             ModMain.AddNewRow(tb)
         End If
@@ -644,6 +648,13 @@ Public Class frmContractDetail
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("ProjectName").Hidden = False
+
+        If isAddProject AndAlso cboProject.Rows.Count > 0 Then
+            With cboProject.Rows(cboProject.Rows.Count - 1)
+                .Appearance.BackColor = ModMain.m_AddColor
+                .Appearance.FontData.Italic = Infragistics.Win.DefaultableBoolean.True
+            End With
+        End If
     End Sub
 
     Private Sub cboMainContractor_AfterCloseUp(ByVal sender As Object, ByVal e As System.EventArgs) Handles cboMainContractor.AfterCloseUp
@@ -666,6 +677,12 @@ Public Class frmContractDetail
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("Company").Hidden = False
+        If isAddMainContractor AndAlso cboMainContractor.Rows.Count > 0 Then
+            With cboMainContractor.Rows(cboMainContractor.Rows.Count - 1)
+                .Appearance.BackColor = ModMain.m_AddColor
+                .Appearance.FontData.Italic = Infragistics.Win.DefaultableBoolean.True
+            End With
+        End If
     End Sub
     Private Sub cboContractLevel_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs)
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
@@ -919,44 +936,6 @@ Public Class frmContractDetail
                 Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name, grdItems, m_Lang)
                 frm.ShowDialog()
             End If
-        End If
-    End Sub
-
-    Private Sub grdItems_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles grdItems.MouseDown
-        T_Item_Waiting.Enabled = True
-        T_Item_Completed.Enabled = True
-        T_Item_Pending.Enabled = True
-
-        Dim r As UltraGridRow = grdItems.ActiveRow
-
-        Dim element As Infragistics.Win.UIElement = grdItems.DisplayLayout.UIElement.ElementFromPoint(New Point(e.X, e.Y))
-        Dim result As UltraGridRow = element.GetContext(GetType(UltraGridRow))
-        If e.Button <> Windows.Forms.MouseButtons.Right Then
-            If result Is Nothing Then
-                Exit Sub
-            End If
-            Exit Sub
-        End If
-        If result Is Nothing OrElse result.Index = -1 Then
-            T_Item_Waiting.Enabled = False
-            T_Item_Completed.Enabled = False
-            T_Item_Pending.Enabled = False
-        Else
-            If Not result.IsDataRow Then
-                Exit Sub
-            End If
-            result.Activated = True
-            r = result
-            'Dim status = r.Cells("Status").Value
-            'If status <> Statuses.Waiting Then
-            '    T_Item_Waiting.Enabled = False
-            '    T_Item_Completed.Enabled = False
-            '    T_Item_Pending.Enabled = False
-            'End If
-        End If
-
-        If e.Button = Windows.Forms.MouseButtons.Right Then
-            ctMenu.Show(grdItems, New Point(e.X, e.Y))
         End If
     End Sub
 
@@ -1231,34 +1210,4 @@ Public Class frmContractDetail
         End If
     End Sub
 #End Region
-
-    Private Sub updateItemStatus(ByVal status As String)
-        Dim r As UltraGridRow = grdItems.ActiveRow
-        If r IsNot Nothing Then
-            Dim arr As IList(Of Model.MContractDetail) = grdItems.DataSource
-            If arr IsNot Nothing Then
-                Dim item = arr.Item(r.Index)
-                If item Is Nothing Then Exit Sub
-                item.Status = status
-                item.StatusDesc = StatusText(status)
-                grdItems.Rows.Refresh(RefreshRow.RefreshDisplay)
-            End If
-        End If
-    End Sub
-    Private Sub T_Item_Waiting_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Item_Waiting.Click
-        Me.updateItemStatus(Statuses.Waiting)
-    End Sub
-
-    Private Sub T_Item_Completed_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Item_Completed.Click
-        Me.updateItemStatus(Statuses.Completed)
-    End Sub
-
-    Private Sub T_Item_Pending_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Item_Pending.Click
-        Me.updateItemStatus(Statuses.Pending)
-    End Sub
-
-
-    Private Sub lnkAddSubContract_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkAddSubContract.LinkClicked
-
-    End Sub
 End Class
