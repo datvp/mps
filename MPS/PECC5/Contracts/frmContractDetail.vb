@@ -28,6 +28,8 @@ Public Class frmContractDetail
             If e.KeyCode = Keys.S Then
                 Me.Save()
             End If
+        ElseIf e.KeyCode = Keys.Enter Then
+            Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
         End If
     End Sub
 

@@ -10,6 +10,12 @@ Public Class frmPaymentDetail
         Me.ShowDialog()
         Return Me.item
     End Function
+
+    Private Sub frmPaymentDetail_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
+        End If
+    End Sub
     Private Sub frmPaymentDetail_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ModMain.SetTitle(Me, lblTitle.Text)
         ModMain.GreenButton(btnExit, ModMain.m_CancelIcon)

@@ -59,6 +59,11 @@
         If e.KeyCode = Keys.F4 Then
             btnSaveClose.PerformClick()
         End If
+
+        If e.KeyCode = Keys.Enter Then
+            Me.SelectNextControl(Me.ActiveControl, True, True, True, True)
+        End If
+
     End Sub
 
     Private Sub FrmNewGroupUser_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -204,29 +209,6 @@
 #End Region
 
 #Region "Text"
-    Private Sub txtSID_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSID.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            txtOrderNo.Focus()
-        End If
-    End Sub
-    Private Sub txtOrderNo_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtOrderNo.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            txtName.Focus()
-        End If
-    End Sub
-
-    Private Sub txtName_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtName.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            txtNote.Focus()
-        End If
-    End Sub
-    'Private Sub txtNote_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtNote.KeyDown
-    '    If e.KeyCode = Keys.Enter Then
-    '        btnSave.Focus()
-    '    End If
-    'End Sub
-
-
     Private Sub txtOrderNo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtOrderNo.KeyPress
         Dim k As Short = Asc(e.KeyChar)
         If k <> 13 Then
