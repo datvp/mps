@@ -1,5 +1,5 @@
 ﻿Public Class B_ConfigProgram
-    Private WithEvents cls As New DAL.DAL_ConfigProgram
+    Private WithEvents cls As DAL.DAL_ConfigProgram = DAL.DAL_ConfigProgram.Instance
     Event _errorRaise(ByVal messege As String)
     Private Sub New()
     End Sub
@@ -31,5 +31,7 @@
     Public Function getInfo() As Model.MConfigProgram
         Return cls.getInfo()
     End Function
-   
+    Public Function getStatuses() As DataTable
+        Return cls.getStatuses()
+    End Function
 End Class

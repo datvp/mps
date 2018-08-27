@@ -60,4 +60,15 @@
     Public Function ReportStatusOfContracts(ByVal dtFrom As Date, ByVal dtTo As Date) As DataTable
         Return cls.ReportStatusOfContracts(dtFrom, dtTo)
     End Function
+
+    ''' <summary>
+    ''' kế hoạch thu chi
+    ''' </summary>
+    ''' <param name="dtFrom"></param>
+    ''' <param name="dtTo"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function ReportPlanningRevenue(ByVal dtFrom As Date, ByVal dtTo As Date) As DataTable
+        Return cls.ReportPlanningRevenue(dtFrom, dtTo)
+    End Function
 End Class

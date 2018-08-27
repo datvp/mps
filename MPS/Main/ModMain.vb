@@ -82,10 +82,11 @@ Module ModMain
     Public mbc As Model.MConfigProgram
     Public m_AddColor As System.Drawing.Color = Color.FromArgb(234, 242, 251)
     Public m_AllowExportExcel As Boolean = False
+    Private tbStatus As DataTable
 
-    <System.Runtime.InteropServices.DllImportAttribute("user32.dll")> _
-    Private Function DestroyIcon(ByVal handle As IntPtr) As Boolean
-    End Function
+    '<System.Runtime.InteropServices.DllImportAttribute("user32.dll")> _
+    'Private Function DestroyIcon(ByVal handle As IntPtr) As Boolean
+    'End Function
 
     Public Sub SetTitle(ByVal frm As Form, Optional ByVal title As String = "")
         frm.Text = IIf(title <> "", title, FormTitle)
@@ -116,28 +117,6 @@ Module ModMain
         Return st
     End Function
 
-    Public Sub FilterOwnerComboOld(ByVal cbo As Infragistics.Win.UltraWinGrid.UltraCombo, Optional ByVal sParentFilter As String = "")
-        Try
-
-            If cbo.AutoEdit Then cbo.AutoEdit = False
-            Dim txt As TextBox = cbo.Textbox
-            Dim tb As DataTable = cbo.DataSource
-            If tb Is Nothing Then Exit Sub
-            Dim s As String = cbo.Text
-            If Not s Is Nothing Then
-                s = Mid(s, 1, txt.SelectionStart)
-            End If
-            s = ReplaceSpecialCharacter(s)
-            Dim sCol As String = cbo.DisplayMember
-            Dim sFilter As String = "[" & sCol & "] like '%" & s.Replace("'", "''") & "%'"
-            If sParentFilter <> "" Then
-                sFilter += " And " & sParentFilter
-            End If
-            tb.DefaultView.RowFilter = sFilter
-        Catch ex As Exception
-
-        End Try
-    End Sub
     Public Sub FilterOwnerCombo(ByVal cbo As Infragistics.Win.UltraWinGrid.UltraCombo, Optional ByVal sParentFilter As String = "")
         Try
             If cbo.AutoEdit Then cbo.AutoEdit = False
@@ -175,7 +154,7 @@ Module ModMain
             End If
 
             If sParentFilter <> "" Then
-                sFilter = sParentFilter & " And (" & sFilter & ")" ' Thảo thay dòng trên bằng dòng này
+                sFilter = sParentFilter & " And (" & sFilter & ")"
             End If
 
             Dim txt1 As TextBox = cbo.Textbox
@@ -253,6 +232,7 @@ Module ModMain
     Public Sub LoadVariablesGlobally()
         Dim bCfg As BLL.B_ConfigProgram = BLL.B_ConfigProgram.Instance
         mbc = bCfg.getInfo()
+        tbStatus = bCfg.getStatuses()
         Dim s1 As String = ""
 
         If IsNumeric(mbc.i_FormatCur) Then
@@ -1161,41 +1141,18 @@ Module ModMain
     End Function
 
     Public Function StatusText(ByVal key As String) As String
-        Select Case key
-            Case Statuses.Signed
-                Return "Đã ký"
-            Case Statuses.Waiting
-                Return "Đang chờ"
-            Case Statuses.WaitingForApprove
-                Return "Chờ duyệt"
-            Case Statuses.Accepted
-                Return "Đã duyệt"
-            Case Statuses.Rejected
-                Return "Không duyệt"
-            Case Statuses.Pending
-                Return "Tạm ngưng"
-            Case Statuses.Inprogress
-                Return "Đang xử lý"
-            Case Statuses.Completed
-                Return "Hoàn thành"
-            Case Statuses.WaitForPay
-                Return "Chờ thanh toán"
-            Case Statuses.Paid
-                Return "Đã thanh toán"
-            Case Statuses.Refunded
-                Return "Đã chi"
-            Case Statuses.WaitForRefund
-                Return "Chờ chi"
-            Case Else
-                Return ""
-        End Select
-
-        Return ""
+        Dim status = ""
+        If tbStatus Is Nothing OrElse key = "" Then Return status
+        Dim found = tbStatus.Select("StateId='" + key + "'")
+        If found IsNot Nothing Then
+            status = found(0)(1).ToString()
+        End If
+        Return status
     End Function
 
     Public Sub OpenImage(ByVal PIM As Infragistics.Win.UltraWinEditors.UltraPictureBox)
         Dim OpenFileDialog1 As New OpenFileDialog
-        OpenFileDialog1.Title = "Chọn file nội dung"
+        OpenFileDialog1.Title = "Chọn file"
         OpenFileDialog1.Filter = "Image Files(*.JPG;*.JPEG;*.JPE;*.JFIF)|*.JPG;*.JPEG;*.JPE;*.JFIF"
         OpenFileDialog1.FilterIndex = 1
         OpenFileDialog1.FileName = ""
@@ -1258,7 +1215,7 @@ Module ModMain
 
             Dim rp As New ReportDocument
             Dim clsrpt As New ClsReport
-            rp = clsrpt.InitReport(Application.StartupPath & path)
+            rp = clsrpt.InitReport(fullPath)
             Dim frm As New FrmReport
             frm.rpt.ReportSource = rp
             frm.Show()

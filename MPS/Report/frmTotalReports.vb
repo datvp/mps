@@ -89,6 +89,9 @@ Public Class frmTotalReports
                 Case 16 'Báo cáo Tình trạng nhiều hợp đồng
                     fByStatusContracts = False
                     Grid.DataSource = cls.ReportStatusOfContracts(dtFrom.Value, dtTo.Value)
+                Case 18 ' kế hoạch thu chi
+                    fPlanningRevenue = False
+                    Grid.DataSource = cls.ReportPlanningRevenue(dtFrom.Value, dtTo.Value)
             End Select
         Catch ex As Exception
             ShowMsg(ex.Message)
@@ -103,7 +106,7 @@ Public Class frmTotalReports
         Me.GetListReports()
         cboTime.SelectedIndex = 0
     End Sub
-    Dim fByClientGroup, fByProject, fByItem, fByAssigned, fBySubContractorId, fByStatusContracts, fByYear As Boolean
+    Dim fByClientGroup, fByProject, fByItem, fByAssigned, fBySubContractorId, fByStatusContracts, fByYear, fPlanningRevenue As Boolean
     Private Sub Grid_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles Grid.InitializeLayout
         Grid.DisplayLayout.Bands(0).Columns(0).MergedCellEvaluationType = MergedCellEvaluationType.MergeSameText
         Grid.DisplayLayout.Bands(0).Columns(0).MergedCellStyle = MergedCellStyle.Always
@@ -137,6 +140,10 @@ Public Class frmTotalReports
                 If fByStatusContracts Then Exit Sub
                 fByStatusContracts = True
                 clsuf.FormatGridFromDB(Me.Name + "ByStatusContracts", Grid, m_Lang)
+            Case 18 ' ke hoach thu chi
+                If fPlanningRevenue Then Exit Sub
+                fPlanningRevenue = True
+                clsuf.FormatGridFromDB(Me.Name + "PlanningRevenue", Grid, m_Lang)
         End Select
 
     End Sub
@@ -210,6 +217,9 @@ Public Class frmTotalReports
                         frm.ShowDialog()
                     Case 16 'Báo cáo Tình trạng nhiều hợp đồng
                         Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "ByStatusContracts", Grid, m_Lang)
+                        frm.ShowDialog()
+                    Case 18 ' ke hoach thu chi
+                        Dim frm As New VsoftBMS.Ulti.FrmFormatUltraGrid(Me.Name + "PlanningRevenue", Grid, m_Lang)
                         frm.ShowDialog()
                 End Select
 
@@ -287,7 +297,7 @@ Public Class frmTotalReports
                 cboTime.Enabled = False
                 lblObject.Visible = True
                 cboObject.Visible = True
-                lblObject.Text = "Nhà thầu"
+                lblObject.Text = "Thầu phụ"
                 Me.LoadSubContractors()
             Case 15 'Báo cáo Tình trạng cụ thể 01 hợp đồng
                 cboTime.Enabled = False

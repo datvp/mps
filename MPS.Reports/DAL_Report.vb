@@ -105,4 +105,15 @@ Public Class DAL_Report
         p(1) = New SqlParameter("@dtTo", dtTo)
         Return getTableSQL(sql, p)
     End Function
+    ''' <summary>
+    ''' kế hoạch thu chi
+    ''' </summary>
+    ''' <param name="dtFrom"></param>
+    ''' <param name="dtTo"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Function ReportPlanningRevenue(ByVal dtFrom As Date, ByVal dtTo As Date) As DataTable
+        Dim sql = "SELECT * FROM V_PlanningRevenue WHERE " & getQueryDate(dtFrom, dtTo, "OriDate") & " ORDER BY Title,OriDate"
+        Return getTableSQL(sql)
+    End Function
 End Class

@@ -1,7 +1,17 @@
 ﻿Imports System.Data.SqlClient
 Public Class DAL_ConfigProgram
     Inherits DALSQL
-
+    Private Sub New()
+    End Sub
+    Private Shared obj As DAL_ConfigProgram
+    Public Shared ReadOnly Property Instance() As DAL_ConfigProgram
+        Get
+            If obj Is Nothing Then
+                obj = New DAL_ConfigProgram
+            End If
+            Return obj
+        End Get
+    End Property
     Public Function UPDATEDB(ByVal m As Model.MConfigProgram) As Boolean
         Me.BeginTranstion()
 
@@ -99,5 +109,9 @@ Public Class DAL_ConfigProgram
             m.DeadLineAlert = IsNull(tb.Rows(0)("DeadLineAlert"), 0)
         End If
         Return m
+    End Function
+    Public Function getStatuses() As DataTable
+        Dim sql = "SELECT StateId,StateName FROM ContractStates"
+        Return Me.getTableSQL(sql)
     End Function
 End Class
