@@ -48,6 +48,7 @@ Public Class frmTotalReports
                     If Not ok Then Exit Select
                     Dim contractId As String = cboObject.Value
                     rp = clsrpt.InitReport(Application.StartupPath & "\Reports\ReportByDate.rpt")
+                    If rp Is Nothing Then Exit Sub
                     clsrpt.SetParameter(rp, dtFrom.Value.ToString("dd/MM/yyyy"), dtTo.Value.ToString("dd/MM/yyyy"))
                     Dim frm As New FrmReport
                     frm.rpt.ReportSource = rp
@@ -82,6 +83,7 @@ Public Class frmTotalReports
                     End If
                     If pathReport = "" Then Exit Select
                     rp = clsrpt.InitReport(Application.StartupPath & pathReport)
+                    If rp Is Nothing Then Exit Sub
                     clsrpt.SetParameter(rp, contractId)
                     Dim frm As New FrmReport
                     frm.rpt.ReportSource = rp
@@ -258,7 +260,17 @@ Public Class frmTotalReports
     End Sub
 
     Private Sub T_Print_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles T_Print.Click
-        Grid.PrintPreview()
+        Select Case lstFunc.SelectedValue
+            Case 18 ' kế hoạch thu chi
+                rp = clsrpt.InitReport(Application.StartupPath & "\Reports\PlanningRevenue.rpt")
+                If rp Is Nothing Then Exit Sub
+                clsrpt.SetParameter(rp, dtFrom.Value, dtTo.Value)
+                Dim frm As New FrmReport
+                frm.rpt.ReportSource = rp
+                frm.Show()
+            Case Else
+                Grid.PrintPreview()
+        End Select
     End Sub
 
     Private Sub cboTime_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTime.SelectedIndexChanged
