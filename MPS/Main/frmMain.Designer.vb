@@ -66,6 +66,7 @@ Partial Class frmMain
         Dim ButtonTool143 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnLogin")
         Dim ButtonTool213 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("Dashboard")
         Dim ButtonTool144 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnExit")
+        Dim ButtonTool14 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("help")
         Dim UltraToolbar1 As Infragistics.Win.UltraWinToolbars.UltraToolbar = New Infragistics.Win.UltraWinToolbars.UltraToolbar("UltraToolbar1")
         Dim ButtonTool2 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("btnLogin")
         Dim Appearance201 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -113,6 +114,8 @@ Partial Class frmMain
         Dim Appearance51 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim ButtonTool12 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("United")
         Dim Appearance12 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim ButtonTool15 As Infragistics.Win.UltraWinToolbars.ButtonTool = New Infragistics.Win.UltraWinToolbars.ButtonTool("help")
+        Dim Appearance13 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance30 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance29 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
@@ -298,7 +301,7 @@ Partial Class frmMain
         RibbonGroup5.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool3})
         RibbonTab1.Groups.AddRange(New Infragistics.Win.UltraWinToolbars.RibbonGroup() {RibbonGroup1, RibbonGroup2, RibbonGroup3, RibbonGroup4, RibbonGroup5})
         Me.tbManager.Ribbon.NonInheritedRibbonTabs.AddRange(New Infragistics.Win.UltraWinToolbars.RibbonTab() {RibbonTab1})
-        Me.tbManager.Ribbon.QuickAccessToolbar.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool143, ButtonTool213, ButtonTool144})
+        Me.tbManager.Ribbon.QuickAccessToolbar.NonInheritedTools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool143, ButtonTool213, ButtonTool144, ButtonTool14})
         Me.tbManager.Ribbon.Visible = True
         Me.tbManager.ShowFullMenusDelay = 500
         Me.tbManager.ShowQuickCustomizeButton = False
@@ -380,7 +383,10 @@ Partial Class frmMain
         Appearance12.Image = Global.MPS.My.Resources.Resources.users22
         ButtonTool12.SharedProps.AppearancesLarge.Appearance = Appearance12
         ButtonTool12.SharedProps.Caption = "Đơn Vị"
-        Me.tbManager.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool2, ButtonTool8, ButtonTool10, ButtonTool26, ButtonTool92, ButtonTool121, ButtonTool122, ButtonTool210, ButtonTool211, ButtonTool212, ButtonTool214, ButtonTool236, ButtonTool247, ButtonTool248, ButtonTool249, ButtonTool250, ButtonTool251, ButtonTool254, ButtonTool255, ButtonTool257, ButtonTool260, ButtonTool185, ButtonTool12})
+        Appearance13.Image = Global.MPS.My.Resources.Resources.Unknown232x32_24_bit
+        ButtonTool15.SharedProps.AppearancesSmall.Appearance = Appearance13
+        ButtonTool15.SharedProps.Caption = "help"
+        Me.tbManager.Tools.AddRange(New Infragistics.Win.UltraWinToolbars.ToolBase() {ButtonTool2, ButtonTool8, ButtonTool10, ButtonTool26, ButtonTool92, ButtonTool121, ButtonTool122, ButtonTool210, ButtonTool211, ButtonTool212, ButtonTool214, ButtonTool236, ButtonTool247, ButtonTool248, ButtonTool249, ButtonTool250, ButtonTool251, ButtonTool254, ButtonTool255, ButtonTool257, ButtonTool260, ButtonTool185, ButtonTool12, ButtonTool15})
         '
         '_frmMain_Toolbars_Dock_Area_Right
         '

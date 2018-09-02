@@ -130,6 +130,17 @@
 #Region "Toolbar manager"
     Private Sub tbManager_ToolClick(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinToolbars.ToolClickEventArgs) Handles tbManager.ToolClick
         Select Case e.Tool.Key
+            Case "help"
+                Try
+                    Dim path = Application.StartupPath & "\ecm-help.pdf"
+                    If Not System.IO.File.Exists(path) Then
+                        ShowMsg("Không tìm thấy file 'ecm-help.pdf'")
+                        Exit Sub
+                    End If
+                    Process.Start(path)
+                Catch ex As Exception
+                    ShowMsg(ex.Message)
+                End Try
             Case "United"
                 If Not CheckSecurity(28, Add) Then
                     ShowMsg(m_MsgNotPermitUseThisFun, m_MsgCaption)
