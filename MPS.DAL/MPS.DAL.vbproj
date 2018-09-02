@@ -8,7 +8,7 @@
     <ProjectGuid>{664D92F5-824D-4A04-BD89-8C23CD795DDB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>MPS.DAL</RootNamespace>
-    <AssemblyName>MPS.DAL</AssemblyName>
+    <AssemblyName>ECM.DAL</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
@@ -31,7 +31,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>MPS.DAL.xml</DocumentationFile>
+    <DocumentationFile>ECM.DAL.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
@@ -41,7 +41,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>MPS.DAL.xml</DocumentationFile>
+    <DocumentationFile>ECM.DAL.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>

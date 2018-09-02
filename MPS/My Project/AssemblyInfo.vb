@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("MPS")> 
-<Assembly: AssemblyDescription("Mini Project System")> 
+<Assembly: AssemblyTitle("ECM")> 
+<Assembly: AssemblyDescription("Contract Manager Of Energy Project")> 
 <Assembly: AssemblyCompany("UnNamed")> 
-<Assembly: AssemblyProduct("MPS")> 
+<Assembly: AssemblyProduct("ECM")> 
 <Assembly: AssemblyCopyright("Copyright © 2018")> 
 <Assembly: AssemblyTrademark("")> 
 

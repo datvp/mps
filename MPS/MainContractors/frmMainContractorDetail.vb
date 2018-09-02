@@ -76,10 +76,19 @@
         Return m
     End Function
     Private Function CheckOK(ByVal m As Model.MMainContractor) As Boolean
-        If m.id = "" Then
+        If m.Id = "" Then
             ShowMsg("Nhập mã đơn vị")
             txtId.Focus()
             Return False
+        End If
+
+        'Add new -> check duplicate id
+        If Me.MainContractorId = "" Then
+            If b.isExist(m.Id) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtId.Focus()
+                Return False
+            End If
         End If
 
         If m.Company = "" Then

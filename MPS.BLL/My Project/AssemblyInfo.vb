@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("MPS.BLL")> 
+<Assembly: AssemblyTitle("ECM.BLL")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("UnNamed")> 
-<Assembly: AssemblyProduct("MPS.BLL")> 
+<Assembly: AssemblyProduct("ECM.BLL")> 
 <Assembly: AssemblyCopyright("Copyright © 2018")> 
 <Assembly: AssemblyTrademark("")> 
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0618")> 
-<Assembly: AssemblyFileVersion("1.0.0.0618")> 
+<Assembly: AssemblyVersion("1.0.0.0818")> 
+<Assembly: AssemblyFileVersion("1.0.0.0818")> 

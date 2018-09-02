@@ -54,6 +54,15 @@
             Return False
         End If
 
+        'Add new -> check duplicate id
+        If Me.clientGroupId = "" Then
+            If b.isExist(m.ClientGroupId) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtClientGroupId.Focus()
+                Return False
+            End If
+        End If
+
         If m.ClientGroupName = "" Then
             ShowMsg("Nhập tên nhóm khách hàng")
             txtClientGroupName.Focus()

@@ -82,6 +82,15 @@
             Return False
         End If
 
+        'Add new -> check duplicate id
+        If Me.UnitedId = "" Then
+            If b.isExist(m.UnitedId) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtUnitedId.Focus()
+                Return False
+            End If
+        End If
+
         If m.UnitedName = "" Then
             ShowMsg("Nhập tên đơn vị")
             txtUnitedName.Focus()

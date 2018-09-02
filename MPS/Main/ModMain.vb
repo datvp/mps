@@ -22,6 +22,7 @@ Module ModMain
     Public m_DelErrorOneItems As String = "Quá trình xóa bị lỗi. Kiểm tra và thực hiện lại !"
     Public m_SaveDataError As String = "Quá trình lưu dữ liệu có lỗi. Kiểm tra và thực hiện lại !"
     Public m_Add As String = "Thêm"
+    Public m_AddWithThreeDots As String = "Thêm ..."
     Public m_SelectAll As String = "Tất cả"
     Public m_Choose As String = "Chọn"
     Public m_Update As String = "Cập nhật"
@@ -1200,7 +1201,7 @@ Module ModMain
         If tb Is Nothing Then Exit Sub
         Dim r As DataRow = tb.NewRow
         r(0) = ""
-        r(1) = "Thêm ..."
+        r(1) = m_AddWithThreeDots
         tb.Rows.InsertAt(r, tb.Rows.Count)
     End Sub
 

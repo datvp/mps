@@ -180,6 +180,15 @@ Public Class frmContractDetail
             Return False
         End If
 
+        'Add new -> check duplicate id
+        If Me.ContractId = "" Then
+            If b.isExist(m.ContractId) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtContractId.Focus()
+                Return False
+            End If
+        End If
+
         If DateDiffM("day", m.ContractDate, m.ContractDeadLine) <= 0 Then
             ShowMsg("Ngày hết hạn thêm phải lớn hơn Ngày ký.")
             dtExpireDate.Focus()

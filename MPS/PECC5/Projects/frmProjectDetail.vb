@@ -111,7 +111,10 @@ Public Class frmProjectDetail
         Dim m = ModMain.getPermitFunc(ModMain.m_UIDLogin, 6)
         isAddClient = m.A
         If m.A Then
-            ModMain.AddNewRow(tbClient)
+            Dim r As DataRow = tbClient.NewRow
+            r(0) = "-1"
+            r(1) = ModMain.m_AddWithThreeDots
+            tbClient.Rows.InsertAt(r, tbClient.Rows.Count)
         End If
         cboClient.ValueMember = "ClientId"
         cboClient.DisplayMember = "ClientName"
@@ -180,6 +183,15 @@ Public Class frmProjectDetail
             Return False
         End If
 
+        'Add new -> check duplicate id
+        If Me.projectId = "" Then
+            If b.isExist(m.ProjectId) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtProjectId.Focus()
+                Return False
+            End If
+        End If
+
         If m.ProjectName = "" Then
             ShowMsg("Nhập tên dự án")
             txtProjectName.Focus()
@@ -202,7 +214,7 @@ Public Class frmProjectDetail
             cboConstructionLevel.Focus()
             Return False
         End If
-        If m.ClientId = "" Then
+        If m.ClientId = "" OrElse m.ClientId = "-1" Then
             ShowMsg("Chọn khách hàng")
             cboClient.Focus()
             Return False
@@ -239,7 +251,6 @@ Public Class frmProjectDetail
     End Sub
 
     Private Sub cboProjectGroup_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboProjectGroup.InitializeLayout
-        If Me.cboProjectGroup.DataSource Is Nothing Then Exit Sub
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
@@ -262,7 +273,6 @@ Public Class frmProjectDetail
         End If
     End Sub
     Private Sub cboProjectType_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboProjectType.InitializeLayout
-        If Me.cboProjectType.DataSource Is Nothing Then Exit Sub
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
@@ -291,7 +301,6 @@ Public Class frmProjectDetail
         End If
     End Sub
     Private Sub cboConstructionLevel_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboConstructionLevel.InitializeLayout
-        If Me.cboConstructionLevel.DataSource Is Nothing Then Exit Sub
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
@@ -305,14 +314,12 @@ Public Class frmProjectDetail
         End If
     End Sub
     Private Sub cboPerformUnit_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboPerformUnit.InitializeLayout
-        If Me.cboPerformUnit.DataSource Is Nothing Then Exit Sub
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
         e.Layout.Bands(0).Columns("Id").Hidden = False
     End Sub
     Private Sub cboLengthUnit_InitializeLayout(ByVal sender As System.Object, ByVal e As Infragistics.Win.UltraWinGrid.InitializeLayoutEventArgs) Handles cboLengthUnit.InitializeLayout
-        If Me.cboLengthUnit.DataSource Is Nothing Then Exit Sub
         For i As Integer = 0 To e.Layout.Bands(0).Columns.Count - 1
             e.Layout.Bands(0).Columns(i).Hidden = True
         Next
@@ -355,7 +362,7 @@ Public Class frmProjectDetail
         Dim cbo As UltraCombo = sender
         ModMain.FilterOwnerCombo_CloseUp(cbo, "")
         If cbo.Value Is Nothing Then Exit Sub
-        If cbo.Value = "" Then
+        If cbo.Value = "-1" Then
             Dim frm As New frmClientDetail
             Dim result = frm.ShowDialog("")
             If result <> "" Then

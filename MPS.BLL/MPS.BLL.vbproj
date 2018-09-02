@@ -8,7 +8,7 @@
     <ProjectGuid>{4E74A96D-628C-4DED-8FED-42E32A98958E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>MPS.BLL</RootNamespace>
-    <AssemblyName>MPS.BLL</AssemblyName>
+    <AssemblyName>ECM.BLL</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
@@ -31,7 +31,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>MPS.BLL.xml</DocumentationFile>
+    <DocumentationFile>ECM.BLL.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
@@ -41,7 +41,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>MPS.BLL.xml</DocumentationFile>
+    <DocumentationFile>ECM.BLL.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>

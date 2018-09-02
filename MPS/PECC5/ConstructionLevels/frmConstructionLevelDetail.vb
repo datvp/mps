@@ -54,6 +54,15 @@
             Return False
         End If
 
+        'Add new -> check duplicate id
+        If Me.ConstructionLevelId = "" Then
+            If b.isExist(m.ConstructionLevelId) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtConstructionLevelId.Focus()
+                Return False
+            End If
+        End If
+
         If m.ConstructionLevelName = "" Then
             ShowMsg("Nhập tên phân cấp")
             txtConstructionLevelName.Focus()

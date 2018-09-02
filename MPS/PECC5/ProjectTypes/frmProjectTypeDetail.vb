@@ -54,6 +54,15 @@
             Return False
         End If
 
+        'Add new -> check duplicate id
+        If Me.ProjectTypeId = "" Then
+            If b.isExist(m.ProjectTypeId) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtProjectTypeId.Focus()
+                Return False
+            End If
+        End If
+
         If m.ProjectTypeName = "" Then
             ShowMsg("Nhập tên loại dự án")
             txtProjectTypeName.Focus()

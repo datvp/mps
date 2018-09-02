@@ -127,6 +127,15 @@ Public Class frmClientDetail
             Return False
         End If
 
+        'Add new -> check duplicate id
+        If Me.clientId = "" Then
+            If b.isExist(m.ClientId) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtClientId.Focus()
+                Return False
+            End If
+        End If
+
         If m.ClientName = "" Then
             ShowMsg("Nhập tên công ty")
             txtClientName.Focus()

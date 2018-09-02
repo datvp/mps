@@ -54,6 +54,15 @@
             Return False
         End If
 
+        'Add new -> check duplicate id
+        If Me.itemId = "" Then
+            If b.isExist(m.ItemId) Then
+                ShowMsg("Mã bị trùng, vui lòng nhập mã khác.")
+                txtItemId.Focus()
+                Return False
+            End If
+        End If
+
         If m.ItemName = "" Then
             ShowMsg("Nhập tên hạng mục")
             txtItemName.Focus()
