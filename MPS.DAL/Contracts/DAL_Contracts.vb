@@ -335,8 +335,58 @@ Public Class DAL_Contracts
         If Not isDelete(ContractId) Then
             Return False
         End If
-        Dim sql = "Update Contracts set ContractState='Deleted' where ContractId=@ContractId"
-        Return Me.execSQL(sql, New SqlParameter("@ContractId", ContractId))
+        Me.BeginTranstion()
+        ' nhà thầu phụ (hiện tại ko dùng)
+        Dim sql = "Delete from Contract_SubContractor where ContractId=@ContractId"
+        If Not Me.execSQL(sql, New SqlParameter("@ContractId", ContractId)) Then
+            Me.RollbackTransction()
+            Return False
+        End If
+
+        'chi tiết hạng mục của hợp đồng
+        sql = "Delete from ContractDetails where ContractId=@ContractId"
+        If Not Me.execSQL(sql, New SqlParameter("@ContractId", ContractId)) Then
+            Me.RollbackTransction()
+            Return False
+        End If
+
+        'lịch sử của hợp đồng
+        sql = "Delete from ContractHistory where ContractId=@ContractId"
+        If Not Me.execSQL(sql, New SqlParameter("@ContractId", ContractId)) Then
+            Me.RollbackTransction()
+            Return False
+        End If
+
+        'chi tiết nghiệm thu theo hạng mục
+        sql = "Delete from ContractPaymentDetails where ContractId=@ContractId"
+        If Not Me.execSQL(sql, New SqlParameter("@ContractId", ContractId)) Then
+            Me.RollbackTransction()
+            Return False
+        End If
+
+        'chi tiết nghiệm thu
+        sql = "Delete from ContractPayments where ContractId=@ContractId"
+        If Not Me.execSQL(sql, New SqlParameter("@ContractId", ContractId)) Then
+            Me.RollbackTransction()
+            Return False
+        End If
+
+        'chi tiết chi tiền cho nhà thầu phụ
+        sql = "Delete from ContractRefunds where ContractId=@ContractId"
+        If Not Me.execSQL(sql, New SqlParameter("@ContractId", ContractId)) Then
+            Me.RollbackTransction()
+            Return False
+        End If
+
+        'hợp đồng
+        sql = "Delete from Contracts where ContractId=@ContractId"
+        If Not Me.execSQL(sql, New SqlParameter("@ContractId", ContractId)) Then
+            Me.RollbackTransction()
+            Return False
+        End If
+
+        Me.CommitTranstion()
+        Return True
     End Function
 
     Public Function getListContracts(ByVal branchId As String, ByVal dateFilter As Integer) As DataTable

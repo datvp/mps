@@ -71,12 +71,12 @@ Public Class DAL_Clients
         If Not isDelete(ClientId) Then
             Return False
         End If
-        Dim sql = "Update Clients set Status='Deleted' where ClientId=@ClientId"
+        Dim sql = "Delete from Clients where ClientId=@ClientId"
         Return Me.execSQL(sql, New SqlParameter("@ClientId", ClientId))
     End Function
 
     Public Function getListClients() As DataTable
-        Dim sql As String = "Select c.*, g.ClientGroupName from Clients c inner join ClientGroups g on c.ClientGroupId=g.ClientGroupId where c.Status<>'Deleted' order by CreatedAt"
+        Dim sql As String = "Select c.*, g.ClientGroupName from Clients c inner join ClientGroups g on c.ClientGroupId=g.ClientGroupId order by CreatedAt"
         Return Me.getTableSQL(sql)
     End Function
 

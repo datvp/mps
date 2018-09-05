@@ -54,27 +54,25 @@ Public Class DAL_Projects
     End Function
 
     Public Function isDelete(ByVal ID As String) As Boolean
-        Dim isOk As Boolean = True
-        'Dim sql As String = "Exec sp_CheckDelete_Employees @s_ID"
+        Dim isOk = True
+        Dim sql = "select count(*)as C from Contracts where ProjectId=@ProjectId"
 
-        'Dim p(0) As SqlParameter
-        'p(0) = New SqlParameter("@s_ID", ID)
-        'Dim tb As DataTable = Me.getTableSQL(sql, p)
-        'If tb Is Nothing Then Return False
-        'For Each r As DataRow In tb.Rows
-        '    If r("C") > 0 Then
-        '        isOk = False
-        '        Exit For
-        '    End If
-        'Next
-        Return isOk
+        Dim tb = Me.getTableSQL(sql, New SqlParameter("@ProjectId", ID))
+        If tb IsNot Nothing Then
+            For Each r As DataRow In tb.Rows
+                If r("C") > 0 Then
+                    isOk = False
+                    Exit For
+                End If
+            Next
+        End If
     End Function
 
     Public Function deleteDB(ByVal ProjectId As String) As Boolean
         If Not isDelete(ProjectId) Then
             Return False
         End If
-        Dim sql = "Update Projects set Status='Deleted' where ProjectId=@ProjectId"
+        Dim sql = "Delete from Projects where ProjectId=@ProjectId"
         Return Me.execSQL(sql, New SqlParameter("@ProjectId", ProjectId))
     End Function
 
@@ -92,9 +90,9 @@ Public Class DAL_Projects
             m.ProjectTypeId = IsNull(tb.Rows(0)("ProjectTypeId"), "")
             m.ProjectGroupId = IsNull(tb.Rows(0)("ProjectGroupId"), "")
             m.ConstructionLevelId = IsNull(tb.Rows(0)("ConstructionLevelId"), "")
-            m.Performance = IsNull(tb.Rows(0)("Performance"), "")
+            m.Performance = IsNull(tb.Rows(0)("Performance"), 0)
             m.PerformanceUnit = IsNull(tb.Rows(0)("PerformanceUnit"), "")
-            m.Length = IsNull(tb.Rows(0)("Length"), "")
+            m.Length = IsNull(tb.Rows(0)("Length"), 0)
             m.LengthUnit = IsNull(tb.Rows(0)("LengthUnit"), "")
             m.Note = IsNull(tb.Rows(0)("Note"), "")
             m.Status = IsNull(tb.Rows(0)("Status"), "")

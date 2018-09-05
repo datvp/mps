@@ -52,7 +52,7 @@ Public Class DAL_SubContractors
 
     Public Function isDelete(ByVal ID As String) As Boolean
         Dim isOk As Boolean = True
-        Dim sql As String = "select count(*) as C from Contract_SubContractor where SubContractorId=@SubContractorId"
+        Dim sql As String = "select count(*) as C from ContractDetails where SubContractorId=@SubContractorId"
 
         Dim p(0) As SqlParameter
         p(0) = New SqlParameter("@SubContractorId", ID)
