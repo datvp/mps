@@ -58,10 +58,12 @@
             txtSubContractorId.Focus()
             Return False
         End If
-        If DateDiffM("day", Me.deadline, dtSubContractDeadLine.Value) <= 0 Then
-            ShowMsg("Ngày gia hạn thêm phải lớn hơn Ngày hết hạn của Hợp đồng.")
-            dtSubContractDeadLine.Focus()
-            Return False
+        If dtSubContractDeadLine.Checked Then
+            If DateDiffM("day", Me.deadline, dtSubContractDeadLine.Value) <= 0 Then
+                ShowMsg("Ngày gia hạn thêm phải lớn hơn Ngày hết hạn của Hợp đồng.")
+                dtSubContractDeadLine.Focus()
+                Return False
+            End If
         End If
         Return True
     End Function

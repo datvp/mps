@@ -687,7 +687,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C45D3573816448C7A38FD01D7B70882A"
+        "MsmKey" = "8:_C0C519F9CB7A4A078305E208002BB0CD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1256,11 +1256,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Vbe.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
                 "ScatterAssemblies"
                 {
-                    "_0251DC15D8C959AA422A0CFE4F220FA9"
-                    {
-                    "Name" = "8:Microsoft.Vbe.Interop.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Vbe.Interop.DLL"
             "TargetName" = "8:"
@@ -1524,11 +1519,6 @@
             "AssemblyAsmDisplayName" = "8:ECM.BLL, Version=1.0.0.818, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_34CAB966F2D061772C7EB1F7903E61C9"
-                    {
-                    "Name" = "8:ECM.BLL.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:ECM.BLL.DLL"
             "TargetName" = "8:"
@@ -1555,11 +1545,6 @@
             "AssemblyAsmDisplayName" = "8:VsoftBMS.Ulti, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_356304F70DA4BD07F47F52E5CAB77F85"
-                    {
-                    "Name" = "8:VsoftBMS.Ulti.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:VsoftBMS.Ulti.DLL"
             "TargetName" = "8:"
@@ -1863,11 +1848,6 @@
             "AssemblyAsmDisplayName" = "8:ECM.DAL, Version=1.0.0.818, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_6CCBBBDE1E96B4C006EF391F1E5F4A8F"
-                    {
-                    "Name" = "8:ECM.DAL.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:ECM.DAL.DLL"
             "TargetName" = "8:"
@@ -1894,11 +1874,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
                 "ScatterAssemblies"
                 {
-                    "_6E48A9BE497917D7D34AA2E944376A7F"
-                    {
-                    "Name" = "8:Microsoft.Office.Interop.Excel.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Office.Interop.Excel.DLL"
             "TargetName" = "8:"
@@ -1925,11 +1900,6 @@
             "AssemblyAsmDisplayName" = "8:DriveInfoEx, Version=1.1.3513.16947, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_718AA74B4F45F4923BDEF6C947747623"
-                    {
-                    "Name" = "8:DriveInfoEx.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:DriveInfoEx.DLL"
             "TargetName" = "8:"
@@ -1987,11 +1957,6 @@
             "AssemblyAsmDisplayName" = "8:CollapsibleSplitter, Version=1.3.0.0, Culture=neutral"
                 "ScatterAssemblies"
                 {
-                    "_798FF19DA128CB5D4BE6BDFB9F554FA6"
-                    {
-                    "Name" = "8:CollapsibleSplitter.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CollapsibleSplitter.DLL"
             "TargetName" = "8:"
@@ -2049,11 +2014,6 @@
             "AssemblyAsmDisplayName" = "8:office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
                 "ScatterAssemblies"
                 {
-                    "_84B62BE3B49E55BDC48209E627A36619"
-                    {
-                    "Name" = "8:office.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:office.DLL"
             "TargetName" = "8:"
@@ -2379,11 +2339,6 @@
             "AssemblyAsmDisplayName" = "8:Interop.NetFwTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_BD62639280A74EF67B99A2CDE717903A"
-                    {
-                    "Name" = "8:Interop.NetFwTypeLib.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Interop.NetFwTypeLib.DLL"
             "TargetName" = "8:"
@@ -2465,7 +2420,7 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C45D3573816448C7A38FD01D7B70882A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C0C519F9CB7A4A078305E208002BB0CD"
             {
             "SourcePath" = "8:..\\MPS\\bin\\Debug\\Reports\\StatusOfContract.rpt"
             "TargetName" = "8:StatusOfContract.rpt"
@@ -2563,11 +2518,6 @@
             "AssemblyAsmDisplayName" = "8:ECM.Reports, Version=1.0.0.818, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_D695B19CC8F4DB1C11A0B32BBAD2CCD7"
-                    {
-                    "Name" = "8:ECM.Reports.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:ECM.Reports.DLL"
             "TargetName" = "8:"
@@ -2594,11 +2544,6 @@
             "AssemblyAsmDisplayName" = "8:ECM.Model, Version=1.0.0.818, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_D969FBCC6D6A87D36F679BC9D7A84F68"
-                    {
-                    "Name" = "8:ECM.Model.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:ECM.Model.DLL"
             "TargetName" = "8:"
@@ -2656,11 +2601,6 @@
             "AssemblyAsmDisplayName" = "8:ECM, Version=1.0.0.818, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_EAAFFB5E8D564F6BA4CF63C4245B344E"
-                    {
-                    "Name" = "8:ECM.exe"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:..\\MPS\\bin\\Debug\\ECM.exe"
             "TargetName" = "8:"
