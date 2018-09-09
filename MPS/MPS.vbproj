@@ -321,6 +321,12 @@
       <DependentUpon>ResBMS.resx</DependentUpon>
     </Compile>
     <Compile Include="support\CloseButton.vb" />
+    <Compile Include="support\frmImportDatas.Designer.vb">
+      <DependentUpon>frmImportDatas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="support\frmImportDatas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="support\frmRegistration.Designer.vb">
       <DependentUpon>frmRegistration.vb</DependentUpon>
     </Compile>
@@ -621,6 +627,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResBMS.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="support\frmImportDatas.resx">
+      <DependentUpon>frmImportDatas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="support\frmRegistration.resx">
       <DependentUpon>frmRegistration.vb</DependentUpon>

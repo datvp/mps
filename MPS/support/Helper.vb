@@ -2,6 +2,8 @@
 Imports System.Security.Cryptography
 Imports System.Text
 Imports System.Runtime.InteropServices
+Imports System.Data.OleDb
+
 Public NotInheritable Class Helper
     'Private Const KEY_SIZE As Integer = 2048
     'Private fOAEP As Boolean = False
@@ -183,5 +185,38 @@ Public NotInheritable Class Helper
             ShowMsg("Decrypt error: " & ex.Message)
             Return ""
         End Try
+    End Function
+    ''' <summary>
+    ''' Nhập từ Excel
+    ''' </summary>
+    ''' <param name="path"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Shared Function ImportFromExcel(ByVal path As String) As DataTable
+        Dim tb As DataTable = Nothing
+
+        Dim strCon = "provider=microsoft.ace.oledb.12.0;data source=" + path + ";extended properties=""excel 12.0;hdr=yes;"" "
+        Using con As New OleDbConnection(strCon)
+            con.Open()
+            Dim dt = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, Nothing)
+            If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+                Dim sheetName = dt.Rows(0)("TABLE_NAME").ToString
+                Dim cmd = New OleDbCommand("SELECT * FROM [" + sheetName + "]", con)
+                Using da = New OleDbDataAdapter(cmd)
+                    tb = New DataTable
+                    da.Fill(tb)
+                End Using
+            End If
+            con.Close()
+        End Using
+
+        Return tb
+
+        'Dim con As OleDbConnection = New OleDbConnection("provider=microsoft.ace.oledb.12.0;data source=" + path + ";extended properties=""excel 12.0;hdr=yes;"" ")
+        'Dim da As OleDbDataAdapter = New OleDbDataAdapter("select * from [Sheet1$]", con)
+        'Dim ds = New DataSet()
+        'da.Fill(ds)
+        'con.Close()
+        'Return ds.Tables(0)
     End Function
 End Class
