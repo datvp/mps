@@ -66,6 +66,7 @@ Public Class DAL_Projects
                 End If
             Next
         End If
+        Return isOk
     End Function
 
     Public Function deleteDB(ByVal ProjectId As String) As Boolean
