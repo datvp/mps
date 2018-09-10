@@ -21,6 +21,7 @@ Module ModMain
     Public m_MsgNotPermitUseThisFun As String = "Người dùng không được cấp quyền chạy chức năng này !"
     Public m_DelErrorOneItems As String = "Quá trình xóa bị lỗi. Kiểm tra và thực hiện lại !"
     Public m_SaveDataError As String = "Quá trình lưu dữ liệu có lỗi. Kiểm tra và thực hiện lại !"
+    Public m_DataErrorWarningQuestion As String = "Dữ liệu không hợp lệ. Bạn có muốn tiếp tục thực hiện import?"
     Public m_Add As String = "Thêm"
     Public m_AddWithThreeDots As String = "Thêm ..."
     Public m_SelectAll As String = "Tất cả"

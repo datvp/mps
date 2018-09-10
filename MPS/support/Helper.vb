@@ -196,27 +196,25 @@ Public NotInheritable Class Helper
         Dim tb As DataTable = Nothing
 
         Dim strCon = "provider=microsoft.ace.oledb.12.0;data source=" + path + ";extended properties=""excel 12.0;hdr=yes;"" "
-        Using con As New OleDbConnection(strCon)
-            con.Open()
-            Dim dt = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, Nothing)
-            If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
-                Dim sheetName = dt.Rows(0)("TABLE_NAME").ToString
-                Dim cmd = New OleDbCommand("SELECT * FROM [" + sheetName + "]", con)
-                Using da = New OleDbDataAdapter(cmd)
-                    tb = New DataTable
-                    da.Fill(tb)
-                End Using
-            End If
-            con.Close()
-        End Using
+
+        Try
+            Using con As New OleDbConnection(strCon)
+                con.Open()
+                Dim dt = con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, Nothing)
+                If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+                    Dim sheetName = dt.Rows(0)("TABLE_NAME").ToString
+                    Dim cmd = New OleDbCommand("SELECT * FROM [" + sheetName + "]", con)
+                    Using da As New OleDbDataAdapter(cmd)
+                        tb = New DataTable
+                        da.Fill(tb)
+                    End Using
+                End If
+                con.Close()
+            End Using
+        Catch ex As Exception
+            ShowMsg(ex.Message)
+        End Try
 
         Return tb
-
-        'Dim con As OleDbConnection = New OleDbConnection("provider=microsoft.ace.oledb.12.0;data source=" + path + ";extended properties=""excel 12.0;hdr=yes;"" ")
-        'Dim da As OleDbDataAdapter = New OleDbDataAdapter("select * from [Sheet1$]", con)
-        'Dim ds = New DataSet()
-        'da.Fill(ds)
-        'con.Close()
-        'Return ds.Tables(0)
     End Function
 End Class

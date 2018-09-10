@@ -2,15 +2,43 @@
 Imports VsoftBMS
 
 Public Class frmImportDatas
-    Dim clsuf As New Ulti.ClsFormatUltraGrid
-    Dim fOK As Boolean = False
+#Region "Declare Variables"
+    Private clsuf As New Ulti.ClsFormatUltraGrid
+    ''' <summary>
+    ''' kết quả trả về
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private result As Boolean = False
+    ''' <summary>
+    ''' tên chức năng
+    ''' </summary>
+    ''' <remarks></remarks>
     Private sFunc As String = ""
-    Dim bImportOK As Boolean = True
+    Private funcName As String = ""
+    ''' <summary>
+    ''' True: import thành công
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private bImportOK As Boolean = True
+    ''' <summary>
+    ''' True: đã kiểm tra dữ liệu
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private fCheckImport As Boolean = False
+    ''' <summary>
+    ''' màu của cell bị lỗi
+    ''' </summary>
+    ''' <remarks></remarks>
+    Private errorColor As System.Drawing.Color = Color.Red
+    Private countImported As Integer = 0
+#End Region
 
-    Public Overloads Function ShowDialog(ByVal s_Import As String) As Boolean
-        sFunc = s_Import
+#Region "Forms"
+    Public Overloads Function ShowDialog(ByVal s_Import As String, ByVal funcName As String) As Boolean
+        Me.sFunc = s_Import
+        Me.funcName = funcName
         Me.ShowDialog()
-        Return fOK
+        Return result
     End Function
 
     Private Sub frmImportDatas_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
@@ -20,12 +48,14 @@ Public Class frmImportDatas
     End Sub
 
     Private Sub frmImportDatas_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ModMain.SetTitle(Me)
+        ModMain.SetTitle(Me, "Nhập " & Me.funcName & " từ file excel")
         ModMain.BlueButton(btnImports, ModMain.m_AddIcon)
         ModMain.RedButton(btncheck, ModMain.m_OkIcon)
         ModMain.GreenButton(btnclose, ModMain.m_CancelIcon)
     End Sub
+#End Region
 
+#Region "Grid"
     Private Sub GridCol_CellChange(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles GridCol.CellChange
         Dim r As UltraGridRow = GridCol.ActiveRow
         If r Is Nothing Then Exit Sub
@@ -60,38 +90,15 @@ Public Class frmImportDatas
         GridColAlias.DisplayLayout.Override.RowAlternateAppearance.BackColor = ModMain.m_sysColor
     End Sub
 
-    Private Sub btnImports_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImports.Click
-        If Not Grid.ActiveRow Is Nothing Then Grid.ActiveRow.Update()
-        If Not GridCol.ActiveRow Is Nothing Then GridCol.ActiveRow.Update()
-
-        Select Case sFunc.ToLower
-            Case "frmMainContractors".ToLower
-                ImportUnit()
-        End Select
-        fOK = True
-    End Sub
-
-    Private Sub btncheck_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncheck.Click
-        If Not Grid.ActiveRow Is Nothing Then Grid.ActiveRow.Update()
-        If Not GridCol.ActiveRow Is Nothing Then GridCol.ActiveRow.Update()
-
-        bImportOK = True
-        Select Case sFunc.ToLower
-            Case "Unit2".ToLower
-                CheckImportUnit()
-        End Select
-        If Not bImportOK Then
-            ShowMsg("Thông tin import bị trùng hoặc nội dung còn trống hoặc nội dung không hợp lệ!")
-            Exit Sub
-        Else
-            ShowMsgInfo("Thông tin import hợp lệ!")
-        End If
-
-        fOK = True
-    End Sub
-
     Private Sub Grid_BeforeRowsDeleted(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.BeforeRowsDeletedEventArgs) Handles Grid.BeforeRowsDeleted
         e.DisplayPromptMsg = False
+    End Sub
+
+    Private Sub Grid_CellChange(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellEventArgs) Handles Grid.CellChange
+        If e.Cell.Text <> "" AndAlso e.Cell.Appearance.BackColor.Equals(Me.errorColor) Then
+            e.Cell.Appearance.BackColor = Nothing
+            Me.bImportOK = True
+        End If
     End Sub
 
     Private Sub Grid_CellDataError(ByVal sender As Object, ByVal e As Infragistics.Win.UltraWinGrid.CellDataErrorEventArgs) Handles Grid.CellDataError
@@ -139,38 +146,86 @@ Public Class frmImportDatas
         End If
 
     End Sub
-    Private Sub RemoveCol(ByVal Col As String)
+#End Region
+
+#Region "Buttons"
+    Private Sub btnBrown_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBrown.Click
+        Me.ReadExcelFile()
+    End Sub
+    Private Sub btncheck_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btncheck.Click
+        Select Case sFunc
+            Case "frmMainContractors"
+                Me.CheckImportMainContractors()
+        End Select
+    End Sub
+    Private Sub btnImports_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImports.Click
+        Try
+            ModMain.ShowProcess()
+            Select Case sFunc
+                Case "frmMainContractors"
+                    result = Me.ImportMainContractors()
+            End Select
+            If result Then
+                ShowMsgInfo("Import được " & countImported.ToString & " dòng dữ liệu !")
+                Me.Close()
+            End If
+        Finally
+            ModMain.HideProcess()
+        End Try
+    End Sub
+    Private Sub btnclose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnclose.Click
+        Me.Close()
+    End Sub
+#End Region
+
+#Region "Private Methods"
+
+    ''' <summary>
+    ''' remove column which is never used
+    ''' </summary>
+    ''' <param name="columns"></param>
+    ''' <remarks></remarks>
+    Private Sub RemoveCol(ByVal columns As String)
         Dim tb As DataTable = GridCol.DataSource
         If tb Is Nothing Then Exit Sub
-        Dim arrCol() As String = Col.Split(";")
-        For Each Col In arrCol
-            If Col.Trim <> "" Then
-                Dim DF() As DataRow = tb.Select("Col='" & Col.Trim.Replace("'", "''") & "'")
-                If DF.Length > 0 Then DF(0).Delete()
+        Dim arrCol() As String = columns.Split(";")
+        For Each col In arrCol
+            If col.Trim <> "" Then
+                Dim f = tb.Select("Col='" & col.Trim.Replace("'", "''") & "'")
+                If f.Length > 0 Then
+                    f(0).Delete()
+                End If
             End If
         Next
-
     End Sub
-    Private Sub AddCol(ByVal ColData As String, ByVal sName As String)
+    ''' <summary>
+    ''' add column by manually
+    ''' </summary>
+    ''' <param name="colData">key of column</param>
+    ''' <param name="aliasName">name of column</param>
+    ''' <remarks></remarks>
+    Private Sub AddCol(ByVal colData As String, ByVal aliasName As String)
         Dim tb As DataTable = GridCol.DataSource
         If tb Is Nothing Then Exit Sub
 
-        Dim DF() As DataRow = tb.Select("Col='" & ColData.Trim.Replace("'", "''") & "'")
+        Dim DF() As DataRow = tb.Select("Col='" & colData.Trim.Replace("'", "''") & "'")
         If DF.Length = 0 Then
             Dim drN As DataRow = tb.NewRow
-            drN("Col") = ColData
+            drN("Col") = colData
             drN("isSelect") = False
-            drN("Name") = sName
+            drN("Name") = aliasName
             drN("ColAlias") = ""
             tb.Rows.Add(drN)
         Else
-            DF(0)("Name") = sName
+            DF(0)("Name") = aliasName
         End If
-
-
     End Sub
-
-    Private Sub SetColChoose(ByVal sarrCol As String)
+    ''' <summary>
+    ''' set color for column if its required column
+    ''' </summary>
+    ''' <param name="sarrCol"></param>
+    ''' <remarks></remarks>
+    Private Sub SetColumnIsRequired(ByVal sarrCol As String)
         If GridCol.DataSource Is Nothing Then Exit Sub
         Dim arrColumns() As String = sarrCol.Split(";")
         For Each s As String In arrColumns
@@ -182,14 +237,11 @@ Public Class frmImportDatas
                     End If
                 Next
             End If
-
         Next
     End Sub
-
-    'Thao140809 focus cell khi có cột tuong ứng ko có
-    Private Sub CellFocus(ByVal ColName As String)
+    Private Sub CellFocus(ByVal colName As String)
         For Each r As UltraGridRow In GridCol.Rows
-            If r.Cells(0).Value.ToString = ColName Then
+            If r.Cells(0).Value.ToString = colName Then
                 If r.Cells(1).Value.ToString <> r.Cells(2).Value.ToString Then
                     r.Cells(2).Activate()
                     Exit For
@@ -197,381 +249,7 @@ Public Class frmImportDatas
             End If
         Next
     End Sub
-    Dim fCheckImport As Boolean = False
-    Private Function CheckImportUnit() As Boolean
-        fCheckImport = True
-        If Grid.DataSource Is Nothing Then
-            bImportOK = False
-            Return False
-        End If
-
-        Dim tb As DataTable = Grid.DataSource
-        If tb Is Nothing Then Exit Function
-        Grid.DataSource = tb
-        Grid.Rows.Refresh(RefreshRow.RefreshDisplay)
-        Grid.DisplayLayout.Bands(0).Columns("s_IDProduct").Hidden = True
-        Grid.DisplayLayout.Bands(0).Columns("b_Import").Header.Caption = "Mặc định nhập"
-        Grid.DisplayLayout.Bands(0).Columns("b_Order").Header.Caption = "Mặc định xuất"
-        Grid.DisplayLayout.Bands(0).Columns("b_Instock").Header.Caption = "Mặc định tồn"
-
-        Dim tbCol As DataTable = GridCol.DataSource
-        If tbCol Is Nothing Then
-            bImportOK = False
-            Exit Function
-        End If
-
-
-        Dim DF() As DataRow
-        DF = tbCol.Select("isSelect=True")
-        If DF.Length = 0 Then
-            ShowMsg("Không có cột dữ liệu nào được chọn Import!")
-            bImportOK = False
-            Exit Function
-        End If
-
-        Dim ProductID As String = ""
-        DF = tbCol.Select("Col='ProductID' and isSelect=True")
-        If DF.Length > 0 Then
-            ProductID = IsNull(DF(0)("ColAlias"), "")
-            If ProductID = "" Then
-                ShowMsg("Chọn cột tương ứng với '" & DF(0)("Name") & "'", m_MsgCaption)
-                CellFocus("ProductID")
-                bImportOK = False
-                Exit Function
-            End If
-        Else
-            DF = tbCol.Select("Col='ProductID'")
-            If DF.Length > 0 Then
-                ShowMsg("Phải chọn : " & DF(0)("Name"), m_MsgCaption)
-            Else
-                ShowMsg("Error", m_MsgCaption)
-            End If
-            bImportOK = False
-            Exit Function
-        End If
-
-        Dim s_Unit As String = ""
-        DF = tbCol.Select("Col='s_Unit' and isSelect=True")
-        If DF.Length > 0 Then
-            s_Unit = IsNull(DF(0)("ColAlias"), "")
-            If s_Unit = "" Then
-                ShowMsg("Chọn cột tương ứng với '" & DF(0)("Name") & "'", m_MsgCaption)
-                CellFocus("s_Unit")
-                bImportOK = False
-                Exit Function
-            End If
-        Else
-            DF = tbCol.Select("Col='s_Unit'")
-            If DF.Length > 0 Then
-                ShowMsg("Phải chọn : " & DF(0)("Name"), m_MsgCaption)
-            Else
-                ShowMsg("Error", m_MsgCaption)
-            End If
-            bImportOK = False
-            Exit Function
-        End If
-
-        Dim f_Convert As String = ""
-        DF = tbCol.Select("Col='f_Convert' and isSelect=True")
-        If DF.Length > 0 Then
-            f_Convert = IsNull(DF(0)("ColAlias"), "")
-            If f_Convert = "" Then
-                ShowMsg("Chọn cột tương ứng với '" & DF(0)("Name") & "'", m_MsgCaption)
-                CellFocus("f_Convert")
-                bImportOK = False
-                Exit Function
-            End If
-        Else
-            DF = tbCol.Select("Col='f_Convert'")
-            If DF.Length > 0 Then
-                ShowMsg("Phải chọn : " & DF(0)("Name"), m_MsgCaption)
-            Else
-                ShowMsg("Error", m_MsgCaption)
-            End If
-            bImportOK = False
-            Exit Function
-        End If
-
-        For Each dr As UltraGridRow In Grid.Rows '26.08.09-Minh Tam
-            If ProductID <> "" Then
-                If IsDBNull(dr.Cells(ProductID).Value) Then
-                    dr.Cells(ProductID).Appearance.BackColor = Color.Red
-                    bImportOK = False
-                End If
-            End If
-            If s_Unit <> "" Then
-                If IsDBNull(dr.Cells(s_Unit).Value) Then
-                    dr.Cells(s_Unit).Appearance.BackColor = Color.Red
-                    bImportOK = False
-                End If
-            End If
-            If f_Convert <> "" Then
-                If IsDBNull(dr.Cells(f_Convert).Value) Then
-                    dr.Cells(f_Convert).Appearance.BackColor = Color.Red
-                    bImportOK = False
-                End If
-                If Not IsDBNull(dr.Cells(f_Convert).Value) Then
-                    If CDbl(dr.Cells(f_Convert).Value) = 0 Then
-                        dr.Cells(f_Convert).Appearance.BackColor = Color.Red
-                        bImportOK = False
-                    End If
-                End If
-
-            End If
-        Next
-
-
-        'Dim clsP As BLL.BProduct = BLL.BProduct.Instance
-
-        'For i As Integer = 0 To Grid.Rows.Count - 2
-        '    Dim dri As UltraGridRow = Grid.Rows(i)
-        '    dri.Cells(ProductID).Value = IsNull(dri.Cells(ProductID).Value, "")
-        '    dri.Cells(s_Unit).Value = IsNull(dri.Cells(s_Unit).Value, "")
-        '    dri.Update()
-        '    If Not IsDBNull(dri.Cells(f_Convert).Value) Then
-        '        If Not IsNumeric(dri.Cells(f_Convert).Value) Then
-        '            bImportOK = False
-        '            dri.Cells(f_Convert).Appearance.BackColor = Color.Red
-        '        Else
-        '            If CDbl(dri.Cells(f_Convert).Value) <= 0 Then
-        '                bImportOK = False
-        '                dri.Cells(f_Convert).Appearance.BackColor = Color.Red
-        '            End If
-        '        End If
-        '    Else
-        '        bImportOK = False
-        '        dri.Cells(f_Convert).Appearance.BackColor = Color.Red
-        '    End If
-
-        '    Dim s_ID As String = clsP.getCode(dri.Cells(ProductID).Value)
-        '    If s_ID = "" Then
-        '        bImportOK = False
-        '        dri.Cells(ProductID).Appearance.BackColor = Color.Red
-        '    Else
-        '        dri.Cells("s_IDProduct").Value = s_ID
-        '        Dim m As Model.MProduct = clsP.getInfo(s_ID)
-        '        If dri.Cells(s_Unit).Value.ToString.Trim.ToLower = m.s_Unit.Trim.ToLower Then
-        '            dri.Cells(s_Unit).Appearance.BackColor = Color.Red
-        '            bImportOK = False
-        '        End If
-        '        If Not m.ArrUnit Is Nothing Then
-        '            For Each it As Model.MPR_Product_Units In m.ArrUnit
-        '                If dri.Cells(s_Unit).Value.ToString.Trim.ToLower = it.s_Unit.Trim.ToLower Then
-        '                    dri.Cells(s_Unit).Appearance.BackColor = Color.Red
-        '                    bImportOK = False
-        '                End If
-        '                If dri.Cells("b_Import").Value = it.b_DefaultImport And it.b_DefaultImport = True Then
-        '                    dri.Cells("b_Import").Appearance.BackColor = Color.Red
-        '                    bImportOK = False
-        '                End If
-        '                If dri.Cells("b_Order").Value = it.b_DefaultOrders And it.b_DefaultOrders = True Then
-        '                    dri.Cells("b_Order").Appearance.BackColor = Color.Red
-        '                    bImportOK = False
-        '                End If
-        '                If dri.Cells("b_Instock").Value = it.b_DefaultInstock And it.b_DefaultInstock = True Then
-        '                    dri.Cells("b_Instock").Appearance.BackColor = Color.Red
-        '                    bImportOK = False
-        '                End If
-
-        '            Next
-        '        End If
-
-        '        For j As Integer = i + 1 To Grid.Rows.Count - 1
-        '            Dim drj As UltraGridRow = Grid.Rows(j)
-
-        '            If j = Grid.Rows.Count - 1 Then
-        '                drj.Cells(ProductID).Value = IsNull(drj.Cells(ProductID).Value, "")
-        '                drj.Cells(s_Unit).Value = IsNull(drj.Cells(s_Unit).Value, "")
-        '                drj.Update()
-        '                If Not IsDBNull(drj.Cells(f_Convert).Value) Then
-        '                    If Not IsNumeric(drj.Cells(f_Convert).Value) Then
-        '                        bImportOK = False
-        '                        drj.Cells(f_Convert).Appearance.BackColor = Color.Red
-        '                    Else
-        '                        If CDbl(drj.Cells(f_Convert).Value) <= 0 Then
-        '                            bImportOK = False
-        '                            drj.Cells(f_Convert).Appearance.BackColor = Color.Red
-        '                        End If
-        '                    End If
-        '                Else
-        '                    bImportOK = False
-        '                    drj.Cells(f_Convert).Appearance.BackColor = Color.Red
-        '                End If
-        '            End If
-
-
-        '            If dri.Cells(ProductID).Value.ToString.Trim.ToLower = drj.Cells(ProductID).Value.ToString.Trim.ToLower Then
-        '                drj.Cells("s_IDProduct").Value = s_ID
-        '                If Not m.ArrUnit Is Nothing Then
-        '                    For Each it As Model.MPR_Product_Units In m.ArrUnit
-        '                        If drj.Cells(s_Unit).Value.ToString.Trim.ToLower = it.s_Unit.Trim.ToLower Then
-        '                            drj.Cells(s_Unit).Appearance.BackColor = Color.Red
-        '                            bImportOK = False
-        '                        End If
-        '                        If drj.Cells("b_Import").Value = it.b_DefaultImport And it.b_DefaultImport = True Then
-        '                            drj.Cells("b_Import").Appearance.BackColor = Color.Red
-        '                            bImportOK = False
-        '                        End If
-        '                        If drj.Cells("b_Order").Value = it.b_DefaultOrders And it.b_DefaultOrders = True Then
-        '                            drj.Cells("b_Order").Appearance.BackColor = Color.Red
-        '                        End If
-        '                        If drj.Cells("b_Instock").Value = it.b_DefaultInstock And it.b_DefaultInstock = True Then
-        '                            drj.Cells("b_Instock").Appearance.BackColor = Color.Red
-        '                            bImportOK = False
-        '                        End If
-        '                    Next
-        '                End If
-
-        '                If dri.Cells(s_Unit).Value.ToString.Trim.ToLower = drj.Cells(s_Unit).Value.ToString.Trim.ToLower Then
-        '                    drj.Cells(s_Unit).Appearance.BackColor = Color.Red
-        '                    bImportOK = False
-        '                Else
-        '                    If dri.Cells("b_Import").Value = drj.Cells("b_Import").Value And drj.Cells("b_Import").Value = True Then
-        '                        drj.Cells("b_Import").Appearance.BackColor = Color.Red
-        '                        bImportOK = False
-        '                    End If
-        '                    If dri.Cells("b_Order").Value = drj.Cells("b_Order").Value And drj.Cells("b_Order").Value = True Then
-        '                        drj.Cells("b_Order").Appearance.BackColor = Color.Red
-        '                        bImportOK = False
-        '                    End If
-        '                    If dri.Cells("b_Instock").Value = drj.Cells("b_Instock").Value And drj.Cells("b_Instock").Value = True Then
-        '                        drj.Cells("b_Instock").Appearance.BackColor = Color.Red
-        '                        bImportOK = False
-        '                    End If
-
-        '                End If
-        '            End If
-        '        Next
-        '    End If
-        'Next
-
-        Return bImportOK
-
-    End Function
-
-    Private Function ImportUnit() As Boolean
-        If Grid.DataSource Is Nothing Then
-            Return False
-        End If
-        Dim tbCol As DataTable = GridCol.DataSource
-        If tbCol Is Nothing Then
-            Return False
-        End If
-        If Not fCheckImport Then
-            CheckImportUnit()
-        End If
-        If Not bImportOK Then
-            If MsgBox("Dữ liệu bị lỗi, có tiếp tục import không ?", MsgBoxStyle.YesNoCancel) <> MsgBoxResult.Yes Then
-                Return False
-            End If
-        End If
-
-        Dim DF() As DataRow
-
-        Dim ProductID As String = ""
-        DF = tbCol.Select("Col='ProductID' and isSelect=True")
-        If DF.Length > 0 Then
-            ProductID = IsNull(DF(0)("ColAlias"), "")
-            If ProductID = "" Then
-                ShowMsg("Chọn cột tương ứng với '" & DF(0)("Name") & "'", m_MsgCaption)
-
-                CellFocus("ProductID")
-                Exit Function
-            End If
-        Else
-            DF = tbCol.Select("Col='ProductID'")
-            If DF.Length > 0 Then
-                ShowMsg("Phải chọn : " & DF(0)("Name"), m_MsgCaption)
-            Else
-                ShowMsg("Error", m_MsgCaption)
-            End If
-            Exit Function
-        End If
-
-        Dim s_Unit As String = ""
-        DF = tbCol.Select("Col='s_Unit' and isSelect=True")
-        If DF.Length > 0 Then
-            s_Unit = IsNull(DF(0)("ColAlias"), "")
-            If s_Unit = "" Then
-                ShowMsg("Chọn cột tương ứng với '" & DF(0)("Name") & "'", m_MsgCaption)
-                CellFocus("s_Unit")
-                Exit Function
-            End If
-        Else
-            DF = tbCol.Select("Col='s_Unit'")
-            If DF.Length > 0 Then
-                ShowMsg("Phải chọn : " & DF(0)("Name"), m_MsgCaption)
-            Else
-                ShowMsg("Error", m_MsgCaption)
-            End If
-            Exit Function
-        End If
-
-        Dim f_Convert As String = ""
-        DF = tbCol.Select("Col='f_Convert' and isSelect=True")
-        If DF.Length > 0 Then
-            f_Convert = IsNull(DF(0)("ColAlias"), "")
-            If f_Convert = "" Then
-                ShowMsg("Chọn cột tương ứng với '" & DF(0)("Name") & "'", m_MsgCaption)
-                CellFocus("f_Convert")
-                Exit Function
-            End If
-        Else
-            DF = tbCol.Select("Col='f_Convert'")
-            If DF.Length > 0 Then
-                ShowMsg("Phải chọn : " & DF(0)("Name"), m_MsgCaption)
-            Else
-                ShowMsg("Error", m_MsgCaption)
-            End If
-            Exit Function
-        End If
-
-        'Dim clsP As BLL.BProduct = BLL.BProduct.Instance
-        ''Dim clsUnit As New BLL.b
-        'Dim arrUnit As IList(Of Model.MPR_Product_Units) = New List(Of Model.MPR_Product_Units)
-        'For i As Integer = 0 To Grid.Rows.Count - 1
-
-        '    Dim dri As UltraGridRow = Grid.Rows(i)
-        '    If IsNull(dri.Cells("s_IDProduct").Value, "") <> "" Then
-        '        If Not dri.Cells(ProductID).Appearance.BackColor.Equals(Color.Red) And _
-        '        Not dri.Cells(s_Unit).Appearance.BackColor.Equals(Color.Red) And _
-        '        Not dri.Cells("b_Import").Appearance.BackColor.Equals(Color.Red) And _
-        '        Not dri.Cells("b_Order").Appearance.BackColor.Equals(Color.Red) And _
-        '        Not dri.Cells("b_Instock").Appearance.BackColor.Equals(Color.Red) And _
-        '        Not dri.Cells(f_Convert).Appearance.BackColor.Equals(Color.Red) Then
-
-        '            If dri.Cells(f_Convert).Value <> 0 Then '26.08.09-Minh Tam
-        '                Dim mUnit As New Model.MPR_Product_Units
-        '                mUnit.b_DefaultImport = dri.Cells("b_Import").Value
-        '                mUnit.b_DefaultInstock = dri.Cells("b_Instock").Value
-        '                mUnit.b_DefaultOrders = dri.Cells("b_Order").Value
-        '                mUnit.f_ConvertedQuantity = dri.Cells(f_Convert).Value
-        '                mUnit.s_Unit = dri.Cells(s_Unit).Value
-        '                mUnit.s_Product_ID = dri.Cells("s_IDProduct").Value
-        '                arrUnit.Add(mUnit)
-        '            End If
-
-        '        End If
-
-        '    End If
-
-        'Next
-        'If arrUnit.Count > 0 Then
-        '    If Not clsP.UpdateUnit(arrUnit) Then
-        '        Return False
-        '    End If
-        'End If
-        If m_Lang = 1 Then
-            ShowMsgInfo("Import được 1 dòng dữ liệu !", m_MsgCaption)
-        Else
-            ShowMsgInfo("OK", m_MsgCaption)
-        End If
-
-        Return True
-
-    End Function
-
-    Private Sub btnBrown_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBrown.Click
+    Private Function ChooseFileDialog() As String
         Dim OpenFileDialog1 As New OpenFileDialog
         OpenFileDialog1.Title = "Chọn file dữ liệu"
         OpenFileDialog1.Filter = "Microsoft Excel (*.xls, *.xlsx)|*.xls;*.xlsx"
@@ -579,33 +257,92 @@ Public Class frmImportDatas
         OpenFileDialog1.FileName = ""
         Dim dlg As DialogResult = OpenFileDialog1.ShowDialog()
         If dlg = Windows.Forms.DialogResult.Cancel Then
-            Exit Sub
+            Return ""
         End If
-        If OpenFileDialog1.FileName = "" Then Exit Sub
-        txtPath.Text = OpenFileDialog1.FileName
+        Return OpenFileDialog1.FileName
+    End Function
+    Private Sub ReadExcelFile()
+        Dim path = Me.ChooseFileDialog()
+        If path = "" Then Exit Sub
+        txtPath.Text = path
+        Me.fCheckImport = False
 
-        Dim tb = Helper.ImportFromExcel(txtPath.Text)
-        If tb Is Nothing Then
-            Exit Sub
-        End If
-
+        Dim tb = Helper.ImportFromExcel(path)
+        If tb Is Nothing Then Exit Sub
         Grid.DataSource = tb
 
-        Select Case sFunc.ToLower
-            Case "frmMainContractors".ToLower
-                fCheckImport = False
-
-                ShowCol(sFunc, "Grid")
-
-                'AddCol("ProductID", "Mã hàng")
-                'AddCol("f_Convert", "Quy đổi")
-                ''ShowCol("", "")
-                'SetColChoose("ProductID;s_Unit;f_Convert")
+        Select Case sFunc
+            Case "frmMainContractors"
+                Me.ShowCol(sFunc, "Grid")
         End Select
+
     End Sub
+    Private Sub LoadCol(ByVal formName As String, ByVal gridName As String, ByVal tbColAlias As DataTable)
+        Dim tblCol As DataTable = Me.GetColumnsOfGrid(formName, gridName)
+        If tbColAlias IsNot Nothing Then
+            For Each dr As DataRow In tblCol.Rows
+                Dim f = tbColAlias.Select("Col='" & dr("Name").ToString.Replace("'", "''") & "'")
+                If f.Length > 0 Then
+                    dr("ColAlias") = f(0)("Col").ToString
+                    dr("isSelect") = True
+                    dr.AcceptChanges()
+                End If
+            Next
+        End If
+        GridCol.DataSource = tblCol
+    End Sub
+    ''' <summary>
+    ''' Fill các cột dữ liệu của lưới
+    ''' </summary>
+    ''' <param name="formName">tên form</param>
+    ''' <param name="gridName">tên grid</param>
+    ''' <remarks></remarks>
+    Private Sub ShowCol(ByVal formName As String, ByVal gridName As String)
+        Dim tbColAlias = Me.LoadColAlias()
+        Me.LoadCol(formName, gridName, tbColAlias)
+    End Sub
+    ''' <summary>
+    ''' Kiểm tra hợp lệ dữ liệu của cột
+    ''' </summary>
+    ''' <param name="colKey">key of column</param>
+    ''' <param name="tbCol">list columns</param>
+    ''' <param name="isRequired">True: column is required</param>
+    ''' <returns>tên alias của cột</returns>
+    ''' <remarks></remarks>
+    Private Function IsSelectedRequireColumn(ByVal colKey As String, ByVal tbCol As DataTable, Optional ByVal isRequired As Boolean = False) As String
+        Dim colAlias As String = ""
+        If tbCol Is Nothing Then Return colAlias
 
+        Dim found = tbCol.Select("Col='" & colKey & "'")
 
-    Private Function getTableCol(ByVal FormName As String, ByVal GridName As String) As DataTable
+        ' có tồn tại cột này
+        If found.Length > 0 Then
+            Dim colName = found(0)("Name").ToString
+            Dim isSelected = IsNull(found(0)("isSelect"), False)
+            'ko chọn cột
+            If Not isSelected Then
+                ' mà cột này là required -> warning
+                If isRequired Then
+                    ShowMsg("Phải chọn cột: '" & colName & "'", m_MsgCaption)
+                    Me.bImportOK = False
+                    Me.CellFocus(colKey)
+                End If
+                Return colAlias
+            End If
+
+            ' đã chọn cột
+            colAlias = IsNull(found(0)("ColAlias"), "")
+            ' chưa chọn cột tương ứng -> warning
+            If colAlias = "" Then
+                ShowMsg("Chọn cột tương ứng với '" & colName & "'", m_MsgCaption)
+                Me.bImportOK = False
+                Me.CellFocus(colKey)
+            End If
+        End If
+
+        Return colAlias
+    End Function
+    Private Function GetColumnsOfGrid(ByVal FormName As String, ByVal GridName As String) As DataTable
         'lay cau truc
         Dim sql As String = "Select * from InfoFormatGrid where [FormName]='" & FormName.Trim.Replace("'", "''") & "' and [GridName]='" & GridName.Trim.Replace("'", "''") & "' Order by [Position] asc"
         Dim tbl As DataTable = clsuf.OpenDataSetAccess(sql)
@@ -629,33 +366,149 @@ Public Class frmImportDatas
         Next
         Return tbCol
     End Function
-    Private Sub ShowCol(ByVal FormName As String, ByVal GridName As String)
-        Dim tblCol As DataTable = getTableCol(FormName, GridName)
+    Private Function LoadColAlias() As DataTable
         Dim tblData As DataTable = Grid.DataSource
-        If Not tblData Is Nothing Then
-            Dim tbColAlias As New DataTable
-            tbColAlias.Columns.Add("Col")
-            For i As Integer = 0 To tblData.Columns.Count - 1
-                Dim drN As DataRow = tbColAlias.NewRow
-                drN("Col") = tblData.Columns(i).ColumnName
-                tbColAlias.Rows.Add(drN)
-            Next
-            GridColAlias.ValueMember = "Col"
-            GridColAlias.DisplayMember = "Col"
-            GridColAlias.DataSource = tbColAlias
+        If tblData Is Nothing Then Return Nothing
 
-            For Each dr As DataRow In tblCol.Rows
-                Dim DF() As DataRow = tbColAlias.Select("Col='" & dr("Name").ToString.Replace("'", "''") & "'")
-                If DF.Length > 0 Then
-                    dr("ColAlias") = DF(0)("Col")
-                    dr("isSelect") = True
-                End If
-            Next
-            GridCol.DataSource = tblCol
+        Dim tbColAlias As New DataTable
+        tbColAlias.Columns.Add("Col")
+        For i As Integer = 0 To tblData.Columns.Count - 1
+            Dim drN As DataRow = tbColAlias.NewRow
+            drN("Col") = tblData.Columns(i).ColumnName
+            tbColAlias.Rows.Add(drN)
+        Next
+        GridColAlias.ValueMember = "Col"
+        GridColAlias.DisplayMember = "Col"
+        GridColAlias.DataSource = tbColAlias
+        Return tbColAlias
+    End Function
+#End Region
+
+#Region "MainContractors"
+    Private Sub CheckImportMainContractors()
+        Me.fCheckImport = True
+        Me.bImportOK = True
+
+        Grid.UpdateData()
+        GridCol.UpdateData()
+        Dim tb As DataTable = Grid.DataSource
+        Dim tbCol As DataTable = GridCol.DataSource
+        If tb Is Nothing OrElse tbCol Is Nothing Then
+            Me.bImportOK = False
+            Exit Sub
+        End If
+
+        Dim DF() As DataRow
+        DF = tbCol.Select("isSelect=True")
+        If DF.Length = 0 Then
+            ShowMsg("Không có cột dữ liệu nào được chọn Import!")
+            Me.bImportOK = False
+            Exit Sub
+        End If
+
+
+        'Required
+        Dim Id = Me.IsSelectedRequireColumn("Id", tbCol, True)
+        If Id = "" Then
+            Me.bImportOK = False
+            Exit Sub
+        End If
+        Dim Company = Me.IsSelectedRequireColumn("Company", tbCol, True)
+        If Company = "" Then
+            Me.bImportOK = False
+            Exit Sub
+        End If
+
+        For Each dr As UltraGridRow In Grid.Rows
+            Dim mainContractorId = IsNull(dr.Cells(Id).Value, "")
+            Dim mainContractorName = IsNull(dr.Cells(Company).Value, "")
+            If mainContractorId = "" Then
+                dr.Cells(Id).Appearance.BackColor = Me.errorColor
+                Me.bImportOK = False
+            End If
+            If mainContractorName = "" Then
+                dr.Cells(Company).Appearance.BackColor = Me.errorColor
+                Me.bImportOK = False
+            End If
+        Next
+
+        If Me.bImportOK Then
+            ShowMsgInfo("Thông tin import hợp lệ!")
+        Else
+            ShowMsg("Dữ liệu không hợp lệ.")
         End If
     End Sub
 
-    Private Sub btnclose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnclose.Click
-        Me.Close()
-    End Sub
+    Private Function ImportMainContractors() As Boolean
+        If Grid.DataSource Is Nothing OrElse GridCol.DataSource Is Nothing Then
+            Return False
+        End If
+
+        If Not Me.fCheckImport Then
+            Me.CheckImportMainContractors()
+        End If
+
+        If Not Me.bImportOK Then
+            If ShowMsgYesNo(ModMain.m_DataErrorWarningQuestion) = Windows.Forms.DialogResult.No Then
+                Return False
+            End If
+        End If
+
+        'Kiểm tra alias column có chọn chưa
+        GridCol.UpdateData()
+        Dim tbCol As DataTable = GridCol.DataSource
+
+        'Required and get alias column
+        Dim Id = Me.IsSelectedRequireColumn("Id", tbCol, True)
+        If Id = "" Then Return False
+        Dim Company = Me.IsSelectedRequireColumn("Company", tbCol, True)
+        If Company = "" Then Return False
+
+        'Not required
+        Dim ShortName = Me.IsSelectedRequireColumn("ShortName", tbCol)
+        Dim Address = Me.IsSelectedRequireColumn("Address", tbCol)
+        Dim Phone = Me.IsSelectedRequireColumn("Phone", tbCol)
+        Dim Email = Me.IsSelectedRequireColumn("Email", tbCol)
+        Dim Website = Me.IsSelectedRequireColumn("Website", tbCol)
+        Dim ContactName = Me.IsSelectedRequireColumn("ContactName", tbCol)
+        Dim ContactPhone = Me.IsSelectedRequireColumn("ContactPhone", tbCol)
+        Dim ContactEmail = Me.IsSelectedRequireColumn("ContactEmail", tbCol)
+        Dim Note = Me.IsSelectedRequireColumn("Note", tbCol)
+
+        countImported = 0
+        Dim bMain As BLL.BMainContractors = BLL.BMainContractors.Instance
+        Grid.UpdateData()
+        For Each dr As UltraGridRow In Grid.Rows
+            Dim mainContractorId = IsNull(dr.Cells(Id).Value, "")
+            Dim mainContractorName = IsNull(dr.Cells(Company).Value, "")
+
+            'if required collumn is empty -> ignore this row
+            If mainContractorId <> "" AndAlso mainContractorName <> "" Then
+                If Not dr.Cells(Id).Appearance.BackColor.Equals(errorColor) _
+                    AndAlso Not dr.Cells(Company).Appearance.BackColor.Equals(errorColor) Then
+
+                    Dim m As New Model.MMainContractor
+                    m.Id = mainContractorId
+                    m.Company = mainContractorName
+                    If ShortName <> "" Then m.ShortName = IsNull(dr.Cells(ShortName).Value, "")
+                    If Address <> "" Then m.Address = IsNull(dr.Cells(Address).Value, "")
+                    If Phone <> "" Then m.Phone = IsNull(dr.Cells(Phone).Value, "")
+                    If Email <> "" Then m.Email = IsNull(dr.Cells(Email).Value, "")
+                    If Website <> "" Then m.Website = IsNull(dr.Cells(Website).Value, "")
+                    If ContactName <> "" Then m.ContactName = IsNull(dr.Cells(ContactName).Value, "")
+                    If ContactPhone <> "" Then m.ContactPhone = IsNull(dr.Cells(ContactPhone).Value, "")
+                    If ContactEmail <> "" Then m.ContactEmail = IsNull(dr.Cells(ContactEmail).Value, "")
+                    If Note <> "" Then m.Note = IsNull(dr.Cells(Note).Value, "")
+
+                    'save to db
+                    If bMain.updateDB(m) Then
+                        countImported += 1
+                    End If
+                End If
+            End If
+        Next
+
+        Return countImported > 0
+    End Function
+#End Region
 End Class
