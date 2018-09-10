@@ -47,6 +47,8 @@ Public Class frmProjects
                     T_Export.PerformClick()
                 Case Keys.A
                     T_SelectAll.PerformClick()
+                Case Keys.I
+                    T_ImportExcel.PerformClick()
             End Select
         End If
     End Sub
@@ -316,4 +318,12 @@ Public Class frmProjects
         SelectAll(Grid)
     End Sub
 #End Region
+
+    Private Sub T_ImportExcel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles T_ImportExcel.Click
+        Dim frm As New frmImportDatas
+        Dim ok = frm.ShowDialog(Me.Name, lblTitle.Text)
+        If ok Then
+            Me.Loadlist()
+        End If
+    End Sub
 End Class

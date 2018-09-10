@@ -26,7 +26,7 @@
         End Set
     End Property
 
-    Private m_ContractId As String
+    Private m_ContractId As String = ""
     Public Property ContractId() As String
         Get
             Return m_ContractId
@@ -46,7 +46,7 @@
         End Set
     End Property
 
-    Private m_FileName As String
+    Private m_FileName As String = ""
     Public Property FileName() As String
         Get
             Return m_FileName
@@ -56,7 +56,7 @@
         End Set
     End Property
 
-    Private m_FilePath As String
+    Private m_FilePath As String = ""
     Public Property FilePath() As String
         Get
             Return m_FilePath
@@ -66,7 +66,7 @@
         End Set
     End Property
 
-    Private m_FileType As String
+    Private m_FileType As String = ""
     Public Property FileType() As String
         Get
             Return m_FileType

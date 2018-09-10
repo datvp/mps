@@ -1,5 +1,5 @@
 ﻿Public Class MContract_SubContractor
-    Private m_DelItem As String
+    Private m_DelItem As String = ""
     Public Property DelItem() As String
         Get
             Return m_DelItem

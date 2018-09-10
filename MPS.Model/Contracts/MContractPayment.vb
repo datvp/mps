@@ -1,6 +1,6 @@
 ﻿Public Class MContractPayment
 
-    Private m_DelItem As String
+    Private m_DelItem As String = ""
     Public Property DelItem() As String
         Get
             Return m_DelItem

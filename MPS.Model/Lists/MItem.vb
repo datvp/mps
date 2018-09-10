@@ -1,6 +1,6 @@
 ﻿Public Class MItem
 
-    Private m_ItemId As String
+    Private m_ItemId As String = ""
     Public Property ItemId() As String
         Get
             Return m_ItemId
@@ -10,7 +10,7 @@
         End Set
     End Property
 
-    Private m_ItemName As String
+    Private m_ItemName As String = ""
     Public Property ItemName() As String
         Get
             Return m_ItemName

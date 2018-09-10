@@ -1,6 +1,6 @@
 ﻿Public Class MClient
 
-    Private m_ClientId As String
+    Private m_ClientId As String = ""
     Public Property ClientId() As String
         Get
             Return m_ClientId
@@ -10,7 +10,7 @@
         End Set
     End Property
 
-    Private m_ClientName As String
+    Private m_ClientName As String = ""
     Public Property ClientName() As String
         Get
             Return m_ClientName
@@ -21,7 +21,7 @@
     End Property
 
 
-    Private m_ShortName As String
+    Private m_ShortName As String = ""
     Public Property ShortName() As String
         Get
             Return m_ShortName
@@ -31,7 +31,7 @@
         End Set
     End Property
 
-    Private m_Address As String
+    Private m_Address As String = ""
     Public Property Address() As String
         Get
             Return m_Address
@@ -41,7 +41,7 @@
         End Set
     End Property
 
-    Private m_Phone As String
+    Private m_Phone As String = ""
     Public Property Phone() As String
         Get
             Return m_Phone
@@ -51,7 +51,7 @@
         End Set
     End Property
 
-    Private m_Email As String
+    Private m_Email As String = ""
     Public Property Email() As String
         Get
             Return m_Email
@@ -61,7 +61,7 @@
         End Set
     End Property
 
-    Private m_Website As String
+    Private m_Website As String = ""
     Public Property Website() As String
         Get
             Return m_Website
@@ -71,7 +71,7 @@
         End Set
     End Property
 
-    Private m_ContactName As String
+    Private m_ContactName As String = ""
     Public Property ContactName() As String
         Get
             Return m_ContactName
@@ -81,7 +81,7 @@
         End Set
     End Property
 
-    Private m_ContactPhone As String
+    Private m_ContactPhone As String = ""
     Public Property ContactPhone() As String
         Get
             Return m_ContactPhone
@@ -91,7 +91,7 @@
         End Set
     End Property
 
-    Private m_ContactEmail As String
+    Private m_ContactEmail As String = ""
     Public Property ContactEmail() As String
         Get
             Return m_ContactEmail
@@ -101,7 +101,7 @@
         End Set
     End Property
 
-    Private m_Note As String
+    Private m_Note As String = ""
     Public Property Note() As String
         Get
             Return m_Note
@@ -111,7 +111,7 @@
         End Set
     End Property
 
-    Private m_ClientGroupId As String
+    Private m_ClientGroupId As String = ""
     Public Property ClientGroupId() As String
         Get
             Return m_ClientGroupId

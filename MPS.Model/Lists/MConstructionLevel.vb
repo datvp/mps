@@ -1,6 +1,6 @@
 ﻿Public Class MConstructionLevel
 
-    Private m_ConstructionLevelId As String
+    Private m_ConstructionLevelId As String = ""
     Public Property ConstructionLevelId() As String
         Get
             Return m_ConstructionLevelId
@@ -10,7 +10,7 @@
         End Set
     End Property
 
-    Private m_ConstructionLevelName As String
+    Private m_ConstructionLevelName As String = ""
     Public Property ConstructionLevelName() As String
         Get
             Return m_ConstructionLevelName

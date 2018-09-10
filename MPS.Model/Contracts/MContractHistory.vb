@@ -1,6 +1,6 @@
 ﻿Public Class MContractHistory
 
-    Private m_ContractId As String
+    Private m_ContractId As String = ""
     Public Property ContractId() As String
         Get
             Return m_ContractId
@@ -10,7 +10,7 @@
         End Set
     End Property
 
-    Private m_UserId As String
+    Private m_UserId As String = ""
     Public Property UserId() As String
         Get
             Return m_UserId
@@ -20,7 +20,7 @@
         End Set
     End Property
 
-    Private m_Description As String
+    Private m_Description As String = ""
     Public Property Description() As String
         Get
             Return m_Description

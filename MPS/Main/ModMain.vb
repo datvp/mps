@@ -7,7 +7,7 @@ Imports Microsoft.Office.Interop
 Imports System.Threading
 
 Module ModMain
-    Public m_MsgCaption As String = "MPS"
+    Public m_MsgCaption As String = "ECM"
     Public m_PathDelFirst As String = "Xóa "
     Public m_MsgCloseApp As String = "Bạn chọn đóng chương trình?"
     Public m_PathDelLast As String = " dòng đang chọn?"
@@ -22,6 +22,9 @@ Module ModMain
     Public m_DelErrorOneItems As String = "Quá trình xóa bị lỗi. Kiểm tra và thực hiện lại !"
     Public m_SaveDataError As String = "Quá trình lưu dữ liệu có lỗi. Kiểm tra và thực hiện lại !"
     Public m_DataErrorWarningQuestion As String = "Dữ liệu không hợp lệ. Bạn có muốn tiếp tục thực hiện import?"
+    Public m_NoSelectedItemToImport As String = "Không có cột dữ liệu nào được chọn."
+    Public m_DataInvalid As String = "Dữ liệu không hợp lệ."
+    Public m_DataValid As String = "Dữ liệu hợp lệ!"
     Public m_Add As String = "Thêm"
     Public m_AddWithThreeDots As String = "Thêm ..."
     Public m_SelectAll As String = "Tất cả"

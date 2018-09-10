@@ -1,6 +1,6 @@
 ﻿Public Class MProjectType
 
-    Private m_ProjectTypeId As String
+    Private m_ProjectTypeId As String = ""
     Public Property ProjectTypeId() As String
         Get
             Return m_ProjectTypeId
@@ -10,7 +10,7 @@
         End Set
     End Property
 
-    Private m_ProjectTypeName As String
+    Private m_ProjectTypeName As String = ""
     Public Property ProjectTypeName() As String
         Get
             Return m_ProjectTypeName

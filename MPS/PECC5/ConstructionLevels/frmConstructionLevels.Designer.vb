@@ -69,6 +69,7 @@ Partial Class frmConstructionLevels
         Me.T_Layout = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripSeparator
         Me.T_Export = New System.Windows.Forms.ToolStripMenuItem
+        Me.T_ImportExcel = New System.Windows.Forms.ToolStripMenuItem
         Me.Panel1.SuspendLayout()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Toolbars, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -280,9 +281,9 @@ Partial Class frmConstructionLevels
         'ctMenu
         '
         Me.ctMenu.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export})
+        Me.ctMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.T_Add, Me.T_Edit, Me.T_DEL, Me.ToolStripMenuItem2, Me.T_Refresh, Me.T_SelectAll, Me.ToolStripMenuItem3, Me.T_Layout, Me.ToolStripMenuItem1, Me.T_Export, Me.T_ImportExcel})
         Me.ctMenu.Name = "ContextMenuStrip1"
-        Me.ctMenu.Size = New System.Drawing.Size(201, 176)
+        Me.ctMenu.Size = New System.Drawing.Size(201, 220)
         '
         'T_Add
         '
@@ -362,6 +363,15 @@ Partial Class frmConstructionLevels
         Me.T_Export.Size = New System.Drawing.Size(200, 22)
         Me.T_Export.Text = "Xuất ra Excel"
         '
+        'T_ImportExcel
+        '
+        Me.T_ImportExcel.ForeColor = System.Drawing.Color.Navy
+        Me.T_ImportExcel.Image = Global.MPS.My.Resources.Resources.import2
+        Me.T_ImportExcel.Name = "T_ImportExcel"
+        Me.T_ImportExcel.ShortcutKeyDisplayString = "Ctrl+I"
+        Me.T_ImportExcel.Size = New System.Drawing.Size(200, 22)
+        Me.T_ImportExcel.Text = "Nhập từ Excel"
+        '
         'frmConstructionLevels
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -403,4 +413,5 @@ Partial Class frmConstructionLevels
     Friend WithEvents T_Refresh As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents T_SelectAll As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents T_ImportExcel As System.Windows.Forms.ToolStripMenuItem
 End Class

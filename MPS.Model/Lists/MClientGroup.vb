@@ -1,6 +1,6 @@
 ﻿Public Class MClientGroup
 
-    Private m_ClientGroupId As String
+    Private m_ClientGroupId As String = ""
     Public Property ClientGroupId() As String
         Get
             Return m_ClientGroupId
@@ -10,7 +10,7 @@
         End Set
     End Property
 
-    Private m_ClientGroupName As String
+    Private m_ClientGroupName As String = ""
     Public Property ClientGroupName() As String
         Get
             Return m_ClientGroupName
@@ -20,7 +20,7 @@
         End Set
     End Property
 
-    Private m_Note As String
+    Private m_Note As String = ""
     Public Property Note() As String
         Get
             Return m_Note
