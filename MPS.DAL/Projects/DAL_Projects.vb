@@ -21,6 +21,14 @@ Public Class DAL_Projects
         End If
         Return False
     End Function
+    Public Function isExistGroup(ByVal ProjectGroupID As String) As Boolean
+        Dim sql = "Select ProjectGroupId from ProjectGroups where ProjectGroupId=@ID"
+        Dim tb = getTableSQL(sql, New SqlParameter("@ID", ProjectGroupID))
+        If Not tb Is Nothing AndAlso tb.Rows.Count > 0 Then
+            Return True
+        End If
+        Return False
+    End Function
     Public Function updateDB(ByVal m As Model.MProject) As Boolean
         Dim sql = ""
 

@@ -19,6 +19,9 @@
     Public Function isExist(ByVal ID As String) As Boolean
         Return cls.isExist(ID)
     End Function
+    Public Function isExistGroup(ByVal ProjectGroupID As String) As Boolean
+        Return cls.isExistGroup(ProjectGroupID)
+    End Function
     Public Function updateDB(ByVal m As Model.MProject) As Boolean
         Return cls.updateDB(m)
     End Function

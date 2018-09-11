@@ -31,6 +31,8 @@ Public Class frmImportDatas
     ''' <remarks></remarks>
     Private errorColor As System.Drawing.Color = Color.Red
     Private countImported As Integer = 0
+    Dim tbBegin As DataTable = Nothing
+
 #End Region
 
 #Region "Forms"
@@ -52,6 +54,7 @@ Public Class frmImportDatas
         ModMain.BlueButton(btnImports, ModMain.m_AddIcon)
         ModMain.RedButton(btncheck, ModMain.m_OkIcon)
         ModMain.GreenButton(btnclose, ModMain.m_CancelIcon)
+        ModMain.GreenButton(btnExportExcel)
     End Sub
 #End Region
 
@@ -200,7 +203,13 @@ Public Class frmImportDatas
         End Select
         If result Then
             ShowMsgInfo("Import được " & countImported.ToString & " dòng dữ liệu !")
-            Me.Close()
+            'rows imported are failure
+            If countImported < Grid.Rows.Count Then
+                'filter and show rows are error.
+                Grid.DataSource = tbBegin.Copy
+            Else ' import all successfully
+                Me.Close()
+            End If
         End If
     End Sub
     Private Sub btnclose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnclose.Click
@@ -299,6 +308,7 @@ Public Class frmImportDatas
 
         Dim tb = Helper.ImportFromExcel(path)
         If tb Is Nothing Then Exit Sub
+        Me.tbBegin = tb.Copy
         Grid.DataSource = tb
 
         Me.ShowCol(sFunc, "Grid")
@@ -431,6 +441,13 @@ Public Class frmImportDatas
         GridColAlias.DataSource = tbColAlias
         Return tbColAlias
     End Function
+    Private Sub UpdateDataAfterImport(ByVal colName As String, ByVal colVal As String)
+        If tbBegin Is Nothing Then Exit Sub
+        Dim f = tbBegin.Select(colName & "='" & colVal & "'")
+        If f IsNot Nothing AndAlso f.Length > 0 Then
+            f(0).Delete()
+        End If
+    End Sub
 #End Region
 
 #Region "MainContractors"
@@ -552,6 +569,8 @@ Public Class frmImportDatas
             'save to db
             If bMain.updateDB(m) Then
                 countImported += 1
+                'remove row into tbBegin which imported successfully
+                Me.UpdateDataAfterImport(Id, mainContractorId)
             End If
         Next
 
@@ -659,6 +678,8 @@ Public Class frmImportDatas
                     'save to db
                     If b.updateDB(m) Then
                         countImported += 1
+                        'remove row into tbBegin which imported successfully
+                        Me.UpdateDataAfterImport(ClientGroupId, code)
                     End If
                 End If
             End If
@@ -701,16 +722,28 @@ Public Class frmImportDatas
             Me.bImportOK = False
             Exit Sub
         End If
+        Dim ClientGroupId = Me.IsSelectedRequireColumn("ClientGroupId", tbCol, True)
+        If ClientGroupId = "" Then
+            Me.bImportOK = False
+            Exit Sub
+        End If
+
+        Dim bGroup As BLL.BClientGroups = BLL.BClientGroups.Instance
 
         For Each dr As UltraGridRow In Grid.Rows
             Dim code = IsNull(dr.Cells(ClientId).Value, "")
             Dim name = IsNull(dr.Cells(ClientName).Value, "")
+            Dim group = IsNull(dr.Cells(ClientGroupId).Value, "")
             If code = "" Then
                 dr.Cells(ClientId).Appearance.BackColor = Me.errorColor
                 Me.bImportOK = False
             End If
             If name = "" Then
                 dr.Cells(ClientName).Appearance.BackColor = Me.errorColor
+                Me.bImportOK = False
+            End If
+            If group = "" OrElse Not bGroup.isExist(group) Then
+                dr.Cells(ClientGroupId).Appearance.BackColor = Me.errorColor
                 Me.bImportOK = False
             End If
         Next
@@ -746,9 +779,9 @@ Public Class frmImportDatas
         If ClientName = "" Then Return False
         Dim ClientGroupId = Me.IsSelectedRequireColumn("ClientGroupId", tbCol, True)
         If ClientGroupId = "" Then Return False
-        Dim UnitedId = Me.IsSelectedRequireColumn("UnitedId", tbCol, True)
-        If UnitedId = "" Then Return False
+
         'Not required
+        Dim UnitedId = Me.IsSelectedRequireColumn("UnitedId", tbCol, True)
         Dim ShortName = Me.IsSelectedRequireColumn("ShortName", tbCol)
         Dim Address = Me.IsSelectedRequireColumn("Address", tbCol)
         Dim Phone = Me.IsSelectedRequireColumn("Phone", tbCol)
@@ -761,6 +794,7 @@ Public Class frmImportDatas
 
         countImported = 0
         Dim b As BLL.BClients = BLL.BClients.Instance
+        Dim bGroup As BLL.BClientGroups = BLL.BClientGroups.Instance
         Grid.UpdateData()
         For Each dr As UltraGridRow In Grid.Rows
             Dim code = IsNull(dr.Cells(ClientId).Value, "")
@@ -768,31 +802,34 @@ Public Class frmImportDatas
             Dim group = IsNull(dr.Cells(ClientGroupId).Value, "")
 
             'if required collumn is empty -> ignore this row
-            If code <> "" AndAlso name <> "" AndAlso group <> "" Then
-                If Not dr.Cells(ClientId).Appearance.BackColor.Equals(errorColor) _
-                    AndAlso Not dr.Cells(ClientName).Appearance.BackColor.Equals(errorColor) _
-                    AndAlso Not dr.Cells(ClientGroupId).Appearance.BackColor.Equals(errorColor) Then
+            If code = "" Then Continue For
+            If name = "" Then Continue For
+            If group = "" OrElse Not bGroup.isExist(group) Then Continue For
 
-                    Dim m As New Model.MClient
-                    m.ClientId = code
-                    m.ClientName = name
-                    m.ClientGroupId = group
-                    If UnitedId <> "" Then m.UnitedId = IsNull(dr.Cells(UnitedId).Value, "")
-                    If ShortName <> "" Then m.ShortName = IsNull(dr.Cells(ShortName).Value, "")
-                    If Address <> "" Then m.Address = IsNull(dr.Cells(Address).Value, "")
-                    If Phone <> "" Then m.Phone = IsNull(dr.Cells(Phone).Value, "")
-                    If Email <> "" Then m.Email = IsNull(dr.Cells(Email).Value, "")
-                    If Website <> "" Then m.Website = IsNull(dr.Cells(Website).Value, "")
-                    If ContactName <> "" Then m.ContactName = IsNull(dr.Cells(ContactName).Value, "")
-                    If ContactPhone <> "" Then m.ContactPhone = IsNull(dr.Cells(ContactPhone).Value, "")
-                    If ContactEmail <> "" Then m.ContactEmail = IsNull(dr.Cells(ContactEmail).Value, "")
-                    If Note <> "" Then m.Note = IsNull(dr.Cells(Note).Value, "")
+            If Not dr.Cells(ClientId).Appearance.BackColor.Equals(errorColor) Then Continue For
+            If Not dr.Cells(ClientName).Appearance.BackColor.Equals(errorColor) Then Continue For
+            If Not dr.Cells(ClientGroupId).Appearance.BackColor.Equals(errorColor) Then Continue For
 
-                    'save to db
-                    If b.updateDB(m) Then
-                        countImported += 1
-                    End If
-                End If
+            Dim m As New Model.MClient
+            m.ClientId = code
+            m.ClientName = name
+            m.ClientGroupId = group
+            If UnitedId <> "" Then m.UnitedId = IsNull(dr.Cells(UnitedId).Value, "")
+            If ShortName <> "" Then m.ShortName = IsNull(dr.Cells(ShortName).Value, "")
+            If Address <> "" Then m.Address = IsNull(dr.Cells(Address).Value, "")
+            If Phone <> "" Then m.Phone = IsNull(dr.Cells(Phone).Value, "")
+            If Email <> "" Then m.Email = IsNull(dr.Cells(Email).Value, "")
+            If Website <> "" Then m.Website = IsNull(dr.Cells(Website).Value, "")
+            If ContactName <> "" Then m.ContactName = IsNull(dr.Cells(ContactName).Value, "")
+            If ContactPhone <> "" Then m.ContactPhone = IsNull(dr.Cells(ContactPhone).Value, "")
+            If ContactEmail <> "" Then m.ContactEmail = IsNull(dr.Cells(ContactEmail).Value, "")
+            If Note <> "" Then m.Note = IsNull(dr.Cells(Note).Value, "")
+
+            'save to db
+            If b.updateDB(m) Then
+                countImported += 1
+                'remove row into tbBegin which imported successfully
+                Me.UpdateDataAfterImport(ClientId, code)
             End If
         Next
 
@@ -900,6 +937,8 @@ Public Class frmImportDatas
                     'save to db
                     If b.updateDB(m) Then
                         countImported += 1
+                        'remove row into tbBegin which imported successfully
+                        Me.UpdateDataAfterImport(ConstructionLevelId, code)
                     End If
                 End If
             End If
@@ -1009,6 +1048,8 @@ Public Class frmImportDatas
                     'save to db
                     If b.updateDB(m) Then
                         countImported += 1
+                        'remove row into tbBegin which imported successfully
+                        Me.UpdateDataAfterImport(ItemId, code)
                     End If
                 End If
             End If
@@ -1072,6 +1113,11 @@ Public Class frmImportDatas
             Exit Sub
         End If
 
+        Dim bGroup As BLL.BProjects = BLL.BProjects.Instance
+        Dim bType As BLL.BProjectTypes = BLL.BProjectTypes.Instance
+        Dim bConsLevel As BLL.BConstructionLevels = BLL.BConstructionLevels.Instance
+        Dim bClient As BLL.BClients = BLL.BClients.Instance
+
         For Each dr As UltraGridRow In Grid.Rows
             Dim code = IsNull(dr.Cells(ProjectId).Value, "")
             If code = "" Then
@@ -1086,25 +1132,25 @@ Public Class frmImportDatas
             End If
 
             Dim projType = IsNull(dr.Cells(ProjectTypeId).Value, "")
-            If projType = "" Then
+            If projType = "" OrElse Not bType.isExist(projType) Then
                 dr.Cells(ProjectTypeId).Appearance.BackColor = Me.errorColor
                 Me.bImportOK = False
             End If
 
             Dim projGroup = IsNull(dr.Cells(ProjectGroupId).Value, "")
-            If projGroup = "" Then
+            If projGroup = "" OrElse Not bGroup.isExistGroup(projGroup) Then
                 dr.Cells(ProjectGroupId).Appearance.BackColor = Me.errorColor
                 Me.bImportOK = False
             End If
 
             Dim consLevel = IsNull(dr.Cells(ConstructionLevelId).Value, "")
-            If consLevel = "" Then
+            If consLevel = "" OrElse Not bConsLevel.isExist(consLevel) Then
                 dr.Cells(ConstructionLevelId).Appearance.BackColor = Me.errorColor
                 Me.bImportOK = False
             End If
 
             Dim client = IsNull(dr.Cells(ClientId).Value, "")
-            If client = "" Then
+            If client = "" OrElse Not bClient.isExist(client) Then
                 dr.Cells(ClientId).Appearance.BackColor = Me.errorColor
                 Me.bImportOK = False
             End If
@@ -1169,7 +1215,12 @@ Public Class frmImportDatas
         Dim Note = Me.IsSelectedRequireColumn("Note", tbCol)
 
         countImported = 0
+
         Dim b As BLL.BProjects = BLL.BProjects.Instance
+        Dim bType As BLL.BProjectTypes = BLL.BProjectTypes.Instance
+        Dim bConsLevel As BLL.BConstructionLevels = BLL.BConstructionLevels.Instance
+        Dim bClient As BLL.BClients = BLL.BClients.Instance
+
         Grid.UpdateData()
         For Each dr As UltraGridRow In Grid.Rows
             Dim code = IsNull(dr.Cells(ProjectId).Value, "")
@@ -1182,10 +1233,10 @@ Public Class frmImportDatas
             'if required collumn is empty or red -> ignore this row
             If code = "" Then Continue For
             If name = "" Then Continue For
-            If projType = "" Then Continue For
-            If projGroup = "" Then Continue For
-            If consLevel = "" Then Continue For
-            If client = "" Then Continue For
+            If projType = "" OrElse Not bType.isExist(projType) Then Continue For
+            If projGroup = "" OrElse Not b.isExistGroup(projGroup) Then Continue For
+            If consLevel = "" OrElse Not bConsLevel.isExist(consLevel) Then Continue For
+            If client = "" OrElse Not bClient.isExist(client) Then Continue For
 
             If dr.Cells(ProjectId).Appearance.BackColor.Equals(errorColor) Then Continue For
             If dr.Cells(ProjectName).Appearance.BackColor.Equals(errorColor) Then Continue For
@@ -1212,6 +1263,8 @@ Public Class frmImportDatas
             'save to db
             If b.updateDB(m) Then
                 countImported += 1
+                'remove row into tbBegin which imported successfully
+                Me.UpdateDataAfterImport(ProjectId, code)
             End If
         Next
 
@@ -1321,6 +1374,8 @@ Public Class frmImportDatas
             'save to db
             If b.updateDB(m) Then
                 countImported += 1
+                'remove row into tbBegin which imported successfully
+                Me.UpdateDataAfterImport(ProjectTypeId, code)
             End If
         Next
 
@@ -1444,6 +1499,8 @@ Public Class frmImportDatas
             'save to db
             If b.updateDB(m) Then
                 countImported += 1
+                'remove row into tbBegin which imported successfully
+                Me.UpdateDataAfterImport(SubContractorId, code)
             End If
         Next
 
@@ -1569,10 +1626,16 @@ Public Class frmImportDatas
             'save to db
             If b.updateDB(m) Then
                 countImported += 1
+                'remove row into tbBegin which imported successfully
+                Me.UpdateDataAfterImport(UnitedId, code)
             End If
         Next
 
         Return countImported > 0
     End Function
 #End Region
+
+    Private Sub btnExportExcel_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnExportExcel.Click
+        ModMain.ExportExcel(Grid)
+    End Sub
 End Class

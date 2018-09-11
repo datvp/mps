@@ -581,21 +581,20 @@ Module ModMain
     Public Sub ExportExcel(ByVal Grid As Infragistics.Win.UltraWinGrid.UltraGrid)
         If Grid Is Nothing Then Exit Sub
         If Grid.DataSource Is Nothing Then Exit Sub
+
         Dim OpenFileDialog1 As New SaveFileDialog
-        OpenFileDialog1.Title = "Chọn file lưu trữ"
+        OpenFileDialog1.Title = "Nhập tên file"
         OpenFileDialog1.Filter = "Excel Files(*.xls)|*.xls"
         OpenFileDialog1.FilterIndex = 1
         OpenFileDialog1.FileName = ""
         Dim dlg As DialogResult = OpenFileDialog1.ShowDialog()
-        Exp.FileLimitBehaviour = Infragistics.Win.UltraWinGrid.ExcelExport.FileLimitBehaviour.TruncateData
         If dlg = Windows.Forms.DialogResult.Cancel Then
             Exit Sub
         End If
-        Dim sFilePath As String
-
-        sFilePath = OpenFileDialog1.FileName
+        Dim sFilePath = OpenFileDialog1.FileName
         If sFilePath = "" Then Exit Sub
         Try
+            Exp.FileLimitBehaviour = Infragistics.Win.UltraWinGrid.ExcelExport.FileLimitBehaviour.TruncateData
             Exp.Export(Grid, sFilePath)
             ShowMsgInfo("Xuất file thành công!")
             Process.Start(sFilePath)

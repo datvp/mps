@@ -29,9 +29,9 @@ Partial Class frmImportDatas
         Dim Appearance10 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance2 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance33 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
-        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance1 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance3 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance4 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance38 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance39 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance40 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
@@ -62,6 +62,9 @@ Partial Class frmImportDatas
         Dim Appearance42 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance41 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Dim Appearance43 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance34 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance8 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
+        Dim Appearance9 As Infragistics.Win.Appearance = New Infragistics.Win.Appearance
         Me.txtPath = New Infragistics.Win.UltraWinEditors.UltraTextEditor
         Me.btnBrown = New Infragistics.Win.Misc.UltraButton
         Me.btnclose = New Infragistics.Win.Misc.UltraButton
@@ -75,6 +78,7 @@ Partial Class frmImportDatas
         Me.grpData = New Infragistics.Win.Misc.UltraGroupBox
         Me.grpPath = New Infragistics.Win.Misc.UltraGroupBox
         Me.grpMapping = New Infragistics.Win.Misc.UltraGroupBox
+        Me.btnExportExcel = New Infragistics.Win.Misc.UltraButton
         CType(Me.txtPath, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Grid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridColAlias, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -162,26 +166,26 @@ Partial Class frmImportDatas
         '
         'btncheck
         '
-        Appearance34.BackColor = System.Drawing.Color.LightSteelBlue
-        Appearance34.BackColor2 = System.Drawing.Color.White
-        Appearance34.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
-        Appearance34.BorderColor = System.Drawing.Color.LightSteelBlue
-        Appearance34.FontData.BoldAsString = "True"
-        Appearance34.FontData.Name = "Tahoma"
-        Appearance34.ForeColor = System.Drawing.Color.Black
-        Me.btncheck.Appearance = Appearance34
+        Appearance1.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance1.BackColor2 = System.Drawing.Color.White
+        Appearance1.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
+        Appearance1.BorderColor = System.Drawing.Color.LightSteelBlue
+        Appearance1.FontData.BoldAsString = "True"
+        Appearance1.FontData.Name = "Tahoma"
+        Appearance1.ForeColor = System.Drawing.Color.Black
+        Me.btncheck.Appearance = Appearance1
         Me.btncheck.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
         Me.btncheck.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Appearance8.BackColor = System.Drawing.Color.Yellow
-        Appearance8.BackColor2 = System.Drawing.Color.White
-        Appearance8.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
-        Me.btncheck.HotTrackAppearance = Appearance8
+        Appearance3.BackColor = System.Drawing.Color.Yellow
+        Appearance3.BackColor2 = System.Drawing.Color.White
+        Appearance3.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
+        Me.btncheck.HotTrackAppearance = Appearance3
         Me.btncheck.Location = New System.Drawing.Point(12, 14)
         Me.btncheck.Name = "btncheck"
-        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Appearance9.BackColor2 = System.Drawing.Color.White
-        Appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
-        Me.btncheck.PressedAppearance = Appearance9
+        Appearance4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Appearance4.BackColor2 = System.Drawing.Color.White
+        Appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
+        Me.btncheck.PressedAppearance = Appearance4
         Me.btncheck.Size = New System.Drawing.Size(84, 30)
         Me.btncheck.TabIndex = 2
         Me.btncheck.Text = "Kiểm tra"
@@ -379,6 +383,7 @@ Partial Class frmImportDatas
         'grpFunc
         '
         Me.grpFunc.BorderStyle = Infragistics.Win.Misc.GroupBoxBorderStyle.HeaderSolid
+        Me.grpFunc.Controls.Add(Me.btnExportExcel)
         Me.grpFunc.Controls.Add(Me.btncheck)
         Me.grpFunc.Controls.Add(Me.btnclose)
         Me.grpFunc.Controls.Add(Me.btnImports)
@@ -437,6 +442,35 @@ Partial Class frmImportDatas
         Me.grpMapping.Text = "Cột dữ liệu tương ứng"
         Me.grpMapping.ViewStyle = Infragistics.Win.Misc.GroupBoxViewStyle.Office2000
         '
+        'btnExportExcel
+        '
+        Me.btnExportExcel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Appearance34.BackColor = System.Drawing.Color.LightSteelBlue
+        Appearance34.BackColor2 = System.Drawing.Color.White
+        Appearance34.BackGradientStyle = Infragistics.Win.GradientStyle.HorizontalBump
+        Appearance34.BorderColor = System.Drawing.Color.LightSteelBlue
+        Appearance34.FontData.BoldAsString = "True"
+        Appearance34.FontData.Name = "Tahoma"
+        Appearance34.ForeColor = System.Drawing.Color.Black
+        Me.btnExportExcel.Appearance = Appearance34
+        Me.btnExportExcel.ButtonStyle = Infragistics.Win.UIElementButtonStyle.WindowsVistaButton
+        Me.btnExportExcel.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Appearance8.BackColor = System.Drawing.Color.Yellow
+        Appearance8.BackColor2 = System.Drawing.Color.White
+        Appearance8.BackGradientStyle = Infragistics.Win.GradientStyle.GlassBottom37
+        Me.btnExportExcel.HotTrackAppearance = Appearance8
+        Me.btnExportExcel.Location = New System.Drawing.Point(592, 14)
+        Me.btnExportExcel.Name = "btnExportExcel"
+        Appearance9.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Appearance9.BackColor2 = System.Drawing.Color.White
+        Appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.VerticalBump
+        Me.btnExportExcel.PressedAppearance = Appearance9
+        Me.btnExportExcel.Size = New System.Drawing.Size(124, 30)
+        Me.btnExportExcel.TabIndex = 6
+        Me.btnExportExcel.Text = "Xuất ra Excel"
+        Me.btnExportExcel.UseHotTracking = Infragistics.Win.DefaultableBoolean.[True]
+        Me.btnExportExcel.UseOsThemes = Infragistics.Win.DefaultableBoolean.[False]
+        '
         'frmImportDatas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -482,4 +516,5 @@ Partial Class frmImportDatas
     Friend WithEvents grpData As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents grpPath As Infragistics.Win.Misc.UltraGroupBox
     Friend WithEvents grpMapping As Infragistics.Win.Misc.UltraGroupBox
+    Friend WithEvents btnExportExcel As Infragistics.Win.Misc.UltraButton
 End Class
